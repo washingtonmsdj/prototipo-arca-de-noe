@@ -115,6 +115,7 @@ export function App() {
   const [animalEditFrame, setAnimalEditFrame] = useState(0)
   const [animalEditJoint, setAnimalEditJoint] = useState<AnimalJoint>("head")
   const [animalEdits, setAnimalEdits] = useState<AnimalRigEdits>(EMPTY_ANIMAL_EDITS)
+  const [animalMoving, setAnimalMoving] = useState(false)
   const [speciesId, setSpeciesId] = useState("horse")
   const [gait, setGait] = useState<GaitName>("walk")
   const [upstreamAnimalKind, setUpstreamAnimalKind] = useState<WildlifeKind>("deer")
