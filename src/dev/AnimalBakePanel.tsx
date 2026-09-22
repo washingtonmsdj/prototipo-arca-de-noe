@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import {
   animalBakeFileStem,
   bakeAnimalClip,
@@ -32,9 +32,18 @@ export function AnimalBakePanel({ target }: AnimalBakePanelProps) {
   const [progress, setProgress] = useState({ done: 0, total: 0 })
   const [result, setResult] = useState<AnimalClipBake | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const generation = useRef(0)
+
+  useEffect(() => {
+    generation.current++
+    setResult(null)
+    setError(null)
+    setProgress({ done: 0, total: 0 })
+  }, [target])
 
   const bake = async () => {
     if (busy) return
+    const run = ++generation.current
     setBusy(true)
     setError(null)
     setResult(null)
@@ -45,11 +54,13 @@ export function AnimalBakePanel({ target }: AnimalBakePanelProps) {
         target,
         (done, total) => setProgress({ done, total }),
       )
-      setResult(baked)
+      if (run === generation.current) setResult(baked)
     } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "Falha desconhecida ao gerar o atlas.")
+      if (run === generation.current) {
+        setError(cause instanceof Error ? cause.message : "Falha desconhecida ao gerar o atlas.")
+      }
     } finally {
-      setBusy(false)
+      if (run === generation.current) setBusy(false)
     }
   }
 
