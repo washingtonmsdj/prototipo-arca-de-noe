@@ -16,6 +16,14 @@ import {
 } from "../../vendor/pilgrimage/lib/game/base-person/pose-edits"
 import { terrainHeight, terrainSlope } from "../world/terrain"
 import { createHumanAttachment, type HumanAttachmentKind } from "./attachments"
+import { plantFoot, type FootPlant } from "../../vendor/pilgrimage/lib/game/base-person/gait"
+import {
+  advanceOriginalRigWalk,
+  crossedOriginalSupport,
+  isOriginalMovingClip,
+  originalRigWalkContact,
+  originalRigWalkSpeed,
+} from "./upstream-motion"
 
 export const UPSTREAM_PERSON_PRESETS = Object.keys(PERSON_PRESETS)
 export const UPSTREAM_PERSON_CLIPS = Object.keys(PERSON_CLIPS) as BaseClip[]
@@ -41,6 +49,9 @@ export interface UpstreamHumanProps {
   showRig?: boolean
   attachment?: HumanAttachmentKind
   attachmentSocket?: SocketName
+  pathRadius?: number
+  pathOffset?: number
+  stationary?: boolean
 }
 
 export function UpstreamHuman({
@@ -55,12 +66,20 @@ export function UpstreamHuman({
   showRig = false,
   attachment,
   attachmentSocket,
+  pathRadius = 1.6,
+  pathOffset = 0,
+  stationary = true,
 }: UpstreamHumanProps) {
   const container = useRef<THREE.Group>(null)
   const markers = useRef<Partial<Record<EditableJoint, THREE.Mesh | null>>>({})
   const socketMarkers = useRef<Partial<Record<SocketName, THREE.Mesh | null>>>({})
   const socketPoint = useRef(new THREE.Vector3())
   const phase = useRef(0)
+  const plantedFoot = useRef<FootPlant | null>(null)
+  const motion = useRef({
+    distance: Math.max(0, pathRadius) * pathOffset,
+    angle: pathOffset,
+  })
   const attachmentInstance = useMemo(
     () => attachment ? createHumanAttachment(attachment) : null,
     [attachment],
@@ -101,16 +120,77 @@ export function UpstreamHuman({
   useFrame((_, delta) => {
     if (!container.current) return
     const dt = paused ? 0 : Math.min(delta, .05)
-    phase.current = (phase.current + dt * 1.1 * speedScale) % 1
+    const moving = !stationary
+      && phaseOverride === undefined
+      && isOriginalMovingClip(clip)
+      && pathRadius > 0
+
+    const previousPhase = phase.current
+    const cadence = 1.1 * speedScale
+    const distance = moving
+      ? originalRigWalkSpeed(setup.recipe.body, scale, cadence) * dt
+      : 0
+
+    if (moving && distance > 0) {
+      motion.current.distance += distance
+      motion.current.angle += distance / Math.max(.25, pathRadius)
+      phase.current = advanceOriginalRigWalk(
+        phase.current,
+        distance,
+        clip,
+        setup.recipe.body,
+        scale,
+      )
+    } else {
+      phase.current = (phase.current + dt * cadence) % 1
+    }
+
     const displayPhase = phaseOverride ?? phase.current
+    const angle = motion.current.angle
+    const desiredX = moving ? origin[0] + Math.cos(angle) * pathRadius : origin[0]
+    const desiredZ = moving ? origin[1] + Math.sin(angle) * pathRadius : origin[1]
+    const heading = moving ? -angle : 0
+    const desiredGround = terrainHeight(desiredX, desiredZ)
 
-    const x = origin[0]
-    const z = origin[1]
-    const y = terrainHeight(x, z)
-    const slope = terrainSlope(x, z)
+    let rootX = desiredX
+    let rootY = desiredGround
+    let rootZ = desiredZ
 
-    container.current.position.set(x, y, z)
+    if (moving) {
+      if (crossedOriginalSupport(
+        previousPhase,
+        distance,
+        clip,
+        setup.recipe.body,
+        scale,
+      )) plantedFoot.current = null
+
+      const contact = originalRigWalkContact(
+        displayPhase,
+        clip,
+        setup.recipe.body,
+        scale,
+        heading,
+      )
+      const planted = plantFoot(
+        plantedFoot.current,
+        `${preset}:${contact.side}`,
+        { x: desiredX, y: desiredGround, z: desiredZ },
+        contact,
+        terrainHeight,
+      )
+      plantedFoot.current = planted.plant
+      rootX += planted.offset.x
+      rootY += planted.offset.y
+      rootZ += planted.offset.z
+    } else {
+      plantedFoot.current = null
+    }
+
+    const slope = terrainSlope(rootX, rootZ)
+    container.current.position.set(rootX, rootY, rootZ)
     container.current.rotation.order = "YXZ"
+    container.current.rotation.y = heading
     container.current.rotation.x = -Math.atan(slope.dz * .22)
     container.current.rotation.z = Math.atan(slope.dx * .22)
 
