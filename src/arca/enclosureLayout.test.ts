@@ -96,7 +96,7 @@ describe("ark animal enclosure layout", () => {
       expect(animal.life_stage, animal.id).toMatch(/^(adult|juvenile_independent)$/)
       expect(animal.posture, animal.id).toBeTruthy()
       expect(animal.dimension_basis, animal.id).toBeTruthy()
-      expect(animal.scale_review, animal.id).toBe("zoological-proportion-v2")
+      expect(animal.scale_review, animal.id).toBe("zoological-proportion-v3")
       expect(animal.scale_confidence, animal.id).toMatch(/^(high|medium)$/)
       expect(animal.staging_position_m, animal.id).toBeNull()
       expect("enclosure" in animal, animal.id).toBe(false)
