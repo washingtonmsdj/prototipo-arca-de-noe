@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react"
+import { useEffect, useMemo, useRef } from "react"
 import { useFrame, useLoader } from "@react-three/fiber"
 import * as THREE from "three"
 import type { ActorMotionRef } from "./actor-motion"
@@ -162,9 +162,10 @@ export function DepthAtlasSprite({
 
   useEffect(() => () => material.dispose(), [material])
 
-  const mesh = useMemo(() => new THREE.Mesh(), [])
+  const mesh = useRef<THREE.Mesh>(null)
 
   useFrame(({ camera }) => {
+    if (!mesh.current) return
     const matrix = camera.matrixWorld.elements
     const cameraYaw = Math.atan2(matrix[8], matrix[10])
     const currentHeading = motion?.current.heading ?? heading
@@ -186,7 +187,7 @@ export function DepthAtlasSprite({
     const ny = motion ? 1 : groundNormal[1]
     const nz = motion ? -motion.current.slopeZ : groundNormal[2]
 
-    mesh.position.set(px, py, pz)
+    mesh.current.position.set(px, py, pz)
     material.uniforms.spriteWorldSize.value = metadata.viewSize * scale
     material.uniforms.spriteGroundPoint.value.set(px, py, pz)
     material.uniforms.spriteGroundNormal.value.set(nx, ny, nz).normalize()
@@ -195,8 +196,8 @@ export function DepthAtlasSprite({
   })
 
   return (
-    <primitive object={mesh} material={material} frustumCulled={false}>
+    <mesh ref={mesh} material={material} frustumCulled={false}>
       <planeGeometry args={[1, 1]} />
-    </primitive>
+    </mesh>
   )
 }
