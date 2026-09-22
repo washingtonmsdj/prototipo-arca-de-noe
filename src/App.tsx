@@ -166,7 +166,7 @@ export function App() {
         </dl>
       </section>
 
-      <aside className="status">clean-room · procedural generation · TypeScript · Three.js · R3F</aside>
+      <aside className="status">Pilgrimage authorized port · procedural generation · TypeScript · Three.js · R3F</aside>
     </main>
   )
 }
