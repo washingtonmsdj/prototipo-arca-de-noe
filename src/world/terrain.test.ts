@@ -8,7 +8,9 @@ import {
   WORLD_METHOD,
   WORLD_TILES,
   createCliffGeometry,
+  findWalkableLoop,
   forestInstances,
+  isWalkableLoop,
   terrainHeight,
   worldToTile,
 } from "./terrain"
@@ -65,6 +67,15 @@ describe("generated world", () => {
     expect(first.length).toBeGreaterThan(0)
     expect(first.length).toBeLessThanOrEqual(32)
     expect(first).toEqual(second)
+  })
+
+  it("derives deterministic roaming loops that do not cross blocked terrain", () => {
+    for (let seed = 0; seed < 16; seed++) {
+      const first = findWalkableLoop(3000 + seed, 2.6)
+      const second = findWalkableLoop(3000 + seed, 2.6)
+      expect(first).toEqual(second)
+      if (first.radius > 0) expect(isWalkableLoop(first.origin, first.radius)).toBe(true)
+    }
   })
 
   it("builds cliff wall geometry when dry cliff edges exist", () => {
