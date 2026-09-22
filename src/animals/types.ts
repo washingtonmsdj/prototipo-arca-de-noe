@@ -1,10 +1,13 @@
 export type GaitName = "walk" | "trot" | "canter" | "gallop" | "hop"
 
 export type LimbIndex = 0 | 1 | 2 | 3
+export type AnimalFamily = "ovine" | "caprine" | "bovine" | "equine" | "cervid" | "boar" | "feline"
+export type HornStyle = "none" | "horns" | "antlers"
 
 export interface AnimalSpecies {
   id: string
   label: string
+  family: AnimalFamily
   color: string
   accent: string
   bodyLength: number
@@ -12,12 +15,19 @@ export interface AnimalSpecies {
   bodyWidth: number
   headSize: number
   neckLength: number
+  neckPitch: number
   muzzleLength: number
   upperLeg: number
   lowerLeg: number
   foreZ: number
   hindZ: number
   legX: number
+  legThickness: number
+  earLength: number
+  earWidth: number
+  tailLength: number
+  hornStyle: HornStyle
+  mane: boolean
   stride: number
   lift: number
   cadence: number
