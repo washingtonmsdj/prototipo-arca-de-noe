@@ -1,12 +1,10 @@
-# Sistema de animação animal
+# Sistema de animação
 
-## Estado atual
+O laboratório mantém dois motores lado a lado: o motor simplificado do Arca e os rigs originais do Pilgrimage portados para uma camada isolada.
 
-O núcleo usa quadrúpedes procedurais. Cada animal compartilha o mesmo contrato, mas possui proporções próprias.
+## Animais — Arca
 
-A ordem do cálculo é:
-
-```
+```text
 velocidade
   -> distância
   -> fase da passada
@@ -17,28 +15,49 @@ velocidade
   -> rig visual
 ```
 
-## Contatos
+A fase em movimento deriva da distância, reduzindo foot sliding quando a velocidade muda.
 
-Cada gait define quatro instantes de contato: dianteira esquerda, dianteira direita, traseira esquerda e traseira direita.
+## Animais — Pilgrimage original
 
-Durante a fase de apoio a pata fica em Y=0 no espaço local do animal. Durante o balanço, uma curva suave leva a pata da parte traseira da passada de volta para a frente e aplica elevação vertical.
+### Wildlife
 
-## IK
+- mamíferos procedurais;
+- aves com asa + punho;
+- galinhas com rig especializado;
+- gaits por espécie;
+- malha deformada pelo próprio rig;
+- idle, graze, lie, burrow, fly e glide.
 
-`solveTwoBoneLeg()` recebe quadril, alvo do pé e comprimentos dos dois segmentos. O alvo é limitado ao alcance físico e o joelho é resolvido geometricamente. O comprimento dos ossos não muda.
+### Transporte
 
-## Movimento do corpo
+- cavalo comum e nobre;
+- jumento;
+- boi;
+- pelagens;
+- rig quadrúpede e pose original.
 
-`bodyMotion()` deriva bounce, pitch, roll e sway da mesma fase usada pelas patas. Dessa forma o tronco e as pernas permanecem acoplados.
+## Editor animal
 
-## Próximas extensões
+`src/dev/AnimalRigEditorPanel.tsx` usa o contrato original de rig edits:
 
-- foot locking em coordenadas globais durante curvas fechadas;
-- cadeia de três segmentos para equinos;
-- pescoço procedural com dois ou três elos;
-- cauda secundária com spring;
-- aves com asa, punho e penas;
-- répteis;
-- blend de idle/graze/lie;
-- LOD de animação;
-- baker de sprite atlas a partir do mesmo rig.
+- 20 frames;
+- junta selecionável;
+- offset X/Y/Z;
+- raio de influência;
+- cadência;
+- timing dos quatro contatos;
+- limpar junta/frame;
+- reset;
+- import/export JSON.
+
+O preview pode congelar exatamente no frame editado.
+
+## Humanos — Pilgrimage original
+
+`createBasePersonRig()` é executado diretamente. O laboratório expõe os 19 clips de `PERSON_CLIPS`, cada um com sua contagem original de frames.
+
+`src/dev/HumanRigEditorPanel.tsx` usa o sistema original de `PoseEdits` e interpolação circular entre keyframes.
+
+## Regra
+
+O rig descreve geometria e pose. Navegação, comportamento, sincronização de deslocamento e LOD pertencem a camadas superiores.

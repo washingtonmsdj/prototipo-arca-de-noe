@@ -2,66 +2,51 @@
 
 ## Princípio
 
-Animais e humanos compartilham uma regra: **dados geram anatomia; anatomia recebe animação**.
-
-Não misture identidade da criatura com lógica de renderização ou comportamento.
+Animais, humanos e mundo seguem a regra **dados determinísticos → estrutura coerente → animação/renderização**.
 
 ## Animais
 
-`AnimalSpecies` contém anatomia, aparência, capacidades locomotoras e características morfológicas.
+- Arca: `AnimalSpecies` + `animalMorphology()` + gait/IK próprios;
+- Pilgrimage isolado: anatomia, profiles, gaits e rigs em `src/pilgrimage/wildlife/` e `src/pilgrimage/transport/`.
 
-`animalMorphology()` transforma o perfil em medidas derivadas usadas pelo renderer:
-
-- altura do quadril;
-- posição do tronco;
-- peito e garupa;
-- origem do pescoço;
-- posição da cabeça;
-- origem da cauda;
-- espessura dos membros.
-
-O renderer acrescenta características declarativas:
-
-- tamanho das orelhas;
-- comprimento de cauda;
-- chifres;
-- galhadas;
-- juba;
-- espessura das pernas.
-
-Gait e IK não conhecem essas características visuais.
+Novas espécies devem preferir dados quando compartilham família anatômica. Uma anatomia realmente diferente recebe rig próprio.
 
 ## Humanos
 
-`HumanDesign` define o corpo-base.
+- Arca: `HumanDesign` e `generatedHuman(seed)`;
+- Pilgrimage: `PERSON_PRESETS` → `personRecipe()` → `createBasePersonRig()`.
 
-`generatedHuman(seed)` cria uma variação determinística. O gerador não usa estado global nem aleatoriedade não reproduzível.
+As implementações permanecem independentes para comparação.
 
 ## Mundo
 
-O mundo também é determinístico. Terreno e distribuição ambiental devem continuar dirigidos por seed e funções puras sempre que possível.
-
-## Evolução prevista
-
-O objetivo arquitetural é chegar a:
-
+```text
+seed
+  -> método de woodland
+  -> água
+  -> floresta/darkwood/clareiras
+  -> adaptação para mundo 3D
 ```
+
+O relevo atual é determinístico e integrado por `terrainHeight`. O próximo port deve trazer elevação/hidrologia completa de forma igualmente isolada.
+
+## Separação upstream
+
+`vendor/pilgrimage/` preserva referência. `src/pilgrimage/` contém somente o runtime técnico necessário.
+
+## Arquitetura-alvo
+
+```text
 Definition
   -> deterministic generator
-  -> morphology/skeleton
+  -> morphology / skeleton
   -> procedural mesh
   -> rig
-  -> locomotion/action
+  -> locomotion / action
   -> runtime LOD
        |-> full 3D
-       |-> simplified instanced rig
-       \-> baked sprite/depth atlas
+       |-> simplified / instanced
+       \-> baked sprite + depth atlas
 ```
-
-## Origem do sistema
-
-O projeto agora combina a implementação local criada inicialmente com módulos autorizados do Pilgrimage.
-
-O snapshot original fica em `vendor/pilgrimage/`. A integração ativa deve ocorrer por adaptadores ou módulos em `src/`, de forma que seja possível comparar o upstream com as melhorias do Arca e atualizar o snapshot sem perder alterações locais.
 
 A licença e a procedência do upstream devem permanecer preservadas.

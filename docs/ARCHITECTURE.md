@@ -2,35 +2,59 @@
 
 ## Objetivo
 
-O repositório é um laboratório independente para fauna e mundo. Não há dependência de modelos externos, Blender, Mixamo ou animações compradas para o núcleo funcionar.
+O repositório é um laboratório para estudar, portar e evoluir geração procedural de mundo, animais e pessoas sem importar o gameplay completo do upstream.
 
-A arquitetura separa cinco responsabilidades:
+## Três camadas
 
-1. `species.ts` descreve anatomia e capacidades de cada espécie.
-2. `gait.ts` produz contatos, passada, cadência e fase das patas.
-3. `ik.ts` resolve a cadeia articular sem alterar o comprimento dos membros.
-4. `Animal.tsx` aplica a pose ao rig visual e sincroniza a animação com distância.
-5. `world/` fornece terreno e ambiente sem conhecer detalhes do rig.
+### 1. Snapshot upstream — `vendor/pilgrimage/`
 
-## Regra central
+Fonte de referência preservada, com licença e procedência. Não é a camada de adaptação do Arca.
 
-Simulação não deve depender de frames de renderização. A distância percorrida determina a fase locomotora:
+### 2. Runtime upstream isolado — `src/pilgrimage/`
 
+Porta apenas o núcleo técnico necessário:
+
+- `wildlife/`: anatomia, gaits, malhas e rig edits;
+- `transport/`: equinos/bovino, pelagens e rigs;
+- `world/`: woodland, água, terreno e utilitários mínimos;
+- `transport-core.ts` e `transport-animal-pose.ts`: contratos compartilhados sem gameplay.
+
+Quando um arquivo upstream puxa população, construções, economia ou simulação sem necessidade técnica, a dependência é cortada nesta camada por um contrato explícito.
+
+### 3. Arca — `src/animals/`, `src/humans/`, `src/world/`, `src/dev/`
+
+Contém motores próprios, adaptadores React/Three, integração com terreno, laboratório, editores e futuras melhorias.
+
+## Regra de dependência
+
+```text
+vendor/pilgrimage
+       ↓
+src/pilgrimage
+       ↓
+src/animals | src/humans | src/world | src/dev
+       ↓
+App
 ```
+
+O fluxo não deve inverter. `vendor/` não conhece o Arca e `src/pilgrimage/` não deve adquirir dependências de gameplay não utilizado.
+
+## Locomoção
+
+O motor próprio do Arca usa distância percorrida como fonte de fase:
+
+```text
 fase = distância_acumulada / comprimento_da_passada
 ```
 
-Isso mantém a passada coerente quando FPS, velocidade ou escala mudam.
+No laboratório original os rigs podem ser reproduzidos estacionários por tempo ou congelados em um frame para edição. Sincronização espacial pertence à camada de movimento.
 
-## Separação de dados e comportamento
+## Qualidade
 
-Espécies comuns entram por dados. Um novo tipo de anatomia deve ganhar uma família de rig própria, em vez de acumular condicionais no quadrúpede genérico.
-
-## Código local e upstream
-
-A arquitetura possui duas camadas deliberadamente separadas:
-
-- `vendor/pilgrimage/`: snapshot do código autorizado do Pilgrimage, preservado com procedência e licença;
-- `src/`: integração e desenvolvimento ativo do Arca de Noé.
-
-Não editar silenciosamente o snapshot para “fazê-lo funcionar”. Quando um módulo upstream for adaptado, a mudança deve acontecer na camada ativa e manter referência ao caminho/commit de origem. Isso torna claro o que é upstream e o que é evolução do Arca.
+- anatomia e renderização separadas;
+- comprimentos de ossos não mudam para alcançar alvos;
+- espécies comuns entram por dados;
+- famílias anatômicas diferentes recebem rigs próprios;
+- nenhuma dependência de gameplay é mantida só para satisfazer imports;
+- todo port upstream mantém procedência;
+- CI valida typecheck, testes e build.

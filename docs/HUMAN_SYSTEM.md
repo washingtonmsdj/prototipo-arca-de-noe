@@ -1,69 +1,42 @@
 # Sistema procedural de humanos
 
-## Objetivo
+## Dois motores
 
-Humanos usam a mesma filosofia da fauna: primeiro existe um corpo coerente e parametrizado; a animação é derivada desse corpo. O sistema não depende de uma sprite sheet desenhada previamente.
+### Arca simplificado
 
-## Pipeline
+`src/humans/` contém perfis de viajante, pastor, construtor, agricultor e sacerdote, além de `generatedHuman(seed)`, IK de pernas e caminhada por distância.
 
-```
-HumanDesign
-  -> proporções corporais
-  -> rig visual
-  -> fase locomotora
-  -> alvos dos pés
-  -> IK das pernas
-  -> pose dos braços/cabeça
-  -> ajuste ao terreno
-  -> render runtime
-```
+Clips próprios: `idle`, `walk`, `carry`, `pray`, `build` e `gather`.
 
-## Perfis
+### Pilgrimage original
 
-`src/humans/designs.ts` contém perfis-base como viajante, pastor, construtor, agricultor e sacerdote.
+`src/humans/UpstreamHuman.tsx` monta diretamente `createBasePersonRig()` a partir do snapshot upstream.
 
-`generatedHuman(seed)` cria variações determinísticas sobre esses perfis. A mesma seed sempre produz as mesmas proporções.
+O laboratório expõe todos os **19 clips originais**:
 
-Atualmente variamos:
+- `idle`, `walk`, `wearyWalk`;
+- `sleeping`, `sitting`;
+- `seatedMeal`, `seatedDrink`, `seatedPrayer`;
+- `praying`, `drinking`, `drinkingLow`, `preaching`;
+- `treeFelling`, `woodcutting`, `building`, `gathering`;
+- `carrying`, `hoisting`, `procession`.
 
-- altura;
-- largura dos ombros;
-- largura do quadril;
-- passada;
-- cadência;
-- escala da cabeça.
+Cada clip conserva sua própria quantidade de frames.
 
-A evolução deve incluir roupas, cabelos, idade visual, acessórios e paletas sem quebrar o contrato do rig.
+## Editor de pose
 
-## Locomoção
+`src/dev/HumanRigEditorPanel.tsx` permite escolher frame/junta, editar offset X/Y/Z e raio de influência, limpar chaves, resetar e importar/exportar JSON.
 
-A caminhada usa a distância percorrida como fonte de fase. Cada perna recebe meio ciclo de diferença. O pé alterna entre:
+As edições usam diretamente `PoseEdits`, `setPoseKey`, `clearFrameKeys` e `validatePoseEdits` do sistema original.
 
-- apoio no chão;
-- balanço de retorno.
+## Juntas editáveis
 
-O alvo é resolvido por IK de dois elos com comprimento fixo.
+Cabeça, peito, pelve, ombros, cotovelos, mãos, quadris, joelhos, pés e ponta do cajado são expostos como pontos editáveis.
 
-## Clips
+## Próximas evoluções
 
-O núcleo atual possui:
-
-- `idle`;
-- `walk`;
-- `carry`;
-- `pray`;
-- `build`;
-- `gather`.
-
-Clips não devem conter geometria. Eles retornam parâmetros de pose e podem ser substituídos futuramente por um sistema de canais/keyframes sem alterar o renderer.
-
-## Próximos passos
-
-- IK também nos braços;
-- sockets de mão, cabeça, cintura e costas;
-- ferramenta/objeto seguindo sockets;
-- foot locking em mundo;
-- editor visual de pose;
-- transição/blend entre clips;
-- baker de sprites e depth atlas;
-- LOD compartilhado com a fauna.
+- sockets visuais para ferramentas/objetos;
+- blend entre clips;
+- foot locking em movimento no runtime original;
+- roupas/cabelo apropriados ao cenário;
+- baker de sprite/depth atlas.
