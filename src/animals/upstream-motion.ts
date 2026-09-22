@@ -1,7 +1,8 @@
 import { WALK_STANCE_FRACTION } from "../../vendor/pilgrimage/lib/game/base-person/pose"
 import { gaitRecipe, type WildlifeGait } from "../pilgrimage/wildlife/gait"
 import type { AnimalClip, AnimalRigEdits } from "../pilgrimage/wildlife/rig-edits"
-import type { WildlifeKind } from "../pilgrimage/wildlife/species"
+import { BURROW_SECONDS } from "../pilgrimage/wildlife/burrow-motion"
+import { isBird, type WildlifeKind } from "../pilgrimage/wildlife/species"
 import {
   animalProfile,
   type Animal,
@@ -10,6 +11,26 @@ import {
 
 export function isGroundWildlifeClip(clip: AnimalClip): clip is WildlifeGait {
   return ["walk", "trot", "canter", "gallop", "hop", "leap"].includes(clip)
+}
+
+export function wildlifeClipCadence(
+  kind: WildlifeKind,
+  clip: AnimalClip,
+  edits?: AnimalRigEdits,
+) {
+  const gait = isGroundWildlifeClip(clip) ? clip : "walk"
+  const edit = edits?.clips[clip]?.cadence ?? 1
+
+  if (isGroundWildlifeClip(clip)) {
+    return gaitRecipe(kind, gait, edits).cadence
+  }
+  if (isBird(kind)) {
+    const cadence = clip === "glide" ? .3 : clip === "fly" ? (kind === "hawk" ? .85 : 6) : .8
+    return cadence * edit
+  }
+  if (clip === "burrow") return (.32 / BURROW_SECONDS) * edit
+  if (clip === "lie") return .125 * edit
+  return .8 * edit
 }
 
 export function directWildlifeStride(
