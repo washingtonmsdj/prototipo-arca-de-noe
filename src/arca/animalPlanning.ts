@@ -5,7 +5,9 @@ export type HousingClass =
   | "large_bird"
   | "small_bird"
   | "small_mammal"
+  | "small_cage"
   | "terrarium"
+  | "micro_terrarium"
   | "insectarium"
 
 export interface HousingRule {
@@ -26,8 +28,10 @@ const groups: Record<HousingClass, readonly string[]> = {
   medium_mammal: `gorilas chimpanzes leoes tigres leopardos jaguares pumas guepardos ursos_pardos ursos_negros lobos raposas hienas chacais porcos javalis cangurus vombates capivaras tamanduas babuinos pandas ocapis porcos-formigueiros`.split(" "),
   large_bird: `avestruzes emas aguias cegonhas pelicanos grous abutres garcas cormoroes flamingos pavoes perus gansos pinguins casuares cisnes`.split(" "),
   small_bird: `pombos corvos galinhas perdizes patos marrecos araras cacatuas pica_paus poupas andorinhoes pardais canarios cucos corujas_pequenas rolinhas gralhas codornas faisoes papagaios periquitos tucanos martins_pescadores andorinhas cotovias tentilhoes pintassilgos beija_flores falcoes_pequenos kiwis turacos`.split(" "),
-  small_mammal: `coelhos hiraxes marmotas porcos_espinhos porquinhos_da_india gerbos ratos toupeiras texugos mangustos lebres esquilos castores chinchilas hamsters camundongos musaranhos ouricos furoes morcegos macacos preguicas tatus coalas lemures lontras suricatos pangolins`.split(" "),
-  terrarium: `jabutis iguanas teius camaleoes escincos pitons viboras crocodilianos sapos salamandras tartarugas_semiaquaticas varanos agamas lagartixas jiboias cobras_nao_peconhentas najas ras pererecas cecilias`.split(" "),
+  small_mammal: `coelhos hiraxes marmotas porcos_espinhos toupeiras texugos mangustos lebres esquilos castores ouricos furoes morcegos macacos preguicas tatus coalas lemures lontras suricatos pangolins`.split(" "),
+  small_cage: `porquinhos_da_india gerbos ratos chinchilas hamsters camundongos musaranhos`.split(" "),
+  terrarium: `jabutis iguanas teius camaleoes escincos pitons viboras crocodilianos tartarugas_semiaquaticas varanos jiboias cobras_nao_peconhentas najas`.split(" "),
+  micro_terrarium: `sapos salamandras agamas lagartixas ras pererecas cecilias`.split(" "),
   insectarium: `formigas abelhas vespas cupins besouros borboletas mariposas gafanhotos grilos louva-a-deus bichos-pau baratas aranhas escorpioes centopeias piolhos-de-cobra caracois-terrestres lesmas minhocas`.split(" "),
 }
 
@@ -76,11 +80,23 @@ export const HOUSING_RULES: Record<HousingClass, HousingRule> = {
     maxPairAspect: 3, maxGroupAspect: 3,
     wallHeight: 1.05, label: "recinto pequeno",
   },
+  small_cage: {
+    pairOccupancy: .22, groupOccupancy: .34,
+    minPairArea: .32, minGroupArea: 2, minSide: .42,
+    maxPairAspect: 2.8, maxGroupAspect: 3,
+    wallHeight: .72, label: "gaiola compacta",
+  },
   terrarium: {
     pairOccupancy: .32, groupOccupancy: .36,
     minPairArea: .8, minGroupArea: 4, minSide: .6,
     maxPairAspect: 3, maxGroupAspect: 3,
     wallHeight: 1.15, label: "terrário",
+  },
+  micro_terrarium: {
+    pairOccupancy: .22, groupOccupancy: .30,
+    minPairArea: .28, minGroupArea: 1.4, minSide: .4,
+    maxPairAspect: 2.8, maxGroupAspect: 3,
+    wallHeight: .62, label: "microterrário",
   },
   insectarium: {
     pairOccupancy: 1, groupOccupancy: 1,
