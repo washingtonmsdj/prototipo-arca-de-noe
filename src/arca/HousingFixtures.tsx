@@ -35,12 +35,14 @@ export function HousingFixtures() {
   const perchRef = useRef<InstancedMesh>(null)
   const baseRef = useRef<InstancedMesh>(null)
   const wetRef = useRef<InstancedMesh>(null)
+  const restRef = useRef<InstancedMesh>(null)
 
   const fixtures = useMemo(() => {
     const troughs: Fixture[] = []
     const perches: Fixture[] = []
     const bases: Fixture[] = []
     const wet: Fixture[] = []
+    const rest: Fixture[] = []
 
     plannedPens.forEach((pen, index) => {
       const { min, max } = pen.bounds_m
@@ -67,6 +69,20 @@ export function HousingFixtures() {
           [x, floor + .18, edgeZ],
           [troughLength, .36, troughDepth],
           .09 + hue * .015,
+        )
+
+        // A visible dry/resting pad makes the reserve area intentional:
+        // feeding on one edge, resting on the opposite side, movement between.
+        const restWidth = Math.max(.55, Math.min(width * .42, 2.4))
+        const restDepth = Math.max(.45, Math.min(depth * .28, 1.35))
+        const restZ = pen.side > 0
+          ? min[2] + restDepth / 2 + .16
+          : max[2] - restDepth / 2 - .16
+        boxAt(
+          rest,
+          [x, floor + .025, restZ],
+          [restWidth, .05, restDepth],
+          .11,
         )
       }
 
@@ -112,7 +128,7 @@ export function HousingFixtures() {
       }
     })
 
-    return { troughs, perches, bases, wet }
+    return { troughs, perches, bases, wet, rest }
   }, [])
 
   useLayoutEffect(() => {
@@ -144,6 +160,7 @@ export function HousingFixtures() {
     apply(perchRef.current, fixtures.perches, .34, .31)
     apply(baseRef.current, fixtures.bases, .24, .24)
     apply(wetRef.current, fixtures.wet, .42, .34)
+    apply(restRef.current, fixtures.rest, .38, .31)
   }, [fixtures])
 
   return (
@@ -163,6 +180,10 @@ export function HousingFixtures() {
       <instancedMesh ref={wetRef} args={[undefined, undefined, fixtures.wet.length]} receiveShadow>
         <boxGeometry args={[1, 1, 1]} />
         <meshStandardMaterial roughness={.65} vertexColors />
+      </instancedMesh>
+      <instancedMesh ref={restRef} args={[undefined, undefined, fixtures.rest.length]} receiveShadow>
+        <boxGeometry args={[1, 1, 1]} />
+        <meshStandardMaterial roughness={1} vertexColors />
       </instancedMesh>
     </group>
   )
