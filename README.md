@@ -134,4 +134,4 @@ A licença original está preservada em `vendor/pilgrimage/LICENSE` e a procedê
 
 O diretório `vendor/` preserva a fonte upstream; adaptações usadas pelo runtime ficam separadas. O Arca já reutiliza diretamente a curva de passada `walkFoot()` do upstream nos sistemas humano e animal.
 
-Este trabalho é conduzido como projeto não comercial e, conforme informado pelo responsável pelo repositório Arca de Noé, existe autorização do autor para reutilizar, modificar e desenvolver esse código neste projeto.
+Este trabalho é conduzido como projeto não comercial 
