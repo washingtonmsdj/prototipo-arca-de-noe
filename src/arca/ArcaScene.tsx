@@ -9,7 +9,7 @@ import { AnimalBlocks } from "./AnimalBlocks"
 import { RampAccess } from "./RampAccess"
 import { EnclosureSigns } from "./EnclosureSigns"
 import { EnclosureColliders } from "./EnclosureColliders"
-import { PlannedEnclosures } from "./PlannedEnclosures"
+import { PlannedEnclosures } from "./PlannedEnclosureWalls"
 import { ServiceZones } from "./ServiceZones"
 import { HousingFixtures } from "./HousingFixtures"
 
