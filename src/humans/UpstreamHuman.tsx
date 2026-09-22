@@ -24,6 +24,7 @@ export interface UpstreamHumanProps {
   paused?: boolean
   origin?: [number, number]
   scale?: number
+  speedScale?: number
 }
 
 export function UpstreamHuman({
@@ -32,6 +33,7 @@ export function UpstreamHuman({
   paused = false,
   origin = [0, 0],
   scale = 1.2,
+  speedScale = 1,
 }: UpstreamHumanProps) {
   const container = useRef<THREE.Group>(null)
   const phase = useRef(0)
@@ -49,7 +51,7 @@ export function UpstreamHuman({
   useFrame((_, delta) => {
     if (!container.current) return
     const dt = paused ? 0 : Math.min(delta, .05)
-    phase.current = (phase.current + dt * 1.1) % 1
+    phase.current = (phase.current + dt * 1.1 * speedScale) % 1
 
     const x = origin[0]
     const z = origin[1]
