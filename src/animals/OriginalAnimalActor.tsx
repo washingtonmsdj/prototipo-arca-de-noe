@@ -10,6 +10,7 @@ import {
 } from "../pilgrimage/runtime/lod"
 import { DepthAtlasSprite } from "../pilgrimage/runtime/DepthAtlasSprite"
 import { speciesGaits, type WildlifeGait } from "../pilgrimage/wildlife/gait"
+import { animalProfile } from "../pilgrimage/transport-core"
 import type { AnimalClip, AnimalRigEdits } from "../pilgrimage/wildlife/rig-edits"
 import type { WildlifeKind } from "../pilgrimage/wildlife/species"
 import { terrainHeight, terrainSlope } from "../world/terrain"
@@ -262,15 +263,10 @@ export function OriginalAnimalActor({
         path.current.distance += distance
         path.current.angle += distance / Math.max(.25, pathRadius)
       } else {
-        const profile = transport.animal === "horse"
-          ? transport.variant
-          : transport.animal
-        const cadence = {
-          ox: .62,
-          donkey: .82,
-          common: .95,
-          noble: .98,
-        }[profile]
+        const cadence = animalProfile(
+          transport.animal,
+          transport.variant,
+        ).cyclesPerSecond
         state.phase = (
           state.phase
           + dt * cadence * (edits?.clips.walk?.cadence ?? 1) * speedScale
