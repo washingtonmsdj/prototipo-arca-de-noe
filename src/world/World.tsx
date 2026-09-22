@@ -11,7 +11,7 @@ import { UpstreamHuman, type UpstreamHumanClip } from "../humans/UpstreamHuman"
 import { HUMAN_DESIGNS, generatedHuman } from "../humans/designs"
 import type { HumanClip, HumanDesign } from "../humans/types"
 import type { PoseEdits } from "../../vendor/pilgrimage/lib/game/base-person/pose-edits"
-import { createCliffGeometry, createTerrainGeometry, terrainHeight } from "./terrain"
+import { createCliffGeometry, createTerrainGeometry, findWalkableLoop, terrainHeight } from "./terrain"
 import { GeneratedEnvironment } from "./GeneratedEnvironment"
 
 export type LabSubject = "animal" | "human"
@@ -66,56 +66,76 @@ function Terrain() {
 }
 
 function AmbientHerds({ paused }: { paused: boolean }) {
+  const loops = useMemo(
+    () => SPECIES.flatMap((_, speciesIndex) => [
+      findWalkableLoop(1000 + speciesIndex * 2, 2.4),
+      findWalkableLoop(1001 + speciesIndex * 2, 3.1),
+    ]),
+    [],
+  )
+
   return (
     <group>
       {SPECIES.map((species, speciesIndex) => {
         const gait = species.supportedGaits[Math.min(1, species.supportedGaits.length - 1)]
-        const side = speciesIndex % 2 ? 1 : -1
-        const band = Math.floor(speciesIndex / 2)
-        return [0, 1].map((pair) => (
-          <Animal
-            key={species.id + pair}
-            species={species}
-            gait={gait}
-            pathRadius={2.4 + pair * .7}
-            pathOffset={speciesIndex * .71 + pair * 1.8}
-            origin={[side * (7 + band * 2.5), -7 + band * 4.2]}
-            speedScale={.55 + pair * .08}
-            paused={paused}
-          />
-        ))
+        return [0, 1].map((pair) => {
+          const loop = loops[speciesIndex * 2 + pair]
+          return (
+            <Animal
+              key={species.id + pair}
+              species={species}
+              gait={gait}
+              pathRadius={loop.radius}
+              pathOffset={loop.phase}
+              origin={loop.origin}
+              speedScale={.55 + pair * .08}
+              paused={paused}
+              stationary={loop.radius === 0}
+            />
+          )
+        })
       })}
     </group>
   )
 }
 
 function AmbientPeople({ paused }: { paused: boolean }) {
+  const loops = useMemo(
+    () => HUMAN_DESIGNS.flatMap((_, index) => [
+      findWalkableLoop(2000 + index * 2, 2.1),
+      findWalkableLoop(2001 + index * 2, 2.7),
+    ]),
+    [],
+  )
+
   return (
     <group>
       {HUMAN_DESIGNS.flatMap((design, index) => {
         const generated = generatedHuman(100 + index)
-        const side = index % 2 ? -1 : 1
-        const z = 7 + Math.floor(index / 2) * 4
+        const authoredLoop = loops[index * 2]
+        const generatedLoop = loops[index * 2 + 1]
         return [
           <Human
             key={design.id}
             design={design}
             clip="walk"
-            pathRadius={2.1}
-            pathOffset={index * .83}
-            origin={[side * (6.5 + index * .6), z]}
+            pathRadius={authoredLoop.radius}
+            pathOffset={authoredLoop.phase}
+            origin={authoredLoop.origin}
             speedScale={.72}
             paused={paused}
+            stationary={authoredLoop.radius === 0}
           />,
           <Human
             key={generated.id}
             design={generated}
             clip="walk"
-            pathRadius={2.7}
-            pathOffset={index * .83 + 1.7}
-            origin={[side * (6.5 + index * .6), z]}
+            pathRadius={generatedLoop.radius}
+            pathOffset={generatedLoop.phase}
+            origin={generatedLoop.origin}
             speedScale={.64}
             paused={paused}
+            stationary={generatedLoop.radius === 0}
           />,
         ]
       })}
