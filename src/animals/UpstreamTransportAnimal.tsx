@@ -6,6 +6,7 @@ import { COATS } from "../pilgrimage/transport/coats"
 import { animalProfile, type Animal, type HorseVariant } from "../pilgrimage/transport-core"
 import { ANIMAL_JOINT_LABELS, type AnimalJoint, type AnimalRigEdits } from "../pilgrimage/wildlife/rig-edits"
 import { terrainHeight, terrainSlope } from "../world/terrain"
+import type { ActorMotionRef } from "../pilgrimage/runtime/actor-motion"
 import { plantFoot, type FootPlant } from "../../vendor/pilgrimage/lib/game/base-person/gait"
 import {
   advanceDistancePhase,
@@ -52,6 +53,7 @@ interface UpstreamTransportAnimalProps {
   pathRadius?: number
   pathOffset?: number
   stationary?: boolean
+  motionState?: ActorMotionRef
 }
 
 export function UpstreamTransportAnimal({
@@ -68,6 +70,7 @@ export function UpstreamTransportAnimal({
   pathRadius = 1.6,
   pathOffset = 0,
   stationary = true,
+  motionState,
 }: UpstreamTransportAnimalProps) {
   const container = useRef<THREE.Group>(null)
   const markers = useRef<Partial<Record<AnimalJoint, THREE.Mesh | null>>>({})
@@ -100,76 +103,95 @@ export function UpstreamTransportAnimal({
     const profile = animalProfile(definition.animal, definition.variant)
     const cadenceEdit = edits?.clips.walk?.cadence ?? 1
     const moving = clip === "walk"
-    const worldMoving = moving
-      && !stationary
-      && phaseOverride === undefined
-      && pathRadius > 0
-
-    if (worldMoving) {
-      const distance = directTransportSpeed(
-        definition.animal,
-        definition.variant,
-        scale,
-        speedScale,
-        edits,
-      ) * dt
-      const stride = directTransportStride(
-        definition.animal,
-        definition.variant,
-        scale,
-      )
-      phase.current = advanceDistancePhase(phase.current, distance, stride)
-      motion.current.distance += distance
-      motion.current.angle += distance / Math.max(.25, pathRadius)
-    } else {
-      phase.current = (
-        phase.current
-        + dt * profile.cyclesPerSecond * cadenceEdit * speedScale
-      ) % 1
-    }
-
-    const displayPhase = phaseOverride ?? phase.current
     const grazing = clip === "graze" ? 1 : 0
-    rig.pose(displayPhase, moving, grazing, edits)
 
-    const angle = motion.current.angle
-    const heading = worldMoving ? -angle : 0
-    const desiredX = worldMoving ? origin[0] + Math.cos(angle) * pathRadius : origin[0]
-    const desiredZ = worldMoving ? origin[1] + Math.sin(angle) * pathRadius : origin[1]
-    const desiredY = terrainHeight(desiredX, desiredZ)
+    let displayPhase: number
+    let rootX: number
+    let rootY: number
+    let rootZ: number
+    let heading: number
+    let slope: { dx: number; dz: number }
 
-    let rootX = desiredX
-    let rootY = desiredY
-    let rootZ = desiredZ
+    if (motionState) {
+      const state = motionState.current
+      displayPhase = phaseOverride ?? state.phase
+      rootX = state.x
+      rootY = state.y
+      rootZ = state.z
+      heading = state.heading
+      slope = { dx: state.slopeX, dz: state.slopeZ }
+    } else {
+      const worldMoving = moving
+        && !stationary
+        && phaseOverride === undefined
+        && pathRadius > 0
 
-    if (worldMoving) {
-      const support = transportSupportContact(
-        definition.animal,
-        definition.variant,
-        displayPhase,
-        scale,
-        heading,
-      )
-      if (support) {
-        const planted = plantFoot(
-          plantedFoot.current,
-          support.key,
-          { x: desiredX, y: desiredY, z: desiredZ },
-          support,
-          terrainHeight,
+      if (worldMoving) {
+        const distance = directTransportSpeed(
+          definition.animal,
+          definition.variant,
+          scale,
+          speedScale,
+          edits,
+        ) * dt
+        const stride = directTransportStride(
+          definition.animal,
+          definition.variant,
+          scale,
         )
-        plantedFoot.current = planted.plant
-        rootX += planted.offset.x
-        rootY += planted.offset.y
-        rootZ += planted.offset.z
+        phase.current = advanceDistancePhase(phase.current, distance, stride)
+        motion.current.distance += distance
+        motion.current.angle += distance / Math.max(.25, pathRadius)
+      } else {
+        phase.current = (
+          phase.current
+          + dt * profile.cyclesPerSecond * cadenceEdit * speedScale
+        ) % 1
+      }
+
+      displayPhase = phaseOverride ?? phase.current
+      const angle = motion.current.angle
+      heading = worldMoving ? -angle : 0
+      const desiredX = worldMoving ? origin[0] + Math.cos(angle) * pathRadius : origin[0]
+      const desiredZ = worldMoving ? origin[1] + Math.sin(angle) * pathRadius : origin[1]
+      const desiredY = terrainHeight(desiredX, desiredZ)
+
+      rootX = desiredX
+      rootY = desiredY
+      rootZ = desiredZ
+
+      if (worldMoving) {
+        const support = transportSupportContact(
+          definition.animal,
+          definition.variant,
+          displayPhase,
+          scale,
+          heading,
+        )
+        if (support) {
+          const planted = plantFoot(
+            plantedFoot.current,
+            support.key,
+            { x: desiredX, y: desiredY, z: desiredZ },
+            support,
+            terrainHeight,
+          )
+          plantedFoot.current = planted.plant
+          rootX += planted.offset.x
+          rootY += planted.offset.y
+          rootZ += planted.offset.z
+        } else {
+          plantedFoot.current = null
+        }
       } else {
         plantedFoot.current = null
       }
-    } else {
-      plantedFoot.current = null
+
+      slope = terrainSlope(rootX, rootZ)
     }
 
-    const slope = terrainSlope(rootX, rootZ)
+    rig.pose(displayPhase, moving, grazing, edits)
+
     container.current.position.set(rootX, rootY, rootZ)
     container.current.rotation.order = "YXZ"
     container.current.rotation.y = heading
