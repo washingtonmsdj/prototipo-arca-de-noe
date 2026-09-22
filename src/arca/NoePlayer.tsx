@@ -7,8 +7,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js"
 const WALK_SPEED = 3
 const RUN_SPEED = 6
 
-export function NoePlayer({ paused, onInteract, onNearDoor, gallery = false, birds = false }: {
-  gallery?: boolean
+export function NoePlayer({ paused, onInteract, onNearDoor, birds = false }: {
   birds?: boolean
   paused: boolean
   onInteract: () => void
@@ -51,15 +50,15 @@ export function NoePlayer({ paused, onInteract, onNearDoor, gallery = false, bir
     const body = player.current
     const orbit = controls.current
     if (!body || !orbit) return
-    body.position.set(...(gallery ? [115, 6.03, 19] as const : [-55, 5, 18] as const))
     if (birds) body.position.set(-50, 9.08, 0)
+    else body.position.set(-55, 5, 18)
     orbit.target.copy(body.position).add(new Vector3(0, 1.25, 0))
     camera.position.copy(body.position).add(new Vector3(0, 4, 8))
     cameraCorrection.current.set(0, 0, 0)
     cameraDesired.current = null
     keys.current.clear()
     orbit.update()
-  }, [gallery, birds, camera])
+  }, [birds, camera])
 
   useEffect(() => {
     const editable = (target: EventTarget | null) => target instanceof HTMLElement
