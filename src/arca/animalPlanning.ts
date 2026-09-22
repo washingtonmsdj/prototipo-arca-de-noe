@@ -70,7 +70,7 @@ export const HOUSING_RULES: Record<HousingClass, HousingRule> = {
   },
   small_bird: {
     pairOccupancy: .28, groupOccupancy: .30,
-    minPairArea: 1.4, minGroupArea: 2.6, minSide: .8,
+    minPairArea: 1.4, minGroupArea: 2.5, minSide: .8,
     maxPairAspect: 3.5, maxGroupAspect: 4,
     wallHeight: 2.2, label: "viveiro compacto",
   },
