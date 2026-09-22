@@ -11,6 +11,7 @@ import { EnclosureSigns } from "./EnclosureSigns"
 import { EnclosureColliders } from "./EnclosureColliders"
 import { PlannedEnclosures } from "./PlannedEnclosures"
 import { ServiceZones } from "./ServiceZones"
+import { HousingFixtures } from "./HousingFixtures"
 
 interface ArcaSceneProps {
   birds?: boolean
@@ -192,6 +193,7 @@ export function ArcaScene({ doorOpen, paused, onInteract, onNearDoor, birds }: A
         <InteriorModel />
         <AnimalBlocks />
         <PlannedEnclosures />
+        <HousingFixtures />
         <ServiceZones />
         <EnclosureSigns />
         <EnclosureColliders />
