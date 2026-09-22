@@ -41,6 +41,7 @@ export interface HumanClipBake {
     frames: number
     directions: string[]
     cellSize: number
+    viewSize: number
     anchor: number[]
     safePadding: number
     depthEncoding: typeof SPRITE_DEPTH_ENCODING
@@ -244,6 +245,7 @@ export async function bakeHumanClip(
         frames,
         directions: [...session.recipe.directions],
         cellSize: size,
+        viewSize: session.recipe.camera.viewSize,
         anchor: [...session.recipe.anchor],
         safePadding,
         depthEncoding: SPRITE_DEPTH_ENCODING,
