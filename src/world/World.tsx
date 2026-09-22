@@ -1,6 +1,7 @@
 import { useEffect, useMemo } from "react"
 import { Animal } from "../animals/Animal"
 import { UpstreamAnimal } from "../animals/UpstreamAnimal"
+import { UpstreamTransportAnimal, type UpstreamTransportClip, type UpstreamTransportKind } from "../animals/UpstreamTransportAnimal"
 import { SPECIES } from "../animals/species"
 import type { AnimalSpecies, GaitName } from "../animals/types"
 import type { AnimalClip } from "../pilgrimage/wildlife/rig-edits"
@@ -14,10 +15,15 @@ import { createTerrainGeometry, seeded, terrainHeight, WORLD_SIZE } from "./terr
 export type LabSubject = "animal" | "human"
 export type HumanEngine = "arca" | "pilgrimage"
 export type AnimalEngine = "arca" | "pilgrimage"
+export type OriginalAnimalGroup = "wildlife" | "transport"
 
 interface WorldProps {
   labSubject: LabSubject
   animalEngine: AnimalEngine
+  upstreamAnimalGroup: OriginalAnimalGroup
+  upstreamTransportKind: UpstreamTransportKind
+  upstreamTransportClip: UpstreamTransportClip
+  upstreamTransportCoat: string
   labSpecies: AnimalSpecies
   labGait: GaitName
   upstreamAnimalKind: WildlifeKind
@@ -148,6 +154,10 @@ function AmbientPeople({ paused }: { paused: boolean }) {
 export function World({
   labSubject,
   animalEngine,
+  upstreamAnimalGroup,
+  upstreamTransportKind,
+  upstreamTransportClip,
+  upstreamTransportCoat,
   labSpecies,
   labGait,
   upstreamAnimalKind,
@@ -191,13 +201,26 @@ export function World({
 
         {labSubject === "animal" ? (
           animalEngine === "pilgrimage" ? (
-            <UpstreamAnimal
-              kind={upstreamAnimalKind}
-              clip={upstreamAnimalClip}
-              paused={paused}
-              showRig={showRig}
-              origin={[0, 0]}
-            />
+            upstreamAnimalGroup === "transport" ? (
+              <UpstreamTransportAnimal
+                kind={upstreamTransportKind}
+                clip={upstreamTransportClip}
+                coatId={upstreamTransportCoat}
+                paused={paused}
+                showRig={showRig}
+                speedScale={speedScale}
+                origin={[0, 0]}
+              />
+            ) : (
+              <UpstreamAnimal
+                kind={upstreamAnimalKind}
+                clip={upstreamAnimalClip}
+                paused={paused}
+                showRig={showRig}
+                speedScale={speedScale}
+                origin={[0, 0]}
+              />
+            )
           ) : (
             <Animal
               species={labSpecies}
@@ -216,6 +239,7 @@ export function World({
             paused={paused}
             origin={[0, 0]}
             scale={1.2}
+            speedScale={speedScale}
           />
         ) : (
           <Human
