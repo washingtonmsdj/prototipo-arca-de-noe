@@ -19,6 +19,14 @@ import {
 import { HUMAN_DESIGNS, generatedHuman, humanById } from "./humans/designs"
 import { UPSTREAM_PERSON_PRESETS } from "./humans/UpstreamHuman"
 import type { HumanClip } from "./humans/types"
+import { AnimalRigEditorPanel } from "./dev/AnimalRigEditorPanel"
+import {
+  ANIMAL_FRAMES,
+  EMPTY_ANIMAL_EDITS,
+  type AnimalClip,
+  type AnimalJoint,
+  type AnimalRigEdits,
+} from "./pilgrimage/wildlife/rig-edits"
 
 const gaitLabels: Record<GaitName, string> = {
   walk: "Passo",
@@ -67,6 +75,10 @@ export function App() {
   const [upstreamTransportKind, setUpstreamTransportKind] = useState<UpstreamTransportKind>("horse-common")
   const [upstreamTransportClip, setUpstreamTransportClip] = useState<UpstreamTransportClip>("walk")
   const [upstreamTransportCoat, setUpstreamTransportCoat] = useState("bay")
+  const [animalRigEditing, setAnimalRigEditing] = useState(false)
+  const [animalEditFrame, setAnimalEditFrame] = useState(0)
+  const [animalEditJoint, setAnimalEditJoint] = useState<AnimalJoint>("head")
+  const [animalEdits, setAnimalEdits] = useState<AnimalRigEdits>(EMPTY_ANIMAL_EDITS)
   const [speciesId, setSpeciesId] = useState("horse")
   const [gait, setGait] = useState<GaitName>("walk")
   const [upstreamAnimalKind, setUpstreamAnimalKind] = useState<WildlifeKind>("deer")
@@ -97,6 +109,9 @@ export function App() {
     () => upstreamTransportDefinition(upstreamTransportKind),
     [upstreamTransportKind],
   )
+  const editableAnimalClip: AnimalClip = upstreamAnimalGroup === "wildlife"
+    ? upstreamAnimalClip
+    : upstreamTransportClip
 
   useEffect(() => {
     if (!species.supportedGaits.includes(gait)) setGait(species.supportedGaits[0])
@@ -129,6 +144,8 @@ export function App() {
           upstreamTransportKind={upstreamTransportKind}
           upstreamTransportClip={upstreamTransportClip}
           upstreamTransportCoat={upstreamTransportCoat}
+          animalEdits={animalEdits}
+          animalEditPhase={animalRigEditing ? animalEditFrame / ANIMAL_FRAMES : undefined}
           labSpecies={species}
           labGait={gait}
           upstreamAnimalKind={upstreamAnimalKind}
@@ -245,6 +262,27 @@ export function App() {
                       </select>
                     </label>
                   </>
+                )}
+                <div className="button-row">
+                  <button
+                    type="button"
+                    className={animalRigEditing ? "active" : ""}
+                    onClick={() => setAnimalRigEditing((value) => !value)}
+                  >
+                    {animalRigEditing ? "Fechar editor" : "Editar rig"}
+                  </button>
+                </div>
+
+                {animalRigEditing && (
+                  <AnimalRigEditorPanel
+                    clip={editableAnimalClip}
+                    edits={animalEdits}
+                    onChange={setAnimalEdits}
+                    frame={animalEditFrame}
+                    onFrameChange={setAnimalEditFrame}
+                    joint={animalEditJoint}
+                    onJointChange={setAnimalEditJoint}
+                  />
                 )}
               </>
             ) : (
