@@ -2,7 +2,7 @@
   "version": 5,
   "unit": "metre",
   "source": "162 grupos; envelopes revisados por espécie/tipo de referência, postura e estágio de vida. O runtime usa planejamento automático por classe de alojamento.",
-  "status": "162 grupos / 1080 indivíduos; escala corporal revisada e layout recalculado automaticamente no runtime.",
+  "status": "162 grupos / 1080 indivíduos; escala corporal revisada. O alojamento é calculado deterministicamente em 128 módulos estruturais, com espaço residual convertido em serviço.",
   "scope": "Catálogo editorial ampliado, não inventário de todas as espécies ou de todos os tipos bíblicos. Fauna extinta e grupos não enumerados continuam pendentes.",
   "axes": {
     "blender": "X=comprimento, Y=largura, Z=altura",
@@ -15,7 +15,6 @@
     {
       "id": "elefantes",
       "name": "Elefantes",
-      "enclosure": "INF-BB-01",
       "deck": 1,
       "quantity": 2,
       "males": 1,
@@ -47,7 +46,6 @@
     {
       "id": "rinocerontes",
       "name": "Rinocerontes",
-      "enclosure": "INF-BB-02",
       "deck": 1,
       "quantity": 2,
       "males": 1,
@@ -90,7 +88,6 @@
     {
       "id": "hipopotamos",
       "name": "Hipopotamos",
-      "enclosure": "INF-BB-03",
       "deck": 1,
       "quantity": 2,
       "males": 1,
@@ -133,7 +130,6 @@
     {
       "id": "tapires",
       "name": "Tapires",
-      "enclosure": "INF-BB-04",
       "deck": 1,
       "quantity": 2,
       "males": 1,
@@ -165,7 +161,6 @@
     {
       "id": "cavalos",
       "name": "Cavalos",
-      "enclosure": "INF-BB-05",
       "deck": 1,
       "quantity": 2,
       "males": 1,
@@ -197,7 +192,6 @@
     {
       "id": "asnos",
       "name": "Asnos",
-      "enclosure": "INF-BB-06",
       "deck": 1,
       "quantity": 2,
       "males": 1,
@@ -229,7 +223,6 @@
     {
       "id": "zebras",
       "name": "Zebras",
-      "enclosure": "INF-BB-07",
       "deck": 1,
       "quantity": 2,
       "males": 1,
@@ -268,7 +261,6 @@
     {
       "id": "camelos",
       "name": "Camelos",
-      "enclosure": "INF-BB-08",
       "deck": 1,
       "quantity": 2,
       "males": 1,
@@ -311,7 +303,6 @@
     {
       "id": "bovinos",
       "name": "Bovinos",
-      "enclosure": "INF-BE-01",
       "deck": 1,
       "quantity": 14,
       "males": 7,
@@ -343,7 +334,6 @@
     {
       "id": "bufalos",
       "name": "Bufalos",
-      "enclosure": "INF-BE-02",
       "deck": 1,
       "quantity": 14,
       "males": 7,
@@ -375,7 +365,6 @@
     {
       "id": "bisoes",
       "name": "Bisoes",
-      "enclosure": "INF-BE-03",
       "deck": 1,
       "quantity": 14,
       "males": 7,
@@ -418,7 +407,6 @@
     {
       "id": "iaques",
       "name": "Iaques",
-      "enclosure": "INF-BE-04",
       "deck": 1,
       "quantity": 14,
       "males": 7,
@@ -450,7 +438,6 @@
     {
       "id": "girafas",
       "name": "Girafas",
-      "enclosure": "INF-BE-05",
       "deck": 1,
       "quantity": 14,
       "males": 7,
@@ -489,7 +476,6 @@
     {
       "id": "alces",
       "name": "Alces",
-      "enclosure": "INF-BE-06",
       "deck": 1,
       "quantity": 14,
       "males": 7,
@@ -532,7 +518,6 @@
     {
       "id": "renas",
       "name": "Renas",
-      "enclosure": "INF-BE-07",
       "deck": 1,
       "quantity": 14,
       "males": 7,
@@ -564,7 +549,6 @@
     {
       "id": "cervos",
       "name": "Cervos",
-      "enclosure": "INF-BE-08",
       "deck": 1,
       "quantity": 14,
       "males": 7,
@@ -596,7 +580,6 @@
     {
       "id": "ovelhas",
       "name": "Ovelhas",
-      "enclosure": "MED-BB-01",
       "deck": 2,
       "quantity": 14,
       "males": 7,
@@ -628,7 +611,6 @@
     {
       "id": "cabras",
       "name": "Cabras",
-      "enclosure": "MED-BB-02",
       "deck": 2,
       "quantity": 14,
       "males": 7,
@@ -660,7 +642,6 @@
     {
       "id": "ibex",
       "name": "Ibex",
-      "enclosure": "MED-BB-03",
       "deck": 2,
       "quantity": 14,
       "males": 7,
@@ -692,7 +673,6 @@
     {
       "id": "gazelas",
       "name": "Gazelas",
-      "enclosure": "MED-BB-04",
       "deck": 2,
       "quantity": 14,
       "males": 7,
@@ -724,7 +704,6 @@
     {
       "id": "orix",
       "name": "Orix",
-      "enclosure": "MED-BB-05",
       "deck": 2,
       "quantity": 14,
       "males": 7,
@@ -756,7 +735,6 @@
     {
       "id": "impala",
       "name": "Impala",
-      "enclosure": "MED-BB-06",
       "deck": 2,
       "quantity": 14,
       "males": 7,
@@ -788,7 +766,6 @@
     {
       "id": "kudu",
       "name": "Kudu",
-      "enclosure": "MED-BB-07",
       "deck": 2,
       "quantity": 14,
       "males": 7,
@@ -820,7 +797,6 @@
     {
       "id": "gnus",
       "name": "Gnus",
-      "enclosure": "MED-BB-08",
       "deck": 2,
       "quantity": 14,
       "males": 7,
@@ -852,7 +828,6 @@
     {
       "id": "gorilas",
       "name": "Gorilas",
-      "enclosure": "MED-BB-09-A",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -884,7 +859,6 @@
     {
       "id": "chimpanzes",
       "name": "Chimpanzes",
-      "enclosure": "MED-BB-10-A",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -916,7 +890,6 @@
     {
       "id": "leoes",
       "name": "Leoes",
-      "enclosure": "MED-BB-11-A",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -948,7 +921,6 @@
     {
       "id": "tigres",
       "name": "Tigres",
-      "enclosure": "MED-BB-12-A",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -980,7 +952,6 @@
     {
       "id": "leopardos",
       "name": "Leopardos",
-      "enclosure": "MED-BB-13-A",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -1012,7 +983,6 @@
     {
       "id": "jaguares",
       "name": "Jaguares",
-      "enclosure": "MED-BB-14-A",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -1044,7 +1014,6 @@
     {
       "id": "pumas",
       "name": "Pumas",
-      "enclosure": "MED-BB-15-A",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -1076,7 +1045,6 @@
     {
       "id": "guepardos",
       "name": "Guepardos",
-      "enclosure": "MED-BB-16-A",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -1108,7 +1076,6 @@
     {
       "id": "ursos_pardos",
       "name": "Ursos-pardos",
-      "enclosure": "MED-BE-01-A",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -1151,7 +1118,6 @@
     {
       "id": "ursos_negros",
       "name": "Ursos-negros",
-      "enclosure": "MED-BE-02-A",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -1190,7 +1156,6 @@
     {
       "id": "lobos",
       "name": "Lobos",
-      "enclosure": "MED-BE-03-A",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -1222,7 +1187,6 @@
     {
       "id": "raposas",
       "name": "Raposas",
-      "enclosure": "MED-BE-04",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -1254,7 +1218,6 @@
     {
       "id": "hienas",
       "name": "Hienas",
-      "enclosure": "MED-BE-05-A",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -1286,7 +1249,6 @@
     {
       "id": "chacais",
       "name": "Chacais",
-      "enclosure": "MED-BE-06",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -1318,7 +1280,6 @@
     {
       "id": "porcos",
       "name": "Porcos",
-      "enclosure": "MED-BE-07-A",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -1357,7 +1318,6 @@
     {
       "id": "javalis",
       "name": "Javalis",
-      "enclosure": "MED-BE-08",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -1389,7 +1349,6 @@
     {
       "id": "cangurus",
       "name": "Cangurus",
-      "enclosure": "MED-BE-09",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -1421,7 +1380,6 @@
     {
       "id": "vombates",
       "name": "Vombates",
-      "enclosure": "MED-BE-10",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -1464,7 +1422,6 @@
     {
       "id": "capivaras",
       "name": "Capivaras",
-      "enclosure": "MED-BE-11",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -1496,7 +1453,6 @@
     {
       "id": "tamanduas",
       "name": "Tamanduas",
-      "enclosure": "MED-BE-12",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -1539,7 +1495,6 @@
     {
       "id": "avestruzes",
       "name": "Avestruzes",
-      "enclosure": "MED-BE-13",
       "deck": 2,
       "quantity": 14,
       "males": 7,
@@ -1578,7 +1533,6 @@
     {
       "id": "emas",
       "name": "Emas",
-      "enclosure": "MED-BE-14",
       "deck": 2,
       "quantity": 14,
       "males": 7,
@@ -1610,7 +1564,6 @@
     {
       "id": "babuinos",
       "name": "Babuinos",
-      "enclosure": "MED-BE-15-A",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -1642,7 +1595,6 @@
     {
       "id": "macacos",
       "name": "Macacos",
-      "enclosure": "MED-BE-16-A",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -1674,7 +1626,6 @@
     {
       "id": "pombos",
       "name": "Pombos",
-      "enclosure": "SUP-BB-01",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -1706,7 +1657,6 @@
     {
       "id": "corvos",
       "name": "Corvos",
-      "enclosure": "SUP-BB-02",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -1738,7 +1688,6 @@
     {
       "id": "galinhas",
       "name": "Galinhas",
-      "enclosure": "SUP-BB-03",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -1770,7 +1719,6 @@
     {
       "id": "perdizes",
       "name": "Perdizes",
-      "enclosure": "SUP-BB-04",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -1802,7 +1750,6 @@
     {
       "id": "pavoes",
       "name": "Pavoes",
-      "enclosure": "SUP-BB-05",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -1834,7 +1781,6 @@
     {
       "id": "patos",
       "name": "Patos",
-      "enclosure": "SUP-BB-06",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -1866,7 +1812,6 @@
     {
       "id": "marrecos",
       "name": "Marrecos",
-      "enclosure": "SUP-BB-07",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -1898,7 +1843,6 @@
     {
       "id": "araras",
       "name": "Araras",
-      "enclosure": "SUP-BB-08",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -1930,7 +1874,6 @@
     {
       "id": "cacatuas",
       "name": "Cacatuas",
-      "enclosure": "SUP-BB-09",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -1962,7 +1905,6 @@
     {
       "id": "pica_paus",
       "name": "Pica-paus",
-      "enclosure": "SUP-BB-10",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -1994,7 +1936,6 @@
     {
       "id": "poupas",
       "name": "Poupas",
-      "enclosure": "SUP-BB-11",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -2026,7 +1967,6 @@
     {
       "id": "andorinhoes",
       "name": "Andorinhoes",
-      "enclosure": "SUP-BB-12",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -2058,7 +1998,6 @@
     {
       "id": "pardais",
       "name": "Pardais",
-      "enclosure": "SUP-BB-13",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -2090,7 +2029,6 @@
     {
       "id": "canarios",
       "name": "Canarios",
-      "enclosure": "SUP-BB-14",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -2122,7 +2060,6 @@
     {
       "id": "aguias",
       "name": "Aguias",
-      "enclosure": "SUP-BB-15",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -2154,7 +2091,6 @@
     {
       "id": "cegonhas",
       "name": "Cegonhas",
-      "enclosure": "SUP-BB-16",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -2186,7 +2122,6 @@
     {
       "id": "pelicanos",
       "name": "Pelicanos",
-      "enclosure": "SUP-BB-17",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -2218,7 +2153,6 @@
     {
       "id": "grous",
       "name": "Grous",
-      "enclosure": "SUP-BB-18",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -2250,7 +2184,6 @@
     {
       "id": "cucos",
       "name": "Cucos",
-      "enclosure": "SUP-BB-19",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -2282,7 +2215,6 @@
     {
       "id": "corujas_pequenas",
       "name": "Corujas-pequenas",
-      "enclosure": "SUP-BB-20",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -2314,7 +2246,6 @@
     {
       "id": "coelhos",
       "name": "Coelhos",
-      "enclosure": "SUP-BB-21-A",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -2346,7 +2277,6 @@
     {
       "id": "hiraxes",
       "name": "Hiraxes",
-      "enclosure": "SUP-BB-22-A",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -2378,7 +2308,6 @@
     {
       "id": "marmotas",
       "name": "Marmotas",
-      "enclosure": "SUP-BB-23-A",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -2410,7 +2339,6 @@
     {
       "id": "porcos_espinhos",
       "name": "Porcos-espinhos",
-      "enclosure": "SUP-BB-24-A",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -2442,7 +2370,6 @@
     {
       "id": "porquinhos_da_india",
       "name": "Porquinhos-da-india",
-      "enclosure": "SUP-BB-25-A",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -2474,7 +2401,6 @@
     {
       "id": "gerbos",
       "name": "Gerbos",
-      "enclosure": "SUP-BB-26-A",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -2506,7 +2432,6 @@
     {
       "id": "ratos",
       "name": "Ratos",
-      "enclosure": "SUP-BB-27-A",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -2538,7 +2463,6 @@
     {
       "id": "toupeiras",
       "name": "Toupeiras",
-      "enclosure": "SUP-BB-28-A",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -2570,7 +2494,6 @@
     {
       "id": "texugos",
       "name": "Texugos",
-      "enclosure": "SUP-BB-29-A",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -2602,7 +2525,6 @@
     {
       "id": "mangustos",
       "name": "Mangustos",
-      "enclosure": "SUP-BB-30-A",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -2634,7 +2556,6 @@
     {
       "id": "jabutis",
       "name": "Jabutis",
-      "enclosure": "SUP-BB-31",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -2666,7 +2587,6 @@
     {
       "id": "iguanas",
       "name": "Iguanas",
-      "enclosure": "SUP-BB-32",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -2698,7 +2618,6 @@
     {
       "id": "teius",
       "name": "Teius",
-      "enclosure": "SUP-BB-33",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -2730,7 +2649,6 @@
     {
       "id": "camaleoes",
       "name": "Camaleoes",
-      "enclosure": "SUP-BB-34",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -2762,7 +2680,6 @@
     {
       "id": "escincos",
       "name": "Escincos",
-      "enclosure": "SUP-BB-35",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -2794,7 +2711,6 @@
     {
       "id": "pitons",
       "name": "Pitons",
-      "enclosure": "SUP-BB-36",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -2826,7 +2742,6 @@
     {
       "id": "viboras",
       "name": "Viboras",
-      "enclosure": "SUP-BB-37",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -2858,7 +2773,6 @@
     {
       "id": "crocodilianos",
       "name": "Crocodilianos",
-      "enclosure": "SUP-BB-38",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -2890,7 +2804,6 @@
     {
       "id": "sapos",
       "name": "Sapos",
-      "enclosure": "SUP-BB-39",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -2922,7 +2835,6 @@
     {
       "id": "salamandras",
       "name": "Salamandras",
-      "enclosure": "SUP-BB-40",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -2954,7 +2866,6 @@
     {
       "id": "rolinhas",
       "name": "Rolinhas",
-      "enclosure": "SUP-BE-01",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -2986,7 +2897,6 @@
     {
       "id": "gralhas",
       "name": "Gralhas",
-      "enclosure": "SUP-BE-02",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -3018,7 +2928,6 @@
     {
       "id": "codornas",
       "name": "Codornas",
-      "enclosure": "SUP-BE-03",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -3050,7 +2959,6 @@
     {
       "id": "faisoes",
       "name": "Faisoes",
-      "enclosure": "SUP-BE-04",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -3082,7 +2990,6 @@
     {
       "id": "perus",
       "name": "Perus",
-      "enclosure": "SUP-BE-05",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -3114,7 +3021,6 @@
     {
       "id": "gansos",
       "name": "Gansos",
-      "enclosure": "SUP-BE-06",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -3146,7 +3052,6 @@
     {
       "id": "papagaios",
       "name": "Papagaios",
-      "enclosure": "SUP-BE-07",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -3178,7 +3083,6 @@
     {
       "id": "periquitos",
       "name": "Periquitos",
-      "enclosure": "SUP-BE-08",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -3210,7 +3114,6 @@
     {
       "id": "tucanos",
       "name": "Tucanos",
-      "enclosure": "SUP-BE-09",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -3242,7 +3145,6 @@
     {
       "id": "martins_pescadores",
       "name": "Martins-pescadores",
-      "enclosure": "SUP-BE-10",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -3274,7 +3176,6 @@
     {
       "id": "andorinhas",
       "name": "Andorinhas",
-      "enclosure": "SUP-BE-11",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -3306,7 +3207,6 @@
     {
       "id": "cotovias",
       "name": "Cotovias",
-      "enclosure": "SUP-BE-12",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -3338,7 +3238,6 @@
     {
       "id": "tentilhoes",
       "name": "Tentilhoes",
-      "enclosure": "SUP-BE-13",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -3370,7 +3269,6 @@
     {
       "id": "pintassilgos",
       "name": "Pintassilgos",
-      "enclosure": "SUP-BE-14",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -3402,7 +3300,6 @@
     {
       "id": "abutres",
       "name": "Abutres",
-      "enclosure": "SUP-BE-15",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -3434,7 +3331,6 @@
     {
       "id": "garcas",
       "name": "Garcas",
-      "enclosure": "SUP-BE-16",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -3466,7 +3362,6 @@
     {
       "id": "cormoroes",
       "name": "Cormoroes",
-      "enclosure": "SUP-BE-17",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -3498,7 +3393,6 @@
     {
       "id": "flamingos",
       "name": "Flamingos",
-      "enclosure": "SUP-BE-18",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -3530,7 +3424,6 @@
     {
       "id": "beija_flores",
       "name": "Beija-flores",
-      "enclosure": "SUP-BE-19",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -3562,7 +3455,6 @@
     {
       "id": "falcoes_pequenos",
       "name": "Falcoes-pequenos",
-      "enclosure": "SUP-BE-20",
       "deck": 3,
       "quantity": 14,
       "males": 7,
@@ -3594,7 +3486,6 @@
     {
       "id": "lebres",
       "name": "Lebres",
-      "enclosure": "SUP-BE-21-A",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -3626,7 +3517,6 @@
     {
       "id": "esquilos",
       "name": "Esquilos",
-      "enclosure": "SUP-BE-22-A",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -3658,7 +3548,6 @@
     {
       "id": "castores",
       "name": "Castores",
-      "enclosure": "SUP-BE-23-A",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -3690,7 +3579,6 @@
     {
       "id": "chinchilas",
       "name": "Chinchilas",
-      "enclosure": "SUP-BE-24-A",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -3722,7 +3610,6 @@
     {
       "id": "hamsters",
       "name": "Hamsters",
-      "enclosure": "SUP-BE-25-A",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -3754,7 +3641,6 @@
     {
       "id": "camundongos",
       "name": "Camundongos",
-      "enclosure": "SUP-BE-26-A",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -3786,7 +3672,6 @@
     {
       "id": "musaranhos",
       "name": "Musaranhos",
-      "enclosure": "SUP-BE-27-A",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -3818,7 +3703,6 @@
     {
       "id": "ouricos",
       "name": "Ouricos",
-      "enclosure": "SUP-BE-28-A",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -3850,7 +3734,6 @@
     {
       "id": "furoes",
       "name": "Furoes",
-      "enclosure": "SUP-BE-29-A",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -3882,7 +3765,6 @@
     {
       "id": "morcegos",
       "name": "Morcegos",
-      "enclosure": "SUP-BE-30",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -3914,7 +3796,6 @@
     {
       "id": "tartarugas_semiaquaticas",
       "name": "Tartarugas-semiaquaticas",
-      "enclosure": "SUP-BE-31",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -3946,7 +3827,6 @@
     {
       "id": "varanos",
       "name": "Varanos",
-      "enclosure": "SUP-BE-32",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -3978,7 +3858,6 @@
     {
       "id": "agamas",
       "name": "Agamas",
-      "enclosure": "SUP-BE-33",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -4010,7 +3889,6 @@
     {
       "id": "lagartixas",
       "name": "Lagartixas",
-      "enclosure": "SUP-BE-34",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -4042,7 +3920,6 @@
     {
       "id": "jiboias",
       "name": "Jiboias",
-      "enclosure": "SUP-BE-35",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -4074,7 +3951,6 @@
     {
       "id": "cobras_nao_peconhentas",
       "name": "Cobras-nao-peconhentas",
-      "enclosure": "SUP-BE-36",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -4106,7 +3982,6 @@
     {
       "id": "najas",
       "name": "Najas",
-      "enclosure": "SUP-BE-37",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -4138,7 +4013,6 @@
     {
       "id": "ras",
       "name": "Ras",
-      "enclosure": "SUP-BE-38",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -4170,7 +4044,6 @@
     {
       "id": "pererecas",
       "name": "Pererecas",
-      "enclosure": "SUP-BE-39",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -4202,7 +4075,6 @@
     {
       "id": "cecilias",
       "name": "Cecilias",
-      "enclosure": "SUP-BE-40",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -4234,7 +4106,6 @@
     {
       "id": "preguicas",
       "name": "Preguiças",
-      "enclosure": "MED-BB-13-B",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -4255,10 +4126,6 @@
         0.45
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Alocado no catálogo físico v1; referência dimensional provisória.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "quadrupede_suspenso_referencia",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Preguiça de porte médio",
@@ -4270,7 +4137,6 @@
     {
       "id": "tatus",
       "name": "Tatus",
-      "enclosure": "MED-BB-14-B",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -4291,10 +4157,6 @@
         0.35
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Alocado no catálogo físico v1; referência dimensional provisória.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "quadrupede",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Tatu de porte médio",
@@ -4306,7 +4168,6 @@
     {
       "id": "pandas",
       "name": "Pandas",
-      "enclosure": "MED-BE-01-B",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -4327,10 +4188,6 @@
         0.75
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Alocado no catálogo físico v1; referência dimensional provisória.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "quadrupede",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Panda-gigante",
@@ -4342,7 +4199,6 @@
     {
       "id": "coalas",
       "name": "Coalas",
-      "enclosure": "MED-BB-16-B",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -4363,10 +4219,6 @@
         0.4
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Alocado no catálogo físico v1; referência dimensional provisória.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "quadrupede",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Coala",
@@ -4378,7 +4230,6 @@
     {
       "id": "lemures",
       "name": "Lêmures",
-      "enclosure": "MED-BE-16-B",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -4399,10 +4250,6 @@
         0.3
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Alocado no catálogo físico v1; referência dimensional provisória.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "quadrupede",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Lêmure de porte médio",
@@ -4414,7 +4261,6 @@
     {
       "id": "lontras",
       "name": "Lontras",
-      "enclosure": "MED-BB-11-B",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -4435,10 +4281,6 @@
         0.3
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Alocado no catálogo físico v1; referência dimensional provisória.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "quadrupede",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Lontra de porte médio",
@@ -4450,7 +4292,6 @@
     {
       "id": "suricatos",
       "name": "Suricatos",
-      "enclosure": "MED-BB-12-B",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -4471,10 +4312,6 @@
         0.15
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Alocado no catálogo físico v1; referência dimensional provisória.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "quadrupede",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Suricato",
@@ -4486,7 +4323,6 @@
     {
       "id": "ocapis",
       "name": "Ocapis",
-      "enclosure": "MED-BE-03-B",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -4507,10 +4343,6 @@
         0.75
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Alocado no catálogo físico v1; referência dimensional provisória.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "quadrupede",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Ocapi",
@@ -4522,7 +4354,6 @@
     {
       "id": "pangolins",
       "name": "Pangolins",
-      "enclosure": "MED-BE-05-B",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -4543,10 +4374,6 @@
         0.3
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Alocado no catálogo físico v1; referência dimensional provisória.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "quadrupede",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Pangolim de porte médio",
@@ -4558,7 +4385,6 @@
     {
       "id": "porcos-formigueiros",
       "name": "Porcos-formigueiros",
-      "enclosure": "MED-BE-15-B",
       "deck": 2,
       "quantity": 2,
       "males": 1,
@@ -4579,10 +4405,6 @@
         0.45
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Alocado no catálogo físico v1; referência dimensional provisória.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "quadrupede",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Porco-formigueiro",
@@ -4594,7 +4416,6 @@
     {
       "id": "pinguins",
       "name": "Pinguins",
-      "enclosure": "MED-BB-09-B",
       "deck": 2,
       "quantity": 14,
       "males": 7,
@@ -4615,10 +4436,6 @@
         0.35
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
-      "quantity_status": "14 indivíduos: convenção editorial de sete pares de aves.",
-      "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "ereto_pousado",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Pinguim de porte médio",
@@ -4630,7 +4447,6 @@
     {
       "id": "kiwis",
       "name": "Kiwis",
-      "enclosure": "MED-BB-15-B",
       "deck": 2,
       "quantity": 14,
       "males": 7,
@@ -4651,10 +4467,6 @@
         0.25
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
-      "quantity_status": "14 indivíduos: convenção editorial de sete pares de aves.",
-      "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "ereto_pousado",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Kiwi",
@@ -4666,7 +4478,6 @@
     {
       "id": "casuares",
       "name": "Casuares",
-      "enclosure": "MED-BE-07-B",
       "deck": 2,
       "quantity": 14,
       "males": 7,
@@ -4687,10 +4498,6 @@
         0.45
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
-      "quantity_status": "14 indivíduos: convenção editorial de sete pares de aves.",
-      "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "ereto_pousado",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Casuar-do-sul",
@@ -4709,7 +4516,6 @@
     {
       "id": "cisnes",
       "name": "Cisnes",
-      "enclosure": "MED-BB-10-B",
       "deck": 2,
       "quantity": 14,
       "males": 7,
@@ -4730,10 +4536,6 @@
         0.5
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
-      "quantity_status": "14 indivíduos: convenção editorial de sete pares de aves.",
-      "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "ereto_pousado",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Cisne-mudo",
@@ -4752,7 +4554,6 @@
     {
       "id": "turacos",
       "name": "Turacos",
-      "enclosure": "MED-BE-02-B",
       "deck": 2,
       "quantity": 14,
       "males": 7,
@@ -4773,10 +4574,6 @@
         0.2
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
-      "quantity_status": "14 indivíduos: convenção editorial de sete pares de aves.",
-      "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "ereto_pousado",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Turaco de porte médio",
@@ -4788,7 +4585,6 @@
     {
       "id": "formigas",
       "name": "Formigas",
-      "enclosure": "SUP-BB-21-B",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -4809,10 +4605,6 @@
         0.004
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Formiga de grande porte para leitura visual",
@@ -4824,7 +4616,6 @@
     {
       "id": "abelhas",
       "name": "Abelhas",
-      "enclosure": "SUP-BB-22-B",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -4845,10 +4636,6 @@
         0.01
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Abelha",
@@ -4860,7 +4647,6 @@
     {
       "id": "vespas",
       "name": "Vespas",
-      "enclosure": "SUP-BB-23-B",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -4881,10 +4667,6 @@
         0.012
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Vespa",
@@ -4896,7 +4678,6 @@
     {
       "id": "cupins",
       "name": "Cupins",
-      "enclosure": "SUP-BB-24-B",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -4917,10 +4698,6 @@
         0.003
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Cupim",
@@ -4932,7 +4709,6 @@
     {
       "id": "besouros",
       "name": "Besouros",
-      "enclosure": "SUP-BB-25-B",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -4953,10 +4729,6 @@
         0.03
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Besouro de grande porte",
@@ -4968,7 +4740,6 @@
     {
       "id": "borboletas",
       "name": "Borboletas",
-      "enclosure": "SUP-BB-26-B",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -4989,10 +4760,6 @@
         0.12
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Borboleta de grande porte",
@@ -5004,7 +4771,6 @@
     {
       "id": "mariposas",
       "name": "Mariposas",
-      "enclosure": "SUP-BB-27-B",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -5025,10 +4791,6 @@
         0.1
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Mariposa de grande porte",
@@ -5040,7 +4802,6 @@
     {
       "id": "gafanhotos",
       "name": "Gafanhotos",
-      "enclosure": "SUP-BB-28-B",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -5061,10 +4822,6 @@
         0.03
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Gafanhoto de grande porte",
@@ -5076,7 +4833,6 @@
     {
       "id": "grilos",
       "name": "Grilos",
-      "enclosure": "SUP-BB-29-B",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -5097,10 +4853,6 @@
         0.02
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Grilo",
@@ -5112,7 +4864,6 @@
     {
       "id": "louva-a-deus",
       "name": "Louva-a-deus",
-      "enclosure": "SUP-BB-30-B",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -5133,10 +4884,6 @@
         0.04
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Louva-a-deus de grande porte",
@@ -5148,7 +4895,6 @@
     {
       "id": "bichos-pau",
       "name": "Bichos-pau",
-      "enclosure": "SUP-BE-21-B",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -5169,10 +4915,6 @@
         0.04
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Bicho-pau de grande porte",
@@ -5184,7 +4926,6 @@
     {
       "id": "baratas",
       "name": "Baratas",
-      "enclosure": "SUP-BE-22-B",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -5205,10 +4946,6 @@
         0.025
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Barata de grande porte",
@@ -5220,7 +4957,6 @@
     {
       "id": "aranhas",
       "name": "Aranhas",
-      "enclosure": "SUP-BE-23-B",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -5241,10 +4977,6 @@
         0.1
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Aranha de grande porte",
@@ -5256,7 +4988,6 @@
     {
       "id": "escorpioes",
       "name": "Escorpiões",
-      "enclosure": "SUP-BE-24-B",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -5277,10 +5008,6 @@
         0.07
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Escorpião de grande porte",
@@ -5292,7 +5019,6 @@
     {
       "id": "centopeias",
       "name": "Centopeias",
-      "enclosure": "SUP-BE-25-B",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -5313,10 +5039,6 @@
         0.04
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Centopeia de grande porte",
@@ -5328,7 +5050,6 @@
     {
       "id": "piolhos-de-cobra",
       "name": "Piolhos-de-cobra",
-      "enclosure": "SUP-BE-26-B",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -5349,10 +5070,6 @@
         0.02
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Diplópode de grande porte",
@@ -5364,7 +5081,6 @@
     {
       "id": "caracois-terrestres",
       "name": "Caracóis terrestres",
-      "enclosure": "SUP-BE-27-B",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -5385,10 +5101,6 @@
         0.04
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Caracol terrestre de grande porte",
@@ -5400,7 +5112,6 @@
     {
       "id": "lesmas",
       "name": "Lesmas",
-      "enclosure": "SUP-BE-28-B",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -5421,10 +5132,6 @@
         0.025
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Lesma de grande porte",
@@ -5436,7 +5143,6 @@
     {
       "id": "minhocas",
       "name": "Minhocas",
-      "enclosure": "SUP-BE-29-B",
       "deck": 3,
       "quantity": 2,
       "males": 1,
@@ -5457,10 +5163,6 @@
         0.01
       ],
       "staging_position_m": null,
-      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
-      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
-      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
-      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
       "dimension_basis": "adulto_representativo",
       "reference_form": "Minhoca de grande porte",
@@ -5483,7 +5185,10 @@
     "Espécies extintas não incluídas: exigem decisão explícita sobre escopo e período do jogo.",
     "Divisórias centrais agora definem baias A/B distintas. 10 casais transferidos da galeria para baias B, sem alterar a quantidade total de indivíduos."
   ],
-  "physical_catalog": "catalogo-baias-fisicas-v1.json",
   "scale_method": "Separar referência adulta da caixa usada no jogo. Grupos grandes podem usar jovens independentes explicitamente; nunca converter comprimento corporal em altura.",
-  "scale_review_date": "2026-09-22"
+  "scale_review_date": "2026-09-22",
+  "notes": [],
+  "housing_planner": "src/arca/plannedEnclosures.ts",
+  "housing_classes": "src/arca/animalPlanning.ts",
+  "structural_modules": "modulos-alojamento-base-v1.json"
 }
