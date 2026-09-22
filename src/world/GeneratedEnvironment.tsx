@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef } from "react"
 import * as THREE from "three"
 import { createWaterGeometry, forestInstances, type ForestInstance } from "./terrain"
+import { WaterMotion } from "./WaterMotion"
 
 function ForestLayer({ items, dark }: { items: ForestInstance[]; dark: boolean }) {
   const trunks = useRef<THREE.InstancedMesh>(null)
@@ -61,6 +62,7 @@ export function GeneratedEnvironment() {
           depthWrite={false}
         />
       </mesh>
+      <WaterMotion />
       <ForestLayer items={ordinary} dark={false} />
       <ForestLayer items={dark} dark />
     </group>
