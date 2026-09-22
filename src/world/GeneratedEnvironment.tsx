@@ -53,7 +53,7 @@ export function GeneratedEnvironment() {
     <group name="pilgrimage-generated-environment">
       <mesh geometry={water} receiveShadow renderOrder={1}>
         <meshStandardMaterial
-          color="#568eaf"
+          vertexColors
           roughness={.34}
           metalness={.03}
           transparent
