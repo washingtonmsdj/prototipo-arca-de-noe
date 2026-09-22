@@ -149,21 +149,32 @@ export function App() {
   const editableAnimalClip: AnimalClip = upstreamAnimalGroup === "wildlife"
     ? upstreamAnimalClip
     : upstreamTransportClip
-  const animalBakeTarget: AnimalBakeTarget = upstreamAnimalGroup === "wildlife"
-    ? {
-        family: "wildlife",
-        kind: upstreamAnimalKind,
-        clip: upstreamAnimalClip,
-        edits: animalEdits,
-      }
-    : {
-        family: "transport",
-        kind: transportDefinition.animal,
-        variant: transportDefinition.variant,
-        coatId: upstreamTransportCoat,
-        clip: upstreamTransportClip,
-        edits: animalEdits,
-      }
+  const animalBakeTarget = useMemo<AnimalBakeTarget>(
+    () => upstreamAnimalGroup === "wildlife"
+      ? {
+          family: "wildlife",
+          kind: upstreamAnimalKind,
+          clip: upstreamAnimalClip,
+          edits: animalEdits,
+        }
+      : {
+          family: "transport",
+          kind: transportDefinition.animal,
+          variant: transportDefinition.variant,
+          coatId: upstreamTransportCoat,
+          clip: upstreamTransportClip,
+          edits: animalEdits,
+        },
+    [
+      upstreamAnimalGroup,
+      upstreamAnimalKind,
+      upstreamAnimalClip,
+      transportDefinition,
+      upstreamTransportCoat,
+      upstreamTransportClip,
+      animalEdits,
+    ],
+  )
   const upstreamHumanFrameCount = upstreamHumanFrames(upstreamHumanClip)
   const safeHumanEditFrame = Math.min(humanEditFrame, upstreamHumanFrameCount - 1)
 
