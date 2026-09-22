@@ -1,9 +1,10 @@
 import { useMemo, useRef } from "react"
 import { useFrame } from "@react-three/fiber"
 import * as THREE from "three"
+import { plantFoot, type FootPlant } from "../../vendor/pilgrimage/lib/game/base-person/gait"
 import { solveTwoBoneLeg } from "../animals/ik"
 import { terrainHeight, terrainSlope } from "../world/terrain"
-import { humanSpeed, humanStride, sampleHumanFoot } from "./gait"
+import { HUMAN_STANCE, humanSpeed, humanStride, sampleHumanFoot } from "./gait"
 import { humanPose } from "./pose"
 import type { HumanClip, HumanDesign } from "./types"
 
@@ -62,6 +63,7 @@ export function Human({
   const lowerArm = useRef<(THREE.Mesh | null)[]>([])
   const hands = useRef<(THREE.Mesh | null)[]>([])
   const jointMarkers = useRef<(THREE.Mesh | null)[]>([])
+  const plantedFoot = useRef<FootPlant | null>(null)
 
   const motion = useRef({ distance: pathOffset * pathRadius, angle: pathOffset, action: pathOffset })
   const legX = design.hipWidth * .55
@@ -96,14 +98,48 @@ export function Human({
       : motion.current.action % 1
 
     const angle = motion.current.angle
-    const x = stationary ? origin[0] : origin[0] + Math.cos(angle) * pathRadius
-    const z = stationary ? origin[1] : origin[1] + Math.sin(angle) * pathRadius
+    const desiredX = stationary ? origin[0] : origin[0] + Math.cos(angle) * pathRadius
+    const desiredZ = stationary ? origin[1] : origin[1] + Math.sin(angle) * pathRadius
     const heading = stationary ? 0 : -angle
-    const ground = terrainHeight(x, z)
-    const slope = terrainSlope(x, z)
+    const desiredGround = terrainHeight(desiredX, desiredZ)
     const pose = humanPose(clip, phase)
 
-    root.current.position.set(x, ground, z)
+    let rootX = desiredX
+    let rootY = desiredGround
+    let rootZ = desiredZ
+
+    if (moving) {
+      const cycle = ((phase % 1) + 1) % 1
+      const supportRight = !(cycle >= HUMAN_STANCE - .5 && cycle < HUMAN_STANCE)
+      const support = sampleHumanFoot(design, phase, supportRight)
+      const sign = supportRight ? -1 : 1
+      const scale = design.height
+      const localX = sign * legX * scale
+      const localZ = support.z * scale
+      const cos = Math.cos(heading)
+      const sin = Math.sin(heading)
+      const contact = {
+        x: localX * cos + localZ * sin,
+        y: support.y * scale,
+        z: -localX * sin + localZ * cos,
+      }
+      const planted = plantFoot(
+        plantedFoot.current,
+        `${design.id}:${supportRight ? "right" : "left"}`,
+        { x: desiredX, y: desiredGround, z: desiredZ },
+        contact,
+        terrainHeight,
+      )
+      plantedFoot.current = planted.plant
+      rootX += planted.offset.x
+      rootY += planted.offset.y
+      rootZ += planted.offset.z
+    } else {
+      plantedFoot.current = null
+    }
+
+    const slope = terrainSlope(rootX, rootZ)
+    root.current.position.set(rootX, rootY, rootZ)
     root.current.rotation.order = "YXZ"
     root.current.rotation.y = heading
     root.current.rotation.x = -Math.atan(slope.dz * .28)
@@ -123,7 +159,6 @@ export function Human({
     for (let side = 0; side < 2; side++) {
       const right = side === 1
       const sample = sampleHumanFoot(design, phase, right)
-      const hip = hips[side]
       const solution = solveTwoBoneLeg(
         { y: baseHipHeight + pose.bodyY, z: 0 },
         { y: sample.y, z: sample.z },
