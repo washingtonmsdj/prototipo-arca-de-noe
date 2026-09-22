@@ -28,14 +28,32 @@ export const animalPlacements = dimensions.animals.flatMap((animal, group) => {
   const sz = rotated ? length : width
   const occupiedWidth = columns * sx + (columns - 1) * gap
   const occupiedDepth = rows * sz + (rows - 1) * gap
+  const penWidth = max[0] - min[0]
+  const penDepth = max[2] - min[2]
 
   if (
-    occupiedWidth > max[0] - min[0] + 1e-6
-    || occupiedDepth > max[2] - min[2] + 1e-6
+    occupiedWidth > penWidth + 1e-6
+    || occupiedDepth > penDepth + 1e-6
     || height + .02 > max[1] - min[1] + 1e-6
   ) {
     throw new Error(`Animais excedem a baia planejada de ${animal.name}`)
   }
+
+  // Use most of the planned animal zone instead of clustering every body in
+  // the centre. A deliberate perimeter remains for gates, troughs, cleaning
+  // and keeper access.
+  const spreadWidth = Math.max(
+    occupiedWidth,
+    Math.min(penWidth - .18, penWidth * .82),
+  )
+  const spreadDepth = Math.max(
+    occupiedDepth,
+    Math.min(penDepth - .18, penDepth * .82),
+  )
+  const stepX = columns > 1 ? (spreadWidth - sx) / (columns - 1) : 0
+  const stepZ = rows > 1 ? (spreadDepth - sz) / (rows - 1) : 0
+  const startX = (min[0] + max[0] - spreadWidth + sx) / 2
+  const startZ = (min[2] + max[2] - spreadDepth + sz) / 2
 
   return Array.from({ length: animal.quantity }, (_, index) => {
     const male = index % 2 === 0
@@ -53,11 +71,9 @@ export const animalPlacements = dimensions.animals.flatMap((animal, group) => {
       dimensionBasis: animal.dimension_basis,
       dimensions: [length, height, width] as [number, number, number],
       position: [
-        (min[0] + max[0] - occupiedWidth + sx) / 2
-          + index % columns * (sx + gap),
+        startX + index % columns * stepX,
         min[1] + height / 2 + .02,
-        (min[2] + max[2] - occupiedDepth + sz) / 2
-          + Math.floor(index / columns) * (sz + gap),
+        startZ + Math.floor(index / columns) * stepZ,
       ] as [number, number, number],
       rotation: rotated ? Math.PI / 2 : 0,
       hue: group * .61803398875 % 1,
