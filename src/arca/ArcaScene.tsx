@@ -12,7 +12,6 @@ import { EnclosureColliders } from "./EnclosureColliders"
 import { EnclosurePartitions } from "./EnclosurePartitions"
 
 interface ArcaSceneProps {
-  gallery?: boolean
   birds?: boolean
   doorOpen: boolean
   paused: boolean
@@ -173,13 +172,13 @@ function ArcaLighting() {
   )
 }
 
-export function ArcaScene({ doorOpen, paused, onInteract, onNearDoor, gallery, birds }: ArcaSceneProps) {
+export function ArcaScene({ doorOpen, paused, onInteract, onNearDoor, birds }: ArcaSceneProps) {
   return (
     <>
       <ArcaLighting />
       <Suspense fallback={null}>
         {onInteract && onNearDoor
-          ? <NoePlayer paused={paused} onInteract={onInteract} onNearDoor={onNearDoor} gallery={gallery} birds={birds} />
+          ? <NoePlayer paused={paused} onInteract={onInteract} onNearDoor={onNearDoor} birds={birds} />
           : <ArcaCamera />}
         <TerrainModel />
         <ArcaModel doorOpen={doorOpen} paused={paused} />
