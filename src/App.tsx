@@ -32,6 +32,7 @@ import { HumanBakePanel } from "./dev/HumanBakePanel"
 import type { EditableJoint, PoseEdits } from "../vendor/pilgrimage/lib/game/base-person/pose-edits"
 import { SOCKET_NAMES, type SocketName } from "../vendor/pilgrimage/lib/game/base-person/pose"
 import { HUMAN_ATTACHMENTS, type HumanAttachmentKind } from "./humans/attachments"
+import { isOriginalMovingClip } from "./humans/upstream-motion"
 import {
   ANIMAL_FRAMES,
   EMPTY_ANIMAL_EDITS,
@@ -128,6 +129,7 @@ export function App() {
   const [humanEdits, setHumanEdits] = useState<PoseEdits>({})
   const [humanAttachment, setHumanAttachment] = useState<HumanAttachmentKind | "">("")
   const [humanAttachmentSocket, setHumanAttachmentSocket] = useState<SocketName>("rightHand")
+  const [humanMoving, setHumanMoving] = useState(false)
   const [humanClip, setHumanClip] = useState<HumanClip>("walk")
   const [speedScale, setSpeedScale] = useState(1)
   const [paused, setPaused] = useState(false)
@@ -181,6 +183,7 @@ export function App() {
   )
   const upstreamHumanFrameCount = upstreamHumanFrames(upstreamHumanClip)
   const safeHumanEditFrame = Math.min(humanEditFrame, upstreamHumanFrameCount - 1)
+  const canMoveOriginalHuman = isOriginalMovingClip(upstreamHumanClip)
 
   useEffect(() => {
     if (!species.supportedGaits.includes(gait)) setGait(species.supportedGaits[0])
@@ -201,6 +204,10 @@ export function App() {
   useEffect(() => {
     if (humanEditFrame !== safeHumanEditFrame) setHumanEditFrame(safeHumanEditFrame)
   }, [humanEditFrame, safeHumanEditFrame])
+
+  useEffect(() => {
+    if (!canMoveOriginalHuman && humanMoving) setHumanMoving(false)
+  }, [canMoveOriginalHuman, humanMoving])
 
   return (
     <main className="app-shell">
@@ -232,6 +239,7 @@ export function App() {
           humanEditPhase={humanRigEditing ? safeHumanEditFrame / upstreamHumanFrameCount : undefined}
           humanAttachment={humanAttachment || undefined}
           humanAttachmentSocket={humanAttachment ? humanAttachmentSocket : undefined}
+          humanMoving={humanMoving}
           speedScale={speedScale}
           paused={paused}
           showRig={showRig}
@@ -450,6 +458,14 @@ export function App() {
                 <div className="button-row">
                   <button
                     type="button"
+                    className={humanMoving ? "active" : ""}
+                    disabled={!canMoveOriginalHuman || humanRigEditing}
+                    onClick={() => setHumanMoving((value) => !value)}
+                  >
+                    {humanMoving ? "Parar deslocamento" : "Mover no mundo"}
+                  </button>
+                  <button
+                    type="button"
                     className={humanRigEditing ? "active" : ""}
                     onClick={() => setHumanRigEditing((value) => !value)}
                   >
@@ -561,6 +577,7 @@ export function App() {
               <div><dt>Preset</dt><dd>{upstreamHumanPreset}</dd></div>
               <div><dt>Rig</dt><dd>original</dd></div>
               <div><dt>Clip</dt><dd>{upstreamHumanClipLabels[upstreamHumanClip]}</dd></div>
+              <div><dt>Locomoção</dt><dd>{humanMoving ? "distância + foot lock" : "preview estacionário"}</dd></div>
             </>
           ) : (
             <>
