@@ -9,6 +9,7 @@ import { AnimalBlocks } from "./AnimalBlocks"
 import { RampAccess } from "./RampAccess"
 import { EnclosureSigns } from "./EnclosureSigns"
 import { EnclosureColliders } from "./EnclosureColliders"
+import { EnclosurePartitions } from "./EnclosurePartitions"
 
 interface ArcaSceneProps {
   gallery?: boolean
@@ -184,6 +185,7 @@ export function ArcaScene({ doorOpen, paused, onInteract, onNearDoor, gallery, b
         <ArcaModel doorOpen={doorOpen} paused={paused} />
         <InteriorModel />
         <AnimalBlocks />
+        <EnclosurePartitions />
         <EnclosureSigns />
         <EnclosureColliders />
         <RampAccess />
