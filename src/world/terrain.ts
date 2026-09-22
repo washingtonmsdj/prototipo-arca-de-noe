@@ -380,6 +380,100 @@ export function forestInstances(limit = 440): ForestInstance[] {
   return candidates.slice(0, limit)
 }
 
+export interface WalkableLoop {
+  origin: [number, number]
+  radius: number
+  phase: number
+}
+
+export function isWalkable(x: number, z: number) {
+  if (
+    x <= -HALF_WORLD + TILE_SIZE
+    || x >= HALF_WORLD - TILE_SIZE
+    || z <= -HALF_WORLD + TILE_SIZE
+    || z >= HALF_WORLD - TILE_SIZE
+  ) return false
+
+  const { index } = worldSample(x, z)
+  const kind = GENERATED_WORLD.tiles[index]
+  if (GENERATED_WATER.kind[index] || !TERRAIN[kind].passable) return false
+  if (GENERATED_ELEVATION.cliffs[index]) return false
+
+  const grade = GENERATED_ELEVATION.slope[index] * HEIGHT_SCALE / TILE_SIZE
+  return grade <= .72
+}
+
+export function isWalkableLoop(origin: readonly [number, number], radius: number, samples = 32) {
+  if (radius <= 0) return isWalkable(origin[0], origin[1])
+  for (let i = 0; i < samples; i++) {
+    const angle = i / samples * Math.PI * 2
+    const x = origin[0] + Math.cos(angle) * radius
+    const z = origin[1] + Math.sin(angle) * radius
+    if (!isWalkable(x, z)) return false
+  }
+  return true
+}
+
+/**
+ * Pick a deterministic circular roaming area from generated clearings.
+ * The loop is validated against the final elevation/water/cliff field instead
+ * of assuming a visually open tile is traversable.
+ */
+export function findWalkableLoop(seed: number, preferredRadius: number): WalkableLoop {
+  const rng = makeRng(WORLD_SEED ^ Math.imul(seed + 1, 0x45d9f3b))
+  const clearings = GENERATED_WORLD.clearings
+    .filter((clearing) => clearing.kind === "main")
+    .map((clearing) => ({ ...clearing }))
+
+  for (let i = clearings.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1))
+    ;[clearings[i], clearings[j]] = [clearings[j], clearings[i]]
+  }
+
+  for (const clearing of clearings) {
+    const center = tileToWorld(clearing.x, clearing.z)
+    const capacity = Math.max(.55, (clearing.radius - 2) * TILE_SIZE * .72)
+    const baseRadius = Math.min(preferredRadius, capacity)
+
+    for (const scale of [1, .88, .76, .64]) {
+      const radius = Math.max(.5, baseRadius * scale)
+      for (let attempt = 0; attempt < 5; attempt++) {
+        const jitter = Math.max(0, capacity - radius) * .45
+        const angle = rng() * Math.PI * 2
+        const distance = rng() * jitter
+        const origin: [number, number] = [
+          center.x + Math.cos(angle) * distance,
+          center.z + Math.sin(angle) * distance,
+        ]
+        if (isWalkableLoop(origin, radius)) {
+          return { origin, radius, phase: rng() * Math.PI * 2 }
+        }
+      }
+    }
+  }
+
+  for (let attempt = 0; attempt < 600; attempt++) {
+    const origin: [number, number] = [
+      (rng() - .5) * (WORLD_SIZE - 6),
+      (rng() - .5) * (WORLD_SIZE - 6),
+    ]
+    for (const radius of [Math.min(preferredRadius, 1.4), 1, .65]) {
+      if (isWalkableLoop(origin, radius)) {
+        return { origin, radius, phase: rng() * Math.PI * 2 }
+      }
+    }
+  }
+
+  // Generated maps normally contain many clearings. This fallback keeps the
+  // function total without inventing an unsafe moving path.
+  for (let z = 1; z < WORLD_TILES - 1; z++) for (let x = 1; x < WORLD_TILES - 1; x++) {
+    const point = tileToWorld(x, z)
+    if (isWalkable(point.x, point.z)) return { origin: [point.x, point.z], radius: 0, phase: 0 }
+  }
+
+  return { origin: [0, 0], radius: 0, phase: 0 }
+}
+
 export function seeded(seed: number) {
   return makeRng(seed)
 }
