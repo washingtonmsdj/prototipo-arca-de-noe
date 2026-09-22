@@ -96,7 +96,7 @@ describe("ark animal enclosure layout", () => {
       expect(animal.life_stage, animal.id).toMatch(/^(adult|juvenile_independent)$/)
       expect(animal.posture, animal.id).toBeTruthy()
       expect(animal.dimension_basis, animal.id).toBeTruthy()
-      expect(animal.scale_review, animal.id).toBe("zoological-proportion-v3")
+      expect(animal.scale_review, animal.id).toBe("zoological-proportion-v4")
       expect(animal.scale_confidence, animal.id).toMatch(/^(high|medium)$/)
       expect(animal.staging_position_m, animal.id).toBeNull()
       expect("enclosure" in animal, animal.id).toBe(false)
@@ -118,8 +118,15 @@ describe("ark animal enclosure layout", () => {
     expect(dimensions.animals.every(animal => animal.posture && animal.dimension_basis)).toBe(true)
   })
 
-  it("eliminates extreme crowding and reserves explicit service space", () => {
+  it("keeps planned occupancy visually coherent and reserves explicit service space", () => {
+    const ordinary = physicalPens.filter(pen =>
+      pen.housing_class !== "insectarium"
+      && pen.housing_class !== "micro_terrarium"
+      && pen.housing_class !== "small_cage"
+    )
+
     expect(Math.max(...physicalPens.map(pen => pen.occupancy_ratio))).toBeLessThan(.66)
+    expect(Math.min(...ordinary.map(pen => pen.occupancy_ratio))).toBeGreaterThan(.18)
     expect(serviceZones.length).toBeGreaterThan(0)
     expect(serviceZones.every(zone => zone.area_m2 >= .5)).toBe(true)
 
