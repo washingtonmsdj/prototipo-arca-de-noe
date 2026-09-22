@@ -27,6 +27,9 @@ Referência upstream: `tomjohndesign/pilgrimage@c5e8c507a4ae4fe925f789793dd463b9
 | Human geometry-aware clip blend | Ativo | `src/humans/pose-transition.ts` |
 | Animal world locomotion | Ativo | `src/animals/upstream-motion.ts` |
 | Single-support quadruped foot lock | Ativo | `src/animals/upstream-motion.ts` + original components |
+| Perspective sprite/depth runtime | Ativo | `src/pilgrimage/runtime/DepthAtlasSprite.tsx` |
+| Shared-state rig/sprite LOD | Ativo | `OriginalHumanActor.tsx`, `OriginalAnimalActor.tsx` |
+| Automatic LOD hysteresis | Ativo | `src/pilgrimage/runtime/lod.ts` |
 | Safe roaming/lab placement | Ativo | `src/world/terrain.ts` |
 
 ## Preservado como snapshot, mas não executado diretamente
@@ -53,9 +56,9 @@ Esses módulos não são necessários para gerar/animar animais, pessoas ou o te
 
 ## Próximos ports úteis
 
-1. LOD sprite/depth em runtime com depth correto;
-2. biblioteca real de props/equipamentos;
-3. CLI fino sobre os bakers browser somente se houver ganho operacional;
-4. pontes/fords quando o gameplay exigir travessia;
-5. navegação/rotas apenas quando o gameplay exigir;
-6. profiling de muitos rigs originais antes de transformar o laboratório em população real.
+1. manifest/cache persistente para atlases baked usados fora da sessão do laboratório;
+2. profiling de muitos atores com troca automática de LOD;
+3. biblioteca real de props/equipamentos;
+4. CLI de bake quando houver pipeline persistente de assets para alimentar;
+5. pontes/fords quando o gameplay exigir travessia;
+6. navegação/rotas apenas quando o gameplay exigir.
