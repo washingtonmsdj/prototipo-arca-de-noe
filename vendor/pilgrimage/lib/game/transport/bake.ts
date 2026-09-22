@@ -1,0 +1,265 @@
+import { inkAnimalFrame } from "../base-person/ink"
+import { packHandlerDesign } from "./handler"
+import { PARTY_BAKE, PASSENGER_SEATS, PASSENGER_CALLINGS, PASSENGER_COLUMNS } from "./party-assets"
+import * as THREE from "three"
+import { addSurfaceLighting } from "../render/lighting"
+import { BASE_PERSON, PERSON_CLIPS, WALK_CLIP_STRIDES } from "../base-person/pose"
+import { personFrameRenderer, renderPersonPreview } from "../base-person/bake"
+import { KEEPER_CLIPS, KEEPER_COLUMNS } from "./keeper"
+import { poseDriver, DRIVER_CLIP, driverPoint } from "./driver"
+import { merchantGesture } from "./merchant-poses"
+import { COATS } from "./coats"
+import { populationDesign } from "../base-person/population"
+import { TRAVELER_TYPES } from "../travelers"
+import { PACK_ANIMAL_VERSION, CARGO, CART, CART_WIDTH_SCALE, SHOP, SHOP_SECONDS, CART_MODES, TRANSPORT, ANIMAL_COLUMNS, ANIMAL_RIG_VERSION, CART_COLUMNS, ANIMAL_PROFILES, HORSE_VARIANTS, pullingDesign } from "./assets"
+import { createAnimalRig, createCartRig } from "./rig"
+import { spriteDepthBaker, SPRITE_DEPTH_ENCODING } from "../render/bake-depth"
+
+function canvas(width: number, height: number) {
+  const canvas = document.createElement("canvas"); canvas.width = width; canvas.height = height
+  const depth = document.createElement("canvas"); depth.width = width; depth.height = height
+  return { canvas, ctx: canvas.getContext("2d", { willReadFrequently: true })!, depth, depthCtx: depth.getContext("2d")! }
+}
+async function decode(url: string) { const image = new Image(); image.src = url; await image.decode(); return image }
+
+/** Deterministic native-pixel exports, at the person's camera and pixel density. */
+export async function bakeTransport(options: { partiesOnly?: boolean; packsOnly?: boolean } = {}) {
+  let size: number = TRANSPORT.cellSize
+  const extent = TRANSPORT.viewSize, anchor = TRANSPORT.anchor
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: false, preserveDrawingBuffer: true })
+  const depthBaker = spriteDepthBaker(renderer)
+  renderer.setSize(size, size, false); renderer.setPixelRatio(1); renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.setClearColor(0, 0)
+  const scene = new THREE.Scene()
+  addSurfaceLighting(scene)
+  const pitch = BASE_PERSON.camera.pitch * Math.PI / 180
+  const targetY = ((anchor[1] - size / 2) / size * extent) / Math.cos(pitch)
+  const camera = new THREE.OrthographicCamera(-extent / 2, extent / 2, extent / 2, -extent / 2, 0.1, 30)
+  camera.position.set(0, targetY + 10 * Math.sin(pitch), 10 * Math.cos(pitch)); camera.lookAt(0, targetY, 0)
+  let frame = canvas(size, size)
+  function configure(cell: number, at: readonly number[]) {
+    size = cell
+    const view = extent * cell / TRANSPORT.cellSize
+    renderer.setSize(cell, cell, false)
+    camera.left = camera.bottom = -view / 2; camera.right = camera.top = view / 2
+    const target = ((at[1] - cell / 2) / cell * view) / Math.cos(pitch)
+    camera.position.set(0, target + 10 * Math.sin(pitch), 10 * Math.cos(pitch)); camera.lookAt(0, target, 0); camera.updateProjectionMatrix()
+    frame = canvas(cell, cell)
+  }
+  let safePadding: number = size
+  function render(root: THREE.Group, row: number, target: ReturnType<typeof canvas>, col: number, targetRow = row, directions = 8, animalInk = false) {
+    root.rotation.y = -row * Math.PI * 2 / directions
+    renderer.render(scene, camera)
+    frame.ctx.clearRect(0, 0, size, size); frame.ctx.drawImage(renderer.domElement, 0, 0)
+    const data = frame.ctx.getImageData(0, 0, size, size)
+    for (let i = 0; i < data.data.length; i += 4) {
+      if (data.data[i + 3] < 128) { data.data.fill(0, i, i + 4); continue }
+      data.data[i + 3] = 255
+      // Small color clusters, binary silhouettes, no filtered pixel edges.
+      for (let c = 0; c < 3; c++) data.data[i + c] = Math.min(255, Math.round(data.data[i + c] / 12) * 12)
+      const x = i / 4 % size, y = Math.floor(i / 4 / size)
+      safePadding = Math.min(safePadding, x, y, size - 1 - x, size - 1 - y)
+    }
+    const source = new Uint8ClampedArray(data.data)
+    if (animalInk) data.data.set(inkAnimalFrame(source, size))
+    frame.ctx.putImageData(data, 0, 0); target.ctx.drawImage(frame.canvas, col * size, targetRow * size)
+    target.depthCtx.drawImage(depthBaker.render(scene, camera, size, camera.right - camera.left, source, data.data), col * size, targetRow * size)
+  }
+  const images: Record<string, string> = {}
+  const save = (name: string, sheet: ReturnType<typeof canvas>) => {
+    images[name] = sheet.canvas.toDataURL()
+    images[`depth-${name}`] = sheet.depth.toDataURL()
+  }
+  try {
+    if (options.partiesOnly || options.packsOnly) {
+      for (const style of options.packsOnly ? [] : ["bench","rear"] as const) {
+        configure(CART.cellSize,CART.anchor)
+        const sheet=canvas(size*CART_COLUMNS,size*CART.directions), rig=createCartRig("textiles","horse",false,style)
+        scene.add(rig.root)
+        for(let row=0;row<CART.directions;row++)for(let f=0;f<CART_COLUMNS;f++) {rig.pose(f/CART_COLUMNS);render(rig.root,row,sheet,f,row,CART.directions)}
+        scene.remove(rig.root);rig.dispose();save(`cart-${style}`,sheet)
+      }
+      configure(TRANSPORT.cellSize,TRANSPORT.anchor)
+      for(const kind of ["ox","donkey","horse"] as const)for(const pack of options.packsOnly ? [true] : [false,true]) {
+        const coats=pack?COATS[kind].slice(0,1):COATS[kind]
+        for(const coat of coats)for(const hitched of pack?[false]:[false,true]) {
+          const variants=kind==="horse"&&!pack?HORSE_VARIANTS:["common"] as const
+          const sheet=canvas(size*ANIMAL_COLUMNS,size*8*variants.length)
+          for(const [index,variant] of variants.entries()) {
+            const rig=createAnimalRig(kind,variant,coat.id,hitched,pack);scene.add(rig.root)
+            for(let row=0;row<8;row++)for(let f=0;f<ANIMAL_COLUMNS;f++) {
+              const walking=f>=1&&f<=TRANSPORT.animalFrames, lowerStart=1+TRANSPORT.animalFrames, grazeStart=lowerStart+TRANSPORT.lowerFrames
+              const grazing=f>=grazeStart?1:f>=lowerStart?(f-lowerStart)/(TRANSPORT.lowerFrames-1):0
+              const phase=walking?(f-1)/TRANSPORT.animalFrames:f>=grazeStart?(f-grazeStart)/TRANSPORT.grazeFrames:0
+              rig.pose(phase,walking,grazing);render(rig.root,row,sheet,f,index*8+row,8,true)
+            }
+            scene.remove(rig.root);rig.dispose()
+          }
+          save(`${kind}-${coat.id}${pack?"-pack":hitched?"-hitched":""}`,sheet)
+        }
+      }
+      if (options.packsOnly) {
+        if (safePadding < 4) throw new Error(`Pack animal exceeds safe frame (${safePadding}px).`)
+        return { images, metadata: { ...TRANSPORT, version: PACK_ANIMAL_VERSION, directions: 8,
+          animalColumns: ANIMAL_COLUMNS, animalProfiles: ANIMAL_PROFILES, animalRigVersion: ANIMAL_RIG_VERSION,
+          animalInk: .6, safePadding, depthEncoding: SPRITE_DEPTH_ENCODING, coats: COATS } }
+      }
+      const handlers: Record<string, { designs: ReturnType<typeof packHandlerDesign>[]; hands: Record<string, Array<{x:number;y:number;depth:number}>> }> = {}
+      for(const calling of PASSENGER_CALLINGS) {
+        const designs=Array.from({length:6},(_,variant)=>packHandlerDesign(calling,variant)), hands: Record<string, Array<{x:number;y:number;depth:number}>> = {}
+        for(const clip of ["walk","wearyWalk","idle"] as const) {
+          const frames=PERSON_CLIPS[clip].frames, sheet=canvas(BASE_PERSON.cellSize*frames,BASE_PERSON.cellSize*48)
+          hands[clip]=[]
+          for(const design of designs) {
+            const session=personFrameRenderer(design)
+            const variant=designs.indexOf(design)
+            try {for(let row=0;row<8;row++)for(let f=0;f<frames;f++) {
+              const frame=session.render(clip,f/frames,row,false)
+              sheet.ctx.drawImage(frame.canvas,f*BASE_PERSON.cellSize,(variant*8+row)*BASE_PERSON.cellSize)
+              sheet.depthCtx.drawImage(frame.depth!,f*BASE_PERSON.cellSize,(variant*8+row)*BASE_PERSON.cellSize)
+              hands[clip].push(frame.sockets.leftHand)
+            }}finally{session.dispose()}
+          }
+          save(`handler-${calling}-${clip}`,sheet)
+        }
+        handlers[calling]={designs,hands}
+      }
+      for(const [seatIndex,seat] of PASSENGER_SEATS.entries()) {
+        const sheet=canvas(CART.cellSize*PASSENGER_COLUMNS,CART.cellSize*CART.directions)
+        const occluder=createCartRig("textiles","horse",false,"rear"), depth=new THREE.MeshBasicMaterial({colorWrite:false})
+        const originals: Array<{mesh:THREE.Mesh;material:THREE.Material|THREE.Material[]}> = []
+        occluder.root.traverse(object=>{if(object instanceof THREE.Mesh){originals.push({mesh:object,material:object.material});object.material=depth;object.renderOrder=-1}})
+        try {
+          for(const [callingIndex,calling] of PASSENGER_CALLINGS.entries())for(let variant=0;variant<6;variant++) {
+            const design=populationDesign(TRAVELER_TYPES[calling],variant)
+            const session=personFrameRenderer(design,[],{cellSize:CART.cellSize,anchor:CART.anchor,viewSize:TRANSPORT.viewSize*CART.cellSize/TRANSPORT.cellSize,occluder:occluder.root})
+            try {for(let row=0;row<CART.directions;row++) {
+              const angle=-row*Math.PI*2/CART.directions;occluder.root.rotation.y=angle
+              const frame=session.render("idle",0,row/2,false,rig=>{
+                rig.root.position.set(0,0,0);poseDriver(rig,design,seatIndex===0)
+                const staff=rig.root.getObjectByName("walking-staff");if(staff)staff.visible=false
+                rig.root.rotation.y=angle+seat.heading
+                rig.root.position.set(seat.x*Math.cos(angle)+seat.z*Math.sin(angle),seat.y,-seat.x*Math.sin(angle)+seat.z*Math.cos(angle))
+              })
+              sheet.ctx.drawImage(frame.canvas,(callingIndex*6+variant)*CART.cellSize,row*CART.cellSize)
+              sheet.depthCtx.drawImage(frame.depth!,(callingIndex*6+variant)*CART.cellSize,row*CART.cellSize)
+            }}finally{session.dispose()}
+          }
+        }finally{originals.forEach(({mesh,material})=>{mesh.material=material});depth.dispose();occluder.dispose()}
+        save(`passenger-${seatIndex}`,sheet)
+      }
+      if(safePadding<4)throw new Error(`Party transport exceeds safe frame (${safePadding}px).`)
+      return {images,metadata:{...PARTY_BAKE,handlers,handlerFrame:{cellSize:BASE_PERSON.cellSize,anchor:BASE_PERSON.anchor,templateVersion:BASE_PERSON.version,frames:{walk:PERSON_CLIPS.walk.frames,wearyWalk:PERSON_CLIPS.wearyWalk.frames,idle:PERSON_CLIPS.idle.frames}},animalInk:.6,animalRigVersion:ANIMAL_RIG_VERSION,animalProfiles:ANIMAL_PROFILES,safePadding,depthEncoding:SPRITE_DEPTH_ENCODING,animalFrames:TRANSPORT.animalFrames,animalColumns:ANIMAL_COLUMNS,animalAnchor:TRANSPORT.anchor,animalCellSize:TRANSPORT.cellSize,animalScale:TRANSPORT.scale,rigToWorld:TRANSPORT.scale/TRANSPORT.viewSize}}
+    }
+    for (const cargo of CARGO) for (const mode of CART_MODES) for (const side of mode === "shop" ? [1, -1] : [1]) for (const compact of mode === "shop" ? [false, true] : [false]) {
+      configure(mode === "shop" ? SHOP.cellSize : CART.cellSize, mode === "shop" ? SHOP.anchor : CART.anchor)
+      const frames = mode === "shop" ? TRANSPORT.shopFrames : CART_COLUMNS
+      const sheet = canvas(size * frames, size * CART.directions)
+      const rig = createCartRig(cargo, mode, compact); rig.root.scale.x = side; scene.add(rig.root)
+      for (let row = 0; row < CART.directions; row++) for (let f = 0; f < frames; f++) {
+        rig.pose(mode === "shop" ? 0 : f / frames, mode === "shop" ? f / (frames - 1) : 1)
+        render(rig.root, row, sheet, f, row, CART.directions)
+      }
+      scene.remove(rig.root); rig.dispose()
+      save(`cart-${cargo}-${mode}${compact ? "-small" : ""}${side < 0 ? "-mirrored" : ""}`, sheet)
+    }
+    configure(TRANSPORT.cellSize, TRANSPORT.anchor)
+    for (const kind of ["donkey", "horse"] as const) for (const coat of COATS[kind]) for (const hitched of [false, true]) {
+      const variants = kind === "horse" ? HORSE_VARIANTS : ["common"] as const
+      const sheet = canvas(size * ANIMAL_COLUMNS, size * 8 * variants.length)
+      for (const [index, variant] of variants.entries()) {
+        const rig = createAnimalRig(kind, variant, coat.id, hitched); scene.add(rig.root)
+        for (let row = 0; row < 8; row++) for (let f = 0; f < ANIMAL_COLUMNS; f++) {
+          const walking = f >= 1 && f <= TRANSPORT.animalFrames
+          const lowerStart = 1 + TRANSPORT.animalFrames, grazeStart = lowerStart + TRANSPORT.lowerFrames
+          const grazing = f >= grazeStart ? 1 : f >= lowerStart ? (f - lowerStart) / (TRANSPORT.lowerFrames - 1) : 0
+          const phase = walking ? (f - 1) / TRANSPORT.animalFrames : f >= grazeStart ? (f - grazeStart) / TRANSPORT.grazeFrames : 0
+          rig.pose(phase, walking, grazing); render(rig.root, row, sheet, f, index * 8 + row)
+        }
+        scene.remove(rig.root); rig.dispose()
+      }
+      save(`${kind}-${coat.id}${hitched ? "-hitched" : ""}`, sheet)
+    }
+    if (safePadding < 4) throw new Error(`Transport exceeds its safe frame (${safePadding}px).`)
+    // A new carrying pose uses the unmodified population rig, camera and foot contacts.
+    const designs = Array.from({ length: 6 }, (_, i) => pullingDesign(i))
+    for (const clip of ["idle", "walk", "wearyWalk"] as const) {
+      const frames = PERSON_CLIPS[clip].frames
+      const sheet = canvas(BASE_PERSON.cellSize * frames, BASE_PERSON.cellSize * 8 * designs.length)
+      for (const [variant, design] of designs.entries()) for (let f = 0; f < frames; f++) {
+        const preview = renderPersonPreview(design, clip, f, false)
+        sheet.ctx.drawImage(await decode(preview.url), f * BASE_PERSON.cellSize, variant * 8 * BASE_PERSON.cellSize)
+        sheet.depthCtx.drawImage(await decode(preview.depthUrl), f * BASE_PERSON.cellSize, variant * 8 * BASE_PERSON.cellSize)
+      }
+      save(`puller-${clip}`, sheet)
+    }
+    // A basket-unloading action reuses the person's existing reaching/kneeling rig.
+    const setup = canvas(BASE_PERSON.cellSize * PERSON_CLIPS.gathering.frames, BASE_PERSON.cellSize * 8 * designs.length)
+    for (let variant = 0; variant < designs.length; variant++) for (let f = 0; f < PERSON_CLIPS.gathering.frames; f++) {
+      const preview = renderPersonPreview(populationDesign(TRAVELER_TYPES.vendor, variant), "gathering", f, false)
+      setup.ctx.drawImage(await decode(preview.url), f * BASE_PERSON.cellSize, variant * 8 * BASE_PERSON.cellSize)
+      setup.depthCtx.drawImage(await decode(preview.depthUrl), f * BASE_PERSON.cellSize, variant * 8 * BASE_PERSON.cellSize)
+    }
+    save("merchant-setup", setup)
+    const selling = canvas(BASE_PERSON.cellSize * KEEPER_COLUMNS, BASE_PERSON.cellSize * 48)
+    for (let variant = 0; variant < designs.length; variant++) {
+      const session = personFrameRenderer(populationDesign(TRAVELER_TYPES.vendor, variant))
+      try {
+        for (const [name, clip] of Object.entries(KEEPER_CLIPS)) for (let frame = 0; frame < clip.frames; frame++) for (let row = 0; row < 8; row++) {
+          const phase = frame / (clip.frames - 1)
+          const result = session.render(name === "sit" ? "sitting" : "idle", phase, row, false,
+            name === "sit" ? undefined : rig => merchantGesture(rig.root, name as "wave" | "offer", phase))
+          selling.ctx.drawImage(result.canvas, (clip.start + frame) * BASE_PERSON.cellSize, (variant * 8 + row) * BASE_PERSON.cellSize)
+          selling.depthCtx.drawImage(result.depth!, (clip.start + frame) * BASE_PERSON.cellSize, (variant * 8 + row) * BASE_PERSON.cellSize)
+        }
+      } finally { session.dispose() }
+    }
+    save("merchant-selling", selling)
+    // The driver uses the cart's exact cell, axle anchor and sixteen headings.
+    // Depth-only cart geometry cuts out body parts hidden by the bench/cargo.
+    // Runtime combines these pixels inside the cart material, so the person
+    // and seat cannot drift or compete as two independent depth planes.
+    for (const cargo of CARGO) {
+      const driving = canvas(CART.cellSize * DRIVER_CLIP.variants, CART.cellSize * CART.directions)
+      const occluder = createCartRig(cargo, "horse")
+      const depth = new THREE.MeshBasicMaterial({ colorWrite: false })
+      const originals: Array<{ mesh: THREE.Mesh; material: THREE.Material | THREE.Material[] }> = []
+      occluder.root.traverse(object => {
+        if (!(object instanceof THREE.Mesh)) return
+        originals.push({ mesh: object, material: object.material })
+        object.material = depth; object.renderOrder = -1
+      })
+      try {
+        for (let variant = 0; variant < DRIVER_CLIP.variants; variant++) {
+          const design = populationDesign(TRAVELER_TYPES.vendor, variant)
+          const session = personFrameRenderer(design, [], { cellSize: CART.cellSize, anchor: CART.anchor,
+            viewSize: TRANSPORT.viewSize * CART.cellSize / TRANSPORT.cellSize, occluder: occluder.root })
+          try {
+            for (let row = 0; row < CART.directions; row++) {
+              const angle = -row * Math.PI * 2 / CART.directions
+              occluder.root.rotation.y = angle
+              const frame = session.render("idle", 0, row / 2, false, rig => {
+                rig.root.position.set(0, 0, 0)
+                poseDriver(rig, design)
+                rig.root.position.set(...driverPoint([0, 0, 0], angle))
+              })
+              driving.ctx.drawImage(frame.canvas, variant * CART.cellSize, row * CART.cellSize)
+              driving.depthCtx.drawImage(frame.depth!, variant * CART.cellSize, row * CART.cellSize)
+            }
+          } finally { session.dispose() }
+        }
+      } finally {
+        originals.forEach(({ mesh, material }) => { mesh.material = material })
+        depth.dispose(); occluder.dispose()
+      }
+      save(`cart-${cargo}-driver`, driving)
+    }
+    return { images, metadata: { ...TRANSPORT, depthEncoding: SPRITE_DEPTH_ENCODING, cartWidthScale: CART_WIDTH_SCALE, driverClip: DRIVER_CLIP, keeperClips: KEEPER_CLIPS, keeperColumns: KEEPER_COLUMNS, directions: BASE_PERSON.directions, camera: { ...BASE_PERSON.camera, viewSize: extent },
+      safePadding, cartFrame: CART, shop: { ...SHOP, seconds: SHOP_SECONDS, frames: TRANSPORT.shopFrames }, coats: COATS, merchantSetupFrames: PERSON_CLIPS.gathering.frames, cargo: CARGO, modes: CART_MODES, cartColumns: CART_COLUMNS, animalColumns: ANIMAL_COLUMNS,
+      wheelCycleRadians: Math.PI * 2,
+      animalProfiles: ANIMAL_PROFILES, animalRigVersion: ANIMAL_RIG_VERSION,
+      animalRows: { donkey: 8, horse: 16 }, horseVariants: { common: { rowOffset: 0 }, noble: { rowOffset: 8 } },
+      animalClips: { idle: { start: 0, frames: 1 }, walk: { start: 1, frames: TRANSPORT.animalFrames }, lower: { start: 1 + TRANSPORT.animalFrames, frames: TRANSPORT.lowerFrames }, graze: { start: 1 + TRANSPORT.animalFrames + TRANSPORT.lowerFrames, frames: TRANSPORT.grazeFrames, fps: 4 } },
+      puller: { reservedTones: true, templateVersion: BASE_PERSON.version, cellSize: BASE_PERSON.cellSize, anchor: BASE_PERSON.anchor,
+        frames: PERSON_CLIPS.walk.frames, strides: WALK_CLIP_STRIDES, idleFrames: 1, rows: 48, camera: BASE_PERSON.camera, designs } } }
+  } finally { depthBaker.dispose(); renderer.dispose() }
+}
