@@ -21,6 +21,12 @@ import {
   type ElevationInfo,
 } from "../pilgrimage/world/elevation-core"
 import { drainWater, type WaterInfo } from "../pilgrimage/world/hydrology"
+import { beachAccess } from "../pilgrimage/world/beaches"
+import {
+  SHORE_CORNERS,
+  shorelineCorners,
+  type ShorelineField,
+} from "../pilgrimage/world/shoreline"
 
 export const WORLD_SIZE = 44
 export const WORLD_TILES = 128
@@ -113,6 +119,78 @@ finishElevation(
   GENERATED_HYDROLOGY.surface,
 )
 
+function classifySurfaceTiles(): TerrainId[] {
+  const tiles = [...GENERATED_WORLD.tiles]
+  const shoreline: number[] = []
+
+  for (let z = 0; z < WORLD_TILES; z++) for (let x = 0; x < WORLD_TILES; x++) {
+    const index = z * WORLD_TILES + x
+    if (GENERATED_WATER.kind[index]) {
+      tiles[index] = "water"
+      continue
+    }
+
+    let besideLake = false
+    for (let dz = -1; dz <= 1 && !besideLake; dz++) for (let dx = -1; dx <= 1; dx++) {
+      const nx = x + dx
+      const nz = z + dz
+      if (nx < 0 || nz < 0 || nx >= WORLD_TILES || nz >= WORLD_TILES) continue
+      if (GENERATED_WATER.kind[nz * WORLD_TILES + nx] === 2) {
+        besideLake = true
+        break
+      }
+    }
+
+    if (besideLake) {
+      tiles[index] = "sand"
+      shoreline.push(index)
+    }
+  }
+
+  for (const index of shoreline) {
+    const x = index % WORLD_TILES
+    const z = Math.floor(index / WORLD_TILES)
+    for (let dz = -1; dz <= 1; dz++) for (let dx = -1; dx <= 1; dx++) {
+      const nx = x + dx
+      const nz = z + dz
+      if (nx < 0 || nz < 0 || nx >= WORLD_TILES || nz >= WORLD_TILES) continue
+      const neighbour = nz * WORLD_TILES + nx
+      if (!GENERATED_WATER.kind[neighbour] && tiles[neighbour] !== "sand") {
+        tiles[neighbour] = "sand"
+      }
+    }
+  }
+
+  for (const index of GENERATED_WATER.bars) {
+    if (!GENERATED_WATER.kind[index]) tiles[index] = "sand"
+  }
+
+  const accessible = beachAccess(
+    GENERATED_ELEVATION,
+    WORLD_TILES,
+    WORLD_TILES,
+    GENERATED_WATER.kind,
+    GENERATED_HYDROLOGY,
+  )
+
+  for (let index = 0; index < tiles.length; index++) {
+    if (tiles[index] === "sand" && !accessible[index]) tiles[index] = "grass"
+  }
+
+  return tiles
+}
+
+export const DISPLAY_TILES = classifySurfaceTiles()
+
+export const SHORELINE_FIELD: ShorelineField = {
+  width: WORLD_TILES,
+  depth: WORLD_TILES,
+  tiles: DISPLAY_TILES,
+  water: GENERATED_WATER.kind,
+  elevation: GENERATED_ELEVATION,
+  surface: GENERATED_HYDROLOGY.surface,
+}
+
 export const WORLD_TILE_SIZE = WORLD_SIZE / WORLD_TILES
 const TILE_SIZE = WORLD_TILE_SIZE
 const HALF_WORLD = WORLD_SIZE / 2
@@ -144,7 +222,7 @@ export function tileToWorld(x: number, z: number) {
 }
 
 export function terrainKind(x: number, z: number): TerrainId {
-  return GENERATED_WORLD.tiles[worldSample(x, z).index] ?? "grass"
+  return DISPLAY_TILES[worldSample(x, z).index] ?? "grass"
 }
 
 function tileCornerHeight(index: number, corner: 0 | 1 | 2 | 3) {
@@ -188,7 +266,7 @@ export function terrainSlope(x: number, z: number) {
 }
 
 function tileColor(index: number) {
-  const kind = GENERATED_WORLD.tiles[index]
+  const kind = DISPLAY_TILES[index]
   const definition = TERRAIN[kind]
   const jitterRng = makeRng(WORLD_SEED ^ Math.imul(index + 1, 0x45d9f3b))
   const jitter = (jitterRng() - .5) * definition.jitter * 2
@@ -359,7 +437,7 @@ export function forestInstances(limit = 440): ForestInstance[] {
 
   for (let z = 0; z < WORLD_TILES; z++) for (let x = 0; x < WORLD_TILES; x++) {
     const index = z * WORLD_TILES + x
-    const kind = GENERATED_WORLD.tiles[index]
+    const kind = DISPLAY_TILES[index]
     if (!isWoods(kind)) continue
 
     const rng = makeRng(WORLD_SEED ^ Math.imul(index + 17, 0x27d4eb2d))
@@ -411,7 +489,7 @@ export function isWalkable(x: number, z: number) {
   ) return false
 
   const { index } = worldSample(x, z)
-  const kind = GENERATED_WORLD.tiles[index]
+  const kind = DISPLAY_TILES[index]
   if (GENERATED_WATER.kind[index] || !TERRAIN[kind].passable) return false
   if (GENERATED_ELEVATION.cliffs[index]) return false
 
