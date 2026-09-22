@@ -10,7 +10,8 @@ import type { AnimalClipBake } from "../pilgrimage/bake/animal-bake"
 import type { HumanClipBake } from "../pilgrimage/bake/human-bake"
 import type { WildlifeKind } from "../pilgrimage/wildlife/species"
 import { Human } from "../humans/Human"
-import { UpstreamHuman, type UpstreamHumanClip } from "../humans/UpstreamHuman"
+import type { UpstreamHumanClip } from "../humans/UpstreamHuman"
+import { OriginalHumanActor } from "../humans/OriginalHumanActor"
 import type { HumanAttachmentKind } from "../humans/attachments"
 import type { SocketName } from "../../vendor/pilgrimage/lib/game/base-person/pose"
 import { HUMAN_DESIGNS, generatedHuman } from "../humans/designs"
@@ -19,6 +20,7 @@ import type { PoseEdits } from "../../vendor/pilgrimage/lib/game/base-person/pos
 import { LAB_SITE, createCliffGeometry, createTerrainGeometry, findWalkableLoop, terrainHeight, terrainSlope } from "./terrain"
 import { GeneratedEnvironment } from "./GeneratedEnvironment"
 import { DepthAtlasSprite } from "../pilgrimage/runtime/DepthAtlasSprite"
+import type { LabRepresentation } from "../pilgrimage/runtime/lod"
 import { wildlifeClipCadence } from "../animals/upstream-motion"
 import { animalProfile } from "../pilgrimage/transport-core"
 
@@ -26,7 +28,7 @@ export type LabSubject = "animal" | "human"
 export type HumanEngine = "arca" | "pilgrimage"
 export type AnimalEngine = "arca" | "pilgrimage"
 export type OriginalAnimalGroup = "wildlife" | "transport"
-export type LabRepresentation = "rig" | "sprite"
+export type { LabRepresentation } from "../pilgrimage/runtime/lod"
 
 interface WorldProps {
   labSubject: LabSubject
@@ -337,32 +339,24 @@ export function World({
             />
           )
         ) : humanEngine === "pilgrimage" ? (
-          humanRepresentation === "sprite" && humanBakePreview ? (
-            <BakedLabActor
-              bake={humanBakePreview}
-              scale={1.2}
-              cadence={1.1}
-              speedScale={speedScale}
-              paused={paused}
-            />
-          ) : (
-            <UpstreamHuman
-              preset={upstreamHumanPreset}
-              clip={upstreamHumanClip}
-              paused={paused}
-              origin={LAB_SITE}
-              scale={1.2}
-              speedScale={speedScale}
-              edits={humanEdits}
-              phaseOverride={humanEditPhase}
-              showRig={showRig}
-              attachment={humanAttachment}
-              attachmentSocket={humanAttachmentSocket}
-              pathRadius={1.6}
-              pathOffset={0}
-              stationary={!humanMoving || humanEditPhase !== undefined}
-            />
-          )
+          <OriginalHumanActor
+            preset={upstreamHumanPreset}
+            clip={upstreamHumanClip}
+            paused={paused}
+            origin={LAB_SITE}
+            scale={1.2}
+            speedScale={speedScale}
+            edits={humanEdits}
+            phaseOverride={humanEditPhase}
+            showRig={showRig}
+            attachment={humanAttachment}
+            attachmentSocket={humanAttachmentSocket}
+            pathRadius={1.6}
+            pathOffset={0}
+            moving={humanMoving && humanEditPhase === undefined}
+            representation={humanRepresentation}
+            bake={humanBakePreview}
+          />
         ) : (
           <Human
             design={labHuman}
