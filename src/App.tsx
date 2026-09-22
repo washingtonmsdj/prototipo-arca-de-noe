@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useState } from "react"
 import { Canvas } from "@react-three/fiber"
-import { World, type LabSubject } from "./world/World"
+import { World, type HumanEngine, type LabSubject } from "./world/World"
 import { SPECIES, speciesById } from "./animals/species"
 import type { GaitName } from "./animals/types"
 import { HUMAN_DESIGNS, generatedHuman, humanById } from "./humans/designs"
+import { UPSTREAM_PERSON_PRESETS } from "./humans/UpstreamHuman"
 import type { HumanClip } from "./humans/types"
 
 const gaitLabels: Record<GaitName, string> = {
@@ -29,8 +30,10 @@ export function App() {
   const [labSubject, setLabSubject] = useState<LabSubject>("animal")
   const [speciesId, setSpeciesId] = useState("horse")
   const [gait, setGait] = useState<GaitName>("walk")
+  const [humanEngine, setHumanEngine] = useState<HumanEngine>("pilgrimage")
   const [humanId, setHumanId] = useState("traveler")
   const [humanSeed, setHumanSeed] = useState(42)
+  const [upstreamHumanPreset, setUpstreamHumanPreset] = useState("Storybook")
   const [humanClip, setHumanClip] = useState<HumanClip>("walk")
   const [speedScale, setSpeedScale] = useState(1)
   const [paused, setPaused] = useState(false)
@@ -60,6 +63,8 @@ export function App() {
           labGait={gait}
           labHuman={human}
           humanClip={humanClip}
+          humanEngine={humanEngine}
+          upstreamHumanPreset={upstreamHumanPreset}
           speedScale={speedScale}
           paused={paused}
           showRig={showRig}
@@ -70,7 +75,7 @@ export function App() {
         <div className="eyebrow">ARCA / PROCEDURAL LAB</div>
         <h1>Mundo + animais + humanos</h1>
         <p className="intro">
-          Um único laboratório para inspecionar geração, rig, juntas, proporções e animações procedurais.
+          Laboratório para comparar a implementação Arca com os sistemas autorizados do Pilgrimage.
         </p>
 
         <label>
@@ -100,25 +105,44 @@ export function App() {
         ) : (
           <>
             <label>
-              Perfil humano
-              <select value={humanId} onChange={(event) => setHumanId(event.target.value)}>
-                {HUMAN_DESIGNS.map((entry) => <option key={entry.id} value={entry.id}>{entry.label}</option>)}
-                <option value="generated">Gerado por seed</option>
+              Motor humano
+              <select value={humanEngine} onChange={(event) => setHumanEngine(event.target.value as HumanEngine)}>
+                <option value="pilgrimage">Pilgrimage original</option>
+                <option value="arca">Arca simplificado</option>
               </select>
             </label>
 
-            {humanId === "generated" && (
+            {humanEngine === "pilgrimage" ? (
               <label>
-                Seed <strong>{humanSeed}</strong>
-                <input
-                  type="range"
-                  min="1"
-                  max="250"
-                  step="1"
-                  value={humanSeed}
-                  onChange={(event) => setHumanSeed(Number(event.target.value))}
-                />
+                Preset original
+                <select value={upstreamHumanPreset} onChange={(event) => setUpstreamHumanPreset(event.target.value)}>
+                  {UPSTREAM_PERSON_PRESETS.map((preset) => <option key={preset} value={preset}>{preset}</option>)}
+                </select>
               </label>
+            ) : (
+              <>
+                <label>
+                  Perfil humano
+                  <select value={humanId} onChange={(event) => setHumanId(event.target.value)}>
+                    {HUMAN_DESIGNS.map((entry) => <option key={entry.id} value={entry.id}>{entry.label}</option>)}
+                    <option value="generated">Gerado por seed</option>
+                  </select>
+                </label>
+
+                {humanId === "generated" && (
+                  <label>
+                    Seed <strong>{humanSeed}</strong>
+                    <input
+                      type="range"
+                      min="1"
+                      max="250"
+                      step="1"
+                      value={humanSeed}
+                      onChange={(event) => setHumanSeed(Number(event.target.value))}
+                    />
+                  </label>
+                )}
+              </>
             )}
 
             <label>
@@ -154,6 +178,13 @@ export function App() {
               <div><dt>Cadência</dt><dd>{species.cadence.toFixed(2)}</dd></div>
               <div><dt>Pernas</dt><dd>IK 2 elos</dd></div>
               <div><dt>Fase</dt><dd>por distância</dd></div>
+            </>
+          ) : humanEngine === "pilgrimage" ? (
+            <>
+              <div><dt>Origem</dt><dd>Pilgrimage</dd></div>
+              <div><dt>Preset</dt><dd>{upstreamHumanPreset}</dd></div>
+              <div><dt>Rig</dt><dd>original</dd></div>
+              <div><dt>Clip</dt><dd>{humanClipLabels[humanClip]}</dd></div>
             </>
           ) : (
             <>
