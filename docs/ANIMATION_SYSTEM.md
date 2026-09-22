@@ -21,6 +21,18 @@ O laboratório mantém o motor simplificado do Arca e os rigs originais do Pilgr
 - pelagens;
 - rig quadrúpede original.
 
+### Locomoção em mundo
+
+Wildlife e animais de transporte agora podem sair do preview estacionário sem mudar de rig:
+
+- a fase deriva da distância percorrida;
+- cada gait wildlife usa a cadência real de `gaitRecipe()`;
+- equinos/bovino usam stride e cadência do perfil original;
+- uma única pata/hoof de suporte é escolhida por proximidade ao centro da fase de stance;
+- `plantFoot()` mantém esse contato em coordenadas de mundo durante curvas;
+- não tentamos travar quatro patas simultaneamente, evitando super-restringir o root;
+- voo, idle, graze, lie e burrow continuam como ações, não locomoção terrestre do laboratório.
+
 ### Editor
 
 `src/dev/AnimalRigEditorPanel.tsx` usa `AnimalRigEdits`: frame, junta, offsets X/Y/Z, raio de influência, cadência e timing dos quatro contatos.
@@ -30,6 +42,8 @@ O laboratório mantém o motor simplificado do Arca e os rigs originais do Pilgr
 `createBasePersonRig()` é executado diretamente. O laboratório expõe todos os 19 clips de `PERSON_CLIPS` com sua contagem própria de frames.
 
 `src/dev/HumanRigEditorPanel.tsx` usa `PoseEdits`, `setPoseKey`, `clearFrameKeys` e a interpolação circular original.
+
+Os clips locomotores humanos usam fase por distância + foot locking. Mudanças de clip passam por um blend que interpola transforms e a geometria deformável da roupa/cordas; ações com props trocam visibilidade de forma discreta.
 
 ## Motor Arca
 
