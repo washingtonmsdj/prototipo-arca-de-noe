@@ -33,11 +33,15 @@ O sistema diferencia:
 - microterrário;
 - insetário.
 
-Cada classe possui taxa-alvo de ocupação corporal, área mínima, lado mínimo, limite de proporção comprimento/largura e altura de contenção. Portanto uma formiga não recebe uma sala do tamanho de uma baia de porco, e um crocodiliano não é encaixado na mesma regra de um sapo.
+Cada classe possui taxa-alvo de ocupação corporal, área mínima, lado mínimo, limite de proporção comprimento/largura e altura de contenção. As taxas foram normalizadas para reduzir diferenças visuais injustificadas entre espécies; densidade maior só é permitida quando a quantidade do grupo permite compartilhar circulação, como nos grandes rebanhos. Portanto uma formiga não recebe uma sala do tamanho de uma baia de porco, e um crocodiliano não é encaixado na mesma regra de um sapo.
 
 ## Espaço que sobra
 
-Espaço residual dentro dos módulos não é tratado como erro nem “vazio sem função”. O planejador o converte explicitamente em zonas de:
+Espaço residual não pode aparecer como salão vazio. O planejador separa deliberadamente **área animal** e **área de serviço**, e o runtime distribui os indivíduos por aproximadamente 82% da zona animal em vez de agrupá-los no centro.
+
+Nos recintos de mamíferos, o runtime mostra cocho em uma borda e área seca de descanso na borda oposta. Entre elas permanece circulação. Aves recebem poleiros; terrários, gaiolas e insetários recebem bases próprias; espécies úmidas recebem área úmida.
+
+O espaço restante dos módulos é convertido explicitamente em zonas de:
 
 - alimento;
 - água;
