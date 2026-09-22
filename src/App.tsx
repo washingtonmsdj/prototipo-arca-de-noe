@@ -142,7 +142,7 @@ export function App() {
   const [speedScale, setSpeedScale] = useState(1)
   const [paused, setPaused] = useState(false)
   const [showRig, setShowRig] = useState(true)
-  const [showArca, setShowArca] = useState(false)
+  const showArca = false
   const [arcaDoorOpen, setArcaDoorOpen] = useState(false)
 
   const species = useMemo(() => speciesById(speciesId), [speciesId])
@@ -295,7 +295,7 @@ export function App() {
           <button
             type="button"
             className={showArca ? "active" : ""}
-            onClick={() => setShowArca((value) => !value)}
+            onClick={() => { window.location.href = "/arca" }}
           >
             {showArca ? "Voltar ao laboratório" : "Abrir arca 3D"}
           </button>

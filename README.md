@@ -6,7 +6,9 @@ O objetivo desta fase é dominar e evoluir geração, rig, animação e bake ant
 
 ## Runtime 3D da arca
 
-O projeto já está preparado para o runtime web em **Three.js via React Three Fiber**. A ação `Abrir arca 3D` no laboratório carrega o terreno do canteiro e o kit modular da arca em GLB, sem duplicar a cena procedural de animais/humanos. `Abrir porta` anima o nó `PORTA` por um pivot colocado na borda da rampa, mantendo o acesso livre.
+O projeto usa **Three.js via React Three Fiber**. A página `/arca` apresenta o exterior v9 exportado do Blender, com terreno, câmera orbital e porta interativa. A home `/` preserva o laboratório original e seu botão `Abrir arca 3D` acessa essa página.
+
+A prévia finalizada e o futuro modo de construção são independentes: a primeira carrega `arca-exterior-runtime-v1.glb`; o kit modular legado fica reservado para o segundo e ainda requer correção de transformações. Não há gameplay de construção implementado. A animação interativa da porta usa a dobradiça exportada, independentemente do progresso da obra. Os materiais atuais são PBR básicos; o relevo procedural de madeira do Blender ainda não foi convertido em texturas web. O GLB exterior ainda exige otimização para produção. Esta alteração não foi validada com build ou testes de navegador.
 
 Os assets publicados ficam em `public/assets/arca/` e seu contrato está em `public/assets/arca/manifest.json`. Os `.blend` e briefs em `concepts/arca/` continuam sendo fontes de autoria; os GLBs são os artefatos de runtime. A unidade é metro, o eixo é Y-up e a cena usa nomes estáveis para permitir colisões, LOD e gameplay de construção nas próximas etapas.
 

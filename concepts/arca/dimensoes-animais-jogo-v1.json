@@ -1,0 +1,4350 @@
+{
+  "version": 2,
+  "unit": "metre",
+  "source": "128 grupos herdados de catalogo-recintos-v3.json; novos grupos adicionados editorialmente nesta revisão.",
+  "status": "128 grupos com baias originais; novos grupos com alojamento pendente. Todas as dimensões são envelopes de blocagem, não medidas zoológicas verificadas.",
+  "scope": "Catálogo editorial ampliado, não inventário de todas as espécies ou de todos os tipos bíblicos. Fauna extinta e grupos não enumerados continuam pendentes.",
+  "axes": {
+    "blender": "X=comprimento, Y=largura, Z=altura",
+    "threejs": "X=comprimento, Y=altura, Z=largura"
+  },
+  "placement": "Dimensões totais, não meias-extensões. Cubo centrado: posição vertical = piso + altura/2. Rotacionar o cubo para mudar sua orientação sem trocar as dimensões.",
+  "total_groups": 162,
+  "total_individuals": 1080,
+  "animals": [
+    {
+      "id": "elefantes",
+      "name": "Elefantes",
+      "enclosure": "INF-BB-01",
+      "deck": 1,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 3,
+        "width": 1.3,
+        "height": 2.8
+      },
+      "blender_dimensions_m": [
+        3,
+        1.3,
+        2.8
+      ],
+      "threejs_box_args_m": [
+        3,
+        2.8,
+        1.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "rinocerontes",
+      "name": "Rinocerontes",
+      "enclosure": "INF-BB-02",
+      "deck": 1,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 2.5,
+        "width": 1.2,
+        "height": 2.4
+      },
+      "blender_dimensions_m": [
+        2.5,
+        1.2,
+        2.4
+      ],
+      "threejs_box_args_m": [
+        2.5,
+        2.4,
+        1.2
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "hipopotamos",
+      "name": "Hipopotamos",
+      "enclosure": "INF-BB-03",
+      "deck": 1,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 2.5,
+        "width": 1.2,
+        "height": 2.4
+      },
+      "blender_dimensions_m": [
+        2.5,
+        1.2,
+        2.4
+      ],
+      "threejs_box_args_m": [
+        2.5,
+        2.4,
+        1.2
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "tapires",
+      "name": "Tapires",
+      "enclosure": "INF-BB-04",
+      "deck": 1,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 2.5,
+        "width": 1.2,
+        "height": 2.4
+      },
+      "blender_dimensions_m": [
+        2.5,
+        1.2,
+        2.4
+      ],
+      "threejs_box_args_m": [
+        2.5,
+        2.4,
+        1.2
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "cavalos",
+      "name": "Cavalos",
+      "enclosure": "INF-BB-05",
+      "deck": 1,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 2.5,
+        "width": 1.2,
+        "height": 2.4
+      },
+      "blender_dimensions_m": [
+        2.5,
+        1.2,
+        2.4
+      ],
+      "threejs_box_args_m": [
+        2.5,
+        2.4,
+        1.2
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "asnos",
+      "name": "Asnos",
+      "enclosure": "INF-BB-06",
+      "deck": 1,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 2.5,
+        "width": 1.2,
+        "height": 2.4
+      },
+      "blender_dimensions_m": [
+        2.5,
+        1.2,
+        2.4
+      ],
+      "threejs_box_args_m": [
+        2.5,
+        2.4,
+        1.2
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "zebras",
+      "name": "Zebras",
+      "enclosure": "INF-BB-07",
+      "deck": 1,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 2.5,
+        "width": 1.2,
+        "height": 2.4
+      },
+      "blender_dimensions_m": [
+        2.5,
+        1.2,
+        2.4
+      ],
+      "threejs_box_args_m": [
+        2.5,
+        2.4,
+        1.2
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "camelos",
+      "name": "Camelos",
+      "enclosure": "INF-BB-08",
+      "deck": 1,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 2.5,
+        "width": 1.2,
+        "height": 2.4
+      },
+      "blender_dimensions_m": [
+        2.5,
+        1.2,
+        2.4
+      ],
+      "threejs_box_args_m": [
+        2.5,
+        2.4,
+        1.2
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "bovinos",
+      "name": "Bovinos",
+      "enclosure": "INF-BE-01",
+      "deck": 1,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1.4,
+        "width": 0.7,
+        "height": 1.8
+      },
+      "blender_dimensions_m": [
+        1.4,
+        0.7,
+        1.8
+      ],
+      "threejs_box_args_m": [
+        1.4,
+        1.8,
+        0.7
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "bufalos",
+      "name": "Bufalos",
+      "enclosure": "INF-BE-02",
+      "deck": 1,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1.4,
+        "width": 0.7,
+        "height": 1.8
+      },
+      "blender_dimensions_m": [
+        1.4,
+        0.7,
+        1.8
+      ],
+      "threejs_box_args_m": [
+        1.4,
+        1.8,
+        0.7
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "bisoes",
+      "name": "Bisoes",
+      "enclosure": "INF-BE-03",
+      "deck": 1,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1.4,
+        "width": 0.7,
+        "height": 1.8
+      },
+      "blender_dimensions_m": [
+        1.4,
+        0.7,
+        1.8
+      ],
+      "threejs_box_args_m": [
+        1.4,
+        1.8,
+        0.7
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "iaques",
+      "name": "Iaques",
+      "enclosure": "INF-BE-04",
+      "deck": 1,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1.4,
+        "width": 0.7,
+        "height": 1.8
+      },
+      "blender_dimensions_m": [
+        1.4,
+        0.7,
+        1.8
+      ],
+      "threejs_box_args_m": [
+        1.4,
+        1.8,
+        0.7
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "girafas",
+      "name": "Girafas",
+      "enclosure": "INF-BE-05",
+      "deck": 1,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1.9,
+        "width": 0.9,
+        "height": 3
+      },
+      "blender_dimensions_m": [
+        1.9,
+        0.9,
+        3
+      ],
+      "threejs_box_args_m": [
+        1.9,
+        3,
+        0.9
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "alces",
+      "name": "Alces",
+      "enclosure": "INF-BE-06",
+      "deck": 1,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1.4,
+        "width": 0.7,
+        "height": 1.8
+      },
+      "blender_dimensions_m": [
+        1.4,
+        0.7,
+        1.8
+      ],
+      "threejs_box_args_m": [
+        1.4,
+        1.8,
+        0.7
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "renas",
+      "name": "Renas",
+      "enclosure": "INF-BE-07",
+      "deck": 1,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1.4,
+        "width": 0.7,
+        "height": 1.8
+      },
+      "blender_dimensions_m": [
+        1.4,
+        0.7,
+        1.8
+      ],
+      "threejs_box_args_m": [
+        1.4,
+        1.8,
+        0.7
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "cervos",
+      "name": "Cervos",
+      "enclosure": "INF-BE-08",
+      "deck": 1,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1.4,
+        "width": 0.7,
+        "height": 1.8
+      },
+      "blender_dimensions_m": [
+        1.4,
+        0.7,
+        1.8
+      ],
+      "threejs_box_args_m": [
+        1.4,
+        1.8,
+        0.7
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "ovelhas",
+      "name": "Ovelhas",
+      "enclosure": "MED-BB-01",
+      "deck": 2,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "cabras",
+      "name": "Cabras",
+      "enclosure": "MED-BB-02",
+      "deck": 2,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "ibex",
+      "name": "Ibex",
+      "enclosure": "MED-BB-03",
+      "deck": 2,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "gazelas",
+      "name": "Gazelas",
+      "enclosure": "MED-BB-04",
+      "deck": 2,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "orix",
+      "name": "Orix",
+      "enclosure": "MED-BB-05",
+      "deck": 2,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "impala",
+      "name": "Impala",
+      "enclosure": "MED-BB-06",
+      "deck": 2,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "kudu",
+      "name": "Kudu",
+      "enclosure": "MED-BB-07",
+      "deck": 2,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "gnus",
+      "name": "Gnus",
+      "enclosure": "MED-BB-08",
+      "deck": 2,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "gorilas",
+      "name": "Gorilas",
+      "enclosure": "MED-BB-09",
+      "deck": 2,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "chimpanzes",
+      "name": "Chimpanzes",
+      "enclosure": "MED-BB-10",
+      "deck": 2,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "leoes",
+      "name": "Leoes",
+      "enclosure": "MED-BB-11",
+      "deck": 2,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "tigres",
+      "name": "Tigres",
+      "enclosure": "MED-BB-12",
+      "deck": 2,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "leopardos",
+      "name": "Leopardos",
+      "enclosure": "MED-BB-13",
+      "deck": 2,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "jaguares",
+      "name": "Jaguares",
+      "enclosure": "MED-BB-14",
+      "deck": 2,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "pumas",
+      "name": "Pumas",
+      "enclosure": "MED-BB-15",
+      "deck": 2,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "guepardos",
+      "name": "Guepardos",
+      "enclosure": "MED-BB-16",
+      "deck": 2,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "ursos_pardos",
+      "name": "Ursos-pardos",
+      "enclosure": "MED-BE-01",
+      "deck": 2,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "ursos_negros",
+      "name": "Ursos-negros",
+      "enclosure": "MED-BE-02",
+      "deck": 2,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "lobos",
+      "name": "Lobos",
+      "enclosure": "MED-BE-03",
+      "deck": 2,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "raposas",
+      "name": "Raposas",
+      "enclosure": "MED-BE-04",
+      "deck": 2,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "hienas",
+      "name": "Hienas",
+      "enclosure": "MED-BE-05",
+      "deck": 2,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "chacais",
+      "name": "Chacais",
+      "enclosure": "MED-BE-06",
+      "deck": 2,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "porcos",
+      "name": "Porcos",
+      "enclosure": "MED-BE-07",
+      "deck": 2,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "javalis",
+      "name": "Javalis",
+      "enclosure": "MED-BE-08",
+      "deck": 2,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "cangurus",
+      "name": "Cangurus",
+      "enclosure": "MED-BE-09",
+      "deck": 2,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "vombates",
+      "name": "Vombates",
+      "enclosure": "MED-BE-10",
+      "deck": 2,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "capivaras",
+      "name": "Capivaras",
+      "enclosure": "MED-BE-11",
+      "deck": 2,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "tamanduas",
+      "name": "Tamanduas",
+      "enclosure": "MED-BE-12",
+      "deck": 2,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "avestruzes",
+      "name": "Avestruzes",
+      "enclosure": "MED-BE-13",
+      "deck": 2,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "emas",
+      "name": "Emas",
+      "enclosure": "MED-BE-14",
+      "deck": 2,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "babuinos",
+      "name": "Babuinos",
+      "enclosure": "MED-BE-15",
+      "deck": 2,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "macacos",
+      "name": "Macacos",
+      "enclosure": "MED-BE-16",
+      "deck": 2,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.55,
+        "height": 1.7
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.55,
+        1.7
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        1.7,
+        0.55
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "pombos",
+      "name": "Pombos",
+      "enclosure": "SUP-BB-01",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "corvos",
+      "name": "Corvos",
+      "enclosure": "SUP-BB-02",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "galinhas",
+      "name": "Galinhas",
+      "enclosure": "SUP-BB-03",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "perdizes",
+      "name": "Perdizes",
+      "enclosure": "SUP-BB-04",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "pavoes",
+      "name": "Pavoes",
+      "enclosure": "SUP-BB-05",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "patos",
+      "name": "Patos",
+      "enclosure": "SUP-BB-06",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "marrecos",
+      "name": "Marrecos",
+      "enclosure": "SUP-BB-07",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "araras",
+      "name": "Araras",
+      "enclosure": "SUP-BB-08",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "cacatuas",
+      "name": "Cacatuas",
+      "enclosure": "SUP-BB-09",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "pica_paus",
+      "name": "Pica-paus",
+      "enclosure": "SUP-BB-10",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "poupas",
+      "name": "Poupas",
+      "enclosure": "SUP-BB-11",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "andorinhoes",
+      "name": "Andorinhoes",
+      "enclosure": "SUP-BB-12",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "pardais",
+      "name": "Pardais",
+      "enclosure": "SUP-BB-13",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "canarios",
+      "name": "Canarios",
+      "enclosure": "SUP-BB-14",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "aguias",
+      "name": "Aguias",
+      "enclosure": "SUP-BB-15",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1.2,
+        "width": 0.7,
+        "height": 1.5
+      },
+      "blender_dimensions_m": [
+        1.2,
+        0.7,
+        1.5
+      ],
+      "threejs_box_args_m": [
+        1.2,
+        1.5,
+        0.7
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "cegonhas",
+      "name": "Cegonhas",
+      "enclosure": "SUP-BB-16",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1.2,
+        "width": 0.7,
+        "height": 1.5
+      },
+      "blender_dimensions_m": [
+        1.2,
+        0.7,
+        1.5
+      ],
+      "threejs_box_args_m": [
+        1.2,
+        1.5,
+        0.7
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "pelicanos",
+      "name": "Pelicanos",
+      "enclosure": "SUP-BB-17",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1.2,
+        "width": 0.7,
+        "height": 1.5
+      },
+      "blender_dimensions_m": [
+        1.2,
+        0.7,
+        1.5
+      ],
+      "threejs_box_args_m": [
+        1.2,
+        1.5,
+        0.7
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "grous",
+      "name": "Grous",
+      "enclosure": "SUP-BB-18",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1.2,
+        "width": 0.7,
+        "height": 1.5
+      },
+      "blender_dimensions_m": [
+        1.2,
+        0.7,
+        1.5
+      ],
+      "threejs_box_args_m": [
+        1.2,
+        1.5,
+        0.7
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "cucos",
+      "name": "Cucos",
+      "enclosure": "SUP-BB-19",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "corujas_pequenas",
+      "name": "Corujas-pequenas",
+      "enclosure": "SUP-BB-20",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "coelhos",
+      "name": "Coelhos",
+      "enclosure": "SUP-BB-21",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "hiraxes",
+      "name": "Hiraxes",
+      "enclosure": "SUP-BB-22",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "marmotas",
+      "name": "Marmotas",
+      "enclosure": "SUP-BB-23",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "porcos_espinhos",
+      "name": "Porcos-espinhos",
+      "enclosure": "SUP-BB-24",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "porquinhos_da_india",
+      "name": "Porquinhos-da-india",
+      "enclosure": "SUP-BB-25",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "gerbos",
+      "name": "Gerbos",
+      "enclosure": "SUP-BB-26",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "ratos",
+      "name": "Ratos",
+      "enclosure": "SUP-BB-27",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "toupeiras",
+      "name": "Toupeiras",
+      "enclosure": "SUP-BB-28",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "texugos",
+      "name": "Texugos",
+      "enclosure": "SUP-BB-29",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "mangustos",
+      "name": "Mangustos",
+      "enclosure": "SUP-BB-30",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "jabutis",
+      "name": "Jabutis",
+      "enclosure": "SUP-BB-31",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "iguanas",
+      "name": "Iguanas",
+      "enclosure": "SUP-BB-32",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "teius",
+      "name": "Teius",
+      "enclosure": "SUP-BB-33",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "camaleoes",
+      "name": "Camaleoes",
+      "enclosure": "SUP-BB-34",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "escincos",
+      "name": "Escincos",
+      "enclosure": "SUP-BB-35",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "pitons",
+      "name": "Pitons",
+      "enclosure": "SUP-BB-36",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "viboras",
+      "name": "Viboras",
+      "enclosure": "SUP-BB-37",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "crocodilianos",
+      "name": "Crocodilianos",
+      "enclosure": "SUP-BB-38",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "sapos",
+      "name": "Sapos",
+      "enclosure": "SUP-BB-39",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "salamandras",
+      "name": "Salamandras",
+      "enclosure": "SUP-BB-40",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "rolinhas",
+      "name": "Rolinhas",
+      "enclosure": "SUP-BE-01",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "gralhas",
+      "name": "Gralhas",
+      "enclosure": "SUP-BE-02",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "codornas",
+      "name": "Codornas",
+      "enclosure": "SUP-BE-03",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "faisoes",
+      "name": "Faisoes",
+      "enclosure": "SUP-BE-04",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "perus",
+      "name": "Perus",
+      "enclosure": "SUP-BE-05",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "gansos",
+      "name": "Gansos",
+      "enclosure": "SUP-BE-06",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "papagaios",
+      "name": "Papagaios",
+      "enclosure": "SUP-BE-07",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "periquitos",
+      "name": "Periquitos",
+      "enclosure": "SUP-BE-08",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "tucanos",
+      "name": "Tucanos",
+      "enclosure": "SUP-BE-09",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "martins_pescadores",
+      "name": "Martins-pescadores",
+      "enclosure": "SUP-BE-10",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "andorinhas",
+      "name": "Andorinhas",
+      "enclosure": "SUP-BE-11",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "cotovias",
+      "name": "Cotovias",
+      "enclosure": "SUP-BE-12",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "tentilhoes",
+      "name": "Tentilhoes",
+      "enclosure": "SUP-BE-13",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "pintassilgos",
+      "name": "Pintassilgos",
+      "enclosure": "SUP-BE-14",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "abutres",
+      "name": "Abutres",
+      "enclosure": "SUP-BE-15",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1.2,
+        "width": 0.7,
+        "height": 1.5
+      },
+      "blender_dimensions_m": [
+        1.2,
+        0.7,
+        1.5
+      ],
+      "threejs_box_args_m": [
+        1.2,
+        1.5,
+        0.7
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "garcas",
+      "name": "Garcas",
+      "enclosure": "SUP-BE-16",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1.2,
+        "width": 0.7,
+        "height": 1.5
+      },
+      "blender_dimensions_m": [
+        1.2,
+        0.7,
+        1.5
+      ],
+      "threejs_box_args_m": [
+        1.2,
+        1.5,
+        0.7
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "cormoroes",
+      "name": "Cormoroes",
+      "enclosure": "SUP-BE-17",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1.2,
+        "width": 0.7,
+        "height": 1.5
+      },
+      "blender_dimensions_m": [
+        1.2,
+        0.7,
+        1.5
+      ],
+      "threejs_box_args_m": [
+        1.2,
+        1.5,
+        0.7
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "flamingos",
+      "name": "Flamingos",
+      "enclosure": "SUP-BE-18",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1.2,
+        "width": 0.7,
+        "height": 1.5
+      },
+      "blender_dimensions_m": [
+        1.2,
+        0.7,
+        1.5
+      ],
+      "threejs_box_args_m": [
+        1.2,
+        1.5,
+        0.7
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "beija_flores",
+      "name": "Beija-flores",
+      "enclosure": "SUP-BE-19",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "falcoes_pequenos",
+      "name": "Falcoes-pequenos",
+      "enclosure": "SUP-BE-20",
+      "deck": 3,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.3,
+        "height": 0.75
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.3,
+        0.75
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.75,
+        0.3
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "lebres",
+      "name": "Lebres",
+      "enclosure": "SUP-BE-21",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "esquilos",
+      "name": "Esquilos",
+      "enclosure": "SUP-BE-22",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "castores",
+      "name": "Castores",
+      "enclosure": "SUP-BE-23",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "chinchilas",
+      "name": "Chinchilas",
+      "enclosure": "SUP-BE-24",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "hamsters",
+      "name": "Hamsters",
+      "enclosure": "SUP-BE-25",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "camundongos",
+      "name": "Camundongos",
+      "enclosure": "SUP-BE-26",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "musaranhos",
+      "name": "Musaranhos",
+      "enclosure": "SUP-BE-27",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "ouricos",
+      "name": "Ouricos",
+      "enclosure": "SUP-BE-28",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "furoes",
+      "name": "Furoes",
+      "enclosure": "SUP-BE-29",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "morcegos",
+      "name": "Morcegos",
+      "enclosure": "SUP-BE-30",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "tartarugas_semiaquaticas",
+      "name": "Tartarugas-semiaquaticas",
+      "enclosure": "SUP-BE-31",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "varanos",
+      "name": "Varanos",
+      "enclosure": "SUP-BE-32",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "agamas",
+      "name": "Agamas",
+      "enclosure": "SUP-BE-33",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "lagartixas",
+      "name": "Lagartixas",
+      "enclosure": "SUP-BE-34",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "jiboias",
+      "name": "Jiboias",
+      "enclosure": "SUP-BE-35",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "cobras_nao_peconhentas",
+      "name": "Cobras-nao-peconhentas",
+      "enclosure": "SUP-BE-36",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "najas",
+      "name": "Najas",
+      "enclosure": "SUP-BE-37",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "ras",
+      "name": "Ras",
+      "enclosure": "SUP-BE-38",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "pererecas",
+      "name": "Pererecas",
+      "enclosure": "SUP-BE-39",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "cecilias",
+      "name": "Cecilias",
+      "enclosure": "SUP-BE-40",
+      "deck": 3,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.55,
+        "width": 0.65,
+        "height": 0.65
+      },
+      "blender_dimensions_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "threejs_box_args_m": [
+        0.55,
+        0.65,
+        0.65
+      ],
+      "staging_position_m": null
+    },
+    {
+      "id": "preguicas",
+      "name": "Preguiças",
+      "enclosure": "PENDENTE-01",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1,
+        "width": 0.4,
+        "height": 0.55
+      },
+      "blender_dimensions_m": [
+        1,
+        0.4,
+        0.55
+      ],
+      "threejs_box_args_m": [
+        1,
+        0.55,
+        0.4
+      ],
+      "staging_position_m": [
+        95,
+        6,
+        -24
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "Sem dimorfismo dimensional modelado."
+    },
+    {
+      "id": "tatus",
+      "name": "Tatus",
+      "enclosure": "PENDENTE-02",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.8,
+        "width": 0.35,
+        "height": 0.35
+      },
+      "blender_dimensions_m": [
+        0.8,
+        0.35,
+        0.35
+      ],
+      "threejs_box_args_m": [
+        0.8,
+        0.35,
+        0.35
+      ],
+      "staging_position_m": [
+        103,
+        6,
+        -24
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "Sem dimorfismo dimensional modelado."
+    },
+    {
+      "id": "pandas",
+      "name": "Pandas",
+      "enclosure": "PENDENTE-03",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1.2,
+        "width": 0.65,
+        "height": 0.8
+      },
+      "blender_dimensions_m": [
+        1.2,
+        0.65,
+        0.8
+      ],
+      "threejs_box_args_m": [
+        1.2,
+        0.8,
+        0.65
+      ],
+      "staging_position_m": [
+        111,
+        6,
+        -24
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "Sem dimorfismo dimensional modelado."
+    },
+    {
+      "id": "coalas",
+      "name": "Coalas",
+      "enclosure": "PENDENTE-04",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.6,
+        "width": 0.4,
+        "height": 0.6
+      },
+      "blender_dimensions_m": [
+        0.6,
+        0.4,
+        0.6
+      ],
+      "threejs_box_args_m": [
+        0.6,
+        0.6,
+        0.4
+      ],
+      "staging_position_m": [
+        119,
+        6,
+        -24
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "Sem dimorfismo dimensional modelado."
+    },
+    {
+      "id": "lemures",
+      "name": "Lêmures",
+      "enclosure": "PENDENTE-05",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.9,
+        "width": 0.25,
+        "height": 0.4
+      },
+      "blender_dimensions_m": [
+        0.9,
+        0.25,
+        0.4
+      ],
+      "threejs_box_args_m": [
+        0.9,
+        0.4,
+        0.25
+      ],
+      "staging_position_m": [
+        127,
+        6,
+        -24
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "Sem dimorfismo dimensional modelado."
+    },
+    {
+      "id": "lontras",
+      "name": "Lontras",
+      "enclosure": "PENDENTE-06",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1,
+        "width": 0.3,
+        "height": 0.3
+      },
+      "blender_dimensions_m": [
+        1,
+        0.3,
+        0.3
+      ],
+      "threejs_box_args_m": [
+        1,
+        0.3,
+        0.3
+      ],
+      "staging_position_m": [
+        135,
+        6,
+        -24
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "Sem dimorfismo dimensional modelado."
+    },
+    {
+      "id": "suricatos",
+      "name": "Suricatos",
+      "enclosure": "PENDENTE-07",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.5,
+        "width": 0.15,
+        "height": 0.3
+      },
+      "blender_dimensions_m": [
+        0.5,
+        0.15,
+        0.3
+      ],
+      "threejs_box_args_m": [
+        0.5,
+        0.3,
+        0.15
+      ],
+      "staging_position_m": [
+        95,
+        6,
+        -16
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "Sem dimorfismo dimensional modelado."
+    },
+    {
+      "id": "ocapis",
+      "name": "Ocapis",
+      "enclosure": "PENDENTE-08",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1.8,
+        "width": 0.6,
+        "height": 1.6
+      },
+      "blender_dimensions_m": [
+        1.8,
+        0.6,
+        1.6
+      ],
+      "threejs_box_args_m": [
+        1.8,
+        1.6,
+        0.6
+      ],
+      "staging_position_m": [
+        103,
+        6,
+        -16
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "Sem dimorfismo dimensional modelado."
+    },
+    {
+      "id": "pangolins",
+      "name": "Pangolins",
+      "enclosure": "PENDENTE-09",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1,
+        "width": 0.3,
+        "height": 0.35
+      },
+      "blender_dimensions_m": [
+        1,
+        0.3,
+        0.35
+      ],
+      "threejs_box_args_m": [
+        1,
+        0.35,
+        0.3
+      ],
+      "staging_position_m": [
+        111,
+        6,
+        -16
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "Sem dimorfismo dimensional modelado."
+    },
+    {
+      "id": "porcos-formigueiros",
+      "name": "Porcos-formigueiros",
+      "enclosure": "PENDENTE-10",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 1.3,
+        "width": 0.45,
+        "height": 0.7
+      },
+      "blender_dimensions_m": [
+        1.3,
+        0.45,
+        0.7
+      ],
+      "threejs_box_args_m": [
+        1.3,
+        0.7,
+        0.45
+      ],
+      "staging_position_m": [
+        119,
+        6,
+        -16
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "Sem dimorfismo dimensional modelado."
+    },
+    {
+      "id": "pinguins",
+      "name": "Pinguins",
+      "enclosure": "PENDENTE-11",
+      "deck": null,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.5,
+        "width": 0.35,
+        "height": 0.8
+      },
+      "blender_dimensions_m": [
+        0.5,
+        0.35,
+        0.8
+      ],
+      "threejs_box_args_m": [
+        0.5,
+        0.8,
+        0.35
+      ],
+      "staging_position_m": [
+        127,
+        6,
+        -16
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "14 indivíduos: convenção editorial de sete pares de aves.",
+      "sex_status": "Sem dimorfismo dimensional modelado."
+    },
+    {
+      "id": "kiwis",
+      "name": "Kiwis",
+      "enclosure": "PENDENTE-12",
+      "deck": null,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.45,
+        "width": 0.25,
+        "height": 0.4
+      },
+      "blender_dimensions_m": [
+        0.45,
+        0.25,
+        0.4
+      ],
+      "threejs_box_args_m": [
+        0.45,
+        0.4,
+        0.25
+      ],
+      "staging_position_m": [
+        135,
+        6,
+        -16
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "14 indivíduos: convenção editorial de sete pares de aves.",
+      "sex_status": "Sem dimorfismo dimensional modelado."
+    },
+    {
+      "id": "casuares",
+      "name": "Casuares",
+      "enclosure": "PENDENTE-13",
+      "deck": null,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1,
+        "width": 0.5,
+        "height": 1.4
+      },
+      "blender_dimensions_m": [
+        1,
+        0.5,
+        1.4
+      ],
+      "threejs_box_args_m": [
+        1,
+        1.4,
+        0.5
+      ],
+      "staging_position_m": [
+        95,
+        6,
+        -8
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "14 indivíduos: convenção editorial de sete pares de aves.",
+      "sex_status": "Sem dimorfismo dimensional modelado."
+    },
+    {
+      "id": "cisnes",
+      "name": "Cisnes",
+      "enclosure": "PENDENTE-14",
+      "deck": null,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 1.1,
+        "width": 0.45,
+        "height": 0.8
+      },
+      "blender_dimensions_m": [
+        1.1,
+        0.45,
+        0.8
+      ],
+      "threejs_box_args_m": [
+        1.1,
+        0.8,
+        0.45
+      ],
+      "staging_position_m": [
+        103,
+        6,
+        -8
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "14 indivíduos: convenção editorial de sete pares de aves.",
+      "sex_status": "Sem dimorfismo dimensional modelado."
+    },
+    {
+      "id": "turacos",
+      "name": "Turacos",
+      "enclosure": "PENDENTE-15",
+      "deck": null,
+      "quantity": 14,
+      "males": 7,
+      "females": 7,
+      "dimensions_m": {
+        "length": 0.45,
+        "width": 0.2,
+        "height": 0.3
+      },
+      "blender_dimensions_m": [
+        0.45,
+        0.2,
+        0.3
+      ],
+      "threejs_box_args_m": [
+        0.45,
+        0.3,
+        0.2
+      ],
+      "staging_position_m": [
+        111,
+        6,
+        -8
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "14 indivíduos: convenção editorial de sete pares de aves.",
+      "sex_status": "Sem dimorfismo dimensional modelado."
+    },
+    {
+      "id": "formigas",
+      "name": "Formigas",
+      "enclosure": "PENDENTE-16",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.012,
+        "width": 0.004,
+        "height": 0.006
+      },
+      "blender_dimensions_m": [
+        0.012,
+        0.004,
+        0.006
+      ],
+      "threejs_box_args_m": [
+        0.012,
+        0.006,
+        0.004
+      ],
+      "staging_position_m": [
+        119,
+        6,
+        -8
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias."
+    },
+    {
+      "id": "abelhas",
+      "name": "Abelhas",
+      "enclosure": "PENDENTE-17",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.02,
+        "width": 0.01,
+        "height": 0.012
+      },
+      "blender_dimensions_m": [
+        0.02,
+        0.01,
+        0.012
+      ],
+      "threejs_box_args_m": [
+        0.02,
+        0.012,
+        0.01
+      ],
+      "staging_position_m": [
+        127,
+        6,
+        -8
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias."
+    },
+    {
+      "id": "vespas",
+      "name": "Vespas",
+      "enclosure": "PENDENTE-18",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.025,
+        "width": 0.012,
+        "height": 0.015
+      },
+      "blender_dimensions_m": [
+        0.025,
+        0.012,
+        0.015
+      ],
+      "threejs_box_args_m": [
+        0.025,
+        0.015,
+        0.012
+      ],
+      "staging_position_m": [
+        135,
+        6,
+        -8
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias."
+    },
+    {
+      "id": "cupins",
+      "name": "Cupins",
+      "enclosure": "PENDENTE-19",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.008,
+        "width": 0.003,
+        "height": 0.004
+      },
+      "blender_dimensions_m": [
+        0.008,
+        0.003,
+        0.004
+      ],
+      "threejs_box_args_m": [
+        0.008,
+        0.004,
+        0.003
+      ],
+      "staging_position_m": [
+        95,
+        6,
+        0
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias."
+    },
+    {
+      "id": "besouros",
+      "name": "Besouros",
+      "enclosure": "PENDENTE-20",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.06,
+        "width": 0.03,
+        "height": 0.025
+      },
+      "blender_dimensions_m": [
+        0.06,
+        0.03,
+        0.025
+      ],
+      "threejs_box_args_m": [
+        0.06,
+        0.025,
+        0.03
+      ],
+      "staging_position_m": [
+        103,
+        6,
+        0
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias."
+    },
+    {
+      "id": "borboletas",
+      "name": "Borboletas",
+      "enclosure": "PENDENTE-21",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.06,
+        "width": 0.12,
+        "height": 0.03
+      },
+      "blender_dimensions_m": [
+        0.06,
+        0.12,
+        0.03
+      ],
+      "threejs_box_args_m": [
+        0.06,
+        0.03,
+        0.12
+      ],
+      "staging_position_m": [
+        111,
+        6,
+        0
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias."
+    },
+    {
+      "id": "mariposas",
+      "name": "Mariposas",
+      "enclosure": "PENDENTE-22",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.06,
+        "width": 0.1,
+        "height": 0.03
+      },
+      "blender_dimensions_m": [
+        0.06,
+        0.1,
+        0.03
+      ],
+      "threejs_box_args_m": [
+        0.06,
+        0.03,
+        0.1
+      ],
+      "staging_position_m": [
+        119,
+        6,
+        0
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias."
+    },
+    {
+      "id": "gafanhotos",
+      "name": "Gafanhotos",
+      "enclosure": "PENDENTE-23",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.08,
+        "width": 0.03,
+        "height": 0.04
+      },
+      "blender_dimensions_m": [
+        0.08,
+        0.03,
+        0.04
+      ],
+      "threejs_box_args_m": [
+        0.08,
+        0.04,
+        0.03
+      ],
+      "staging_position_m": [
+        127,
+        6,
+        0
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias."
+    },
+    {
+      "id": "grilos",
+      "name": "Grilos",
+      "enclosure": "PENDENTE-24",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.04,
+        "width": 0.02,
+        "height": 0.025
+      },
+      "blender_dimensions_m": [
+        0.04,
+        0.02,
+        0.025
+      ],
+      "threejs_box_args_m": [
+        0.04,
+        0.025,
+        0.02
+      ],
+      "staging_position_m": [
+        135,
+        6,
+        0
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias."
+    },
+    {
+      "id": "louva-a-deus",
+      "name": "Louva-a-deus",
+      "enclosure": "PENDENTE-25",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.1,
+        "width": 0.04,
+        "height": 0.05
+      },
+      "blender_dimensions_m": [
+        0.1,
+        0.04,
+        0.05
+      ],
+      "threejs_box_args_m": [
+        0.1,
+        0.05,
+        0.04
+      ],
+      "staging_position_m": [
+        95,
+        6,
+        8
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias."
+    },
+    {
+      "id": "bichos-pau",
+      "name": "Bichos-pau",
+      "enclosure": "PENDENTE-26",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.18,
+        "width": 0.04,
+        "height": 0.04
+      },
+      "blender_dimensions_m": [
+        0.18,
+        0.04,
+        0.04
+      ],
+      "threejs_box_args_m": [
+        0.18,
+        0.04,
+        0.04
+      ],
+      "staging_position_m": [
+        103,
+        6,
+        8
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias."
+    },
+    {
+      "id": "baratas",
+      "name": "Baratas",
+      "enclosure": "PENDENTE-27",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.05,
+        "width": 0.025,
+        "height": 0.015
+      },
+      "blender_dimensions_m": [
+        0.05,
+        0.025,
+        0.015
+      ],
+      "threejs_box_args_m": [
+        0.05,
+        0.015,
+        0.025
+      ],
+      "staging_position_m": [
+        111,
+        6,
+        8
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias."
+    },
+    {
+      "id": "aranhas",
+      "name": "Aranhas",
+      "enclosure": "PENDENTE-28",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.1,
+        "width": 0.1,
+        "height": 0.04
+      },
+      "blender_dimensions_m": [
+        0.1,
+        0.1,
+        0.04
+      ],
+      "threejs_box_args_m": [
+        0.1,
+        0.04,
+        0.1
+      ],
+      "staging_position_m": [
+        119,
+        6,
+        8
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias."
+    },
+    {
+      "id": "escorpioes",
+      "name": "Escorpiões",
+      "enclosure": "PENDENTE-29",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.12,
+        "width": 0.07,
+        "height": 0.05
+      },
+      "blender_dimensions_m": [
+        0.12,
+        0.07,
+        0.05
+      ],
+      "threejs_box_args_m": [
+        0.12,
+        0.05,
+        0.07
+      ],
+      "staging_position_m": [
+        127,
+        6,
+        8
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias."
+    },
+    {
+      "id": "centopeias",
+      "name": "Centopeias",
+      "enclosure": "PENDENTE-30",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.15,
+        "width": 0.04,
+        "height": 0.015
+      },
+      "blender_dimensions_m": [
+        0.15,
+        0.04,
+        0.015
+      ],
+      "threejs_box_args_m": [
+        0.15,
+        0.015,
+        0.04
+      ],
+      "staging_position_m": [
+        135,
+        6,
+        8
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias."
+    },
+    {
+      "id": "piolhos-de-cobra",
+      "name": "Piolhos-de-cobra",
+      "enclosure": "PENDENTE-31",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.15,
+        "width": 0.02,
+        "height": 0.02
+      },
+      "blender_dimensions_m": [
+        0.15,
+        0.02,
+        0.02
+      ],
+      "threejs_box_args_m": [
+        0.15,
+        0.02,
+        0.02
+      ],
+      "staging_position_m": [
+        95,
+        6,
+        16
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias."
+    },
+    {
+      "id": "caracois-terrestres",
+      "name": "Caracóis terrestres",
+      "enclosure": "PENDENTE-32",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.08,
+        "width": 0.04,
+        "height": 0.05
+      },
+      "blender_dimensions_m": [
+        0.08,
+        0.04,
+        0.05
+      ],
+      "threejs_box_args_m": [
+        0.08,
+        0.05,
+        0.04
+      ],
+      "staging_position_m": [
+        103,
+        6,
+        16
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias."
+    },
+    {
+      "id": "lesmas",
+      "name": "Lesmas",
+      "enclosure": "PENDENTE-33",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.1,
+        "width": 0.025,
+        "height": 0.025
+      },
+      "blender_dimensions_m": [
+        0.1,
+        0.025,
+        0.025
+      ],
+      "threejs_box_args_m": [
+        0.1,
+        0.025,
+        0.025
+      ],
+      "staging_position_m": [
+        111,
+        6,
+        16
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias."
+    },
+    {
+      "id": "minhocas",
+      "name": "Minhocas",
+      "enclosure": "PENDENTE-34",
+      "deck": null,
+      "quantity": 2,
+      "males": 1,
+      "females": 1,
+      "dimensions_m": {
+        "length": 0.2,
+        "width": 0.01,
+        "height": 0.01
+      },
+      "blender_dimensions_m": [
+        0.2,
+        0.01,
+        0.01
+      ],
+      "threejs_box_args_m": [
+        0.2,
+        0.01,
+        0.01
+      ],
+      "staging_position_m": [
+        119,
+        6,
+        16
+      ],
+      "dimension_status": "Envelope artístico provisório por grupo; espécie, idade e dimensões zoológicas não verificadas.",
+      "housing_status": "Sem baia atribuída; blocos na galeria externa. Não contabilizar como alojados na arca.",
+      "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
+      "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias."
+    }
+  ],
+  "penguins": {
+    "included": true,
+    "reason": "Não excluir por serem aquáticos: reprodução ocorre em terra ou gelo. Inclusão é escolha editorial, não prova bíblica.",
+    "source": "https://www.bas.ac.uk/project/penguin-foraging-in-a-warming-ocean/"
+  },
+  "revision_notes": [
+    "Novos envelopes incluem cauda/apêndices na postura de referência; não descrevem todas as posturas ou asas abertas, exceto largura artística escolhida para borboletas/mariposas.",
+    "Não foram alteradas baias nem reduzidos blocos para caber.",
+    "Insetos sociais não têm viabilidade de colônia representada por dois blocos.",
+    "Turacos foram acrescentados como grupo definido; o termo anterior 'tucões' não identificava com clareza o grupo pretendido.",
+    "Espécies extintas não incluídas: exigem decisão explícita sobre escopo e período do jogo."
+  ]
+}

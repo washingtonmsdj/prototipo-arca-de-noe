@@ -1,11 +1,12 @@
 export const ARCA_ASSETS = {
-  arca: "/assets/arca/arca-modular-v1.glb",
+  interior: "/assets/arca/arca-interior-runtime-v1.glb",
+  arca: "/assets/arca/arca-exterior-runtime-v1.glb",
   terrain: "/assets/arca/terreno-canteiro-v2.glb",
 } as const
 
 export const ARCA_SCALE = {
   unit: "metre",
-  length: 269,
-  width: 39.84,
-  height: 21.72,
+  length: 135,
+  width: 22.5,
+  height: 13.5,
 } as const

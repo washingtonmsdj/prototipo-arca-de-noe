@@ -1,14 +1,23 @@
 {
-  "version": 1,
+  "version": 2,
   "coordinateSystem": "Y-up",
   "unit": "metre",
   "assets": [
+    {
+      "id": "arca-exterior-runtime-v1",
+      "url": "/assets/arca/arca-exterior-runtime-v1.glb",
+      "source": "concepts/arca/arca-exterior-beta-v9-cobertura.blend",
+      "role": "completed-visual",
+      "nominalHullDimensions": { "length": 135, "width": 22.5, "height": 13.5 },
+      "notes": "Exterior v9 com rampa e dobradiça preservada; materiais PBR básicos. Texturas procedurais Blender ainda precisam de bake."
+    },
     {
       "id": "arca-modular-v1",
       "url": "/assets/arca/arca-modular-v1.glb",
       "source": "concepts/arca/arca-modular-v1.glb",
       "bounds": { "length": 269, "width": 39.84, "height": 21.72 },
-      "notes": "Kit modular com base, armações, pisos, baias, rampa e cobertura; a porta PORTA recebe pivot no runtime."
+      "role": "construction-reference",
+      "notes": "Kit legado reservado para construção futura. Escala inconsistente; requer correção antes de uso. Não carregado na página /arca."
     },
     {
       "id": "terreno-canteiro-v2",
@@ -21,8 +30,9 @@
   "runtime": {
     "loader": "THREE.GLTFLoader",
     "renderLayer": "static-architecture",
-    "doorNode": "PORTA",
-    "doorPivot": [-58, 0.65, 9.5],
+    "page": "/arca",
+    "doorNode": "PORTA_ARCA_DOBRADICA_ANIMADA",
+    "doorPivot": [-58, 4.85, 11.55],
     "doorOpenRotationY": -1.5707963267948966
   }
 }
