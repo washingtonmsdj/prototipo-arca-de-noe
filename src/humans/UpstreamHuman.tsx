@@ -5,7 +5,9 @@ import { createBasePersonRig } from "../../vendor/pilgrimage/lib/game/base-perso
 import { PERSON_PRESETS, personRecipe } from "../../vendor/pilgrimage/lib/game/base-person/design"
 import {
   PERSON_CLIPS,
+  SOCKET_NAMES,
   type BaseClip,
+  type SocketName,
 } from "../../vendor/pilgrimage/lib/game/base-person/pose"
 import {
   EDITABLE_JOINTS,
@@ -51,6 +53,8 @@ export function UpstreamHuman({
 }: UpstreamHumanProps) {
   const container = useRef<THREE.Group>(null)
   const markers = useRef<Partial<Record<EditableJoint, THREE.Mesh | null>>>({})
+  const socketMarkers = useRef<Partial<Record<SocketName, THREE.Mesh | null>>>({})
+  const socketPoint = useRef(new THREE.Vector3())
   const phase = useRef(0)
 
   const setup = useMemo(() => {
@@ -96,6 +100,18 @@ export function UpstreamHuman({
       marker.visible = showRig && !!joint
       if (joint) marker.position.set(...joint)
     }
+
+    setup.rig.root.updateWorldMatrix(true, true)
+    container.current.updateWorldMatrix(true, true)
+    for (const name of SOCKET_NAMES) {
+      const marker = socketMarkers.current[name]
+      const socket = setup.rig.sockets[name]
+      if (!marker || !socket) continue
+      marker.visible = showRig
+      socket.getWorldPosition(socketPoint.current)
+      container.current.worldToLocal(socketPoint.current)
+      marker.position.copy(socketPoint.current)
+    }
   })
 
   return (
@@ -109,6 +125,16 @@ export function UpstreamHuman({
         >
           <sphereGeometry args={[.026, 7, 5]} />
           <meshBasicMaterial color="#ff7ad9" depthTest={false} />
+        </mesh>
+      ))}
+      {SOCKET_NAMES.map((name) => (
+        <mesh
+          key={`socket-${name}`}
+          ref={(node) => { socketMarkers.current[name] = node }}
+          visible={false}
+        >
+          <octahedronGeometry args={[.024, 0]} />
+          <meshBasicMaterial color="#57d7ff" depthTest={false} />
         </mesh>
       ))}
     </group>
