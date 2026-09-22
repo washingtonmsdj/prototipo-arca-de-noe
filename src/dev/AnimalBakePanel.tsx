@@ -8,6 +8,7 @@ import {
 
 interface AnimalBakePanelProps {
   target: AnimalBakeTarget
+  onBake?: (result: AnimalClipBake | null) => void
 }
 
 function downloadUrl(filename: string, url: string) {
@@ -27,7 +28,7 @@ function downloadJson(filename: string, value: unknown) {
   }
 }
 
-export function AnimalBakePanel({ target }: AnimalBakePanelProps) {
+export function AnimalBakePanel({ target, onBake }: AnimalBakePanelProps) {
   const [busy, setBusy] = useState(false)
   const [progress, setProgress] = useState({ done: 0, total: 0 })
   const [result, setResult] = useState<AnimalClipBake | null>(null)
@@ -38,9 +39,10 @@ export function AnimalBakePanel({ target }: AnimalBakePanelProps) {
     generation.current++
     setBusy(false)
     setResult(null)
+    onBake?.(null)
     setError(null)
     setProgress({ done: 0, total: 0 })
-  }, [target])
+  }, [target, onBake])
 
   const bake = async () => {
     if (busy) return
@@ -57,7 +59,10 @@ export function AnimalBakePanel({ target }: AnimalBakePanelProps) {
           if (run === generation.current) setProgress({ done, total })
         },
       )
-      if (run === generation.current) setResult(baked)
+      if (run === generation.current) {
+        setResult(baked)
+        onBake?.(baked)
+      }
     } catch (cause) {
       if (run === generation.current) {
         setError(cause instanceof Error ? cause.message : "Falha desconhecida ao gerar o atlas.")
