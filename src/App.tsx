@@ -25,6 +25,8 @@ import {
 } from "./humans/UpstreamHuman"
 import type { HumanClip } from "./humans/types"
 import { AnimalRigEditorPanel } from "./dev/AnimalRigEditorPanel"
+import { AnimalBakePanel } from "./dev/AnimalBakePanel"
+import type { AnimalBakeTarget } from "./pilgrimage/bake/animal-bake"
 import { HumanRigEditorPanel } from "./dev/HumanRigEditorPanel"
 import { HumanBakePanel } from "./dev/HumanBakePanel"
 import type { EditableJoint, PoseEdits } from "../vendor/pilgrimage/lib/game/base-person/pose-edits"
@@ -147,6 +149,21 @@ export function App() {
   const editableAnimalClip: AnimalClip = upstreamAnimalGroup === "wildlife"
     ? upstreamAnimalClip
     : upstreamTransportClip
+  const animalBakeTarget: AnimalBakeTarget = upstreamAnimalGroup === "wildlife"
+    ? {
+        family: "wildlife",
+        kind: upstreamAnimalKind,
+        clip: upstreamAnimalClip,
+        edits: animalEdits,
+      }
+    : {
+        family: "transport",
+        kind: transportDefinition.animal,
+        variant: transportDefinition.variant,
+        coatId: upstreamTransportCoat,
+        clip: upstreamTransportClip,
+        edits: animalEdits,
+      }
   const upstreamHumanFrameCount = upstreamHumanFrames(upstreamHumanClip)
   const safeHumanEditFrame = Math.min(humanEditFrame, upstreamHumanFrameCount - 1)
 
@@ -328,6 +345,8 @@ export function App() {
                     onJointChange={setAnimalEditJoint}
                   />
                 )}
+
+                <AnimalBakePanel target={animalBakeTarget} />
               </>
             ) : (
               <>
