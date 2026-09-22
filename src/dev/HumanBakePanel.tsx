@@ -16,6 +16,7 @@ interface HumanBakePanelProps {
   edits: PoseEdits
   attachment?: HumanAttachmentKind
   attachmentSocket?: SocketName
+  onBake?: (result: HumanClipBake | null) => void
 }
 
 function downloadUrl(filename: string, url: string) {
@@ -35,7 +36,7 @@ function downloadJson(filename: string, value: unknown) {
   }
 }
 
-export function HumanBakePanel({ preset, clip, edits, attachment, attachmentSocket }: HumanBakePanelProps) {
+export function HumanBakePanel({ preset, clip, edits, attachment, attachmentSocket, onBake }: HumanBakePanelProps) {
   const [busy, setBusy] = useState(false)
   const [progress, setProgress] = useState({ done: 0, total: 0 })
   const [result, setResult] = useState<HumanClipBake | null>(null)
@@ -46,9 +47,10 @@ export function HumanBakePanel({ preset, clip, edits, attachment, attachmentSock
     generation.current++
     setBusy(false)
     setResult(null)
+    onBake?.(null)
     setError(null)
     setProgress({ done: 0, total: 0 })
-  }, [preset, clip, edits, attachment, attachmentSocket])
+  }, [preset, clip, edits, attachment, attachmentSocket, onBake])
 
   const bake = async () => {
     if (busy) return
@@ -72,7 +74,10 @@ export function HumanBakePanel({ preset, clip, edits, attachment, attachmentSock
         },
         bakeAttachment,
       )
-      if (run === generation.current) setResult(baked)
+      if (run === generation.current) {
+        setResult(baked)
+        onBake?.(baked)
+      }
     } catch (cause) {
       if (run === generation.current) {
         setError(cause instanceof Error ? cause.message : "Falha desconhecida ao gerar o atlas.")
