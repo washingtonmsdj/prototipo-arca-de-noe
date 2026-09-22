@@ -1,63 +1,49 @@
 # Sistema de animação
 
-O laboratório mantém dois motores lado a lado: o motor simplificado do Arca e os rigs originais do Pilgrimage portados para uma camada isolada.
-
-## Animais — Arca
-
-```text
-velocidade
-  -> distância
-  -> fase da passada
-  -> fase individual de cada pata
-  -> alvo do pé
-  -> IK de dois elos
-  -> pose do corpo
-  -> rig visual
-```
-
-A fase em movimento deriva da distância, reduzindo foot sliding quando a velocidade muda.
+O laboratório mantém o motor simplificado do Arca e os rigs originais do Pilgrimage lado a lado.
 
 ## Animais — Pilgrimage original
 
 ### Wildlife
 
 - mamíferos procedurais;
-- aves com asa + punho;
-- galinhas com rig especializado;
+- aves com asa e punho;
+- galinhas especializadas;
 - gaits por espécie;
-- malha deformada pelo próprio rig;
-- idle, graze, lie, burrow, fly e glide.
+- deformação da malha pelo rig;
+- idle, graze, lie, burrow, fly e glide quando aplicável.
 
 ### Transporte
 
-- cavalo comum e nobre;
+- cavalo comum/nobre;
 - jumento;
 - boi;
 - pelagens;
-- rig quadrúpede e pose original.
+- rig quadrúpede original.
 
-## Editor animal
+### Editor
 
-`src/dev/AnimalRigEditorPanel.tsx` usa o contrato original de rig edits:
-
-- 20 frames;
-- junta selecionável;
-- offset X/Y/Z;
-- raio de influência;
-- cadência;
-- timing dos quatro contatos;
-- limpar junta/frame;
-- reset;
-- import/export JSON.
-
-O preview pode congelar exatamente no frame editado.
+`src/dev/AnimalRigEditorPanel.tsx` usa `AnimalRigEdits`: frame, junta, offsets X/Y/Z, raio de influência, cadência e timing dos quatro contatos.
 
 ## Humanos — Pilgrimage original
 
-`createBasePersonRig()` é executado diretamente. O laboratório expõe os 19 clips de `PERSON_CLIPS`, cada um com sua contagem original de frames.
+`createBasePersonRig()` é executado diretamente. O laboratório expõe todos os 19 clips de `PERSON_CLIPS` com sua contagem própria de frames.
 
-`src/dev/HumanRigEditorPanel.tsx` usa o sistema original de `PoseEdits` e interpolação circular entre keyframes.
+`src/dev/HumanRigEditorPanel.tsx` usa `PoseEdits`, `setPoseKey`, `clearFrameKeys` e a interpolação circular original.
 
-## Regra
+## Motor Arca
 
-O rig descreve geometria e pose. Navegação, comportamento, sincronização de deslocamento e LOD pertencem a camadas superiores.
+O motor próprio continua separado. Em movimento, a fase é derivada da distância percorrida para reduzir foot sliding.
+
+## Baker
+
+Os mesmos rigs podem ser convertidos para atlas sem manter uma segunda animação desenhada à mão.
+
+- humanos: frames originais do clip × 8 direções;
+- animais: 20 frames × 8 direções;
+- color atlas;
+- depth atlas RG16;
+- shadow atlas;
+- metadata de sockets humanos ou juntas animais.
+
+Detalhes em `docs/BAKING_PIPELINE.md`.

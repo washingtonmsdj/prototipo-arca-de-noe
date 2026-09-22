@@ -2,63 +2,87 @@
 
 ## Estado atual
 
-O mundo é procedural e determinístico. A cobertura visível deriva do gerador isolado do Pilgrimage em vez do antigo rio senoidal e de árvores posicionadas manualmente.
+O mundo visível é procedural, determinístico e compartilha a mesma seed entre cobertura, água, elevação e hidrologia.
 
-## Pipeline
+## Pipeline ativo
 
 ```text
 WORLD_SEED
    ↓
-seedingMethodForSeed()
-   ↓
 sampleWoodland()
-   ├── woodland / darkwood / clearings
-   └── generateWater()
-          ├── rios
-          └── lagos
-   ↓
-adaptação 3D do Arca
-   ├── terrainHeight(x,z)
-   ├── terrainSlope(x,z)
-   ├── mesh de terreno
-   ├── mesh de água
-   └── instâncias de árvores
+   ├── grass / forest / darkwood / clearings
+   └── water mask
+           ↓
+generateWater()
+   ├── kind
+   ├── depth
+   ├── river flow headings
+   └── point bars
+           ↓
+generateElevation()
+   ├── hills
+   ├── ridges
+   ├── bank shaping
+   └── base heights
+           ↓
+drainWater()
+   ├── surface
+   ├── downstream
+   ├── drop
+   ├── flow
+   └── motion: still / flow / waterfall
+           ↓
+finishElevation()
+   ├── shared corners
+   ├── slopes
+   └── cliff masks
+           ↓
+Arca 3D
+   ├── terrain triangles
+   ├── water depth colors
+   ├── cliff walls
+   ├── forest instances
+   ├── safe roaming loops
+   └── safe lab site
 ```
 
-## Fonte dos dados
+## Camada isolada
 
-- `src/pilgrimage/world/woodland.ts`;
-- `src/pilgrimage/world/water.ts`;
 - `src/pilgrimage/world/terrain.ts`;
+- `src/pilgrimage/world/water.ts`;
+- `src/pilgrimage/world/woodland.ts`;
 - `src/pilgrimage/world/woodland-details.ts`;
+- `src/pilgrimage/world/elevation-core.ts`;
+- `src/pilgrimage/world/hydrology.ts`;
 - `src/pilgrimage/world/grid-utils.ts`;
 - `src/pilgrimage/world/depth-field-core.ts`.
 
-A integração 3D fica em `src/world/terrain.ts`, `src/world/GeneratedEnvironment.tsx` e `src/world/World.tsx`.
+## Integração Arca
 
-## Escala atual do laboratório
+- `src/world/terrain.ts`: monta o campo final e expõe amostragem/meshes;
+- `src/world/GeneratedEnvironment.tsx`: água e floresta;
+- `src/world/World.tsx`: terrain, cliffs, agentes e laboratório.
 
-- seed: `717`;
-- amostra: `128 × 128` tiles;
-- área renderizada: `44 × 44` unidades.
+Configuração atual do laboratório:
 
-Esses valores são configuração do laboratório, não limite arquitetural.
+- seed `717`;
+- região-base `192 × 192`;
+- recorte ativo `128 × 128`;
+- área 3D `44 × 44` unidades;
+- escala vertical separada por `HEIGHT_SCALE`.
 
-## Altura e contato
+## Contato e travessia
 
-`terrainHeight(x, z)` é a fonte comum para a malha visual e para posicionamento dos rigs. `terrainSlope(x, z)` estima o declive local.
+`terrainHeight(x,z)` amostra os corners finalizados em terra seca e a superfície drenada em água. `terrainSlope(x,z)` deriva o declive local.
 
-A floresta e a água já vêm do gerador upstream. A elevação atual ainda é uma adaptação determinística isolada; **o pipeline completo de elevation/hydrology/cliffs do Pilgrimage ainda não foi portado**.
+`isWalkable()` rejeita água, cobertura não passável, tiles com cliff e inclinação excessiva. `findWalkableLoop()` escolhe loops determinísticos e reduz o raio quando necessário. `LAB_SITE` procura uma área seca/passável grande o bastante para o laboratório central.
 
-## Próxima etapa
+## Ainda não portado
 
-Portar de forma independente:
+- shoreline diagonal/corner clipping;
+- classificação final de praia e refinamentos completos de margens;
+- geometria específica de cachoeira/espuma;
+- pontes, fords e estradas;
+- sistema de rotas e navegação do gameplay.
 
-1. `generateElevation`;
-2. `finishElevation`;
-3. drenagem/hidrologia;
-4. margens/profundidade de água;
-5. cliffs;
-6. rotas somente se forem necessárias.
-
-Construções, economia, população e settlement gameplay não devem entrar como dependência dessa etapa.
+Esses itens devem entrar como módulos independentes; construções, população e economia não são dependências aceitáveis do gerador físico.
