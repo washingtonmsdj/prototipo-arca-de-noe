@@ -9,7 +9,8 @@ import { AnimalBlocks } from "./AnimalBlocks"
 import { RampAccess } from "./RampAccess"
 import { EnclosureSigns } from "./EnclosureSigns"
 import { EnclosureColliders } from "./EnclosureColliders"
-import { EnclosurePartitions } from "./EnclosurePartitions"
+import { PlannedEnclosures } from "./PlannedEnclosures"
+import { ServiceZones } from "./ServiceZones"
 
 interface ArcaSceneProps {
   birds?: boolean
@@ -97,6 +98,12 @@ function InteriorModel() {
   const gltf = useLoader(GLTFLoader, ARCA_ASSETS.interior)
   const root = useMemo(() => {
     const clone = gltf.scene.clone(true)
+    const legacyEnclosure = /^(?:INF|MED|SUP)-(?:BB|BE)-\d{2}__/
+    clone.traverse(object => {
+      if (!legacyEnclosure.test(object.name)) return
+      object.visible = false
+      object.userData.noCollision = true
+    })
     prepareStaticMeshes(clone, false)
     return clone
   }, [gltf.scene])
@@ -184,7 +191,8 @@ export function ArcaScene({ doorOpen, paused, onInteract, onNearDoor, birds }: A
         <ArcaModel doorOpen={doorOpen} paused={paused} />
         <InteriorModel />
         <AnimalBlocks />
-        <EnclosurePartitions />
+        <PlannedEnclosures />
+        <ServiceZones />
         <EnclosureSigns />
         <EnclosureColliders />
         <RampAccess />
