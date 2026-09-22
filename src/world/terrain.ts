@@ -386,6 +386,21 @@ export interface WalkableLoop {
   phase: number
 }
 
+export function isWalkableDisk(origin: readonly [number, number], radius: number, rings = 3, samples = 32) {
+  if (!isWalkable(origin[0], origin[1])) return false
+  for (let ring = 1; ring <= rings; ring++) {
+    const distance = radius * ring / rings
+    for (let i = 0; i < samples; i++) {
+      const angle = i / samples * Math.PI * 2
+      if (!isWalkable(
+        origin[0] + Math.cos(angle) * distance,
+        origin[1] + Math.sin(angle) * distance,
+      )) return false
+    }
+  }
+  return true
+}
+
 export function isWalkable(x: number, z: number) {
   if (
     x <= -HALF_WORLD + TILE_SIZE
@@ -473,6 +488,49 @@ export function findWalkableLoop(seed: number, preferredRadius: number): Walkabl
 
   return { origin: [0, 0], radius: 0, phase: 0 }
 }
+
+export function findWalkableSite(
+  preferred: readonly [number, number] = [0, 0],
+  clearance = 2.4,
+): [number, number] {
+  const preferredPoint: [number, number] = [preferred[0], preferred[1]]
+  if (isWalkableDisk(preferredPoint, clearance)) return preferredPoint
+
+  const clearingSites = GENERATED_WORLD.clearings
+    .filter((clearing) => clearing.kind === "main")
+    .map((clearing) => {
+      const point = tileToWorld(clearing.x, clearing.z)
+      return {
+        point: [point.x, point.z] as [number, number],
+        distance: Math.hypot(point.x - preferred[0], point.z - preferred[1]),
+      }
+    })
+    .sort((a, b) => a.distance - b.distance)
+
+  for (const candidate of clearingSites) {
+    if (isWalkableDisk(candidate.point, clearance)) return candidate.point
+  }
+
+  const centerX = Math.floor(WORLD_TILES / 2)
+  const centerZ = Math.floor(WORLD_TILES / 2)
+  const maxRadius = Math.ceil(Math.hypot(WORLD_TILES, WORLD_TILES))
+
+  for (let ring = 0; ring <= maxRadius; ring++) {
+    for (let dz = -ring; dz <= ring; dz++) for (let dx = -ring; dx <= ring; dx++) {
+      if (Math.max(Math.abs(dx), Math.abs(dz)) !== ring) continue
+      const x = centerX + dx
+      const z = centerZ + dz
+      if (x < 1 || z < 1 || x >= WORLD_TILES - 1 || z >= WORLD_TILES - 1) continue
+      const point = tileToWorld(x, z)
+      const candidate: [number, number] = [point.x, point.z]
+      if (isWalkableDisk(candidate, clearance)) return candidate
+    }
+  }
+
+  return preferredPoint
+}
+
+export const LAB_SITE = findWalkableSite([0, 0], 2.35)
 
 export function seeded(seed: number) {
   return makeRng(seed)
