@@ -4,7 +4,7 @@ import * as THREE from "three"
 import { createAnimalRig } from "../pilgrimage/transport/animal-rig"
 import { COATS } from "../pilgrimage/transport/coats"
 import { animalProfile, type Animal, type HorseVariant } from "../pilgrimage/transport-core"
-import { ANIMAL_JOINT_LABELS, type AnimalJoint } from "../pilgrimage/wildlife/rig-edits"
+import { ANIMAL_JOINT_LABELS, type AnimalJoint, type AnimalRigEdits } from "../pilgrimage/wildlife/rig-edits"
 import { terrainHeight, terrainSlope } from "../world/terrain"
 
 export type UpstreamTransportClip = "idle" | "walk" | "graze"
@@ -40,6 +40,8 @@ interface UpstreamTransportAnimalProps {
   origin?: [number, number]
   scale?: number
   speedScale?: number
+  edits?: AnimalRigEdits
+  phaseOverride?: number
 }
 
 export function UpstreamTransportAnimal({
@@ -51,6 +53,8 @@ export function UpstreamTransportAnimal({
   origin = [0, 0],
   scale = 1.05,
   speedScale = 1,
+  edits,
+  phaseOverride,
 }: UpstreamTransportAnimalProps) {
   const container = useRef<THREE.Group>(null)
   const markers = useRef<Partial<Record<AnimalJoint, THREE.Mesh | null>>>({})
@@ -76,11 +80,13 @@ export function UpstreamTransportAnimal({
     if (!container.current) return
     const dt = paused ? 0 : Math.min(delta, .05)
     const profile = animalProfile(definition.animal, definition.variant)
-    phase.current = (phase.current + dt * profile.cyclesPerSecond * speedScale) % 1
+    const cadenceEdit = edits?.clips.walk?.cadence ?? 1
+    phase.current = (phase.current + dt * profile.cyclesPerSecond * cadenceEdit * speedScale) % 1
+    const displayPhase = phaseOverride ?? phase.current
 
     const moving = clip === "walk"
     const grazing = clip === "graze" ? 1 : 0
-    rig.pose(phase.current, moving, grazing)
+    rig.pose(displayPhase, moving, grazing, edits)
 
     const x = origin[0]
     const z = origin[1]
