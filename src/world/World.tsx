@@ -1,11 +1,13 @@
-import { useEffect, useMemo } from "react"
-import { useThree } from "@react-three/fiber"
+import { useEffect, useMemo, useRef } from "react"
+import { useFrame, useThree } from "@react-three/fiber"
 import { Animal } from "../animals/Animal"
 import { UpstreamAnimal } from "../animals/UpstreamAnimal"
 import { UpstreamTransportAnimal, type UpstreamTransportClip, type UpstreamTransportKind } from "../animals/UpstreamTransportAnimal"
 import { SPECIES } from "../animals/species"
 import type { AnimalSpecies, GaitName } from "../animals/types"
 import type { AnimalClip, AnimalRigEdits } from "../pilgrimage/wildlife/rig-edits"
+import type { AnimalClipBake } from "../pilgrimage/bake/animal-bake"
+import type { HumanClipBake } from "../pilgrimage/bake/human-bake"
 import type { WildlifeKind } from "../pilgrimage/wildlife/species"
 import { Human } from "../humans/Human"
 import { UpstreamHuman, type UpstreamHumanClip } from "../humans/UpstreamHuman"
@@ -14,13 +16,17 @@ import type { SocketName } from "../../vendor/pilgrimage/lib/game/base-person/po
 import { HUMAN_DESIGNS, generatedHuman } from "../humans/designs"
 import type { HumanClip, HumanDesign } from "../humans/types"
 import type { PoseEdits } from "../../vendor/pilgrimage/lib/game/base-person/pose-edits"
-import { LAB_SITE, createCliffGeometry, createTerrainGeometry, findWalkableLoop, terrainHeight } from "./terrain"
+import { LAB_SITE, createCliffGeometry, createTerrainGeometry, findWalkableLoop, terrainHeight, terrainSlope } from "./terrain"
 import { GeneratedEnvironment } from "./GeneratedEnvironment"
+import { DepthAtlasSprite } from "../pilgrimage/runtime/DepthAtlasSprite"
+import { wildlifeClipCadence } from "../animals/upstream-motion"
+import { animalProfile } from "../pilgrimage/transport-core"
 
 export type LabSubject = "animal" | "human"
 export type HumanEngine = "arca" | "pilgrimage"
 export type AnimalEngine = "arca" | "pilgrimage"
 export type OriginalAnimalGroup = "wildlife" | "transport"
+export type LabRepresentation = "rig" | "sprite"
 
 interface WorldProps {
   labSubject: LabSubject
@@ -32,6 +38,8 @@ interface WorldProps {
   animalEdits: AnimalRigEdits
   animalEditPhase?: number
   animalMoving: boolean
+  animalRepresentation: LabRepresentation
+  animalBakePreview?: AnimalClipBake | null
   labSpecies: AnimalSpecies
   labGait: GaitName
   upstreamAnimalKind: WildlifeKind
@@ -46,9 +54,49 @@ interface WorldProps {
   humanAttachment?: HumanAttachmentKind
   humanAttachmentSocket?: SocketName
   humanMoving: boolean
+  humanRepresentation: LabRepresentation
+  humanBakePreview?: HumanClipBake | null
   speedScale: number
   paused: boolean
   showRig: boolean
+}
+
+function BakedLabActor({
+  bake,
+  scale,
+  cadence,
+  speedScale,
+  paused,
+}: {
+  bake: HumanClipBake | AnimalClipBake
+  scale: number
+  cadence: number
+  speedScale: number
+  paused: boolean
+}) {
+  const phase = useRef(0)
+  const ground = terrainHeight(LAB_SITE[0], LAB_SITE[1])
+  const slope = terrainSlope(LAB_SITE[0], LAB_SITE[1])
+
+  useFrame((_, delta) => {
+    if (paused) return
+    phase.current = (
+      phase.current
+      + Math.min(delta, .05) * cadence * speedScale
+    ) % 1
+  })
+
+  return (
+    <DepthAtlasSprite
+      color={bake.color}
+      depth={bake.depth}
+      metadata={bake.metadata}
+      phase={phase}
+      position={[LAB_SITE[0], ground, LAB_SITE[1]]}
+      scale={scale}
+      groundNormal={[-slope.dx, 1, -slope.dz]}
+    />
+  )
 }
 
 function Terrain() {
@@ -173,6 +221,8 @@ export function World({
   animalEdits,
   animalEditPhase,
   animalMoving,
+  animalRepresentation,
+  animalBakePreview,
   labSpecies,
   labGait,
   upstreamAnimalKind,
@@ -187,10 +237,21 @@ export function World({
   humanAttachment,
   humanAttachmentSocket,
   humanMoving,
+  humanRepresentation,
+  humanBakePreview,
   speedScale,
   paused,
   showRig,
 }: WorldProps) {
+  const animalBakeCadence = upstreamAnimalGroup === "transport"
+    ? animalProfile(
+        upstreamTransportKind === "horse-noble" || upstreamTransportKind === "horse-common"
+          ? "horse"
+          : upstreamTransportKind,
+        upstreamTransportKind === "horse-noble" ? "noble" : "common",
+      ).cyclesPerSecond * (animalEdits.clips.walk?.cadence ?? 1)
+    : wildlifeClipCadence(upstreamAnimalKind, upstreamAnimalClip, animalEdits)
+
   return (
     <>
       <color attach="background" args={["#bac5a7"]} />
@@ -226,7 +287,15 @@ export function World({
 
         {labSubject === "animal" ? (
           animalEngine === "pilgrimage" ? (
-            upstreamAnimalGroup === "transport" ? (
+            animalRepresentation === "sprite" && animalBakePreview ? (
+              <BakedLabActor
+                bake={animalBakePreview}
+                scale={upstreamAnimalGroup === "transport" ? 1.05 : 1.35}
+                cadence={animalBakeCadence}
+                speedScale={speedScale}
+                paused={paused}
+              />
+            ) : upstreamAnimalGroup === "transport" ? (
               <UpstreamTransportAnimal
                 kind={upstreamTransportKind}
                 clip={upstreamTransportClip}
@@ -268,22 +337,32 @@ export function World({
             />
           )
         ) : humanEngine === "pilgrimage" ? (
-          <UpstreamHuman
-            preset={upstreamHumanPreset}
-            clip={upstreamHumanClip}
-            paused={paused}
-            origin={LAB_SITE}
-            scale={1.2}
-            speedScale={speedScale}
-            edits={humanEdits}
-            phaseOverride={humanEditPhase}
-            showRig={showRig}
-            attachment={humanAttachment}
-            attachmentSocket={humanAttachmentSocket}
-            pathRadius={1.6}
-            pathOffset={0}
-            stationary={!humanMoving || humanEditPhase !== undefined}
-          />
+          humanRepresentation === "sprite" && humanBakePreview ? (
+            <BakedLabActor
+              bake={humanBakePreview}
+              scale={1.2}
+              cadence={1.1}
+              speedScale={speedScale}
+              paused={paused}
+            />
+          ) : (
+            <UpstreamHuman
+              preset={upstreamHumanPreset}
+              clip={upstreamHumanClip}
+              paused={paused}
+              origin={LAB_SITE}
+              scale={1.2}
+              speedScale={speedScale}
+              edits={humanEdits}
+              phaseOverride={humanEditPhase}
+              showRig={showRig}
+              attachment={humanAttachment}
+              attachmentSocket={humanAttachmentSocket}
+              pathRadius={1.6}
+              pathOffset={0}
+              stationary={!humanMoving || humanEditPhase !== undefined}
+            />
+          )
         ) : (
           <Human
             design={labHuman}
