@@ -8,6 +8,7 @@ import { NoePlayer } from "./NoePlayer"
 import { AnimalBlocks } from "./AnimalBlocks"
 import { RampAccess } from "./RampAccess"
 import { EnclosureSigns } from "./EnclosureSigns"
+import { EnclosureColliders } from "./EnclosureColliders"
 
 interface ArcaSceneProps {
   gallery?: boolean
@@ -184,6 +185,7 @@ export function ArcaScene({ doorOpen, paused, onInteract, onNearDoor, gallery, b
         <InteriorModel />
         <AnimalBlocks />
         <EnclosureSigns />
+        <EnclosureColliders />
         <RampAccess />
       </Suspense>
     </>

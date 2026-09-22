@@ -1,23 +1,24 @@
 import { useEffect, useMemo } from "react"
 import { BufferGeometry, CanvasTexture, Float32BufferAttribute, SRGBColorSpace } from "three"
-import catalog from "../../concepts/arca/catalogo-recintos-v3.json"
+import { physicalPens, galleryAnimals } from "./enclosureLayout"
 import dimensions from "../../concepts/arca/dimensoes-animais-jogo-v1.json"
 
 export function EnclosureSigns() {
   const signs = useMemo(() => {
-    const labels = dimensions.animals.map(animal => {
-      const pen = catalog.records.find(p => p.id === animal.enclosure)
-      if (pen) {
-        const side = Math.sign(pen.center[1])
-        return { name: animal.name, detail: `${pen.classification === "ave" ? "AVES · " : ""}${pen.id} · ${animal.quantity} animais`,
-          x: pen.center[0], y: pen.center[2] + 1.85,
-          z: -pen.center[1] + side * (pen.depth / 2 + 0.08), face: side,
-          width: Math.min(2.2, pen.length - 0.15) }
-      }
+    const labels = physicalPens.map(pen => {
+      const animal = dimensions.animals.find(a => a.id === pen.animal_key)
+      const { min, max } = pen.bounds_m
+      const composition = animal ? animal.quantity === 2 ? "1 CASAL" : `${animal.quantity} animais` : "DISPONÍVEL"
+      return { name: animal?.name ?? "Baia disponível", detail: `${pen.id} · ${composition}`,
+        measures: `${(max[0] - min[0]).toFixed(2)} × ${(max[2] - min[2]).toFixed(2)} × ${(max[1] - min[1]).toFixed(2)} m`,
+        x: (min[0] + max[0]) / 2, y: min[1] + 1.85,
+        z: (pen.side > 0 ? max[2] : min[2]) + pen.side * 0.12,
+        face: pen.side, width: Math.min(2.2, max[0] - min[0] - 0.1) }
+    }).concat(galleryAnimals.map(animal => {
       const p = animal.staging_position_m!
-      return { name: animal.name, detail: `${animal.quantity} animais · BAIA PENDENTE`,
+      return { name: animal.name, detail: `${animal.quantity} animais · BAIA PENDENTE`, measures: "Galeria de referência",
         x: p[0], y: p[1] + 1.85, z: p[2] + 3.6, face: 1, width: 2.2 }
-    })
+    }))
     const columns = 8, rows = Math.ceil(labels.length / columns)
     const canvas = document.createElement("canvas")
     canvas.width = columns * 256; canvas.height = rows * 96
@@ -32,9 +33,11 @@ export function EnclosureSigns() {
       let font = 26
       ctx.font = `bold ${font}px sans-serif`
       while (ctx.measureText(label.name).width > 234 && font > 12) ctx.font = `bold ${--font}px sans-serif`
-      ctx.fillText(label.name, px + 128, py + 35)
+      ctx.fillText(label.name, px + 128, py + 28)
       ctx.font = "13px sans-serif"; ctx.fillStyle = "#dfc293"
-      ctx.fillText(label.detail, px + 128, py + 68, 236)
+      ctx.fillText(label.detail, px + 128, py + 56, 236)
+      ctx.font = "12px sans-serif"
+      ctx.fillText(label.measures, px + 128, py + 78, 236)
       const half = label.width / 2 * label.face, h = 0.3, base = i * 4
       positions.push(label.x - half, label.y - h, label.z, label.x + half, label.y - h, label.z,
         label.x + half, label.y + h, label.z, label.x - half, label.y + h, label.z)
@@ -52,7 +55,7 @@ export function EnclosureSigns() {
     return { geometry, texture }
   }, [])
   useEffect(() => () => { signs.geometry.dispose(); signs.texture.dispose() }, [signs])
-  // All 162 signs share one texture and one draw call; no per-frame text layout.
+  // Physical pens (including empty ones) and gallery share one draw call.
   return <mesh name="Placas_Identificacao_Recintos" geometry={signs.geometry} userData={{ noCollision: true }}>
     <meshBasicMaterial map={signs.texture} toneMapped={false} />
   </mesh>

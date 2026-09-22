@@ -14,6 +14,7 @@ export class SceneCollision {
   private point = new Vector3()
   private end = new Vector3()
   private hits: Intersection[] = []
+  private expanded = new Box3()
 
   constructor(scene: Object3D, player: Object3D) {
     scene.updateMatrixWorld(true)
@@ -27,7 +28,7 @@ export class SceneCollision {
       const walk = object.userData.walkable || /Terrain_|Tabua_Rampa_Elevada|Rampa_Animal_4m_Largura|Piso|Pavimento|Patamar|Soleira/i.test(object.name)
       const mask = (walk ? WALKABLE : /Arvore|Copa|Rocha|Grama/i.test(object.name) ? 0 : SOLID)
         | (object.userData.colliderOnly ? 0 : CAMERA)
-      if (object instanceof InstancedMesh && object.userData.individuals) {
+      if (object instanceof InstancedMesh && (object.userData.individuals || object.userData.colliderBoxes)) {
         // Animal references are boxes: intersect their individual bounds directly.
         object.geometry.computeBoundingBox()
         const matrix = new Matrix4()
@@ -64,12 +65,12 @@ export class SceneCollision {
     }
   }
 
-  firstHit(raycaster: Raycaster, mask: number): Intersection | undefined {
+  firstHit(raycaster: Raycaster, mask: number, bodyRadius = 0): Intersection | undefined {
     const { ray, far } = raycaster
     ray.at(far, this.end)
     this.candidates.clear()
-    for (let x = Math.floor(Math.min(ray.origin.x, this.end.x) / CELL); x <= Math.floor(Math.max(ray.origin.x, this.end.x) / CELL); x++) {
-      for (let z = Math.floor(Math.min(ray.origin.z, this.end.z) / CELL); z <= Math.floor(Math.max(ray.origin.z, this.end.z) / CELL); z++) {
+    for (let x = Math.floor((Math.min(ray.origin.x, this.end.x) - bodyRadius) / CELL); x <= Math.floor((Math.max(ray.origin.x, this.end.x) + bodyRadius) / CELL); x++) {
+      for (let z = Math.floor((Math.min(ray.origin.z, this.end.z) - bodyRadius) / CELL); z <= Math.floor((Math.max(ray.origin.z, this.end.z) + bodyRadius) / CELL); z++) {
         for (const entry of this.cells.get(`${x}:${z}`) ?? []) this.candidates.add(entry)
       }
     }
@@ -77,8 +78,14 @@ export class SceneCollision {
     this.hits.length = 0
     for (const entry of this.candidates) {
       if (!(entry.mask & mask)) continue
-      const hit = ray.intersectBox(entry.bounds, this.point)
-      if (!hit || (!entry.bounds.containsPoint(ray.origin) && hit.distanceTo(ray.origin) > far)) continue
+      const bounds = this.expanded.copy(entry.bounds)
+      if (entry.instanceId !== undefined && bodyRadius > 0) {
+        bounds.min.x -= bodyRadius; bounds.max.x += bodyRadius
+        bounds.min.z -= bodyRadius; bounds.max.z += bodyRadius
+      }
+      const hit = bounds.containsPoint(ray.origin) && entry.instanceId !== undefined
+        ? this.point.copy(ray.origin) : ray.intersectBox(bounds, this.point)
+      if (!hit || (!bounds.containsPoint(ray.origin) && hit.distanceTo(ray.origin) > far)) continue
       if (entry.instanceId !== undefined) {
         const distance = hit.distanceTo(ray.origin)
         if (distance >= raycaster.near && distance <= far) this.hits.push({ distance, point: hit.clone(), object: entry.mesh, instanceId: entry.instanceId })

@@ -1,26 +1,14 @@
-# Dimensões dos animais — catálogo ampliado (revisão 2)
+# Dimensões e destinos dos animais — revisão 3
 
-**162 grupos e 1080 blocos individuais.** Destes, 128 grupos / 952 blocos mantêm as baias originais. Os 34 grupos novos / 128 blocos ficam na galeria externa, com alojamento pendente.
+162 grupos, 1.080 indivíduos. 972 blocos em 138 baias ocupadas; 4 baias disponíveis. 24 grupos / 108 indivíduos na galeria externa.
 
-## Limites
+Cadastro de ocupação e limites: `catalogo-baias-fisicas-v1.json`. A e B são baias independentes separadas pela divisória; A tem menor coordenada X, B tem maior X. Corredores internos, água e alimentos não são vagas.
 
-Dimensões totais em metros: envelopes artísticos provisórios, não medidas zoológicas pesquisadas, escala adulta final ou comprovação de capacidade. Espécie, idade e postura de cada novo grupo ainda precisam ser definidas. A lista não esgota a fauna terrestre; fauna extinta continua fora do escopo desta revisão.
+Dimensões são envelopes artísticos provisórios. Cada casal ocupa uma só baia física. Nenhum bloco foi reduzido; as dimensões não são validação zoológica. Novos grupos: contagens e rótulos M/F são convenções editoriais; não modelam colônias, castas ou hermafroditismo.
 
-Novas aves recebem 14 indivíduos pela convenção editorial atual. Demais novos grupos recebem 2 provisoriamente, sem validação da classificação bíblica. Para invertebrados, M/F são rótulos de instância: não representam castas, colônias ou hermafroditismo.
+Blender: (comprimento, largura, altura). Three.js: BoxGeometry(comprimento, altura, largura). Unidade: metro. Centro vertical do bloco = piso + altura/2 + 0,02 m.
 
-Pinguins foram incluídos porque dependem de terra/gelo para reprodução; isso não prova presença na arca. [British Antarctic Survey](https://www.bas.ac.uk/project/penguin-foraging-in-a-warming-ocean/). O termo anterior “tucões” era ambíguo; esta revisão acrescenta o grupo turacos.
-
-## Uso
-
-- Blender: `(comprimento, largura, altura)`; centro vertical = piso + altura/2.
-- Three.js: `BoxGeometry(comprimento, altura, largura)`; centro vertical = piso + altura/2.
-- `staging_position_m` usa X/Y/Z do Three.js e indica o centro horizontal da área de referência e a altura do piso, não uma baia.
-- Galeria externa: X=91 a 139, Z=-28 a 20, piso Y=6. Blocos pequenos permanecem em tamanho real, sem ampliação para visibilidade.
-- A distribuição da galeria não é projeto de habitat. Não ocupa corredores nem reservas da arca.
-
-## Lista completa
-
-| Grupo | Destino | Quantidade (M/F) | Comprimento (m) | Largura (m) | Altura (m) |
+| Animal | Baia física / destino | Quantidade (M/F) | Comprimento | Largura | Altura |
 |---|---|---:|---:|---:|---:|
 | Elefantes | INF-BB-01 | 2 (1/1) | 3 | 1.3 | 2.8 |
 | Rinocerontes | INF-BB-02 | 2 (1/1) | 2.5 | 1.2 | 2.4 |
@@ -46,19 +34,19 @@ Pinguins foram incluídos porque dependem de terra/gelo para reprodução; isso 
 | Impala | MED-BB-06 | 14 (7/7) | 1.1 | 0.55 | 1.7 |
 | Kudu | MED-BB-07 | 14 (7/7) | 1.1 | 0.55 | 1.7 |
 | Gnus | MED-BB-08 | 14 (7/7) | 1.1 | 0.55 | 1.7 |
-| Gorilas | MED-BB-09 | 2 (1/1) | 1.1 | 0.55 | 1.7 |
-| Chimpanzes | MED-BB-10 | 2 (1/1) | 1.1 | 0.55 | 1.7 |
-| Leoes | MED-BB-11 | 2 (1/1) | 1.1 | 0.55 | 1.7 |
-| Tigres | MED-BB-12 | 2 (1/1) | 1.1 | 0.55 | 1.7 |
-| Leopardos | MED-BB-13 | 2 (1/1) | 1.1 | 0.55 | 1.7 |
-| Jaguares | MED-BB-14 | 2 (1/1) | 1.1 | 0.55 | 1.7 |
-| Pumas | MED-BB-15 | 2 (1/1) | 1.1 | 0.55 | 1.7 |
-| Guepardos | MED-BB-16 | 2 (1/1) | 1.1 | 0.55 | 1.7 |
-| Ursos-pardos | MED-BE-01 | 2 (1/1) | 1.1 | 0.55 | 1.7 |
-| Ursos-negros | MED-BE-02 | 2 (1/1) | 1.1 | 0.55 | 1.7 |
-| Lobos | MED-BE-03 | 2 (1/1) | 1.1 | 0.55 | 1.7 |
+| Gorilas | MED-BB-09-A | 2 (1/1) | 1.1 | 0.55 | 1.7 |
+| Chimpanzes | MED-BB-10-A | 2 (1/1) | 1.1 | 0.55 | 1.7 |
+| Leoes | MED-BB-11-A | 2 (1/1) | 1.1 | 0.55 | 1.7 |
+| Tigres | MED-BB-12-A | 2 (1/1) | 1.1 | 0.55 | 1.7 |
+| Leopardos | MED-BB-13-A | 2 (1/1) | 1.1 | 0.55 | 1.7 |
+| Jaguares | MED-BB-14-A | 2 (1/1) | 1.1 | 0.55 | 1.7 |
+| Pumas | MED-BB-15-A | 2 (1/1) | 1.1 | 0.55 | 1.7 |
+| Guepardos | MED-BB-16-A | 2 (1/1) | 1.1 | 0.55 | 1.7 |
+| Ursos-pardos | MED-BE-01-A | 2 (1/1) | 1.1 | 0.55 | 1.7 |
+| Ursos-negros | MED-BE-02-A | 2 (1/1) | 1.1 | 0.55 | 1.7 |
+| Lobos | MED-BE-03-A | 2 (1/1) | 1.1 | 0.55 | 1.7 |
 | Raposas | MED-BE-04 | 2 (1/1) | 1.1 | 0.55 | 1.7 |
-| Hienas | MED-BE-05 | 2 (1/1) | 1.1 | 0.55 | 1.7 |
+| Hienas | MED-BE-05-A | 2 (1/1) | 1.1 | 0.55 | 1.7 |
 | Chacais | MED-BE-06 | 2 (1/1) | 1.1 | 0.55 | 1.7 |
 | Porcos | MED-BE-07 | 2 (1/1) | 1.1 | 0.55 | 1.7 |
 | Javalis | MED-BE-08 | 2 (1/1) | 1.1 | 0.55 | 1.7 |
@@ -68,8 +56,8 @@ Pinguins foram incluídos porque dependem de terra/gelo para reprodução; isso 
 | Tamanduas | MED-BE-12 | 2 (1/1) | 1.1 | 0.55 | 1.7 |
 | Avestruzes | MED-BE-13 | 14 (7/7) | 1.1 | 0.55 | 1.7 |
 | Emas | MED-BE-14 | 14 (7/7) | 1.1 | 0.55 | 1.7 |
-| Babuinos | MED-BE-15 | 2 (1/1) | 1.1 | 0.55 | 1.7 |
-| Macacos | MED-BE-16 | 2 (1/1) | 1.1 | 0.55 | 1.7 |
+| Babuinos | MED-BE-15-A | 2 (1/1) | 1.1 | 0.55 | 1.7 |
+| Macacos | MED-BE-16-A | 2 (1/1) | 1.1 | 0.55 | 1.7 |
 | Pombos | SUP-BB-01 | 14 (7/7) | 0.55 | 0.3 | 0.75 |
 | Corvos | SUP-BB-02 | 14 (7/7) | 0.55 | 0.3 | 0.75 |
 | Galinhas | SUP-BB-03 | 14 (7/7) | 0.55 | 0.3 | 0.75 |
@@ -150,16 +138,16 @@ Pinguins foram incluídos porque dependem de terra/gelo para reprodução; isso 
 | Ras | SUP-BE-38 | 2 (1/1) | 0.55 | 0.65 | 0.65 |
 | Pererecas | SUP-BE-39 | 2 (1/1) | 0.55 | 0.65 | 0.65 |
 | Cecilias | SUP-BE-40 | 2 (1/1) | 0.55 | 0.65 | 0.65 |
-| Preguiças | PENDENTE-01 | 2 (1/1) | 1 | 0.4 | 0.55 |
-| Tatus | PENDENTE-02 | 2 (1/1) | 0.8 | 0.35 | 0.35 |
-| Pandas | PENDENTE-03 | 2 (1/1) | 1.2 | 0.65 | 0.8 |
-| Coalas | PENDENTE-04 | 2 (1/1) | 0.6 | 0.4 | 0.6 |
-| Lêmures | PENDENTE-05 | 2 (1/1) | 0.9 | 0.25 | 0.4 |
-| Lontras | PENDENTE-06 | 2 (1/1) | 1 | 0.3 | 0.3 |
-| Suricatos | PENDENTE-07 | 2 (1/1) | 0.5 | 0.15 | 0.3 |
-| Ocapis | PENDENTE-08 | 2 (1/1) | 1.8 | 0.6 | 1.6 |
-| Pangolins | PENDENTE-09 | 2 (1/1) | 1 | 0.3 | 0.35 |
-| Porcos-formigueiros | PENDENTE-10 | 2 (1/1) | 1.3 | 0.45 | 0.7 |
+| Preguiças | MED-BB-13-B | 2 (1/1) | 1 | 0.4 | 0.55 |
+| Tatus | MED-BB-14-B | 2 (1/1) | 0.8 | 0.35 | 0.35 |
+| Pandas | MED-BE-01-B | 2 (1/1) | 1.2 | 0.65 | 0.8 |
+| Coalas | MED-BB-16-B | 2 (1/1) | 0.6 | 0.4 | 0.6 |
+| Lêmures | MED-BE-16-B | 2 (1/1) | 0.9 | 0.25 | 0.4 |
+| Lontras | MED-BB-11-B | 2 (1/1) | 1 | 0.3 | 0.3 |
+| Suricatos | MED-BB-12-B | 2 (1/1) | 0.5 | 0.15 | 0.3 |
+| Ocapis | MED-BE-03-B | 2 (1/1) | 1.8 | 0.6 | 1.6 |
+| Pangolins | MED-BE-05-B | 2 (1/1) | 1 | 0.3 | 0.35 |
+| Porcos-formigueiros | MED-BE-15-B | 2 (1/1) | 1.3 | 0.45 | 0.7 |
 | Pinguins | PENDENTE-11 | 14 (7/7) | 0.5 | 0.35 | 0.8 |
 | Kiwis | PENDENTE-12 | 14 (7/7) | 0.45 | 0.25 | 0.4 |
 | Casuares | PENDENTE-13 | 14 (7/7) | 1 | 0.5 | 1.4 |
@@ -185,5 +173,5 @@ Pinguins foram incluídos porque dependem de terra/gelo para reprodução; isso 
 | Lesmas | PENDENTE-33 | 2 (1/1) | 0.1 | 0.025 | 0.025 |
 | Minhocas | PENDENTE-34 | 2 (1/1) | 0.2 | 0.01 | 0.01 |
 
-Dados usados pelo navegador: `dimensoes-animais-jogo-v1.json` (version=2; nome mantido para compatibilidade). O catálogo de baias `catalogo-recintos-v3.json` permanece com 128 recintos, pois não foram inventadas vagas para os novos grupos.
+Arquivo de dimensões usado pelo jogo: `dimensoes-animais-jogo-v1.json`, version=3. `catalogo-recintos-v3.json` descreve os conjuntos originais do Blender, não a contagem atual das baias físicas.
 

@@ -37,7 +37,7 @@ export default function ArcaPage() {
       <button onClick={() => { setBirds(false); setGallery(value => !value) }}>{gallery ? "Voltar à entrada" : "Ver novos animais"}</button>
       <button onClick={() => { setGallery(false); setBirds(value => !value) }}>{birds ? "Voltar à entrada" : "Ir aos viveiros de aves"}</button>
       <p className="intro">Aves: 40 grupos nos viveiros superiores. Avestruzes e emas no intermediário. Novas aves ainda na galeria externa.</p>
-      <p className="intro">34 grupos novos na galeria externa, ainda sem baias. Dimensões provisórias; não representam capacidade validada.</p>
+      <p className="intro">142 baias identificadas: 138 ocupadas e 4 disponíveis. 24 grupos permanecem na galeria externa.</p>
       <a href="/">Voltar ao laboratório</a>
     </section>
   </main>

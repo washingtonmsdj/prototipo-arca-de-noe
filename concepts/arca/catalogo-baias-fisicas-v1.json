@@ -1,0 +1,5252 @@
+{
+  "version": 1,
+  "units": "metre",
+  "coordinate_system": "Three.js Y-up",
+  "source": "gerar-recintos-v3.py e arca-interior-runtime-v1.glb",
+  "count": 142,
+  "occupied": 138,
+  "available": 4,
+  "notes": [
+    "A indica menor X; B indica maior X (esquerda/direita na tela dependem da câmera).",
+    "Os 14 conjuntos com divisória geram 28 baias distintas. A faixa de manejo não é baia.",
+    "Limites úteis são envelopes geométricos; não representam validação de manejo ou adequação biológica.",
+    "Portões das baias continuam fechados; suas faces têm colisão contínua.",
+    "Reservas de água, alimento e isolamento não são vagas de animais."
+  ],
+  "pens": [
+    {
+      "id": "INF-BB-01",
+      "module_id": "INF-BB-01",
+      "part": "unica",
+      "deck": 1,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -49.89,
+          0.65,
+          4.46
+        ],
+        "max": [
+          -36.11,
+          4,
+          8.34
+        ]
+      },
+      "usable_dimensions_m": [
+        13.78,
+        3.35,
+        3.88
+      ],
+      "gate_closed": true,
+      "animal_key": "elefantes",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.2
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "INF-BB-02",
+      "module_id": "INF-BB-02",
+      "part": "unica",
+      "deck": 1,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -35.89,
+          0.65,
+          4.46
+        ],
+        "max": [
+          -24.11,
+          4,
+          8.34
+        ]
+      },
+      "usable_dimensions_m": [
+        11.78,
+        3.35,
+        3.88
+      ],
+      "gate_closed": true,
+      "animal_key": "rinocerontes",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.2
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "INF-BB-03",
+      "module_id": "INF-BB-03",
+      "part": "unica",
+      "deck": 1,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -23.89,
+          0.65,
+          4.46
+        ],
+        "max": [
+          -12.11,
+          4,
+          8.34
+        ]
+      },
+      "usable_dimensions_m": [
+        11.78,
+        3.35,
+        3.88
+      ],
+      "gate_closed": true,
+      "animal_key": "hipopotamos",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.2
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "INF-BB-04",
+      "module_id": "INF-BB-04",
+      "part": "unica",
+      "deck": 1,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -11.89,
+          0.65,
+          4.46
+        ],
+        "max": [
+          -4.11,
+          4,
+          8.34
+        ]
+      },
+      "usable_dimensions_m": [
+        7.78,
+        3.35,
+        3.88
+      ],
+      "gate_closed": true,
+      "animal_key": "tapires",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.2
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "INF-BB-05",
+      "module_id": "INF-BB-05",
+      "part": "unica",
+      "deck": 1,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -3.89,
+          0.65,
+          4.46
+        ],
+        "max": [
+          3.89,
+          4,
+          8.34
+        ]
+      },
+      "usable_dimensions_m": [
+        7.78,
+        3.35,
+        3.88
+      ],
+      "gate_closed": true,
+      "animal_key": "cavalos",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.2
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "INF-BB-06",
+      "module_id": "INF-BB-06",
+      "part": "unica",
+      "deck": 1,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          4.11,
+          0.65,
+          4.46
+        ],
+        "max": [
+          11.89,
+          4,
+          8.34
+        ]
+      },
+      "usable_dimensions_m": [
+        7.78,
+        3.35,
+        3.88
+      ],
+      "gate_closed": true,
+      "animal_key": "asnos",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.2
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "INF-BB-07",
+      "module_id": "INF-BB-07",
+      "part": "unica",
+      "deck": 1,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          12.11,
+          0.65,
+          4.46
+        ],
+        "max": [
+          19.89,
+          4,
+          8.34
+        ]
+      },
+      "usable_dimensions_m": [
+        7.78,
+        3.35,
+        3.88
+      ],
+      "gate_closed": true,
+      "animal_key": "zebras",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.2
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "INF-BB-08",
+      "module_id": "INF-BB-08",
+      "part": "unica",
+      "deck": 1,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          20.11,
+          0.65,
+          4.46
+        ],
+        "max": [
+          29.89,
+          4,
+          8.34
+        ]
+      },
+      "usable_dimensions_m": [
+        9.78,
+        3.35,
+        3.88
+      ],
+      "gate_closed": true,
+      "animal_key": "camelos",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.2
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "INF-BE-01",
+      "module_id": "INF-BE-01",
+      "part": "unica",
+      "deck": 1,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -49.8899,
+          0.65,
+          -8.34
+        ],
+        "max": [
+          -34.4062,
+          4,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        15.4837,
+        3.35,
+        3.88
+      ],
+      "gate_closed": true,
+      "animal_key": "bovinos",
+      "quantity": 14,
+      "layout": {
+        "columns": 14,
+        "rows": 1,
+        "rotated": true,
+        "gap": 0.175
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "INF-BE-02",
+      "module_id": "INF-BE-02",
+      "part": "unica",
+      "deck": 1,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -34.1862,
+          0.65,
+          -8.34
+        ],
+        "max": [
+          -18.7026,
+          4,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        15.4837,
+        3.35,
+        3.88
+      ],
+      "gate_closed": true,
+      "animal_key": "bufalos",
+      "quantity": 14,
+      "layout": {
+        "columns": 14,
+        "rows": 1,
+        "rotated": true,
+        "gap": 0.175
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "INF-BE-03",
+      "module_id": "INF-BE-03",
+      "part": "unica",
+      "deck": 1,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -18.4826,
+          0.65,
+          -8.34
+        ],
+        "max": [
+          -4.9619,
+          4,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        13.5207,
+        3.35,
+        3.88
+      ],
+      "gate_closed": true,
+      "animal_key": "bisoes",
+      "quantity": 14,
+      "layout": {
+        "columns": 14,
+        "rows": 1,
+        "rotated": true,
+        "gap": 0.175
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "INF-BE-04",
+      "module_id": "INF-BE-04",
+      "part": "unica",
+      "deck": 1,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -4.7419,
+          0.65,
+          -8.34
+        ],
+        "max": [
+          6.8159,
+          4,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        11.5578,
+        3.35,
+        3.88
+      ],
+      "gate_closed": true,
+      "animal_key": "iaques",
+      "quantity": 14,
+      "layout": {
+        "columns": 7,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.175
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "INF-BE-05",
+      "module_id": "INF-BE-05",
+      "part": "unica",
+      "deck": 1,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          7.036,
+          0.65,
+          -8.34
+        ],
+        "max": [
+          22.5197,
+          4,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        15.4837,
+        3.35,
+        3.88
+      ],
+      "gate_closed": true,
+      "animal_key": "girafas",
+      "quantity": 14,
+      "layout": {
+        "columns": 14,
+        "rows": 1,
+        "rotated": true,
+        "gap": 0.2
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "INF-BE-06",
+      "module_id": "INF-BE-06",
+      "part": "unica",
+      "deck": 1,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          22.7396,
+          0.65,
+          -8.34
+        ],
+        "max": [
+          34.2974,
+          4,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        11.5578,
+        3.35,
+        3.88
+      ],
+      "gate_closed": true,
+      "animal_key": "alces",
+      "quantity": 14,
+      "layout": {
+        "columns": 7,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.175
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "INF-BE-07",
+      "module_id": "INF-BE-07",
+      "part": "unica",
+      "deck": 1,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          34.5174,
+          0.65,
+          -8.34
+        ],
+        "max": [
+          44.1122,
+          4,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        9.5948,
+        3.35,
+        3.88
+      ],
+      "gate_closed": true,
+      "animal_key": "renas",
+      "quantity": 14,
+      "layout": {
+        "columns": 7,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.175
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "INF-BE-08",
+      "module_id": "INF-BE-08",
+      "part": "unica",
+      "deck": 1,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          44.3322,
+          0.65,
+          -8.34
+        ],
+        "max": [
+          55.89,
+          4,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        11.5578,
+        3.35,
+        3.88
+      ],
+      "gate_closed": true,
+      "animal_key": "cervos",
+      "quantity": 14,
+      "layout": {
+        "columns": 7,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.175
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BB-01",
+      "module_id": "MED-BB-01",
+      "part": "unica",
+      "deck": 2,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -49.89,
+          4.85,
+          4.46
+        ],
+        "max": [
+          -43.4984,
+          8.2,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        6.3916,
+        3.35,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "ovelhas",
+      "quantity": 14,
+      "layout": {
+        "columns": 2,
+        "rows": 7,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BB-02",
+      "module_id": "MED-BB-02",
+      "part": "unica",
+      "deck": 2,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -43.2784,
+          4.85,
+          4.46
+        ],
+        "max": [
+          -36.8868,
+          8.2,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        6.3916,
+        3.35,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "cabras",
+      "quantity": 14,
+      "layout": {
+        "columns": 2,
+        "rows": 7,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BB-03",
+      "module_id": "MED-BB-03",
+      "part": "unica",
+      "deck": 2,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -36.6669,
+          4.85,
+          4.46
+        ],
+        "max": [
+          -30.2753,
+          8.2,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        6.3916,
+        3.35,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "ibex",
+      "quantity": 14,
+      "layout": {
+        "columns": 2,
+        "rows": 7,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BB-04",
+      "module_id": "MED-BB-04",
+      "part": "unica",
+      "deck": 2,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -30.0553,
+          4.85,
+          4.46
+        ],
+        "max": [
+          -23.6637,
+          8.2,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        6.3916,
+        3.35,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "gazelas",
+      "quantity": 14,
+      "layout": {
+        "columns": 2,
+        "rows": 7,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BB-05",
+      "module_id": "MED-BB-05",
+      "part": "unica",
+      "deck": 2,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -23.4437,
+          4.85,
+          4.46
+        ],
+        "max": [
+          -16.2257,
+          8.2,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        7.218,
+        3.35,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "orix",
+      "quantity": 14,
+      "layout": {
+        "columns": 2,
+        "rows": 7,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BB-06",
+      "module_id": "MED-BB-06",
+      "part": "unica",
+      "deck": 2,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -16.0057,
+          4.85,
+          4.46
+        ],
+        "max": [
+          -9.6141,
+          8.2,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        6.3916,
+        3.35,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "impala",
+      "quantity": 14,
+      "layout": {
+        "columns": 2,
+        "rows": 7,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BB-07",
+      "module_id": "MED-BB-07",
+      "part": "unica",
+      "deck": 2,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -9.3941,
+          4.85,
+          4.46
+        ],
+        "max": [
+          -1.3497,
+          8.2,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        8.0445,
+        3.35,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "kudu",
+      "quantity": 14,
+      "layout": {
+        "columns": 2,
+        "rows": 7,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BB-08",
+      "module_id": "MED-BB-08",
+      "part": "unica",
+      "deck": 2,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -1.1296,
+          4.85,
+          4.46
+        ],
+        "max": [
+          6.9149,
+          8.2,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        8.0445,
+        3.35,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "gnus",
+      "quantity": 14,
+      "layout": {
+        "columns": 2,
+        "rows": 7,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BB-09-A",
+      "module_id": "MED-BB-09",
+      "part": "A",
+      "deck": 2,
+      "side": -1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          7.1348,
+          4.85,
+          5.44
+        ],
+        "max": [
+          11.122,
+          7.325,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        3.9872,
+        2.475,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": "gorilas",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BB-09-B",
+      "module_id": "MED-BB-09",
+      "part": "B",
+      "deck": 2,
+      "side": -1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          11.192,
+          4.85,
+          5.44
+        ],
+        "max": [
+          15.1793,
+          7.325,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        3.9872,
+        2.475,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": null,
+      "quantity": 0,
+      "layout": null,
+      "status": "disponivel",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BB-10-A",
+      "module_id": "MED-BB-10",
+      "part": "A",
+      "deck": 2,
+      "side": -1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          15.3992,
+          4.85,
+          5.44
+        ],
+        "max": [
+          18.56,
+          7.325,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        3.1608,
+        2.475,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": "chimpanzes",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BB-10-B",
+      "module_id": "MED-BB-10",
+      "part": "B",
+      "deck": 2,
+      "side": -1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          18.63,
+          4.85,
+          5.44
+        ],
+        "max": [
+          21.7908,
+          7.325,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        3.1608,
+        2.475,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": null,
+      "quantity": 0,
+      "layout": null,
+      "status": "disponivel",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BB-11-A",
+      "module_id": "MED-BB-11",
+      "part": "A",
+      "deck": 2,
+      "side": -1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          22.0108,
+          4.85,
+          5.44
+        ],
+        "max": [
+          24.7584,
+          7.325,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        2.7476,
+        2.475,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": "leoes",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BB-11-B",
+      "module_id": "MED-BB-11",
+      "part": "B",
+      "deck": 2,
+      "side": -1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          24.8284,
+          4.85,
+          5.44
+        ],
+        "max": [
+          27.576,
+          7.325,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        2.7476,
+        2.475,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": "lontras",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BB-12-A",
+      "module_id": "MED-BB-12",
+      "part": "A",
+      "deck": 2,
+      "side": -1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          27.796,
+          4.85,
+          5.44
+        ],
+        "max": [
+          30.5435,
+          7.325,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        2.7476,
+        2.475,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": "tigres",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BB-12-B",
+      "module_id": "MED-BB-12",
+      "part": "B",
+      "deck": 2,
+      "side": -1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          30.6135,
+          4.85,
+          5.44
+        ],
+        "max": [
+          33.3611,
+          7.325,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        2.7476,
+        2.475,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": "suricatos",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.0375
+      },
+      "status": "ocupada",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BB-13-A",
+      "module_id": "MED-BB-13",
+      "part": "A",
+      "deck": 2,
+      "side": -1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          33.5811,
+          4.85,
+          5.44
+        ],
+        "max": [
+          35.5022,
+          7.325,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.9211,
+        2.475,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": "leopardos",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BB-13-B",
+      "module_id": "MED-BB-13",
+      "part": "B",
+      "deck": 2,
+      "side": -1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          35.5722,
+          4.85,
+          5.44
+        ],
+        "max": [
+          37.4933,
+          7.325,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.9211,
+        2.475,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": "preguicas",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.1
+      },
+      "status": "ocupada",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BB-14-A",
+      "module_id": "MED-BB-14",
+      "part": "A",
+      "deck": 2,
+      "side": -1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          37.7133,
+          4.85,
+          5.44
+        ],
+        "max": [
+          39.6344,
+          7.325,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.9211,
+        2.475,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": "jaguares",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BB-14-B",
+      "module_id": "MED-BB-14",
+      "part": "B",
+      "deck": 2,
+      "side": -1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          39.7044,
+          4.85,
+          5.44
+        ],
+        "max": [
+          41.6255,
+          7.325,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.9211,
+        2.475,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": "tatus",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.0875
+      },
+      "status": "ocupada",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BB-15-A",
+      "module_id": "MED-BB-15",
+      "part": "A",
+      "deck": 2,
+      "side": -1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          41.8456,
+          4.85,
+          5.44
+        ],
+        "max": [
+          43.7667,
+          7.325,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.9211,
+        2.475,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": "pumas",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BB-15-B",
+      "module_id": "MED-BB-15",
+      "part": "B",
+      "deck": 2,
+      "side": -1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          43.8367,
+          4.85,
+          5.44
+        ],
+        "max": [
+          45.7578,
+          7.325,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.9211,
+        2.475,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": null,
+      "quantity": 0,
+      "layout": null,
+      "status": "disponivel",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BB-16-A",
+      "module_id": "MED-BB-16",
+      "part": "A",
+      "deck": 2,
+      "side": -1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          45.9778,
+          4.85,
+          5.44
+        ],
+        "max": [
+          47.8989,
+          8.2,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.9211,
+        3.35,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": "guepardos",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BB-16-B",
+      "module_id": "MED-BB-16",
+      "part": "B",
+      "deck": 2,
+      "side": -1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          47.9689,
+          4.85,
+          5.44
+        ],
+        "max": [
+          49.89,
+          8.2,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.9211,
+        3.35,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": "coalas",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.1
+      },
+      "status": "ocupada",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BE-01-A",
+      "module_id": "MED-BE-01",
+      "part": "A",
+      "deck": 2,
+      "side": 1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          -49.8899,
+          4.85,
+          -10.34
+        ],
+        "max": [
+          -45.1806,
+          7.325,
+          -5.44
+        ]
+      },
+      "usable_dimensions_m": [
+        4.7094,
+        2.475,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": "ursos_pardos",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BE-01-B",
+      "module_id": "MED-BE-01",
+      "part": "B",
+      "deck": 2,
+      "side": 1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          -45.1106,
+          4.85,
+          -10.34
+        ],
+        "max": [
+          -40.4013,
+          7.325,
+          -5.44
+        ]
+      },
+      "usable_dimensions_m": [
+        4.7094,
+        2.475,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": "pandas",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.1625
+      },
+      "status": "ocupada",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BE-02-A",
+      "module_id": "MED-BE-02",
+      "part": "A",
+      "deck": 2,
+      "side": 1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          -40.1813,
+          4.85,
+          -10.34
+        ],
+        "max": [
+          -36.4428,
+          7.325,
+          -5.44
+        ]
+      },
+      "usable_dimensions_m": [
+        3.7385,
+        2.475,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": "ursos_negros",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BE-02-B",
+      "module_id": "MED-BE-02",
+      "part": "B",
+      "deck": 2,
+      "side": 1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          -36.3728,
+          4.85,
+          -10.34
+        ],
+        "max": [
+          -32.6343,
+          7.325,
+          -5.44
+        ]
+      },
+      "usable_dimensions_m": [
+        3.7385,
+        2.475,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": null,
+      "quantity": 0,
+      "layout": null,
+      "status": "disponivel",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BE-03-A",
+      "module_id": "MED-BE-03",
+      "part": "A",
+      "deck": 2,
+      "side": 1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          -32.4143,
+          4.85,
+          -10.34
+        ],
+        "max": [
+          -29.6467,
+          7.325,
+          -5.44
+        ]
+      },
+      "usable_dimensions_m": [
+        2.7676,
+        2.475,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": "lobos",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BE-03-B",
+      "module_id": "MED-BE-03",
+      "part": "B",
+      "deck": 2,
+      "side": 1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          -29.5767,
+          4.85,
+          -10.34
+        ],
+        "max": [
+          -26.8091,
+          7.325,
+          -5.44
+        ]
+      },
+      "usable_dimensions_m": [
+        2.7676,
+        2.475,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": "ocapis",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.15
+      },
+      "status": "ocupada",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BE-04",
+      "module_id": "MED-BE-04",
+      "part": "unica",
+      "deck": 2,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -26.589,
+          4.85,
+          -10.34
+        ],
+        "max": [
+          -22.9255,
+          8.2,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        3.6635,
+        3.35,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "raposas",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BE-05-A",
+      "module_id": "MED-BE-05",
+      "part": "A",
+      "deck": 2,
+      "side": 1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          -22.7055,
+          4.85,
+          -10.34
+        ],
+        "max": [
+          -19.9379,
+          8.2,
+          -5.44
+        ]
+      },
+      "usable_dimensions_m": [
+        2.7676,
+        3.35,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": "hienas",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BE-05-B",
+      "module_id": "MED-BE-05",
+      "part": "B",
+      "deck": 2,
+      "side": 1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          -19.8679,
+          4.85,
+          -10.34
+        ],
+        "max": [
+          -17.1003,
+          8.2,
+          -5.44
+        ]
+      },
+      "usable_dimensions_m": [
+        2.7676,
+        3.35,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": "pangolins",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BE-06",
+      "module_id": "MED-BE-06",
+      "part": "unica",
+      "deck": 2,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -16.8803,
+          4.85,
+          -10.34
+        ],
+        "max": [
+          -12.2459,
+          8.2,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        4.6344,
+        3.35,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "chacais",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BE-07",
+      "module_id": "MED-BE-07",
+      "part": "unica",
+      "deck": 2,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -12.0259,
+          4.85,
+          -10.34
+        ],
+        "max": [
+          -7.3915,
+          8.2,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        4.6344,
+        3.35,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "porcos",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BE-08",
+      "module_id": "MED-BE-08",
+      "part": "unica",
+      "deck": 2,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -7.1716,
+          4.85,
+          -10.34
+        ],
+        "max": [
+          -2.5372,
+          8.2,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        4.6344,
+        3.35,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "javalis",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BE-09",
+      "module_id": "MED-BE-09",
+      "part": "unica",
+      "deck": 2,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -2.3172,
+          4.85,
+          -10.34
+        ],
+        "max": [
+          4.2589,
+          8.2,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        6.5761,
+        3.35,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "cangurus",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BE-10",
+      "module_id": "MED-BE-10",
+      "part": "unica",
+      "deck": 2,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          4.479,
+          4.85,
+          -10.34
+        ],
+        "max": [
+          8.1425,
+          8.2,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        3.6635,
+        3.35,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "vombates",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BE-11",
+      "module_id": "MED-BE-11",
+      "part": "unica",
+      "deck": 2,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          8.3624,
+          4.85,
+          -10.34
+        ],
+        "max": [
+          12.9968,
+          8.2,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        4.6344,
+        3.35,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "capivaras",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BE-12",
+      "module_id": "MED-BE-12",
+      "part": "unica",
+      "deck": 2,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          13.2168,
+          4.85,
+          -10.34
+        ],
+        "max": [
+          17.8512,
+          8.2,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        4.6344,
+        3.35,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "tamanduas",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BE-13",
+      "module_id": "MED-BE-13",
+      "part": "unica",
+      "deck": 2,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          18.0712,
+          4.85,
+          -10.34
+        ],
+        "max": [
+          29.5017,
+          7.325,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        11.4305,
+        2.475,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "avestruzes",
+      "quantity": 14,
+      "layout": {
+        "columns": 14,
+        "rows": 1,
+        "rotated": true,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BE-14",
+      "module_id": "MED-BE-14",
+      "part": "unica",
+      "deck": 2,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          29.7217,
+          4.85,
+          -10.34
+        ],
+        "max": [
+          39.2104,
+          7.325,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        9.4887,
+        2.475,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "emas",
+      "quantity": 14,
+      "layout": {
+        "columns": 7,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BE-15-A",
+      "module_id": "MED-BE-15",
+      "part": "A",
+      "deck": 2,
+      "side": 1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          39.4304,
+          4.85,
+          -10.34
+        ],
+        "max": [
+          42.198,
+          7.325,
+          -5.44
+        ]
+      },
+      "usable_dimensions_m": [
+        2.7676,
+        2.475,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": "babuinos",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BE-15-B",
+      "module_id": "MED-BE-15",
+      "part": "B",
+      "deck": 2,
+      "side": 1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          42.268,
+          4.85,
+          -10.34
+        ],
+        "max": [
+          45.0356,
+          7.325,
+          -5.44
+        ]
+      },
+      "usable_dimensions_m": [
+        2.7676,
+        2.475,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": "porcos-formigueiros",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.1125
+      },
+      "status": "ocupada",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BE-16-A",
+      "module_id": "MED-BE-16",
+      "part": "A",
+      "deck": 2,
+      "side": 1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          45.2556,
+          4.85,
+          -10.34
+        ],
+        "max": [
+          47.5378,
+          7.325,
+          -5.44
+        ]
+      },
+      "usable_dimensions_m": [
+        2.2822,
+        2.475,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": "macacos",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "MED-BE-16-B",
+      "module_id": "MED-BE-16",
+      "part": "B",
+      "deck": 2,
+      "side": 1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          47.6078,
+          4.85,
+          -10.34
+        ],
+        "max": [
+          49.89,
+          7.325,
+          -5.44
+        ]
+      },
+      "usable_dimensions_m": [
+        2.2822,
+        2.475,
+        4.9
+      ],
+      "gate_closed": true,
+      "animal_key": "lemures",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.0625
+      },
+      "status": "ocupada",
+      "capacity_pairs": 1,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-01",
+      "module_id": "SUP-BB-01",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -49.89,
+          9.05,
+          4.46
+        ],
+        "max": [
+          -47.61,
+          11.675,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "pombos",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-02",
+      "module_id": "SUP-BB-02",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -47.39,
+          9.05,
+          4.46
+        ],
+        "max": [
+          -45.11,
+          11.675,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "corvos",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-03",
+      "module_id": "SUP-BB-03",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -44.89,
+          9.05,
+          4.46
+        ],
+        "max": [
+          -42.61,
+          11.675,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "galinhas",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-04",
+      "module_id": "SUP-BB-04",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -42.39,
+          9.05,
+          4.46
+        ],
+        "max": [
+          -40.11,
+          11.675,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "perdizes",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-05",
+      "module_id": "SUP-BB-05",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -39.89,
+          9.05,
+          4.46
+        ],
+        "max": [
+          -37.61,
+          11.675,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "pavoes",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-06",
+      "module_id": "SUP-BB-06",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -37.39,
+          9.05,
+          4.46
+        ],
+        "max": [
+          -35.11,
+          11.675,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "patos",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-07",
+      "module_id": "SUP-BB-07",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -34.89,
+          9.05,
+          4.46
+        ],
+        "max": [
+          -32.61,
+          11.675,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "marrecos",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-08",
+      "module_id": "SUP-BB-08",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -32.39,
+          9.05,
+          4.46
+        ],
+        "max": [
+          -30.11,
+          11.675,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "araras",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-09",
+      "module_id": "SUP-BB-09",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -29.89,
+          9.05,
+          4.46
+        ],
+        "max": [
+          -27.61,
+          11.675,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "cacatuas",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-10",
+      "module_id": "SUP-BB-10",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -27.39,
+          9.05,
+          4.46
+        ],
+        "max": [
+          -25.11,
+          11.675,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "pica_paus",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-11",
+      "module_id": "SUP-BB-11",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -24.89,
+          9.05,
+          4.46
+        ],
+        "max": [
+          -22.61,
+          11.675,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "poupas",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-12",
+      "module_id": "SUP-BB-12",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -22.39,
+          9.05,
+          4.46
+        ],
+        "max": [
+          -20.11,
+          11.675,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "andorinhoes",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-13",
+      "module_id": "SUP-BB-13",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -19.89,
+          9.05,
+          4.46
+        ],
+        "max": [
+          -17.61,
+          11.675,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "pardais",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-14",
+      "module_id": "SUP-BB-14",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -17.39,
+          9.05,
+          4.46
+        ],
+        "max": [
+          -15.11,
+          11.675,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "canarios",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-15",
+      "module_id": "SUP-BB-15",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -14.89,
+          9.05,
+          4.46
+        ],
+        "max": [
+          -7.11,
+          11.675,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        7.78,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "aguias",
+      "quantity": 14,
+      "layout": {
+        "columns": 7,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.175
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-16",
+      "module_id": "SUP-BB-16",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -6.89,
+          9.05,
+          4.46
+        ],
+        "max": [
+          0.89,
+          11.675,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        7.78,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "cegonhas",
+      "quantity": 14,
+      "layout": {
+        "columns": 7,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.175
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-17",
+      "module_id": "SUP-BB-17",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          1.11,
+          9.05,
+          4.46
+        ],
+        "max": [
+          8.89,
+          11.675,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        7.78,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "pelicanos",
+      "quantity": 14,
+      "layout": {
+        "columns": 7,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.175
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-18",
+      "module_id": "SUP-BB-18",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          9.11,
+          9.05,
+          4.46
+        ],
+        "max": [
+          16.89,
+          11.675,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        7.78,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "grous",
+      "quantity": 14,
+      "layout": {
+        "columns": 7,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.175
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-19",
+      "module_id": "SUP-BB-19",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          17.11,
+          9.05,
+          4.46
+        ],
+        "max": [
+          19.39,
+          11.675,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "cucos",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-20",
+      "module_id": "SUP-BB-20",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          19.61,
+          9.05,
+          4.46
+        ],
+        "max": [
+          21.89,
+          11.675,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "corujas_pequenas",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-21",
+      "module_id": "SUP-BB-21",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          24.11,
+          9.05,
+          4.46
+        ],
+        "max": [
+          25.49,
+          11.7,
+          6.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "coelhos",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-22",
+      "module_id": "SUP-BB-22",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          24.11,
+          9.05,
+          8.46
+        ],
+        "max": [
+          25.49,
+          11.7,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "hiraxes",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-23",
+      "module_id": "SUP-BB-23",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          25.71,
+          9.05,
+          4.46
+        ],
+        "max": [
+          27.09,
+          11.7,
+          6.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "marmotas",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-24",
+      "module_id": "SUP-BB-24",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          25.71,
+          9.05,
+          8.46
+        ],
+        "max": [
+          27.09,
+          11.7,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "porcos_espinhos",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-25",
+      "module_id": "SUP-BB-25",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          27.31,
+          9.05,
+          4.46
+        ],
+        "max": [
+          28.69,
+          11.7,
+          6.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "porquinhos_da_india",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-26",
+      "module_id": "SUP-BB-26",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          27.31,
+          9.05,
+          8.46
+        ],
+        "max": [
+          28.69,
+          11.7,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "gerbos",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-27",
+      "module_id": "SUP-BB-27",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          28.91,
+          9.05,
+          4.46
+        ],
+        "max": [
+          30.29,
+          11.7,
+          6.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "ratos",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-28",
+      "module_id": "SUP-BB-28",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          28.91,
+          9.05,
+          8.46
+        ],
+        "max": [
+          30.29,
+          11.7,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "toupeiras",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-29",
+      "module_id": "SUP-BB-29",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          30.51,
+          9.05,
+          4.46
+        ],
+        "max": [
+          31.89,
+          11.7,
+          6.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "texugos",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-30",
+      "module_id": "SUP-BB-30",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          30.51,
+          9.05,
+          8.46
+        ],
+        "max": [
+          31.89,
+          11.7,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "mangustos",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-31",
+      "module_id": "SUP-BB-31",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          32.11,
+          9.05,
+          4.46
+        ],
+        "max": [
+          33.49,
+          11.7,
+          6.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "jabutis",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-32",
+      "module_id": "SUP-BB-32",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          32.11,
+          9.05,
+          8.46
+        ],
+        "max": [
+          33.49,
+          11.7,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "iguanas",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-33",
+      "module_id": "SUP-BB-33",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          33.71,
+          9.05,
+          4.46
+        ],
+        "max": [
+          35.09,
+          11.7,
+          6.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "teius",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-34",
+      "module_id": "SUP-BB-34",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          33.71,
+          9.05,
+          8.46
+        ],
+        "max": [
+          35.09,
+          11.7,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "camaleoes",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-35",
+      "module_id": "SUP-BB-35",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          35.31,
+          9.05,
+          4.46
+        ],
+        "max": [
+          36.69,
+          11.7,
+          6.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "escincos",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-36",
+      "module_id": "SUP-BB-36",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          35.31,
+          9.05,
+          8.46
+        ],
+        "max": [
+          36.69,
+          11.7,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "pitons",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-37",
+      "module_id": "SUP-BB-37",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          36.91,
+          9.05,
+          4.46
+        ],
+        "max": [
+          38.29,
+          11.7,
+          6.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "viboras",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-38",
+      "module_id": "SUP-BB-38",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          36.91,
+          9.05,
+          8.46
+        ],
+        "max": [
+          38.29,
+          11.7,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "crocodilianos",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-39",
+      "module_id": "SUP-BB-39",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          38.51,
+          9.05,
+          4.46
+        ],
+        "max": [
+          39.89,
+          11.7,
+          6.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "sapos",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BB-40",
+      "module_id": "SUP-BB-40",
+      "part": "unica",
+      "deck": 3,
+      "side": -1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          38.51,
+          9.05,
+          8.46
+        ],
+        "max": [
+          39.89,
+          11.7,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "salamandras",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-01",
+      "module_id": "SUP-BE-01",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -49.89,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          -47.61,
+          11.675,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "rolinhas",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-02",
+      "module_id": "SUP-BE-02",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -47.39,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          -45.11,
+          11.675,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "gralhas",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-03",
+      "module_id": "SUP-BE-03",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -44.89,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          -42.61,
+          11.675,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "codornas",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-04",
+      "module_id": "SUP-BE-04",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -42.39,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          -40.11,
+          11.675,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "faisoes",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-05",
+      "module_id": "SUP-BE-05",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -39.89,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          -37.61,
+          11.675,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "perus",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-06",
+      "module_id": "SUP-BE-06",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -37.39,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          -35.11,
+          11.675,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "gansos",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-07",
+      "module_id": "SUP-BE-07",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -34.89,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          -32.61,
+          11.675,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "papagaios",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-08",
+      "module_id": "SUP-BE-08",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -32.39,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          -30.11,
+          11.675,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "periquitos",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-09",
+      "module_id": "SUP-BE-09",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -29.89,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          -27.61,
+          11.675,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "tucanos",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-10",
+      "module_id": "SUP-BE-10",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -27.39,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          -25.11,
+          11.675,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "martins_pescadores",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-11",
+      "module_id": "SUP-BE-11",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -24.89,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          -22.61,
+          11.675,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "andorinhas",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-12",
+      "module_id": "SUP-BE-12",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -22.39,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          -20.11,
+          11.675,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "cotovias",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-13",
+      "module_id": "SUP-BE-13",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -19.89,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          -17.61,
+          11.675,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "tentilhoes",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-14",
+      "module_id": "SUP-BE-14",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -17.39,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          -15.11,
+          11.675,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "pintassilgos",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-15",
+      "module_id": "SUP-BE-15",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -14.89,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          -7.11,
+          11.675,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        7.78,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "abutres",
+      "quantity": 14,
+      "layout": {
+        "columns": 7,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.175
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-16",
+      "module_id": "SUP-BE-16",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          -6.89,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          0.89,
+          11.675,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        7.78,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "garcas",
+      "quantity": 14,
+      "layout": {
+        "columns": 7,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.175
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-17",
+      "module_id": "SUP-BE-17",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          1.11,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          8.89,
+          11.675,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        7.78,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "cormoroes",
+      "quantity": 14,
+      "layout": {
+        "columns": 7,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.175
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-18",
+      "module_id": "SUP-BE-18",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          9.11,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          16.89,
+          11.675,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        7.78,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "flamingos",
+      "quantity": 14,
+      "layout": {
+        "columns": 7,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.175
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-19",
+      "module_id": "SUP-BE-19",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          17.11,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          19.39,
+          11.675,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "beija_flores",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-20",
+      "module_id": "SUP-BE-20",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          19.61,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          21.89,
+          11.675,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        2.28,
+        2.625,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "falcoes_pequenos",
+      "quantity": 14,
+      "layout": {
+        "columns": 1,
+        "rows": 14,
+        "rotated": false,
+        "gap": 0.075
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-21",
+      "module_id": "SUP-BE-21",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          24.11,
+          9.05,
+          -6.34
+        ],
+        "max": [
+          25.49,
+          11.7,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "lebres",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-22",
+      "module_id": "SUP-BE-22",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          24.11,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          25.49,
+          11.7,
+          -8.46
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "esquilos",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-23",
+      "module_id": "SUP-BE-23",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          25.71,
+          9.05,
+          -6.34
+        ],
+        "max": [
+          27.09,
+          11.7,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "castores",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-24",
+      "module_id": "SUP-BE-24",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          25.71,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          27.09,
+          11.7,
+          -8.46
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "chinchilas",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-25",
+      "module_id": "SUP-BE-25",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          27.31,
+          9.05,
+          -6.34
+        ],
+        "max": [
+          28.69,
+          11.7,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "hamsters",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-26",
+      "module_id": "SUP-BE-26",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          27.31,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          28.69,
+          11.7,
+          -8.46
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "camundongos",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-27",
+      "module_id": "SUP-BE-27",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          28.91,
+          9.05,
+          -6.34
+        ],
+        "max": [
+          30.29,
+          11.7,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "musaranhos",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-28",
+      "module_id": "SUP-BE-28",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          28.91,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          30.29,
+          11.7,
+          -8.46
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "ouricos",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-29",
+      "module_id": "SUP-BE-29",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          30.51,
+          9.05,
+          -6.34
+        ],
+        "max": [
+          31.89,
+          11.7,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "furoes",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-30",
+      "module_id": "SUP-BE-30",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          30.51,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          31.89,
+          11.675,
+          -8.46
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.625,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "morcegos",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-31",
+      "module_id": "SUP-BE-31",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          32.11,
+          9.05,
+          -6.34
+        ],
+        "max": [
+          33.49,
+          11.7,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "tartarugas_semiaquaticas",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-32",
+      "module_id": "SUP-BE-32",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          32.11,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          33.49,
+          11.7,
+          -8.46
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "varanos",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-33",
+      "module_id": "SUP-BE-33",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          33.71,
+          9.05,
+          -6.34
+        ],
+        "max": [
+          35.09,
+          11.7,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "agamas",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-34",
+      "module_id": "SUP-BE-34",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          33.71,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          35.09,
+          11.7,
+          -8.46
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "lagartixas",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-35",
+      "module_id": "SUP-BE-35",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          35.31,
+          9.05,
+          -6.34
+        ],
+        "max": [
+          36.69,
+          11.7,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "jiboias",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-36",
+      "module_id": "SUP-BE-36",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          35.31,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          36.69,
+          11.7,
+          -8.46
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "cobras_nao_peconhentas",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-37",
+      "module_id": "SUP-BE-37",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          36.91,
+          9.05,
+          -6.34
+        ],
+        "max": [
+          38.29,
+          11.7,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "najas",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-38",
+      "module_id": "SUP-BE-38",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          36.91,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          38.29,
+          11.7,
+          -8.46
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "ras",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-39",
+      "module_id": "SUP-BE-39",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          38.51,
+          9.05,
+          -6.34
+        ],
+        "max": [
+          39.89,
+          11.7,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "pererecas",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    },
+    {
+      "id": "SUP-BE-40",
+      "module_id": "SUP-BE-40",
+      "part": "unica",
+      "deck": 3,
+      "side": 1,
+      "split": false,
+      "bounds_m": {
+        "min": [
+          38.51,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          39.89,
+          11.7,
+          -8.46
+        ]
+      },
+      "usable_dimensions_m": [
+        1.38,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "cecilias",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.1375
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+    }
+  ]
+}

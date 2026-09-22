@@ -114,7 +114,7 @@ export function NoePlayer({ paused, onInteract, onNearDoor, gallery = false, bir
       s.origin.copy(body.position); s.origin.y += 1
       s.ray.set(s.origin, s.move)
       s.ray.far = step + 0.32
-      if (!collision.current.firstHit(s.ray, SOLID)) s.next.addScaledVector(s.move, step)
+      if (!collision.current.firstHit(s.ray, SOLID, 0.28)) s.next.addScaledVector(s.move, step)
       body.rotation.y = Math.atan2(s.move.x, s.move.z)
     }
     s.origin.copy(s.next); s.origin.y += 0.55
