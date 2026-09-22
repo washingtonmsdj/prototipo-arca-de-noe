@@ -54,6 +54,34 @@ Os painéis de bake são browser tools independentes do runtime.
 
 Trocar preset, espécie, clip ou edits invalida o resultado anterior. Progresso de um bake antigo não pode sobrescrever a seleção nova.
 
+
+## Planejamento da fauna na arca
+
+A escala e o alojamento são camadas separadas:
+
+```text
+concepts/arca/dimensoes-animais-jogo-v1.json
+        ↓
+src/arca/animalPlanning.ts
+        ↓
+concepts/arca/modulos-alojamento-base-v1.json
+        ↓
+src/arca/plannedEnclosures.ts
+        ↓
+enclosureLayout / render / colisão / placas
+```
+
+Não adicionar dimensões diretamente em componentes React nem criar baias manuais para corrigir um caso visual.
+
+Para alterar uma espécie:
+
+1. ajuste o envelope corporal, postura, estágio e forma de referência no catálogo de dimensões;
+2. escolha/corrija a classe em `animalPlanning.ts` somente se o tipo de alojamento estiver errado;
+3. deixe `plannedEnclosures.ts` recalcular o espaço;
+4. valide com `npm test`.
+
+O planejador deve falhar quando um grupo não couber. É proibido resolver falta de espaço aplicando `scale` escondido no runtime.
+
 ## Princípios
 
 - corrigir a fonte, não mascarar sintomas;
