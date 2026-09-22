@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react"
 import { Canvas } from "@react-three/fiber"
-import { World, type AnimalEngine, type HumanEngine, type LabSubject } from "./world/World"
+import { World, type AnimalEngine, type HumanEngine, type LabSubject, type OriginalAnimalGroup } from "./world/World"
 import { SPECIES, speciesById } from "./animals/species"
 import type { GaitName } from "./animals/types"
 import {
@@ -9,6 +9,13 @@ import {
   type UpstreamAnimalClip,
 } from "./animals/UpstreamAnimal"
 import { WILDLIFE_PROFILES, type WildlifeKind } from "./pilgrimage/wildlife/species"
+import {
+  UPSTREAM_TRANSPORT_ANIMALS,
+  upstreamTransportCoats,
+  upstreamTransportDefinition,
+  type UpstreamTransportClip,
+  type UpstreamTransportKind,
+} from "./animals/UpstreamTransportAnimal"
 import { HUMAN_DESIGNS, generatedHuman, humanById } from "./humans/designs"
 import { UPSTREAM_PERSON_PRESETS } from "./humans/UpstreamHuman"
 import type { HumanClip } from "./humans/types"
@@ -36,6 +43,12 @@ const upstreamAnimalClipLabels: Record<UpstreamAnimalClip, string> = {
   glide: "Planar",
 }
 
+const upstreamTransportClipLabels: Record<UpstreamTransportClip, string> = {
+  idle: "Parado",
+  walk: "Passo",
+  graze: "Pastando",
+}
+
 const humanClipLabels: Record<HumanClip, string> = {
   idle: "Parado",
   walk: "Caminhada",
@@ -50,6 +63,10 @@ const HUMAN_CLIPS = Object.keys(humanClipLabels) as HumanClip[]
 export function App() {
   const [labSubject, setLabSubject] = useState<LabSubject>("animal")
   const [animalEngine, setAnimalEngine] = useState<AnimalEngine>("pilgrimage")
+  const [upstreamAnimalGroup, setUpstreamAnimalGroup] = useState<OriginalAnimalGroup>("wildlife")
+  const [upstreamTransportKind, setUpstreamTransportKind] = useState<UpstreamTransportKind>("horse-common")
+  const [upstreamTransportClip, setUpstreamTransportClip] = useState<UpstreamTransportClip>("walk")
+  const [upstreamTransportCoat, setUpstreamTransportCoat] = useState("bay")
   const [speciesId, setSpeciesId] = useState("horse")
   const [gait, setGait] = useState<GaitName>("walk")
   const [upstreamAnimalKind, setUpstreamAnimalKind] = useState<WildlifeKind>("deer")
@@ -72,6 +89,14 @@ export function App() {
     () => upstreamAnimalClips(upstreamAnimalKind),
     [upstreamAnimalKind],
   )
+  const availableTransportCoats = useMemo(
+    () => upstreamTransportCoats(upstreamTransportKind),
+    [upstreamTransportKind],
+  )
+  const transportDefinition = useMemo(
+    () => upstreamTransportDefinition(upstreamTransportKind),
+    [upstreamTransportKind],
+  )
 
   useEffect(() => {
     if (!species.supportedGaits.includes(gait)) setGait(species.supportedGaits[0])
@@ -82,6 +107,12 @@ export function App() {
       setUpstreamAnimalClip(availableUpstreamAnimalClips[0] ?? "idle")
     }
   }, [availableUpstreamAnimalClips, upstreamAnimalClip])
+
+  useEffect(() => {
+    if (!availableTransportCoats.some((coat) => coat.id === upstreamTransportCoat)) {
+      setUpstreamTransportCoat(availableTransportCoats[0]?.id ?? "")
+    }
+  }, [availableTransportCoats, upstreamTransportCoat])
 
   return (
     <main className="app-shell">
@@ -94,6 +125,10 @@ export function App() {
         <World
           labSubject={labSubject}
           animalEngine={animalEngine}
+          upstreamAnimalGroup={upstreamAnimalGroup}
+          upstreamTransportKind={upstreamTransportKind}
+          upstreamTransportClip={upstreamTransportClip}
+          upstreamTransportCoat={upstreamTransportCoat}
           labSpecies={species}
           labGait={gait}
           upstreamAnimalKind={upstreamAnimalKind}
@@ -136,28 +171,81 @@ export function App() {
             {animalEngine === "pilgrimage" ? (
               <>
                 <label>
-                  Espécie original
+                  Sistema original
                   <select
-                    value={upstreamAnimalKind}
-                    onChange={(event) => setUpstreamAnimalKind(event.target.value as WildlifeKind)}
+                    value={upstreamAnimalGroup}
+                    onChange={(event) => setUpstreamAnimalGroup(event.target.value as OriginalAnimalGroup)}
                   >
-                    {UPSTREAM_WILDLIFE_SPECIES.map((kind) => (
-                      <option key={kind} value={kind}>{WILDLIFE_PROFILES[kind].label}</option>
-                    ))}
+                    <option value="wildlife">Fauna</option>
+                    <option value="transport">Equinos e bovino</option>
                   </select>
                 </label>
 
-                <label>
-                  Ação
-                  <select
-                    value={upstreamAnimalClip}
-                    onChange={(event) => setUpstreamAnimalClip(event.target.value as UpstreamAnimalClip)}
-                  >
-                    {availableUpstreamAnimalClips.map((clip) => (
-                      <option key={clip} value={clip}>{upstreamAnimalClipLabels[clip]}</option>
-                    ))}
-                  </select>
-                </label>
+                {upstreamAnimalGroup === "wildlife" ? (
+                  <>
+                    <label>
+                      Espécie original
+                      <select
+                        value={upstreamAnimalKind}
+                        onChange={(event) => setUpstreamAnimalKind(event.target.value as WildlifeKind)}
+                      >
+                        {UPSTREAM_WILDLIFE_SPECIES.map((kind) => (
+                          <option key={kind} value={kind}>{WILDLIFE_PROFILES[kind].label}</option>
+                        ))}
+                      </select>
+                    </label>
+
+                    <label>
+                      Ação
+                      <select
+                        value={upstreamAnimalClip}
+                        onChange={(event) => setUpstreamAnimalClip(event.target.value as UpstreamAnimalClip)}
+                      >
+                        {availableUpstreamAnimalClips.map((clip) => (
+                          <option key={clip} value={clip}>{upstreamAnimalClipLabels[clip]}</option>
+                        ))}
+                      </select>
+                    </label>
+                  </>
+                ) : (
+                  <>
+                    <label>
+                      Animal original
+                      <select
+                        value={upstreamTransportKind}
+                        onChange={(event) => setUpstreamTransportKind(event.target.value as UpstreamTransportKind)}
+                      >
+                        {UPSTREAM_TRANSPORT_ANIMALS.map((entry) => (
+                          <option key={entry.id} value={entry.id}>{entry.label}</option>
+                        ))}
+                      </select>
+                    </label>
+
+                    <label>
+                      Pelagem
+                      <select
+                        value={upstreamTransportCoat}
+                        onChange={(event) => setUpstreamTransportCoat(event.target.value)}
+                      >
+                        {availableTransportCoats.map((coat) => (
+                          <option key={coat.id} value={coat.id}>{coat.label}</option>
+                        ))}
+                      </select>
+                    </label>
+
+                    <label>
+                      Ação
+                      <select
+                        value={upstreamTransportClip}
+                        onChange={(event) => setUpstreamTransportClip(event.target.value as UpstreamTransportClip)}
+                      >
+                        {(Object.keys(upstreamTransportClipLabels) as UpstreamTransportClip[]).map((clip) => (
+                          <option key={clip} value={clip}>{upstreamTransportClipLabels[clip]}</option>
+                        ))}
+                      </select>
+                    </label>
+                  </>
+                )}
               </>
             ) : (
               <>
@@ -249,12 +337,21 @@ export function App() {
         <dl>
           {labSubject === "animal" ? (
             animalEngine === "pilgrimage" ? (
-              <>
-                <div><dt>Origem</dt><dd>Pilgrimage</dd></div>
-                <div><dt>Espécie</dt><dd>{WILDLIFE_PROFILES[upstreamAnimalKind].label}</dd></div>
-                <div><dt>Rig</dt><dd>original</dd></div>
-                <div><dt>Ação</dt><dd>{upstreamAnimalClipLabels[upstreamAnimalClip]}</dd></div>
-              </>
+              upstreamAnimalGroup === "wildlife" ? (
+                <>
+                  <div><dt>Origem</dt><dd>Pilgrimage</dd></div>
+                  <div><dt>Espécie</dt><dd>{WILDLIFE_PROFILES[upstreamAnimalKind].label}</dd></div>
+                  <div><dt>Rig</dt><dd>wildlife original</dd></div>
+                  <div><dt>Ação</dt><dd>{upstreamAnimalClipLabels[upstreamAnimalClip]}</dd></div>
+                </>
+              ) : (
+                <>
+                  <div><dt>Origem</dt><dd>Pilgrimage</dd></div>
+                  <div><dt>Animal</dt><dd>{transportDefinition.label}</dd></div>
+                  <div><dt>Rig</dt><dd>transport original</dd></div>
+                  <div><dt>Ação</dt><dd>{upstreamTransportClipLabels[upstreamTransportClip]}</dd></div>
+                </>
+              )
             ) : (
               <>
                 <div><dt>Passada</dt><dd>{species.stride.toFixed(2)}</dd></div>
