@@ -3,6 +3,7 @@ import { BASE_PERSON } from "../../../vendor/pilgrimage/lib/game/base-person/pos
 import { personCamera } from "./camera"
 import { registerDepthPixels, SPRITE_DEPTH_ENCODING } from "./depth"
 import { humanBakeFileStem } from "./human-bake"
+import { animalBakeFileStem } from "./animal-bake"
 
 describe("Pilgrimage human bake primitives", () => {
   it("keeps the registered orthographic camera aligned with the person recipe", () => {
@@ -25,5 +26,7 @@ describe("Pilgrimage human bake primitives", () => {
   it("creates stable filesystem-safe bake names", () => {
     expect(humanBakeFileStem("Storybook", "wearyWalk")).toBe("human-storybook-wearyWalk")
     expect(humanBakeFileStem("Tall / Warm", "idle")).toBe("human-tall-warm-idle")
+    expect(animalBakeFileStem({ family: "wildlife", kind: "deer", clip: "walk" })).toBe("animal-deer-walk")
+    expect(animalBakeFileStem({ family: "transport", kind: "horse", variant: "noble", clip: "graze" })).toBe("animal-horse-noble-graze")
   })
 })
