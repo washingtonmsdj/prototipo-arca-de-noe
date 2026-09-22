@@ -14,7 +14,7 @@ export function EnclosureSigns() {
       return {
         name: animal.name,
         detail: `${composition} · ${HOUSING_RULES[pen.housing_class].label}`,
-        measures: `${(max[0] - min[0]).toFixed(2)} × ${(max[2] - min[2]).toFixed(2)} m · ${(pen.occupancy_ratio * 100).toFixed(0)}% corpo`,
+        measures: `${(max[0] - min[0]).toFixed(2)} × ${(max[2] - min[2]).toFixed(2)} m · área planejada`,
         x: (min[0] + max[0]) / 2,
         y: Math.min(max[1] - 0.35, min[1] + Math.max(.55, pen.wall_height_m * .72)),
         z: (pen.side > 0 ? max[2] : min[2]) + pen.side * 0.12,
