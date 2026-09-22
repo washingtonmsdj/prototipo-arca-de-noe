@@ -30,6 +30,8 @@ import type { AnimalBakeTarget } from "./pilgrimage/bake/animal-bake"
 import { HumanRigEditorPanel } from "./dev/HumanRigEditorPanel"
 import { HumanBakePanel } from "./dev/HumanBakePanel"
 import type { EditableJoint, PoseEdits } from "../vendor/pilgrimage/lib/game/base-person/pose-edits"
+import { SOCKET_NAMES, type SocketName } from "../vendor/pilgrimage/lib/game/base-person/pose"
+import { HUMAN_ATTACHMENTS, type HumanAttachmentKind } from "./humans/attachments"
 import {
   ANIMAL_FRAMES,
   EMPTY_ANIMAL_EDITS,
@@ -124,6 +126,8 @@ export function App() {
   const [humanEditFrame, setHumanEditFrame] = useState(0)
   const [humanEditJoint, setHumanEditJoint] = useState<EditableJoint>("head")
   const [humanEdits, setHumanEdits] = useState<PoseEdits>({})
+  const [humanAttachment, setHumanAttachment] = useState<HumanAttachmentKind | "">("")
+  const [humanAttachmentSocket, setHumanAttachmentSocket] = useState<SocketName>("rightHand")
   const [humanClip, setHumanClip] = useState<HumanClip>("walk")
   const [speedScale, setSpeedScale] = useState(1)
   const [paused, setPaused] = useState(false)
@@ -226,6 +230,8 @@ export function App() {
           upstreamHumanClip={upstreamHumanClip}
           humanEdits={humanEdits}
           humanEditPhase={humanRigEditing ? safeHumanEditFrame / upstreamHumanFrameCount : undefined}
+          humanAttachment={humanAttachment || undefined}
+          humanAttachmentSocket={humanAttachment ? humanAttachmentSocket : undefined}
           speedScale={speedScale}
           paused={paused}
           showRig={showRig}
@@ -409,6 +415,37 @@ export function App() {
                     ))}
                   </select>
                 </label>
+                <label>
+                  Objeto de socket
+                  <select
+                    value={humanAttachment}
+                    onChange={(event) => {
+                      const value = event.target.value as HumanAttachmentKind | ""
+                      setHumanAttachment(value)
+                      const definition = HUMAN_ATTACHMENTS.find((entry) => entry.id === value)
+                      if (definition) setHumanAttachmentSocket(definition.defaultSocket)
+                    }}
+                  >
+                    <option value="">Nenhum</option>
+                    {HUMAN_ATTACHMENTS.map((entry) => (
+                      <option key={entry.id} value={entry.id}>{entry.label}</option>
+                    ))}
+                  </select>
+                </label>
+
+                {humanAttachment && (
+                  <label>
+                    Socket
+                    <select
+                      value={humanAttachmentSocket}
+                      onChange={(event) => setHumanAttachmentSocket(event.target.value as SocketName)}
+                    >
+                      {SOCKET_NAMES.map((socket) => (
+                        <option key={socket} value={socket}>{socket}</option>
+                      ))}
+                    </select>
+                  </label>
+                )}
 
                 <div className="button-row">
                   <button
@@ -436,6 +473,8 @@ export function App() {
                   preset={upstreamHumanPreset}
                   clip={upstreamHumanClip}
                   edits={humanEdits}
+                  attachment={humanAttachment || undefined}
+                  attachmentSocket={humanAttachment ? humanAttachmentSocket : undefined}
                 />
               </>
             ) : (
