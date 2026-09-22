@@ -1,22 +1,22 @@
-# Dimensões dos animais — revisão zoológica 5
+# Dimensões dos animais — revisão zoológica 5 / proporção v3
 
-Este é o cadastro corporal usado pelo protótipo da Arca. Ele contém **162 grupos e 1080 indivíduos de referência**.
+Este é o cadastro corporal usado pelo protótipo da Arca: **162 grupos e 1080 indivíduos de referência**.
 
-A regra principal é simples: **comprimento, largura e altura descrevem o animal na postura normal indicada**. Comprimento corporal não é convertido em altura. Quando um grupo grande usa um jovem independente por limitação vertical dos pavimentos, isso aparece explicitamente em `life_stage` / `dimension_basis`; não existe escala oculta no runtime.
+A revisão v3 removeu o antigo padrão de blocos genéricos: os **162 grupos possuem 162 envelopes dimensionais distintos**, definidos a partir de uma forma animal de referência, estágio de vida e postura. Isso não implica precisão biométrica absoluta; os registros continuam marcados como confiança alta ou média.
 
-## Como ler os dados
+## Regras
 
-- fonte executável: `dimensoes-animais-jogo-v1.json`, versão 5;
-- unidade: metro;
-- Blender: comprimento × largura × altura;
-- Three.js: comprimento × altura × largura;
-- `reference_form`: espécie/tipo representativo usado para tornar um nome editorial genérico mensurável;
-- `life_stage`: adulto ou jovem independente;
-- `posture`: postura que define o envelope;
-- `scale_confidence`: nível da revisão atual, não um selo científico;
-- `adult_reference`: quando presente, mantém a faixa adulta pesquisada separada do envelope usado no jogo.
+- comprimento, largura e altura descrevem a postura indicada;
+- comprimento corporal nunca vira altura;
+- asas abertas, caudas erguidas e postura bípede ocasional não definem automaticamente a caixa de repouso;
+- grupos grandes podem usar jovens independentes quando isso estiver explicitamente registrado;
+- não existe `scale` oculto no componente de renderização;
+- medidas de confiança alta mantêm `adult_reference` e fonte curada no JSON;
+- medidas de confiança média são envelopes de modelagem individualizados e devem ser promovidas somente após pesquisa específica.
 
-A revisão de alta confiança cobre atualmente: Rinocerontes, Hipopotamos, Zebras, Camelos, Bisoes, Girafas, Alces, Ursos-pardos, Ursos-negros, Porcos, Vombates, Capivaras, Tamanduas, Avestruzes, Casuares, Cisnes. Os demais registros já possuem forma de referência e proporção individualizada, mas continuam marcados com confiança média até receberem uma fonte zoológica primária/curada específica.
+Fontes executáveis: `dimensoes-animais-jogo-v1.json` (versão 5), `animalPlanning.ts`, `modulos-alojamento-base-v1.json` e `plannedEnclosures.ts`.
+
+Grupos atualmente com referência curada de alta confiança: Rinocerontes, Hipopotamos, Zebras, Camelos, Bisoes, Girafas, Alces, Ursos-pardos, Ursos-negros, Porcos, Vombates, Capivaras, Tamanduas, Avestruzes, Casuares, Cisnes.
 
 ## Catálogo completo
 
@@ -52,7 +52,7 @@ A revisão de alta confiança cobre atualmente: Rinocerontes, Hipopotamos, Zebra
 | Tigres | Tigre | adulto | quadrupede | 2.2 | 0.75 | 1.05 | média |
 | Leopardos | Leopardo | adulto | quadrupede | 1.6 | 0.55 | 0.8 | média |
 | Jaguares | Onça-pintada | adulto | quadrupede | 1.7 | 0.6 | 0.85 | média |
-| Pumas | Puma | adulto | quadrupede | 1.6 | 0.55 | 0.8 | média |
+| Pumas | Puma | adulto | quadrupede | 1.55 | 0.6 | 0.78 | média |
 | Guepardos | Guepardo | adulto | quadrupede | 1.5 | 0.5 | 0.8 | média |
 | Ursos-pardos | Urso-pardo | adulto | quadrupede | 2.1 | 0.9 | 1.1 | alta |
 | Ursos-negros | Urso-negro-americano | adulto | quadrupede | 1.7 | 0.7 | 0.9 | alta |
@@ -64,7 +64,7 @@ A revisão de alta confiança cobre atualmente: Rinocerontes, Hipopotamos, Zebra
 | Javalis | Javali | adulto | quadrupede | 1.5 | 0.65 | 0.85 | média |
 | Cangurus | Canguru-vermelho | adulto | ereto_relaxado | 1.8 | 0.6 | 1.6 | média |
 | Vombates | Vombate-comum | adulto | quadrupede | 1 | 0.45 | 0.4 | alta |
-| Capivaras | Capivara | adulto | quadrupede | 1.2 | 0.5 | 0.6 | alta |
+| Capivaras | Capivara | adulto | quadrupede | 1.2 | 0.5 | 0.5 | alta |
 | Tamanduas | Tamanduá-bandeira | adulto | quadrupede | 2.1 | 0.55 | 0.65 | alta |
 | Avestruzes | Avestruz-comum | adulto | ereto | 1.05 | 0.55 | 2.2 | alta |
 | Emas | Ema | adulto | ereto | 1 | 0.5 | 1.75 | média |
@@ -88,7 +88,7 @@ A revisão de alta confiança cobre atualmente: Rinocerontes, Hipopotamos, Zebra
 | Cegonhas | Cegonha-branca | adulto | ereto_pousado | 1 | 0.4 | 1.2 | média |
 | Pelicanos | Pelicano de grande porte | adulto | ereto_pousado | 1.4 | 0.5 | 1.15 | média |
 | Grous | Grou de grande porte | adulto | ereto_pousado | 1.2 | 0.45 | 1.35 | média |
-| Cucos | Cuco-comum | adulto | ereto_pousado | 0.35 | 0.18 | 0.3 | média |
+| Cucos | Cuco-comum | adulto | ereto_pousado | 0.34 | 0.17 | 0.28 | média |
 | Corujas-pequenas | Coruja de pequeno porte | adulto | ereto_pousado | 0.3 | 0.2 | 0.25 | média |
 | Coelhos | Coelho-europeu | adulto | quadrupede | 0.5 | 0.3 | 0.35 | média |
 | Hiraxes | Hírax-das-rochas | adulto | quadrupede | 0.5 | 0.3 | 0.3 | média |
@@ -115,16 +115,16 @@ A revisão de alta confiança cobre atualmente: Rinocerontes, Hipopotamos, Zebra
 | Codornas | Codorna | adulto | ereto_pousado | 0.25 | 0.14 | 0.22 | média |
 | Faisoes | Faisão | adulto | ereto_pousado | 0.8 | 0.3 | 0.5 | média |
 | Perus | Peru doméstico | adulto | ereto_pousado | 1 | 0.5 | 0.9 | média |
-| Gansos | Ganso | adulto | ereto_pousado | 0.8 | 0.4 | 0.7 | média |
+| Gansos | Ganso | adulto | ereto_pousado | 0.85 | 0.38 | 0.7 | média |
 | Papagaios | Papagaio de porte médio | adulto | ereto_pousado | 0.4 | 0.2 | 0.35 | média |
 | Periquitos | Periquito | adulto | ereto_pousado | 0.25 | 0.12 | 0.18 | média |
 | Tucanos | Tucano | adulto | ereto_pousado | 0.6 | 0.25 | 0.4 | média |
-| Martins-pescadores | Martim-pescador | adulto | ereto_pousado | 0.25 | 0.12 | 0.18 | média |
+| Martins-pescadores | Martim-pescador | adulto | ereto_pousado | 0.27 | 0.13 | 0.18 | média |
 | Andorinhas | Andorinha | adulto | ereto_pousado | 0.18 | 0.1 | 0.12 | média |
 | Cotovias | Cotovia | adulto | ereto_pousado | 0.18 | 0.1 | 0.14 | média |
 | Tentilhoes | Tentilhão | adulto | ereto_pousado | 0.15 | 0.08 | 0.12 | média |
 | Pintassilgos | Pintassilgo | adulto | ereto_pousado | 0.13 | 0.07 | 0.11 | média |
-| Abutres | Abutre de grande porte | adulto | ereto_pousado | 1 | 0.45 | 0.8 | média |
+| Abutres | Abutre de grande porte | adulto | ereto_pousado | 1 | 0.5 | 0.85 | média |
 | Garcas | Garça de grande porte | adulto | ereto_pousado | 1 | 0.4 | 1 | média |
 | Cormoroes | Cormorão | adulto | ereto_pousado | 0.9 | 0.35 | 0.7 | média |
 | Flamingos | Flamingo | adulto | ereto_pousado | 1 | 0.4 | 1.4 | média |
@@ -185,15 +185,10 @@ A revisão de alta confiança cobre atualmente: Rinocerontes, Hipopotamos, Zebra
 | Lesmas | Lesma de grande porte | adulto | repouso | 0.1 | 0.025 | 0.025 | média |
 | Minhocas | Minhoca de grande porte | adulto | repouso | 0.2 | 0.01 | 0.01 | média |
 
-## Planejamento
+## Alojamento
 
-Este arquivo **não escolhe a baia**. O alojamento é calculado a partir de:
+A dimensão do animal não contém ID de baia. O planejador recebe os 128 módulos estruturais e recalcula os 162 alojamentos de acordo com a classe: baia grande, rebanho, baia média, viveiro, recinto pequeno, gaiola, terrário, microterrário ou insetário.
 
-- `modulos-alojamento-base-v1.json`: 128 módulos estruturais disponíveis;
-- `src/arca/animalPlanning.ts`: classe de alojamento e regras de área/forma;
-- `src/arca/plannedEnclosures.ts`: empacotamento determinístico dos 162 grupos;
-- `src/arca/enclosureLayout.test.ts`: invariantes de capacidade, não sobreposição e bounds.
+O espaço residual recebe função de alimento, água, manejo, limpeza, circulação ou ventilação. Consulte `planejamento-alojamento-v1.md`.
 
-O espaço restante de um módulo não é considerado uma “baia vazia”: o planejador o registra como área de alimentação, água, manejo, limpeza, circulação ou ventilação.
-
-> Esta é uma reconstrução interpretativa para jogo. Gênesis não fornece dimensões individuais das baias nem idades dos animais; essas decisões são de projeto e ficam explicitamente documentadas.
+> Reconstrução interpretativa para jogo: o texto bíblico não fornece uma planta zoológica detalhada, idades, espécies modernas equivalentes nem metragem de cada alojamento.
