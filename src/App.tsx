@@ -382,7 +382,7 @@ export function App() {
                   <button
                     type="button"
                     className={animalMoving ? "active" : ""}
-                    disabled={!canMoveOriginalAnimal || animalRigEditing || animalRepresentation === "sprite"}
+                    disabled={!canMoveOriginalAnimal || animalRigEditing}
                     onClick={() => setAnimalMoving((value) => !value)}
                   >
                     {animalMoving ? "Parar deslocamento" : "Mover no mundo"}
@@ -416,6 +416,7 @@ export function App() {
                   >
                     <option value="rig">Rig 3D</option>
                     <option value="sprite" disabled={!animalBakePreview}>Sprite + depth</option>
+                    <option value="auto" disabled={!animalBakePreview}>Auto por distância</option>
                   </select>
                 </label>
 
@@ -616,7 +617,13 @@ export function App() {
                   <div><dt>Rig</dt><dd>wildlife original</dd></div>
                   <div><dt>Ação</dt><dd>{upstreamAnimalClipLabels[upstreamAnimalClip]}</dd></div>
                   <div><dt>Locomoção</dt><dd>{animalMoving ? "fase por distância" : "preview estacionário"}</dd></div>
-                  <div><dt>Representação</dt><dd>{animalRepresentation === "sprite" ? "sprite + depth" : "rig 3D"}</dd></div>
+                  <div><dt>Representação</dt><dd>{
+                    animalRepresentation === "auto"
+                      ? "auto por distância"
+                      : animalRepresentation === "sprite"
+                        ? "sprite + depth"
+                        : "rig 3D"
+                  }</dd></div>
                   <div><dt>Representação</dt><dd>{animalRepresentation === "sprite" ? "sprite + depth" : "rig 3D"}</dd></div>
                 </>
               ) : (
