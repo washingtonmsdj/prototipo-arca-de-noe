@@ -23,7 +23,8 @@ Entrada:
 
 - preset/design;
 - clip original;
-- `PoseEdits` atuais.
+- `PoseEdits` atuais;
+- attachment/socket opcional selecionado no laboratório.
 
 Saída:
 
@@ -32,7 +33,7 @@ Saída:
 - `<stem>-shadow.png`;
 - `<stem>.json`.
 
-O JSON registra clip, frames, direções, cell size, anchor, padding seguro, depth encoding, design e sockets por frame/direção.
+O JSON registra clip, frames, direções, cell size, anchor, padding seguro, depth encoding, design, attachment/socket escolhido e sockets por frame/direção. O attachment entra nos atlases de cor, depth e sombra usando o mesmo factory do preview 3D.
 
 A contagem de frames vem diretamente de `PERSON_CLIPS`; não é forçada para 20.
 
