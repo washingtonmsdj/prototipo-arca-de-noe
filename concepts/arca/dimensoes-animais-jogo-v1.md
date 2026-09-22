@@ -1,28 +1,36 @@
-# Dimensões dos animais — revisão zoológica 5 / proporção v3
+# Dimensões dos animais — revisão zoológica 6 / proporção v4
 
-Este é o cadastro corporal usado pelo protótipo da Arca: **162 grupos e 1080 indivíduos de referência**.
+Este é o cadastro corporal usado pelo protótipo da Arca: **162 grupos e 1.080 indivíduos de referência**.
 
-A revisão v3 removeu o antigo padrão de blocos genéricos: os **162 grupos possuem 162 envelopes dimensionais distintos**, definidos a partir de uma forma animal de referência, estágio de vida e postura. Isso não implica precisão biométrica absoluta; os registros continuam marcados como confiança alta ou média.
+A revisão v4 mantém **um envelope dimensional próprio para cada grupo**, definido por forma de referência, estágio de vida e postura. Comprimento corporal nunca é convertido em altura. Postura ocasionalmente ereta não redefine a altura quadrúpede.
 
 ## Regras
 
-- comprimento, largura e altura descrevem a postura indicada;
-- comprimento corporal nunca vira altura;
-- asas abertas, caudas erguidas e postura bípede ocasional não definem automaticamente a caixa de repouso;
-- grupos grandes podem usar jovens independentes quando isso estiver explicitamente registrado;
-- não existe `scale` oculto no componente de renderização;
-- medidas de confiança alta mantêm `adult_reference` e fonte curada no JSON;
-- medidas de confiança média são envelopes de modelagem individualizados e devem ser promovidas somente após pesquisa específica.
+- comprimento, largura e altura descrevem a postura registrada;
+- não existe `scale` oculto no runtime para “fazer caber”;
+- grupos grandes podem usar jovens independentes somente quando isso estiver explicitamente marcado;
+- referências de confiança alta guardam fonte curada no JSON;
+- referências de confiança média continuam individualizadas, mas devem ser promovidas conforme a pesquisa específica avançar;
+- o alojamento é recalculado a partir dessas dimensões; o tamanho do animal não é alterado pelo empacotador.
 
-Fontes executáveis: `dimensoes-animais-jogo-v1.json` (versão 5), `animalPlanning.ts`, `modulos-alojamento-base-v1.json` e `plannedEnclosures.ts`.
+### Correções centrais da v4
 
-Grupos atualmente com referência curada de alta confiança: Rinocerontes, Hipopotamos, Zebras, Camelos, Bisoes, Girafas, Alces, Ursos-pardos, Ursos-negros, Porcos, Vombates, Capivaras, Tamanduas, Avestruzes, Casuares, Cisnes.
+- elefante: proporção corporal alongada corrigida; o envelope anterior estava curto demais em relação à altura;
+- tamanduá-bandeira: quadrúpede baixo, comprimento total incluindo cauda, sem usar comprimento como altura;
+- urso-pardo: altura ao ombro quadrúpede;
+- capivara: altura ao ombro ~0,5 m;
+- casuar e avestruz: altura ereta realista;
+- kiwi: referência explicitada como kiwi-marrom;
+- ocapi: altura corrigida para cerca de 1,5 m;
+- porco: envelope adulto intermediário coerente com suídeos de porte médio/grande.
+
+Fontes executáveis: `dimensoes-animais-jogo-v1.json` (versão 6), `animalPlanning.ts`, `modulos-alojamento-base-v1.json` e `plannedEnclosures.ts`.
 
 ## Catálogo completo
 
 | Grupo | Forma de referência | Estágio | Postura | Comp. m | Larg. m | Alt. m | Confiança |
 |---|---|---|---|---:|---:|---:|---|
-| Elefantes | Elefante-africano-da-savana | jovem independente | quadrupede | 3 | 1.4 | 2.6 | média |
+| Elefantes | Elefante-africano-da-savana | jovem independente | quadrupede | 4.2 | 1.5 | 2.4 | média |
 | Rinocerontes | Rinoceronte-branco | jovem independente | quadrupede | 3 | 1.3 | 1.7 | alta |
 | Hipopotamos | Hipopótamo-comum | jovem independente | quadrupede | 3 | 1.4 | 1.5 | alta |
 | Tapires | Anta-sul-americana | adulto | quadrupede | 2 | 0.8 | 1.1 | média |
@@ -157,12 +165,12 @@ Grupos atualmente com referência curada de alta confiança: Rinocerontes, Hipop
 | Lêmures | Lêmure de porte médio | adulto | quadrupede | 0.8 | 0.3 | 0.45 | média |
 | Lontras | Lontra de porte médio | adulto | quadrupede | 1 | 0.3 | 0.3 | média |
 | Suricatos | Suricato | adulto | quadrupede | 0.4 | 0.15 | 0.3 | média |
-| Ocapis | Ocapi | adulto | quadrupede | 2.1 | 0.75 | 1.7 | média |
+| Ocapis | Ocapi | adulto | quadrupede | 2.1 | 0.72 | 1.5 | alta |
 | Pangolins | Pangolim de porte médio | adulto | quadrupede | 1 | 0.3 | 0.35 | média |
 | Porcos-formigueiros | Porco-formigueiro | adulto | quadrupede | 1.3 | 0.45 | 0.65 | média |
 | Pinguins | Pinguim de porte médio | adulto | ereto_pousado | 0.5 | 0.35 | 0.8 | média |
-| Kiwis | Kiwi | adulto | ereto_pousado | 0.45 | 0.25 | 0.4 | média |
-| Casuares | Casuar-do-sul | adulto | ereto_pousado | 0.95 | 0.45 | 1.65 | alta |
+| Kiwis | Kiwi-marrom | adulto | ereto_pousado | 0.45 | 0.25 | 0.5 | alta |
+| Casuares | Casuar-do-sul | adulto | ereto_pousado | 0.95 | 0.45 | 1.7 | alta |
 | Cisnes | Cisne-mudo | adulto | ereto_pousado | 1.4 | 0.5 | 0.85 | alta |
 | Turacos | Turaco de porte médio | adulto | ereto_pousado | 0.45 | 0.2 | 0.3 | média |
 | Formigas | Formiga de grande porte para leitura visual | adulto | repouso | 0.012 | 0.004 | 0.006 | média |
@@ -187,8 +195,16 @@ Grupos atualmente com referência curada de alta confiança: Rinocerontes, Hipop
 
 ## Alojamento
 
-A dimensão do animal não contém ID de baia. O planejador recebe os 128 módulos estruturais e recalcula os 162 alojamentos de acordo com a classe: baia grande, rebanho, baia média, viveiro, recinto pequeno, gaiola, terrário, microterrário ou insetário.
+As dimensões não contêm ID fixo de baia. O planejador recebe os 128 módulos estruturais e calcula os 162 alojamentos de acordo com classe, quantidade e proporção corporal.
 
-O espaço residual recebe função de alimento, água, manejo, limpeza, circulação ou ventilação. Consulte `planejamento-alojamento-v1.md`.
+O espaço de cada alojamento é dividido visualmente em:
+- área ocupada pelos animais;
+- circulação;
+- alimentação/água;
+- descanso;
+- limpeza/manutenção;
+- ventilação quando aplicável.
 
-> Reconstrução interpretativa para jogo: o texto bíblico não fornece uma planta zoológica detalhada, idades, espécies modernas equivalentes nem metragem de cada alojamento.
+Assim, uma baia maior precisa ter uma função visível para sua área residual; não pode parecer simplesmente vazia.
+
+> Reconstrução interpretativa para jogo: o texto bíblico não fornece planta zoológica detalhada, idades, espécies modernas equivalentes nem metragem por animal.
