@@ -3,6 +3,7 @@ import { useFrame } from "@react-three/fiber"
 import * as THREE from "three"
 import { bodyMotion, gaitSpeed, gaitStride, sampleFoot } from "./gait"
 import { solveTwoBoneLeg } from "./ik"
+import { animalMorphology } from "./morphology"
 import type { AnimalSpecies, GaitName, LimbIndex } from "./types"
 import { terrainHeight, terrainSlope } from "../world/terrain"
 
@@ -44,9 +45,9 @@ export function Animal({
   origin = [0, 0],
 }: AnimalProps) {
   const root = useRef<THREE.Group>(null)
-  const body = useRef<THREE.Mesh>(null)
-  const head = useRef<THREE.Mesh>(null)
-  const muzzle = useRef<THREE.Mesh>(null)
+  const body = useRef<THREE.Group>(null)
+  const head = useRef<THREE.Group>(null)
+  const neck = useRef<THREE.Mesh>(null)
   const tail = useRef<THREE.Mesh>(null)
   const upper = useRef<(THREE.Mesh | null)[]>([])
   const lower = useRef<(THREE.Mesh | null)[]>([])
@@ -55,15 +56,13 @@ export function Animal({
   const footMarker = useRef<(THREE.Mesh | null)[]>([])
 
   const motion = useRef({ distance: pathOffset * pathRadius, angle: pathOffset, idlePhase: pathOffset })
+  const morphology = useMemo(() => animalMorphology(species), [species])
   const hipPoints = useMemo(() => [
     new THREE.Vector3(species.legX, 0, species.foreZ),
     new THREE.Vector3(-species.legX, 0, species.foreZ),
     new THREE.Vector3(species.legX, 0, species.hindZ),
     new THREE.Vector3(-species.legX, 0, species.hindZ),
   ], [species])
-
-  const boneRadius = Math.max(.035, species.bodyWidth * .07)
-  const baseHipHeight = species.upperLeg + species.lowerLeg - .08
 
   useFrame((_, delta) => {
     if (!root.current) return
@@ -96,31 +95,35 @@ export function Animal({
     root.current.rotation.z = Math.atan(slope.dx * .55)
 
     if (body.current) {
-      body.current.position.set(pose.sway, baseHipHeight + species.bodyHeight * .38 + pose.y, 0)
+      body.current.position.set(pose.sway, morphology.bodyY + pose.y, 0)
       body.current.rotation.x = pose.pitch
       body.current.rotation.z = pose.roll
     }
 
-    const headY = baseHipHeight + species.bodyHeight * .66 + pose.y
-    const headZ = species.foreZ + species.neckLength
+    const headPosition = new THREE.Vector3(0, morphology.headY + pose.y, morphology.headZ)
     if (head.current) {
-      head.current.position.set(0, headY, headZ)
-      head.current.rotation.x = pose.pitch * .55 + Math.sin(motion.current.idlePhase * 1.7) * .025
+      head.current.position.copy(headPosition)
+      head.current.rotation.x = species.neckPitch + pose.pitch * .45 + Math.sin(motion.current.idlePhase * 1.7) * .025
     }
-    if (muzzle.current) {
-      muzzle.current.position.set(0, headY - species.headSize * .12, headZ + species.muzzleLength)
-      muzzle.current.rotation.x = pose.pitch * .35
-    }
-    if (tail.current) {
-      tail.current.position.set(0, baseHipHeight + species.bodyHeight * .50 + pose.y, species.hindZ - species.bodyLength * .35)
-      tail.current.rotation.x = -.65 + Math.sin(motion.current.idlePhase * 2.1) * .18
-    }
+
+    const neckStart = new THREE.Vector3(pose.sway, morphology.neckBaseY + pose.y, morphology.neckBaseZ)
+    const neckEnd = headPosition.clone().add(new THREE.Vector3(0, -species.headSize * .16, -species.headSize * .34))
+    setSegment(neck.current, neckStart, neckEnd)
+
+    const tailStart = new THREE.Vector3(pose.sway, morphology.tailBaseY + pose.y, morphology.tailBaseZ)
+    const tailSwing = Math.sin(motion.current.idlePhase * 2.1)
+    const tailEnd = new THREE.Vector3(
+      tailStart.x + tailSwing * species.tailLength * .18,
+      tailStart.y - species.tailLength * .34,
+      tailStart.z - species.tailLength * .78,
+    )
+    setSegment(tail.current, tailStart, tailEnd)
 
     for (let i = 0; i < 4; i++) {
       const limb = i as LimbIndex
       const hip = hipPoints[i]
       const footSample = sampleFoot(species, gait, phase, limb)
-      const hipY = baseHipHeight + pose.y
+      const hipY = morphology.baseHipHeight + pose.y
       const footZ = hip.z + footSample.z
       const solution = solveTwoBoneLeg(
         { y: hipY, z: hip.z },
@@ -148,39 +151,122 @@ export function Animal({
     }
   })
 
+  const neckRadius = Math.max(.08, species.bodyWidth * .20)
+  const tailRadius = Math.max(.025, species.bodyWidth * .055)
+  const earX = species.headSize * .68
+  const earY = species.headSize * .70
+  const hornX = species.headSize * .58
+
   return (
     <group ref={root} scale={species.scale}>
-      <mesh ref={body} castShadow receiveShadow scale={[species.bodyWidth, species.bodyHeight * .48, species.bodyLength * .62]}>
-        <sphereGeometry args={[1, 14, 10]} />
-        <meshStandardMaterial color={species.color} roughness={.92} />
+      <group ref={body}>
+        <mesh castShadow receiveShadow position={[0, 0, morphology.chestZ]} scale={morphology.chestScale}>
+          <sphereGeometry args={[1, 14, 10]} />
+          <meshStandardMaterial color={species.color} roughness={.93} />
+        </mesh>
+        <mesh castShadow receiveShadow scale={morphology.torsoScale}>
+          <sphereGeometry args={[1, 14, 10]} />
+          <meshStandardMaterial color={species.color} roughness={.94} />
+        </mesh>
+        <mesh castShadow receiveShadow position={[0, 0, morphology.rumpZ]} scale={morphology.rumpScale}>
+          <sphereGeometry args={[1, 14, 10]} />
+          <meshStandardMaterial color={species.color} roughness={.94} />
+        </mesh>
+      </group>
+
+      <mesh ref={neck} castShadow>
+        <cylinderGeometry args={[neckRadius, neckRadius * .88, 1, 9]} />
+        <meshStandardMaterial color={species.color} roughness={.94} />
       </mesh>
 
-      <mesh ref={head} castShadow scale={[species.headSize, species.headSize * .9, species.headSize * 1.05]}>
-        <sphereGeometry args={[1, 12, 9]} />
-        <meshStandardMaterial color={species.color} roughness={.9} />
-      </mesh>
+      <group ref={head}>
+        {species.mane && (
+          <mesh castShadow position={[0, .015, -.07]} scale={[species.headSize * 1.38, species.headSize * 1.38, species.headSize * 1.10]}>
+            <sphereGeometry args={[1, 12, 9]} />
+            <meshStandardMaterial color={species.accent} roughness={1} />
+          </mesh>
+        )}
+        <mesh castShadow scale={[species.headSize, species.headSize * .90, species.headSize * 1.05]}>
+          <sphereGeometry args={[1, 12, 9]} />
+          <meshStandardMaterial color={species.color} roughness={.90} />
+        </mesh>
+        <mesh
+          castShadow
+          position={[0, -species.headSize * .12, species.headSize * .92 + species.muzzleLength * .56]}
+          scale={[species.headSize * .58, species.headSize * .48, species.muzzleLength]}
+        >
+          <sphereGeometry args={[1, 10, 7]} />
+          <meshStandardMaterial color={species.accent} roughness={.95} />
+        </mesh>
 
-      <mesh ref={muzzle} castShadow scale={[species.headSize * .58, species.headSize * .48, species.muzzleLength]}>
-        <sphereGeometry args={[1, 10, 7]} />
-        <meshStandardMaterial color={species.accent} roughness={.95} />
-      </mesh>
+        {[-1, 1].map((sign) => (
+          <mesh
+            key={`ear-${sign}`}
+            castShadow
+            position={[sign * earX, earY, -.01]}
+            rotation={[0, 0, sign * -.62]}
+            scale={[species.earWidth, species.earLength, species.earWidth * .58]}
+          >
+            <coneGeometry args={[1, 1, 6]} />
+            <meshStandardMaterial color={species.color} roughness={.98} />
+          </mesh>
+        ))}
 
-      <mesh ref={tail} castShadow scale={[.08, .08, species.bodyLength * .28]}>
-        <cylinderGeometry args={[1, .55, 1, 7]} />
-        <meshStandardMaterial color={species.accent} roughness={1} />
+        {species.hornStyle === "horns" && [-1, 1].map((sign) => (
+          <mesh
+            key={`horn-${sign}`}
+            castShadow
+            position={[sign * hornX, species.headSize * .76, -.10]}
+            rotation={[0, 0, sign * -.35]}
+            scale={[.055, species.headSize * .78, .055]}
+          >
+            <coneGeometry args={[1, 1, 7]} />
+            <meshStandardMaterial color="#bca77e" roughness={1} />
+          </mesh>
+        ))}
+
+        {species.hornStyle === "antlers" && [-1, 1].map((sign) => (
+          <group key={`antler-${sign}`} position={[sign * hornX, species.headSize * .70, -.09]}>
+            <mesh castShadow rotation={[0, 0, sign * -.20]} scale={[.035, species.headSize * 1.10, .035]}>
+              <cylinderGeometry args={[1, .82, 1, 6]} />
+              <meshStandardMaterial color="#bca77e" roughness={1} />
+            </mesh>
+            {[.18, .42, .66].map((y, index) => (
+              <mesh
+                key={y}
+                castShadow
+                position={[sign * .05, species.headSize * y, 0]}
+                rotation={[0, 0, sign * -.92]}
+                scale={[.025, species.headSize * (.34 - index * .05), .025]}
+              >
+                <cylinderGeometry args={[1, .75, 1, 6]} />
+                <meshStandardMaterial color="#bca77e" roughness={1} />
+              </mesh>
+            ))}
+          </group>
+        ))}
+      </group>
+
+      <mesh ref={tail} castShadow>
+        <cylinderGeometry args={[tailRadius, tailRadius * .55, 1, 7]} />
+        <meshStandardMaterial color={species.family === "feline" ? species.color : species.accent} roughness={1} />
       </mesh>
 
       {[0, 1, 2, 3].map((index) => (
         <group key={index}>
           <mesh ref={(node) => { upper.current[index] = node }} castShadow>
-            <cylinderGeometry args={[boneRadius, boneRadius * .9, 1, 7]} />
+            <cylinderGeometry args={[morphology.boneRadius, morphology.boneRadius * .90, 1, 7]} />
             <meshStandardMaterial color={species.color} roughness={.95} />
           </mesh>
           <mesh ref={(node) => { lower.current[index] = node }} castShadow>
-            <cylinderGeometry args={[boneRadius * .82, boneRadius * .70, 1, 7]} />
+            <cylinderGeometry args={[morphology.boneRadius * .82, morphology.boneRadius * .70, 1, 7]} />
             <meshStandardMaterial color={species.color} roughness={.95} />
           </mesh>
-          <mesh ref={(node) => { hoof.current[index] = node }} castShadow scale={[boneRadius * 1.7, boneRadius, boneRadius * 2.2]}>
+          <mesh
+            ref={(node) => { hoof.current[index] = node }}
+            castShadow
+            scale={[morphology.boneRadius * 1.7, morphology.boneRadius, morphology.boneRadius * 2.2]}
+          >
             <boxGeometry args={[1, 1, 1]} />
             <meshStandardMaterial color={species.accent} roughness={1} />
           </mesh>
