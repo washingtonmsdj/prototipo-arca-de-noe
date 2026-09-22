@@ -26,6 +26,7 @@ import {
 import type { HumanClip } from "./humans/types"
 import { AnimalRigEditorPanel } from "./dev/AnimalRigEditorPanel"
 import { HumanRigEditorPanel } from "./dev/HumanRigEditorPanel"
+import { HumanBakePanel } from "./dev/HumanBakePanel"
 import type { EditableJoint, PoseEdits } from "../vendor/pilgrimage/lib/game/base-person/pose-edits"
 import {
   ANIMAL_FRAMES,
@@ -400,6 +401,12 @@ export function App() {
                     onJointChange={setHumanEditJoint}
                   />
                 )}
+
+                <HumanBakePanel
+                  preset={upstreamHumanPreset}
+                  clip={upstreamHumanClip}
+                  edits={humanEdits}
+                />
               </>
             ) : (
               <>
