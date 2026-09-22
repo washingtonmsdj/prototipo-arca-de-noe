@@ -40,6 +40,7 @@ export function HumanBakePanel({ preset, clip, edits }: HumanBakePanelProps) {
 
   useEffect(() => {
     generation.current++
+    setBusy(false)
     setResult(null)
     setError(null)
     setProgress({ done: 0, total: 0 })
@@ -59,7 +60,9 @@ export function HumanBakePanel({ preset, clip, edits }: HumanBakePanelProps) {
         clip,
         design,
         edits,
-        (done, total) => setProgress({ done, total }),
+        (done, total) => {
+          if (run === generation.current) setProgress({ done, total })
+        },
       )
       if (run === generation.current) setResult(baked)
     } catch (cause) {
