@@ -66,6 +66,7 @@ export interface AnimalClipBake {
     frames: number
     directions: string[]
     cellSize: number
+    viewSize: number
     anchor: number[]
     safePadding: number
     depthEncoding: typeof SPRITE_DEPTH_ENCODING
@@ -335,6 +336,7 @@ export async function bakeAnimalClip(
         frames: ANIMAL_FRAMES,
         directions: [...BASE_PERSON.directions],
         cellSize: config.size,
+        viewSize: config.viewSize,
         anchor: config.anchor,
         safePadding,
         depthEncoding: SPRITE_DEPTH_ENCODING,
