@@ -26,6 +26,11 @@ Isso mantém a passada coerente quando FPS, velocidade ou escala mudam.
 
 Espécies comuns entram por dados. Um novo tipo de anatomia deve ganhar uma família de rig própria, em vez de acumular condicionais no quadrúpede genérico.
 
-## Clean-room
+## Código local e upstream
 
-O projeto foi escrito do zero. Não copie arquivos, assets, receitas ou geradores de projetos de terceiros com licenças incompatíveis. Conceitos gerais como IK, gait procedural, foot locking, atlas e LOD podem ser reimplementados de forma própria.
+A arquitetura possui duas camadas deliberadamente separadas:
+
+- `vendor/pilgrimage/`: snapshot do código autorizado do Pilgrimage, preservado com procedência e licença;
+- `src/`: integração e desenvolvimento ativo do Arca de Noé.
+
+Não editar silenciosamente o snapshot para “fazê-lo funcionar”. Quando um módulo upstream for adaptado, a mudança deve acontecer na camada ativa e manter referência ao caminho/commit de origem. Isso torna claro o que é upstream e o que é evolução do Arca.
