@@ -11,7 +11,7 @@ import { UpstreamHuman, type UpstreamHumanClip } from "../humans/UpstreamHuman"
 import { HUMAN_DESIGNS, generatedHuman } from "../humans/designs"
 import type { HumanClip, HumanDesign } from "../humans/types"
 import type { PoseEdits } from "../../vendor/pilgrimage/lib/game/base-person/pose-edits"
-import { createTerrainGeometry, terrainHeight } from "./terrain"
+import { createCliffGeometry, createTerrainGeometry, terrainHeight } from "./terrain"
 import { GeneratedEnvironment } from "./GeneratedEnvironment"
 
 export type LabSubject = "animal" | "human"
@@ -46,11 +46,22 @@ interface WorldProps {
 
 function Terrain() {
   const geometry = useMemo(() => createTerrainGeometry(), [])
-  useEffect(() => () => geometry.dispose(), [geometry])
+  const cliffs = useMemo(() => createCliffGeometry(), [])
+
+  useEffect(() => () => {
+    geometry.dispose()
+    cliffs.dispose()
+  }, [geometry, cliffs])
+
   return (
-    <mesh geometry={geometry} receiveShadow>
-      <meshStandardMaterial vertexColors roughness={1} flatShading />
-    </mesh>
+    <group name="generated-terrain">
+      <mesh geometry={geometry} receiveShadow>
+        <meshStandardMaterial vertexColors roughness={1} flatShading />
+      </mesh>
+      <mesh geometry={cliffs} castShadow receiveShadow>
+        <meshStandardMaterial color="#675f50" roughness={1} flatShading />
+      </mesh>
+    </group>
   )
 }
 
