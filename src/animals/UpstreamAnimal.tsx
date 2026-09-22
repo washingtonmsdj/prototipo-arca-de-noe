@@ -3,7 +3,7 @@ import { useFrame } from "@react-three/fiber"
 import * as THREE from "three"
 import { createWildlifeRig } from "../pilgrimage/wildlife/rig"
 import { speciesGaits, type WildlifeGait } from "../pilgrimage/wildlife/gait"
-import { ANIMAL_JOINT_LABELS, type AnimalClip, type AnimalJoint } from "../pilgrimage/wildlife/rig-edits"
+import { ANIMAL_JOINT_LABELS, type AnimalClip, type AnimalJoint, type AnimalRigEdits } from "../pilgrimage/wildlife/rig-edits"
 import {
   WILDLIFE_PROFILES,
   WILDLIFE_SPECIES,
@@ -36,6 +36,8 @@ export interface UpstreamAnimalProps {
   origin?: [number, number]
   scale?: number
   speedScale?: number
+  edits?: AnimalRigEdits
+  phaseOverride?: number
 }
 
 export function UpstreamAnimal({
@@ -46,6 +48,8 @@ export function UpstreamAnimal({
   origin = [0, 0],
   scale = 1.35,
   speedScale = 1,
+  edits,
+  phaseOverride,
 }: UpstreamAnimalProps) {
   const container = useRef<THREE.Group>(null)
   const markers = useRef<Partial<Record<AnimalJoint, THREE.Mesh | null>>>({})
@@ -60,18 +64,19 @@ export function UpstreamAnimal({
     if (!container.current) return
     const dt = paused ? 0 : Math.min(delta, .05)
     const profile = WILDLIFE_PROFILES[kind]
-    const cadence = profile.cyclesPerSecond || 1
+    const gait = gaitForClip(kind, clip)
+    const cadenceEdit = edits?.clips[gait]?.cadence ?? 1
+    const cadence = (profile.cyclesPerSecond || 1) * cadenceEdit
     phase.current = (phase.current + dt * cadence * speedScale) % 1
+    const displayPhase = phaseOverride ?? phase.current
     age.current += dt
 
     const moving = ["walk", "trot", "canter", "gallop", "hop", "leap"].includes(clip)
     const grazing = clip === "graze" ? 1 : 0
     const flying = clip === "fly" || clip === "glide"
     const lying = clip === "lie" ? 1 : 0
-    const gait = gaitForClip(kind, clip)
-
     rig.pose(
-      phase.current,
+      displayPhase,
       moving,
       age.current,
       grazing,
@@ -81,6 +86,7 @@ export function UpstreamAnimal({
         clip,
         lying,
         glide: clip === "glide" ? 1 : 0,
+        edits,
       },
     )
 
