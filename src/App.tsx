@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useState } from "react"
+import { useCallback, useEffect, useMemo, useState } from "react"
 import { Canvas } from "@react-three/fiber"
-import { World, type AnimalEngine, type HumanEngine, type LabSubject, type OriginalAnimalGroup } from "./world/World"
+import { World, type AnimalEngine, type HumanEngine, type LabRepresentation, type LabSubject, type OriginalAnimalGroup } from "./world/World"
 import { SPECIES, speciesById } from "./animals/species"
 import type { GaitName } from "./animals/types"
 import {
@@ -26,9 +26,10 @@ import {
 import type { HumanClip } from "./humans/types"
 import { AnimalRigEditorPanel } from "./dev/AnimalRigEditorPanel"
 import { AnimalBakePanel } from "./dev/AnimalBakePanel"
-import type { AnimalBakeTarget } from "./pilgrimage/bake/animal-bake"
+import type { AnimalBakeTarget, AnimalClipBake } from "./pilgrimage/bake/animal-bake"
 import { HumanRigEditorPanel } from "./dev/HumanRigEditorPanel"
 import { HumanBakePanel } from "./dev/HumanBakePanel"
+import type { HumanClipBake } from "./pilgrimage/bake/human-bake"
 import type { EditableJoint, PoseEdits } from "../vendor/pilgrimage/lib/game/base-person/pose-edits"
 import { SOCKET_NAMES, type SocketName } from "../vendor/pilgrimage/lib/game/base-person/pose"
 import { HUMAN_ATTACHMENTS, type HumanAttachmentKind } from "./humans/attachments"
@@ -116,6 +117,8 @@ export function App() {
   const [animalEditJoint, setAnimalEditJoint] = useState<AnimalJoint>("head")
   const [animalEdits, setAnimalEdits] = useState<AnimalRigEdits>(EMPTY_ANIMAL_EDITS)
   const [animalMoving, setAnimalMoving] = useState(false)
+  const [animalRepresentation, setAnimalRepresentation] = useState<LabRepresentation>("rig")
+  const [animalBakePreview, setAnimalBakePreview] = useState<AnimalClipBake | null>(null)
   const [speciesId, setSpeciesId] = useState("horse")
   const [gait, setGait] = useState<GaitName>("walk")
   const [upstreamAnimalKind, setUpstreamAnimalKind] = useState<WildlifeKind>("deer")
@@ -132,6 +135,8 @@ export function App() {
   const [humanAttachment, setHumanAttachment] = useState<HumanAttachmentKind | "">("")
   const [humanAttachmentSocket, setHumanAttachmentSocket] = useState<SocketName>("rightHand")
   const [humanMoving, setHumanMoving] = useState(false)
+  const [humanRepresentation, setHumanRepresentation] = useState<LabRepresentation>("rig")
+  const [humanBakePreview, setHumanBakePreview] = useState<HumanClipBake | null>(null)
   const [humanClip, setHumanClip] = useState<HumanClip>("walk")
   const [speedScale, setSpeedScale] = useState(1)
   const [paused, setPaused] = useState(false)
@@ -190,6 +195,16 @@ export function App() {
   const safeHumanEditFrame = Math.min(humanEditFrame, upstreamHumanFrameCount - 1)
   const canMoveOriginalHuman = isOriginalMovingClip(upstreamHumanClip)
 
+  const handleAnimalBake = useCallback((result: AnimalClipBake | null) => {
+    setAnimalBakePreview(result)
+    if (!result) setAnimalRepresentation("rig")
+  }, [])
+
+  const handleHumanBake = useCallback((result: HumanClipBake | null) => {
+    setHumanBakePreview(result)
+    if (!result) setHumanRepresentation("rig")
+  }, [])
+
   useEffect(() => {
     if (!species.supportedGaits.includes(gait)) setGait(species.supportedGaits[0])
   }, [species, gait])
@@ -236,6 +251,8 @@ export function App() {
           animalEdits={animalEdits}
           animalEditPhase={animalRigEditing ? animalEditFrame / ANIMAL_FRAMES : undefined}
           animalMoving={animalMoving}
+          animalRepresentation={animalRepresentation}
+          animalBakePreview={animalBakePreview}
           labSpecies={species}
           labGait={gait}
           upstreamAnimalKind={upstreamAnimalKind}
@@ -250,6 +267,8 @@ export function App() {
           humanAttachment={humanAttachment || undefined}
           humanAttachmentSocket={humanAttachment ? humanAttachmentSocket : undefined}
           humanMoving={humanMoving}
+          humanRepresentation={humanRepresentation}
+          humanBakePreview={humanBakePreview}
           speedScale={speedScale}
           paused={paused}
           showRig={showRig}
@@ -363,7 +382,7 @@ export function App() {
                   <button
                     type="button"
                     className={animalMoving ? "active" : ""}
-                    disabled={!canMoveOriginalAnimal || animalRigEditing}
+                    disabled={!canMoveOriginalAnimal || animalRigEditing || animalRepresentation === "sprite"}
                     onClick={() => setAnimalMoving((value) => !value)}
                   >
                     {animalMoving ? "Parar deslocamento" : "Mover no mundo"}
@@ -389,7 +408,18 @@ export function App() {
                   />
                 )}
 
-                <AnimalBakePanel target={animalBakeTarget} />
+                <label>
+                  Representação
+                  <select
+                    value={animalRepresentation}
+                    onChange={(event) => setAnimalRepresentation(event.target.value as LabRepresentation)}
+                  >
+                    <option value="rig">Rig 3D</option>
+                    <option value="sprite" disabled={!animalBakePreview}>Sprite + depth</option>
+                  </select>
+                </label>
+
+                <AnimalBakePanel target={animalBakeTarget} onBake={handleAnimalBake} />
               </>
             ) : (
               <>
@@ -477,7 +507,7 @@ export function App() {
                   <button
                     type="button"
                     className={humanMoving ? "active" : ""}
-                    disabled={!canMoveOriginalHuman || humanRigEditing}
+                    disabled={!canMoveOriginalHuman || humanRigEditing || humanRepresentation === "sprite"}
                     onClick={() => setHumanMoving((value) => !value)}
                   >
                     {humanMoving ? "Parar deslocamento" : "Mover no mundo"}
@@ -503,12 +533,24 @@ export function App() {
                   />
                 )}
 
+                <label>
+                  Representação
+                  <select
+                    value={humanRepresentation}
+                    onChange={(event) => setHumanRepresentation(event.target.value as LabRepresentation)}
+                  >
+                    <option value="rig">Rig 3D</option>
+                    <option value="sprite" disabled={!humanBakePreview}>Sprite + depth</option>
+                  </select>
+                </label>
+
                 <HumanBakePanel
                   preset={upstreamHumanPreset}
                   clip={upstreamHumanClip}
                   edits={humanEdits}
                   attachment={humanAttachment || undefined}
                   attachmentSocket={humanAttachment ? humanAttachmentSocket : undefined}
+                  onBake={handleHumanBake}
                 />
               </>
             ) : (
@@ -573,6 +615,8 @@ export function App() {
                   <div><dt>Rig</dt><dd>wildlife original</dd></div>
                   <div><dt>Ação</dt><dd>{upstreamAnimalClipLabels[upstreamAnimalClip]}</dd></div>
                   <div><dt>Locomoção</dt><dd>{animalMoving ? "fase por distância" : "preview estacionário"}</dd></div>
+                  <div><dt>Representação</dt><dd>{animalRepresentation === "sprite" ? "sprite + depth" : "rig 3D"}</dd></div>
+                  <div><dt>Representação</dt><dd>{animalRepresentation === "sprite" ? "sprite + depth" : "rig 3D"}</dd></div>
                 </>
               ) : (
                 <>
@@ -598,6 +642,7 @@ export function App() {
               <div><dt>Rig</dt><dd>original</dd></div>
               <div><dt>Clip</dt><dd>{upstreamHumanClipLabels[upstreamHumanClip]}</dd></div>
               <div><dt>Locomoção</dt><dd>{humanMoving ? "distância + foot lock" : "preview estacionário"}</dd></div>
+              <div><dt>Representação</dt><dd>{humanRepresentation === "sprite" ? "sprite + depth" : "rig 3D"}</dd></div>
             </>
           ) : (
             <>
