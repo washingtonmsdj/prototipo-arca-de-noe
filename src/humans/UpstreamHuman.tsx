@@ -18,6 +18,14 @@ export const UPSTREAM_PERSON_PRESETS = Object.keys(PERSON_PRESETS)
 export const UPSTREAM_PERSON_CLIPS = Object.keys(PERSON_CLIPS) as BaseClip[]
 export type UpstreamHumanClip = BaseClip
 
+export function upstreamHumanFrames(clip: BaseClip) {
+  return PERSON_CLIPS[clip].frames
+}
+
+export function upstreamHumanLabel(clip: BaseClip) {
+  return PERSON_CLIPS[clip].label
+}
+
 export interface UpstreamHumanProps {
   preset: string
   clip: BaseClip
