@@ -17,9 +17,16 @@ import {
   type UpstreamTransportKind,
 } from "./animals/UpstreamTransportAnimal"
 import { HUMAN_DESIGNS, generatedHuman, humanById } from "./humans/designs"
-import { UPSTREAM_PERSON_PRESETS } from "./humans/UpstreamHuman"
+import {
+  UPSTREAM_PERSON_CLIPS,
+  UPSTREAM_PERSON_PRESETS,
+  upstreamHumanFrames,
+  type UpstreamHumanClip,
+} from "./humans/UpstreamHuman"
 import type { HumanClip } from "./humans/types"
 import { AnimalRigEditorPanel } from "./dev/AnimalRigEditorPanel"
+import { HumanRigEditorPanel } from "./dev/HumanRigEditorPanel"
+import type { EditableJoint, PoseEdits } from "../vendor/pilgrimage/lib/game/base-person/pose-edits"
 import {
   ANIMAL_FRAMES,
   EMPTY_ANIMAL_EDITS,
@@ -66,6 +73,28 @@ const humanClipLabels: Record<HumanClip, string> = {
   gather: "Coletar",
 }
 
+const upstreamHumanClipLabels: Record<UpstreamHumanClip, string> = {
+  idle: "Parado",
+  walk: "Caminhada",
+  wearyWalk: "Caminhada cansada",
+  sleeping: "Dormindo",
+  sitting: "Sentado",
+  seatedMeal: "Comendo sentado",
+  seatedDrink: "Bebendo sentado",
+  seatedPrayer: "Oração sentado",
+  praying: "Rezando",
+  drinking: "Bebendo no poço",
+  drinkingLow: "Bebendo em fonte baixa",
+  preaching: "Pregando",
+  treeFelling: "Derrubando árvore",
+  woodcutting: "Cortando madeira",
+  building: "Construindo",
+  gathering: "Coletando",
+  carrying: "Carregando",
+  hoisting: "Erguendo relíquia",
+  procession: "Carregando acima da cabeça",
+}
+
 const HUMAN_CLIPS = Object.keys(humanClipLabels) as HumanClip[]
 
 export function App() {
@@ -87,6 +116,11 @@ export function App() {
   const [humanId, setHumanId] = useState("traveler")
   const [humanSeed, setHumanSeed] = useState(42)
   const [upstreamHumanPreset, setUpstreamHumanPreset] = useState("Storybook")
+  const [upstreamHumanClip, setUpstreamHumanClip] = useState<UpstreamHumanClip>("walk")
+  const [humanRigEditing, setHumanRigEditing] = useState(false)
+  const [humanEditFrame, setHumanEditFrame] = useState(0)
+  const [humanEditJoint, setHumanEditJoint] = useState<EditableJoint>("head")
+  const [humanEdits, setHumanEdits] = useState<PoseEdits>({})
   const [humanClip, setHumanClip] = useState<HumanClip>("walk")
   const [speedScale, setSpeedScale] = useState(1)
   const [paused, setPaused] = useState(false)
@@ -112,6 +146,8 @@ export function App() {
   const editableAnimalClip: AnimalClip = upstreamAnimalGroup === "wildlife"
     ? upstreamAnimalClip
     : upstreamTransportClip
+  const upstreamHumanFrameCount = upstreamHumanFrames(upstreamHumanClip)
+  const safeHumanEditFrame = Math.min(humanEditFrame, upstreamHumanFrameCount - 1)
 
   useEffect(() => {
     if (!species.supportedGaits.includes(gait)) setGait(species.supportedGaits[0])
@@ -128,6 +164,10 @@ export function App() {
       setUpstreamTransportCoat(availableTransportCoats[0]?.id ?? "")
     }
   }, [availableTransportCoats, upstreamTransportCoat])
+
+  useEffect(() => {
+    if (humanEditFrame !== safeHumanEditFrame) setHumanEditFrame(safeHumanEditFrame)
+  }, [humanEditFrame, safeHumanEditFrame])
 
   return (
     <main className="app-shell">
@@ -154,6 +194,9 @@ export function App() {
           humanClip={humanClip}
           humanEngine={humanEngine}
           upstreamHumanPreset={upstreamHumanPreset}
+          upstreamHumanClip={upstreamHumanClip}
+          humanEdits={humanEdits}
+          humanEditPhase={humanRigEditing ? safeHumanEditFrame / upstreamHumanFrameCount : undefined}
           speedScale={speedScale}
           paused={paused}
           showRig={showRig}
@@ -314,12 +357,50 @@ export function App() {
             </label>
 
             {humanEngine === "pilgrimage" ? (
-              <label>
-                Preset original
-                <select value={upstreamHumanPreset} onChange={(event) => setUpstreamHumanPreset(event.target.value)}>
-                  {UPSTREAM_PERSON_PRESETS.map((preset) => <option key={preset} value={preset}>{preset}</option>)}
-                </select>
-              </label>
+              <>
+                <label>
+                  Preset original
+                  <select value={upstreamHumanPreset} onChange={(event) => setUpstreamHumanPreset(event.target.value)}>
+                    {UPSTREAM_PERSON_PRESETS.map((preset) => <option key={preset} value={preset}>{preset}</option>)}
+                  </select>
+                </label>
+
+                <label>
+                  Ação original
+                  <select
+                    value={upstreamHumanClip}
+                    onChange={(event) => setUpstreamHumanClip(event.target.value as UpstreamHumanClip)}
+                  >
+                    {UPSTREAM_PERSON_CLIPS.map((clip) => (
+                      <option key={clip} value={clip}>
+                        {upstreamHumanClipLabels[clip]} · {upstreamHumanFrames(clip)}f
+                      </option>
+                    ))}
+                  </select>
+                </label>
+
+                <div className="button-row">
+                  <button
+                    type="button"
+                    className={humanRigEditing ? "active" : ""}
+                    onClick={() => setHumanRigEditing((value) => !value)}
+                  >
+                    {humanRigEditing ? "Fechar editor" : "Editar pose"}
+                  </button>
+                </div>
+
+                {humanRigEditing && (
+                  <HumanRigEditorPanel
+                    clip={upstreamHumanClip}
+                    edits={humanEdits}
+                    onChange={setHumanEdits}
+                    frame={safeHumanEditFrame}
+                    onFrameChange={setHumanEditFrame}
+                    joint={humanEditJoint}
+                    onJointChange={setHumanEditJoint}
+                  />
+                )}
+              </>
             ) : (
               <>
                 <label>
@@ -343,15 +424,15 @@ export function App() {
                     />
                   </label>
                 )}
+
+                <label>
+                  Ação
+                  <select value={humanClip} onChange={(event) => setHumanClip(event.target.value as HumanClip)}>
+                    {HUMAN_CLIPS.map((clip) => <option key={clip} value={clip}>{humanClipLabels[clip]}</option>)}
+                  </select>
+                </label>
               </>
             )}
-
-            <label>
-              Ação
-              <select value={humanClip} onChange={(event) => setHumanClip(event.target.value as HumanClip)}>
-                {HUMAN_CLIPS.map((clip) => <option key={clip} value={clip}>{humanClipLabels[clip]}</option>)}
-              </select>
-            </label>
           </>
         )}
 
@@ -403,7 +484,7 @@ export function App() {
               <div><dt>Origem</dt><dd>Pilgrimage</dd></div>
               <div><dt>Preset</dt><dd>{upstreamHumanPreset}</dd></div>
               <div><dt>Rig</dt><dd>original</dd></div>
-              <div><dt>Clip</dt><dd>{humanClipLabels[humanClip]}</dd></div>
+              <div><dt>Clip</dt><dd>{upstreamHumanClipLabels[upstreamHumanClip]}</dd></div>
             </>
           ) : (
             <>
