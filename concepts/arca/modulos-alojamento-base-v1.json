@@ -2,7 +2,7 @@
   "version": 1,
   "unit": "metre",
   "coordinate_system": "Three.js Y-up: X=comprimento, Y=altura, Z=largura",
-  "source": "Normalizado do catálogo físico V2. Representa somente os 128 módulos estruturais disponíveis para alojamento; não atribui animais.",
+  "source": "Medições normalizadas dos módulos de alojamento derivados da geometria V3 do interior da arca. Representam somente estrutura disponível; não atribuem espécies nem quantidades.",
   "count": 128,
   "modules": [
     {
