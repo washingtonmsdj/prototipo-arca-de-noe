@@ -39,6 +39,7 @@ interface UpstreamTransportAnimalProps {
   showRig?: boolean
   origin?: [number, number]
   scale?: number
+  speedScale?: number
 }
 
 export function UpstreamTransportAnimal({
@@ -49,6 +50,7 @@ export function UpstreamTransportAnimal({
   showRig = true,
   origin = [0, 0],
   scale = 1.05,
+  speedScale = 1,
 }: UpstreamTransportAnimalProps) {
   const container = useRef<THREE.Group>(null)
   const markers = useRef<Partial<Record<AnimalJoint, THREE.Mesh | null>>>({})
@@ -74,7 +76,7 @@ export function UpstreamTransportAnimal({
     if (!container.current) return
     const dt = paused ? 0 : Math.min(delta, .05)
     const profile = animalProfile(definition.animal, definition.variant)
-    phase.current = (phase.current + dt * profile.cyclesPerSecond) % 1
+    phase.current = (phase.current + dt * profile.cyclesPerSecond * speedScale) % 1
 
     const moving = clip === "walk"
     const grazing = clip === "graze" ? 1 : 0
