@@ -25,6 +25,7 @@ import { beachAccess } from "../pilgrimage/world/beaches"
 import {
   SHORE_CORNERS,
   shorelineCorners,
+  shorelineInset,
   type ShorelineField,
 } from "../pilgrimage/world/shoreline"
 
@@ -238,6 +239,21 @@ function bedHeight(index: number) {
 
 export function terrainHeight(x: number, z: number) {
   const sample = worldSample(x, z)
+  const flags = shorelineCorners(SHORELINE_FIELD, sample.x, sample.z)
+  const shoreIndex = flags.findIndex(Boolean)
+
+  if (shoreIndex >= 0 && shorelineInset(sample.u, sample.v, flags) > 0) {
+    const corner = geometricCorner(shoreIndex)
+    return sampleTriangleHeight(
+      sample.x,
+      sample.z,
+      [corner, corner ^ 1, corner ^ 2],
+      sample.u,
+      sample.v,
+      GENERATED_WATER.kind[sample.index] ? latticeDryHeight : latticeWaterHeight,
+    )
+  }
+
   if (GENERATED_WATER.kind[sample.index]) {
     return GENERATED_HYDROLOGY.surface[sample.index] * HEIGHT_SCALE
   }
@@ -304,6 +320,33 @@ function latticeDryHeight(vertexX: number, vertexZ: number) {
   return (samples.length
     ? samples.reduce((sum, value) => sum + value, 0) / samples.length
     : 0) * HEIGHT_SCALE
+}
+
+function sampleTriangleHeight(
+  tileX: number,
+  tileZ: number,
+  cornerIds: readonly [number, number, number],
+  u: number,
+  v: number,
+  height: (vertexX: number, vertexZ: number) => number,
+) {
+  const [a, b, c] = cornerIds
+  const ax = CORNER_X[a], az = CORNER_Z[a]
+  const bx = CORNER_X[b], bz = CORNER_Z[b]
+  const cx = CORNER_X[c], cz = CORNER_Z[c]
+  const determinant = (bz - cz) * (ax - cx) + (cx - bx) * (az - cz)
+  if (Math.abs(determinant) < 1e-9) return 0
+
+  const wa = ((bz - cz) * (u - cx) + (cx - bx) * (v - cz)) / determinant
+  const wb = ((cz - az) * (u - cx) + (ax - cx) * (v - cz)) / determinant
+  const wc = 1 - wa - wb
+
+  const pointHeight = (corner: number) => height(
+    tileX + CORNER_X[corner],
+    tileZ + CORNER_Z[corner],
+  )
+
+  return wa * pointHeight(a) + wb * pointHeight(b) + wc * pointHeight(c)
 }
 
 function latticeWaterHeight(vertexX: number, vertexZ: number) {
@@ -629,12 +672,15 @@ export function isWalkable(x: number, z: number) {
     || z >= HALF_WORLD - TILE_SIZE
   ) return false
 
-  const { index } = worldSample(x, z)
-  const kind = DISPLAY_TILES[index]
-  if (GENERATED_WATER.kind[index] || !TERRAIN[kind].passable) return false
-  if (GENERATED_ELEVATION.cliffs[index]) return false
+  const sample = worldSample(x, z)
+  const kind = DISPLAY_TILES[sample.index]
+  if (GENERATED_WATER.kind[sample.index] || !TERRAIN[kind].passable) return false
 
-  const grade = GENERATED_ELEVATION.slope[index] * HEIGHT_SCALE / TILE_SIZE
+  const shore = shorelineCorners(SHORELINE_FIELD, sample.x, sample.z)
+  if (shorelineInset(sample.u, sample.v, shore) > 0) return false
+  if (GENERATED_ELEVATION.cliffs[sample.index]) return false
+
+  const grade = GENERATED_ELEVATION.slope[sample.index] * HEIGHT_SCALE / TILE_SIZE
   return grade <= .72
 }
 
