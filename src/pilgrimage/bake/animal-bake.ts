@@ -242,7 +242,18 @@ export async function bakeAnimalClip(
       for (let frameIndex = 0; frameIndex < ANIMAL_FRAMES; frameIndex++) {
         const phase = frameIndex / ANIMAL_FRAMES
         rig.pose(phase)
-        rig.root.rotation.y = heading
+        if (target.family === "wildlife" && target.clip === "burrow") {
+          const shelter = burrowPreview(phase)
+          rig.root.rotation.set(shelter.pitch, heading + shelter.heading, 0, "YXZ")
+          rig.root.position.set(
+            Math.sin(heading) * shelter.z,
+            shelter.y,
+            Math.cos(heading) * shelter.z,
+          )
+          rig.root.visible = !shelter.concealed
+        } else {
+          rig.root.rotation.y = heading
+        }
         rig.root.updateMatrixWorld(true)
 
         renderer.render(scene, camera)
