@@ -107,7 +107,9 @@ export function UpstreamHuman({
   useEffect(() => {
     attachment.group.removeFromParent()
     if (attachmentSocket) setup.rig.sockets[attachmentSocket].add(attachment.group)
-    return () => attachment.group.removeFromParent()
+    return () => {
+      attachment.group.removeFromParent()
+    }
   }, [attachment, attachmentSocket, setup])
 
   useEffect(() => () => attachment.dispose(), [attachment])
