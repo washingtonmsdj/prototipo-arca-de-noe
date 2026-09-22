@@ -8,6 +8,7 @@ import {
 } from "./enclosureLayout"
 import {
   baseModules,
+  moduleAccessSummary,
   planningSummary,
   serviceZones,
 } from "./plannedEnclosures"
@@ -69,6 +70,70 @@ describe("ark animal enclosure layout", () => {
     }
   })
 
+  it("gives every pen a usable route to the central aisle or a service spine", () => {
+    const modules = new Map(baseModules.map(module => [module.id, module]))
+    const zones = new Map(serviceZones.map(zone => [zone.id, zone]))
+
+    for (const pen of physicalPens) {
+      const module = modules.get(pen.module_id)
+      expect(module, pen.module_id).toBeDefined()
+      expect(pen.access.opening_width_m, pen.id).toBeGreaterThan(.1)
+
+      if (pen.access.service_zone_id) {
+        const zone = zones.get(pen.access.service_zone_id)
+        expect(zone, pen.access.service_zone_id).toBeDefined()
+        expect(zone!.purpose).toBe("circulacao")
+        expect(pen.access.edge).toBe("min_x")
+        expect(pen.access.gate_center_m[0]).toBeCloseTo(zone!.bounds_m.max[0], 6)
+        expect(pen.access.gate_center_m[2]).toBeGreaterThanOrEqual(
+          zone!.bounds_m.min[2] - 1e-6,
+        )
+        expect(pen.access.gate_center_m[2]).toBeLessThanOrEqual(
+          zone!.bounds_m.max[2] + 1e-6,
+        )
+      } else if (pen.side > 0) {
+        expect(pen.access.edge).toBe("max_z")
+        expect(pen.access.gate_center_m[2]).toBeCloseTo(module!.max[2], 6)
+      } else {
+        expect(pen.access.edge).toBe("min_z")
+        expect(pen.access.gate_center_m[2]).toBeCloseTo(module!.min[2], 6)
+      }
+    }
+  })
+
+  it("does not concentrate many pens in a few modules", () => {
+    const byDeck = new Map<number, typeof moduleAccessSummary>()
+    for (const module of moduleAccessSummary) {
+      const list = byDeck.get(module.deck)
+      if (list) list.push(module)
+      else byDeck.set(module.deck, [module])
+    }
+
+    expect(Math.max(...byDeck.get(1)!.map(module => module.pens))).toBeLessThanOrEqual(1)
+    expect(Math.max(...byDeck.get(2)!.map(module => module.pens))).toBeLessThanOrEqual(3)
+    expect(byDeck.get(2)!.filter(module => module.pens === 3)).toHaveLength(1)
+    expect(Math.max(...byDeck.get(3)!.map(module => module.pens))).toBeLessThanOrEqual(2)
+    expect(moduleAccessSummary.filter(module => module.pens > 0)).toHaveLength(128)
+  })
+
+  it("keeps service zones separate from animal floor space", () => {
+    for (const zone of serviceZones) {
+      for (const pen of physicalPens.filter(pen => pen.module_id === zone.module_id)) {
+        const overlapX = Math.max(
+          0,
+          Math.min(zone.bounds_m.max[0], pen.bounds_m.max[0])
+          - Math.max(zone.bounds_m.min[0], pen.bounds_m.min[0]),
+        )
+        const overlapZ = Math.max(
+          0,
+          Math.min(zone.bounds_m.max[2], pen.bounds_m.max[2])
+          - Math.max(zone.bounds_m.min[2], pen.bounds_m.min[2]),
+        )
+        expect(overlapX * overlapZ, `${zone.id} x ${pen.id}`).toBeLessThanOrEqual(1e-6)
+      }
+    }
+  })
+
   it("keeps every reference envelope inside its planned pen", () => {
     const pens = new Map(physicalPens.map(pen => [pen.id, pen]))
 
@@ -119,16 +184,20 @@ describe("ark animal enclosure layout", () => {
   })
 
   it("keeps planned occupancy visually coherent and reserves explicit service space", () => {
-    const floorBased = physicalPens.filter(pen =>
-      pen.housing_class === "large_mammal"
-      || pen.housing_class === "herd_mammal"
-      || pen.housing_class === "medium_mammal"
-      || pen.housing_class === "large_bird"
-      || pen.housing_class === "small_mammal"
-    )
-
     expect(Math.max(...physicalPens.map(pen => pen.occupancy_ratio))).toBeLessThan(.66)
-    expect(Math.min(...floorBased.map(pen => pen.occupancy_ratio))).toBeGreaterThan(.18)
+
+    // Body footprint is useful as a crowding ceiling, but not as a lower bound:
+    // burrowing, climbing and flying animals legitimately need habitat area that
+    // their body does not physically fill. To catch oversized pens, compare the
+    // selected floor area with the planner's species-aware target instead.
+    const targetEfficiency = physicalPens.map(pen =>
+      pen.target_area_m2 / pen.floor_area_m2
+    )
+    expect(Math.min(...targetEfficiency)).toBeGreaterThan(.5)
+
+    const pigPen = physicalPens.find(pen => pen.animal_key === "porcos")!
+    expect(pigPen.occupancy_ratio).toBeGreaterThan(.3)
+
     expect(serviceZones.length).toBeGreaterThan(0)
     expect(serviceZones.every(zone => zone.area_m2 >= .5)).toBe(true)
 

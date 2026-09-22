@@ -59,28 +59,49 @@ export function HousingFixtures() {
         || pen.housing_class === "medium_mammal"
         || pen.housing_class === "small_mammal"
       ) {
-        const troughLength = Math.min(1.8, Math.max(.5, width * .32))
-        const troughDepth = Math.min(.55, Math.max(.28, depth * .14))
-        const edgeZ = pen.side > 0
-          ? Math.max(min[2] + troughDepth / 2 + .12, max[2] - troughDepth / 2 - .18)
-          : Math.min(max[2] - troughDepth / 2 - .12, min[2] + troughDepth / 2 + .18)
-        boxAt(
-          troughs,
-          [x, floor + .18, edgeZ],
-          [troughLength, .36, troughDepth],
-          .09 + hue * .015,
-        )
+        const accessOnX = pen.access.edge === "min_x" || pen.access.edge === "max_x"
 
-        // A visible dry/resting pad makes the reserve area intentional:
-        // feeding on one edge, resting on the opposite side, movement between.
+        if (accessOnX) {
+          const troughLength = Math.min(1.8, Math.max(.5, depth * .32))
+          const troughDepth = Math.min(.55, Math.max(.28, width * .14))
+          const troughX = pen.access.edge === "min_x"
+            ? max[0] - troughDepth / 2 - .18
+            : min[0] + troughDepth / 2 + .18
+          boxAt(
+            troughs,
+            [troughX, floor + .18, z],
+            [troughDepth, .36, troughLength],
+            .09 + hue * .015,
+          )
+        } else {
+          const troughLength = Math.min(1.8, Math.max(.5, width * .32))
+          const troughDepth = Math.min(.55, Math.max(.28, depth * .14))
+          const troughZ = pen.access.edge === "max_z"
+            ? min[2] + troughDepth / 2 + .18
+            : max[2] - troughDepth / 2 - .18
+          boxAt(
+            troughs,
+            [x, floor + .18, troughZ],
+            [troughLength, .36, troughDepth],
+            .09 + hue * .015,
+          )
+        }
+
+        // Resting pads stay away from the access opening and from the feeder
+        // wall, preserving a visible handling path through the pen.
         const restWidth = Math.max(.55, Math.min(width * .42, 2.4))
         const restDepth = Math.max(.45, Math.min(depth * .28, 1.35))
-        const restZ = pen.side > 0
-          ? min[2] + restDepth / 2 + .16
-          : max[2] - restDepth / 2 - .16
+        const restX = accessOnX
+          ? x
+          : min[0] + restWidth / 2 + .16
+        const restZ = accessOnX
+          ? (pen.side > 0
+              ? min[2] + restDepth / 2 + .16
+              : max[2] - restDepth / 2 - .16)
+          : z
         boxAt(
           rest,
-          [x, floor + .025, restZ],
+          [restX, floor + .025, restZ],
           [restWidth, .05, restDepth],
           .11,
         )

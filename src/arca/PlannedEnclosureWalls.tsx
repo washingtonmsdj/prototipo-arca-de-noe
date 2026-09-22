@@ -1,5 +1,6 @@
 import { useLayoutEffect, useMemo, useRef } from "react"
 import { Color, InstancedMesh, Object3D } from "three"
+import { enclosureWallSegments } from "./enclosureWallSegments"
 import { plannedPens } from "./plannedEnclosures"
 
 interface Wall {
@@ -10,28 +11,16 @@ interface Wall {
 
 export function PlannedEnclosures() {
   const mesh = useRef<InstancedMesh>(null)
-  const walls = useMemo<Wall[]>(() => {
-    const result: Wall[] = []
-    plannedPens.forEach((pen, index) => {
-      const { min, max } = pen.bounds_m
-      const width = max[0] - min[0]
-      const depth = max[2] - min[2]
-      const x = (min[0] + max[0]) / 2
-      const z = (min[2] + max[2]) / 2
-      const height = pen.wall_height_m
-      const y = min[1] + height / 2
+  const walls = useMemo<Wall[]>(() =>
+    plannedPens.flatMap((pen, index) => {
       const thickness = pen.housing_class === "insectarium" ? .045 : .07
       const hue = (index * .071) % 1
-
-      result.push(
-        { position: [min[0], y, z], size: [thickness, height, depth], hue },
-        { position: [max[0], y, z], size: [thickness, height, depth], hue },
-        { position: [x, y, min[2]], size: [width, height, thickness], hue },
-        { position: [x, y, max[2]], size: [width, height, thickness], hue },
-      )
-    })
-    return result
-  }, [])
+      return enclosureWallSegments(pen, thickness).map(segment => ({
+        ...segment,
+        hue,
+      }))
+    }),
+  [])
 
   useLayoutEffect(() => {
     if (!mesh.current) return

@@ -18,6 +18,8 @@ plannedEnclosures.ts
 
 Os **128 módulos estruturais** vêm da geometria interna da arca e permanecem como limites que o planejador não pode ultrapassar. Dentro deles, o runtime cria 162 alojamentos proporcionais aos respectivos grupos.
 
+O empacotamento também trata **acesso** como requisito estrutural. Não basta uma baia caber sem sobreposição: ela precisa ter uma rota de manejo. Nos módulos normais, as baias ficam lado a lado com frente direta para o corredor central. Nos módulos estreitos e profundos do terceiro pavimento, o planejador pode reservar uma **espinha lateral de serviço** de 0,45 m; as baias se conectam a essa passagem, que por sua vez se conecta ao corredor principal.
+
 ## Classes de alojamento
 
 O sistema diferencia:
@@ -41,7 +43,7 @@ Espaço residual não pode aparecer como salão vazio. O planejador separa delib
 
 Nos recintos de mamíferos, o runtime mostra cocho em uma borda e área seca de descanso na borda oposta. Entre elas permanece circulação. Aves recebem poleiros; terrários, gaiolas e insetários recebem bases próprias; espécies úmidas recebem área úmida.
 
-O espaço restante dos módulos é convertido explicitamente em zonas de:
+O espaço restante dos módulos só é convertido em zona de serviço quando forma uma região acessível e não sobreposta às baias. A passagem lateral dos módulos estreitos é sempre classificada como **circulação**. O restante acessível é reservado explicitamente para:
 
 - alimento;
 - água;
@@ -64,7 +66,10 @@ O layout só é aceito quando os testes comprovam simultaneamente que:
 - alojamentos do mesmo módulo não se sobrepõem;
 - cada indivíduo cabe integralmente nos bounds do seu alojamento;
 - a ocupação corporal máxima permanece abaixo do limite definido;
-- existem áreas de serviço remanescentes.
+- existem áreas de serviço remanescentes;
+- toda baia possui acesso direto ao corredor central ou a uma espinha de serviço;
+- as zonas de serviço não ocupam o piso reservado aos animais;
+- o planejamento evita concentrar muitas baias em poucos módulos: no estado atual há no máximo 1 baia por módulo no primeiro pavimento, 3 no segundo (uma única exceção tripla) e 2 no terceiro; os 128 módulos estruturais permanecem em uso.
 
 As antigas cercas/baias exportadas do Blender são ocultadas no runtime. Elas não controlam mais o posicionamento nem a colisão. O `.blend` continua sendo fonte de autoria da estrutura da arca, enquanto a divisão interna passa a ser recalculável.
 
