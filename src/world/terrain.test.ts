@@ -3,6 +3,7 @@ import { isWoods } from "../pilgrimage/world/terrain"
 import {
   GENERATED_ELEVATION,
   GENERATED_HYDROLOGY,
+  LAB_SITE,
   GENERATED_WATER,
   GENERATED_WORLD,
   WORLD_METHOD,
@@ -10,6 +11,7 @@ import {
   createCliffGeometry,
   findWalkableLoop,
   forestInstances,
+  isWalkableDisk,
   isWalkableLoop,
   terrainHeight,
   worldToTile,
@@ -67,6 +69,10 @@ describe("generated world", () => {
     expect(first.length).toBeGreaterThan(0)
     expect(first.length).toBeLessThanOrEqual(32)
     expect(first).toEqual(second)
+  })
+
+  it("places the central lab on a fully traversable dry patch", () => {
+    expect(isWalkableDisk(LAB_SITE, 2.35)).toBe(true)
   })
 
   it("derives deterministic roaming loops that do not cross blocked terrain", () => {
