@@ -1,17 +1,17 @@
 {
-  "version": 1,
+  "version": 2,
   "units": "metre",
   "coordinate_system": "Three.js Y-up",
-  "source": "gerar-recintos-v3.py e arca-interior-runtime-v1.glb",
-  "count": 142,
-  "occupied": 138,
-  "available": 4,
+  "source": "Recompactação runtime a partir do catálogo físico V1. Vinte módulos receberam divisória interna: MED-BE-07 e 19 recintos compactos do piso superior.",
+  "count": 162,
+  "occupied": 162,
+  "available": 0,
   "notes": [
-    "A indica menor X; B indica maior X (esquerda/direita na tela dependem da câmera).",
-    "Os 14 conjuntos com divisória geram 28 baias distintas. A faixa de manejo não é baia.",
-    "Limites úteis são envelopes geométricos; não representam validação de manejo ou adequação biológica.",
-    "Portões das baias continuam fechados; suas faces têm colisão contínua.",
-    "Reservas de água, alimento e isolamento não são vagas de animais."
+    "Uma baia física por grupo editorial; 162/162 ocupadas.",
+    "MED-BE-07 foi subdividida: porcos ocupam A e casuares ocupam B.",
+    "Dezenove recintos compactos do piso superior foram subdivididos longitudinalmente, preservando acesso pelo corredor.",
+    "As divisórias novas são renderizadas no runtime e usam os mesmos bounds para placas, animais e colisão.",
+    "Dimensões corporais são envelopes de postura normal; alguns grandes grupos usam jovens independentes proporcionais por causa da altura útil entre pavimentos."
   ],
   "pens": [
     {
@@ -42,10 +42,10 @@
       "animal_key": "elefantes",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.2
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -79,10 +79,10 @@
       "animal_key": "rinocerontes",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.2
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -116,10 +116,10 @@
       "animal_key": "hipopotamos",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.2
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -153,10 +153,10 @@
       "animal_key": "tapires",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.2
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -190,10 +190,10 @@
       "animal_key": "cavalos",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.2
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -227,10 +227,10 @@
       "animal_key": "asnos",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.2
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -264,10 +264,10 @@
       "animal_key": "zebras",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.2
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -301,10 +301,10 @@
       "animal_key": "camelos",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.2
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -338,10 +338,10 @@
       "animal_key": "bovinos",
       "quantity": 14,
       "layout": {
-        "columns": 14,
-        "rows": 1,
-        "rotated": true,
-        "gap": 0.175
+        "columns": 6,
+        "rows": 3,
+        "rotated": false,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -375,10 +375,10 @@
       "animal_key": "bufalos",
       "quantity": 14,
       "layout": {
-        "columns": 14,
-        "rows": 1,
-        "rotated": true,
-        "gap": 0.175
+        "columns": 6,
+        "rows": 3,
+        "rotated": false,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -412,10 +412,10 @@
       "animal_key": "bisoes",
       "quantity": 14,
       "layout": {
-        "columns": 14,
-        "rows": 1,
-        "rotated": true,
-        "gap": 0.175
+        "columns": 4,
+        "rows": 4,
+        "rotated": false,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -449,10 +449,10 @@
       "animal_key": "iaques",
       "quantity": 14,
       "layout": {
-        "columns": 7,
-        "rows": 2,
+        "columns": 4,
+        "rows": 4,
         "rotated": false,
-        "gap": 0.175
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -486,10 +486,10 @@
       "animal_key": "girafas",
       "quantity": 14,
       "layout": {
-        "columns": 14,
-        "rows": 1,
-        "rotated": true,
-        "gap": 0.2
+        "columns": 6,
+        "rows": 3,
+        "rotated": false,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -523,10 +523,10 @@
       "animal_key": "alces",
       "quantity": 14,
       "layout": {
-        "columns": 7,
-        "rows": 2,
+        "columns": 4,
+        "rows": 4,
         "rotated": false,
-        "gap": 0.175
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -560,10 +560,10 @@
       "animal_key": "renas",
       "quantity": 14,
       "layout": {
-        "columns": 7,
+        "columns": 12,
         "rows": 2,
         "rotated": true,
-        "gap": 0.175
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -597,10 +597,10 @@
       "animal_key": "cervos",
       "quantity": 14,
       "layout": {
-        "columns": 7,
+        "columns": 13,
         "rows": 2,
-        "rotated": false,
-        "gap": 0.175
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -634,10 +634,10 @@
       "animal_key": "ovelhas",
       "quantity": 14,
       "layout": {
-        "columns": 2,
-        "rows": 7,
-        "rotated": false,
-        "gap": 0.1375
+        "columns": 11,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -671,10 +671,10 @@
       "animal_key": "cabras",
       "quantity": 14,
       "layout": {
-        "columns": 2,
-        "rows": 7,
-        "rotated": false,
-        "gap": 0.1375
+        "columns": 11,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -708,10 +708,10 @@
       "animal_key": "ibex",
       "quantity": 14,
       "layout": {
-        "columns": 2,
-        "rows": 7,
-        "rotated": false,
-        "gap": 0.1375
+        "columns": 11,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -745,10 +745,10 @@
       "animal_key": "gazelas",
       "quantity": 14,
       "layout": {
-        "columns": 2,
-        "rows": 7,
-        "rotated": false,
-        "gap": 0.1375
+        "columns": 12,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -782,10 +782,10 @@
       "animal_key": "orix",
       "quantity": 14,
       "layout": {
-        "columns": 2,
-        "rows": 7,
-        "rotated": false,
-        "gap": 0.1375
+        "columns": 11,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -819,10 +819,10 @@
       "animal_key": "impala",
       "quantity": 14,
       "layout": {
-        "columns": 2,
-        "rows": 7,
-        "rotated": false,
-        "gap": 0.1375
+        "columns": 12,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -856,10 +856,10 @@
       "animal_key": "kudu",
       "quantity": 14,
       "layout": {
-        "columns": 2,
-        "rows": 7,
-        "rotated": false,
-        "gap": 0.1375
+        "columns": 12,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -893,10 +893,10 @@
       "animal_key": "gnus",
       "quantity": 14,
       "layout": {
-        "columns": 2,
-        "rows": 7,
-        "rotated": false,
-        "gap": 0.1375
+        "columns": 11,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -930,10 +930,10 @@
       "animal_key": "gorilas",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": 1,
@@ -964,10 +964,15 @@
         4.9
       ],
       "gate_closed": true,
-      "animal_key": null,
-      "quantity": 0,
-      "layout": null,
-      "status": "disponivel",
+      "animal_key": "pinguins",
+      "quantity": 14,
+      "layout": {
+        "columns": 6,
+        "rows": 3,
+        "rotated": true,
+        "gap": 0.08
+      },
+      "status": "ocupada",
       "capacity_pairs": 1,
       "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
     },
@@ -999,10 +1004,10 @@
       "animal_key": "chimpanzes",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": 1,
@@ -1033,10 +1038,15 @@
         4.9
       ],
       "gate_closed": true,
-      "animal_key": null,
-      "quantity": 0,
-      "layout": null,
-      "status": "disponivel",
+      "animal_key": "cisnes",
+      "quantity": 14,
+      "layout": {
+        "columns": 5,
+        "rows": 3,
+        "rotated": true,
+        "gap": 0.08
+      },
+      "status": "ocupada",
       "capacity_pairs": 1,
       "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
     },
@@ -1068,10 +1078,10 @@
       "animal_key": "leoes",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": 1,
@@ -1105,10 +1115,10 @@
       "animal_key": "lontras",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.075
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": 1,
@@ -1142,10 +1152,10 @@
       "animal_key": "tigres",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": 1,
@@ -1179,10 +1189,10 @@
       "animal_key": "suricatos",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.0375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": 1,
@@ -1218,8 +1228,8 @@
       "layout": {
         "columns": 1,
         "rows": 2,
-        "rotated": true,
-        "gap": 0.1375
+        "rotated": false,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": 1,
@@ -1255,8 +1265,8 @@
       "layout": {
         "columns": 1,
         "rows": 2,
-        "rotated": true,
-        "gap": 0.1
+        "rotated": false,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": 1,
@@ -1292,8 +1302,8 @@
       "layout": {
         "columns": 1,
         "rows": 2,
-        "rotated": true,
-        "gap": 0.1375
+        "rotated": false,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": 1,
@@ -1327,10 +1337,10 @@
       "animal_key": "tatus",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.0875
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": 1,
@@ -1366,8 +1376,8 @@
       "layout": {
         "columns": 1,
         "rows": 2,
-        "rotated": true,
-        "gap": 0.1375
+        "rotated": false,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": 1,
@@ -1398,10 +1408,15 @@
         4.9
       ],
       "gate_closed": true,
-      "animal_key": null,
-      "quantity": 0,
-      "layout": null,
-      "status": "disponivel",
+      "animal_key": "kiwis",
+      "quantity": 14,
+      "layout": {
+        "columns": 6,
+        "rows": 3,
+        "rotated": true,
+        "gap": 0.08
+      },
+      "status": "ocupada",
       "capacity_pairs": 1,
       "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
     },
@@ -1435,8 +1450,8 @@
       "layout": {
         "columns": 1,
         "rows": 2,
-        "rotated": true,
-        "gap": 0.1375
+        "rotated": false,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": 1,
@@ -1470,10 +1485,10 @@
       "animal_key": "coalas",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.1
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": 1,
@@ -1507,10 +1522,10 @@
       "animal_key": "ursos_pardos",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": 1,
@@ -1546,8 +1561,8 @@
       "layout": {
         "columns": 1,
         "rows": 2,
-        "rotated": true,
-        "gap": 0.1625
+        "rotated": false,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": 1,
@@ -1581,10 +1596,10 @@
       "animal_key": "ursos_negros",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": 1,
@@ -1615,10 +1630,15 @@
         4.9
       ],
       "gate_closed": true,
-      "animal_key": null,
-      "quantity": 0,
-      "layout": null,
-      "status": "disponivel",
+      "animal_key": "turacos",
+      "quantity": 14,
+      "layout": {
+        "columns": 13,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.08
+      },
+      "status": "ocupada",
       "capacity_pairs": 1,
       "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
     },
@@ -1650,10 +1670,10 @@
       "animal_key": "lobos",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": 1,
@@ -1689,8 +1709,8 @@
       "layout": {
         "columns": 1,
         "rows": 2,
-        "rotated": true,
-        "gap": 0.15
+        "rotated": false,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": 1,
@@ -1724,10 +1744,10 @@
       "animal_key": "raposas",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -1761,10 +1781,10 @@
       "animal_key": "hienas",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": 1,
@@ -1798,10 +1818,10 @@
       "animal_key": "pangolins",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.075
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": 1,
@@ -1835,25 +1855,63 @@
       "animal_key": "chacais",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
       "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
     },
     {
-      "id": "MED-BE-07",
+      "id": "MED-BE-07-A",
       "module_id": "MED-BE-07",
-      "part": "unica",
+      "part": "A",
       "deck": 2,
       "side": 1,
-      "split": false,
+      "split": true,
       "bounds_m": {
         "min": [
           -12.0259,
+          4.85,
+          -10.34
+        ],
+        "max": [
+          -9.7687,
+          8.2,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        2.257199999999999,
+        3.35,
+        5.88
+      ],
+      "gate_closed": true,
+      "animal_key": "porcos",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.08
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
+    },
+    {
+      "id": "MED-BE-07-B",
+      "module_id": "MED-BE-07",
+      "part": "B",
+      "deck": 2,
+      "side": 1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          -9.6487,
           4.85,
           -10.34
         ],
@@ -1864,22 +1922,23 @@
         ]
       },
       "usable_dimensions_m": [
-        4.6344,
+        2.2572,
         3.35,
         5.88
       ],
       "gate_closed": true,
-      "animal_key": "porcos",
-      "quantity": 2,
+      "animal_key": "casuares",
+      "quantity": 14,
       "layout": {
-        "columns": 2,
-        "rows": 1,
-        "rotated": false,
-        "gap": 0.1375
+        "columns": 4,
+        "rows": 4,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
-      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
     },
     {
       "id": "MED-BE-08",
@@ -1909,10 +1968,10 @@
       "animal_key": "javalis",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -1946,10 +2005,10 @@
       "animal_key": "cangurus",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -1983,10 +2042,10 @@
       "animal_key": "vombates",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -2020,10 +2079,10 @@
       "animal_key": "capivaras",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -2057,10 +2116,10 @@
       "animal_key": "tamanduas",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -2094,10 +2153,10 @@
       "animal_key": "avestruzes",
       "quantity": 14,
       "layout": {
-        "columns": 14,
-        "rows": 1,
+        "columns": 13,
+        "rows": 2,
         "rotated": true,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -2131,10 +2190,10 @@
       "animal_key": "emas",
       "quantity": 14,
       "layout": {
-        "columns": 7,
+        "columns": 13,
         "rows": 2,
-        "rotated": false,
-        "gap": 0.1375
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -2168,10 +2227,10 @@
       "animal_key": "babuinos",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": 1,
@@ -2207,8 +2266,8 @@
       "layout": {
         "columns": 1,
         "rows": 2,
-        "rotated": true,
-        "gap": 0.1125
+        "rotated": false,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": 1,
@@ -2244,8 +2303,8 @@
       "layout": {
         "columns": 1,
         "rows": 2,
-        "rotated": true,
-        "gap": 0.1375
+        "rotated": false,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": 1,
@@ -2279,10 +2338,10 @@
       "animal_key": "lemures",
       "quantity": 2,
       "layout": {
-        "columns": 2,
-        "rows": 1,
+        "columns": 1,
+        "rows": 2,
         "rotated": false,
-        "gap": 0.0625
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": 1,
@@ -2316,10 +2375,10 @@
       "animal_key": "pombos",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 6,
+        "rows": 3,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -2353,10 +2412,10 @@
       "animal_key": "corvos",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 6,
+        "rows": 3,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -2390,10 +2449,10 @@
       "animal_key": "galinhas",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 6,
+        "rows": 3,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -2427,10 +2486,10 @@
       "animal_key": "perdizes",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 6,
+        "rows": 3,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -2464,10 +2523,10 @@
       "animal_key": "pavoes",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 4,
+        "rows": 4,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -2501,10 +2560,10 @@
       "animal_key": "patos",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 6,
+        "rows": 3,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -2538,10 +2597,10 @@
       "animal_key": "marrecos",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 6,
+        "rows": 3,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -2575,10 +2634,10 @@
       "animal_key": "araras",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 6,
+        "rows": 3,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -2612,10 +2671,10 @@
       "animal_key": "cacatuas",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 6,
+        "rows": 3,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -2649,10 +2708,10 @@
       "animal_key": "pica_paus",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 10,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -2686,10 +2745,10 @@
       "animal_key": "poupas",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 10,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -2723,10 +2782,10 @@
       "animal_key": "andorinhoes",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 11,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -2760,10 +2819,10 @@
       "animal_key": "pardais",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 13,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -2797,10 +2856,10 @@
       "animal_key": "canarios",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 13,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -2834,10 +2893,10 @@
       "animal_key": "aguias",
       "quantity": 14,
       "layout": {
-        "columns": 7,
+        "columns": 13,
         "rows": 2,
         "rotated": true,
-        "gap": 0.175
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -2871,10 +2930,10 @@
       "animal_key": "cegonhas",
       "quantity": 14,
       "layout": {
-        "columns": 7,
+        "columns": 13,
         "rows": 2,
         "rotated": true,
-        "gap": 0.175
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -2908,10 +2967,10 @@
       "animal_key": "pelicanos",
       "quantity": 14,
       "layout": {
-        "columns": 7,
+        "columns": 13,
         "rows": 2,
         "rotated": true,
-        "gap": 0.175
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -2945,10 +3004,10 @@
       "animal_key": "grous",
       "quantity": 14,
       "layout": {
-        "columns": 7,
+        "columns": 13,
         "rows": 2,
         "rotated": true,
-        "gap": 0.175
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -2982,10 +3041,10 @@
       "animal_key": "cucos",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 6,
+        "rows": 3,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -3019,22 +3078,22 @@
       "animal_key": "corujas_pequenas",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 6,
+        "rows": 3,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
       "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
     },
     {
-      "id": "SUP-BB-21",
+      "id": "SUP-BB-21-A",
       "module_id": "SUP-BB-21",
-      "part": "unica",
+      "part": "A",
       "deck": 3,
       "side": -1,
-      "split": false,
+      "split": true,
       "bounds_m": {
         "min": [
           24.11,
@@ -3042,13 +3101,13 @@
           4.46
         ],
         "max": [
-          25.49,
+          24.759999999999998,
           11.7,
           6.34
         ]
       },
       "usable_dimensions_m": [
-        1.38,
+        0.6499999999999986,
         2.65,
         1.88
       ],
@@ -3059,19 +3118,58 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
-      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
     },
     {
-      "id": "SUP-BB-22",
-      "module_id": "SUP-BB-22",
-      "part": "unica",
+      "id": "SUP-BB-21-B",
+      "module_id": "SUP-BB-21",
+      "part": "B",
       "deck": 3,
       "side": -1,
-      "split": false,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          24.839999999999996,
+          9.05,
+          4.46
+        ],
+        "max": [
+          25.49,
+          11.7,
+          6.34
+        ]
+      },
+      "usable_dimensions_m": [
+        0.6500000000000021,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "formigas",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.08
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
+    },
+    {
+      "id": "SUP-BB-22-A",
+      "module_id": "SUP-BB-22",
+      "part": "A",
+      "deck": 3,
+      "side": -1,
+      "split": true,
       "bounds_m": {
         "min": [
           24.11,
@@ -3079,13 +3177,13 @@
           8.46
         ],
         "max": [
-          25.49,
+          24.759999999999998,
           11.7,
           10.34
         ]
       },
       "usable_dimensions_m": [
-        1.38,
+        0.6499999999999986,
         2.65,
         1.88
       ],
@@ -3096,19 +3194,58 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
-      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
     },
     {
-      "id": "SUP-BB-23",
-      "module_id": "SUP-BB-23",
-      "part": "unica",
+      "id": "SUP-BB-22-B",
+      "module_id": "SUP-BB-22",
+      "part": "B",
       "deck": 3,
       "side": -1,
-      "split": false,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          24.839999999999996,
+          9.05,
+          8.46
+        ],
+        "max": [
+          25.49,
+          11.7,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        0.6500000000000021,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "abelhas",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.08
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
+    },
+    {
+      "id": "SUP-BB-23-A",
+      "module_id": "SUP-BB-23",
+      "part": "A",
+      "deck": 3,
+      "side": -1,
+      "split": true,
       "bounds_m": {
         "min": [
           25.71,
@@ -3116,13 +3253,13 @@
           4.46
         ],
         "max": [
-          27.09,
+          26.36,
           11.7,
           6.34
         ]
       },
       "usable_dimensions_m": [
-        1.38,
+        0.6499999999999986,
         2.65,
         1.88
       ],
@@ -3133,22 +3270,99 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
-      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
     },
     {
-      "id": "SUP-BB-24",
-      "module_id": "SUP-BB-24",
-      "part": "unica",
+      "id": "SUP-BB-23-B",
+      "module_id": "SUP-BB-23",
+      "part": "B",
       "deck": 3,
       "side": -1,
-      "split": false,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          26.439999999999998,
+          9.05,
+          4.46
+        ],
+        "max": [
+          27.09,
+          11.7,
+          6.34
+        ]
+      },
+      "usable_dimensions_m": [
+        0.6500000000000021,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "vespas",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.08
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
+    },
+    {
+      "id": "SUP-BB-24-A",
+      "module_id": "SUP-BB-24",
+      "part": "A",
+      "deck": 3,
+      "side": -1,
+      "split": true,
       "bounds_m": {
         "min": [
           25.71,
+          9.05,
+          8.46
+        ],
+        "max": [
+          26.36,
+          11.7,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        0.6499999999999986,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "porcos_espinhos",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.08
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
+    },
+    {
+      "id": "SUP-BB-24-B",
+      "module_id": "SUP-BB-24",
+      "part": "B",
+      "deck": 3,
+      "side": -1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          26.439999999999998,
           9.05,
           8.46
         ],
@@ -3159,30 +3373,31 @@
         ]
       },
       "usable_dimensions_m": [
-        1.38,
+        0.6500000000000021,
         2.65,
         1.88
       ],
       "gate_closed": true,
-      "animal_key": "porcos_espinhos",
+      "animal_key": "cupins",
       "quantity": 2,
       "layout": {
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
-      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
     },
     {
-      "id": "SUP-BB-25",
+      "id": "SUP-BB-25-A",
       "module_id": "SUP-BB-25",
-      "part": "unica",
+      "part": "A",
       "deck": 3,
       "side": -1,
-      "split": false,
+      "split": true,
       "bounds_m": {
         "min": [
           27.31,
@@ -3190,13 +3405,13 @@
           4.46
         ],
         "max": [
-          28.69,
+          27.96,
           11.7,
           6.34
         ]
       },
       "usable_dimensions_m": [
-        1.38,
+        0.6500000000000021,
         2.65,
         1.88
       ],
@@ -3207,19 +3422,58 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
-      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
     },
     {
-      "id": "SUP-BB-26",
-      "module_id": "SUP-BB-26",
-      "part": "unica",
+      "id": "SUP-BB-25-B",
+      "module_id": "SUP-BB-25",
+      "part": "B",
       "deck": 3,
       "side": -1,
-      "split": false,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          28.04,
+          9.05,
+          4.46
+        ],
+        "max": [
+          28.69,
+          11.7,
+          6.34
+        ]
+      },
+      "usable_dimensions_m": [
+        0.6500000000000021,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "besouros",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.08
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
+    },
+    {
+      "id": "SUP-BB-26-A",
+      "module_id": "SUP-BB-26",
+      "part": "A",
+      "deck": 3,
+      "side": -1,
+      "split": true,
       "bounds_m": {
         "min": [
           27.31,
@@ -3227,13 +3481,13 @@
           8.46
         ],
         "max": [
-          28.69,
+          27.96,
           11.7,
           10.34
         ]
       },
       "usable_dimensions_m": [
-        1.38,
+        0.6500000000000021,
         2.65,
         1.88
       ],
@@ -3244,19 +3498,58 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
-      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
     },
     {
-      "id": "SUP-BB-27",
-      "module_id": "SUP-BB-27",
-      "part": "unica",
+      "id": "SUP-BB-26-B",
+      "module_id": "SUP-BB-26",
+      "part": "B",
       "deck": 3,
       "side": -1,
-      "split": false,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          28.04,
+          9.05,
+          8.46
+        ],
+        "max": [
+          28.69,
+          11.7,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        0.6500000000000021,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "borboletas",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.08
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
+    },
+    {
+      "id": "SUP-BB-27-A",
+      "module_id": "SUP-BB-27",
+      "part": "A",
+      "deck": 3,
+      "side": -1,
+      "split": true,
       "bounds_m": {
         "min": [
           28.91,
@@ -3264,13 +3557,13 @@
           4.46
         ],
         "max": [
-          30.29,
+          29.560000000000002,
           11.7,
           6.34
         ]
       },
       "usable_dimensions_m": [
-        1.38,
+        0.6500000000000021,
         2.65,
         1.88
       ],
@@ -3281,19 +3574,58 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
-      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
     },
     {
-      "id": "SUP-BB-28",
-      "module_id": "SUP-BB-28",
-      "part": "unica",
+      "id": "SUP-BB-27-B",
+      "module_id": "SUP-BB-27",
+      "part": "B",
       "deck": 3,
       "side": -1,
-      "split": false,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          29.64,
+          9.05,
+          4.46
+        ],
+        "max": [
+          30.29,
+          11.7,
+          6.34
+        ]
+      },
+      "usable_dimensions_m": [
+        0.6499999999999986,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "mariposas",
+      "quantity": 2,
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "rotated": false,
+        "gap": 0.08
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
+    },
+    {
+      "id": "SUP-BB-28-A",
+      "module_id": "SUP-BB-28",
+      "part": "A",
+      "deck": 3,
+      "side": -1,
+      "split": true,
       "bounds_m": {
         "min": [
           28.91,
@@ -3301,13 +3633,13 @@
           8.46
         ],
         "max": [
-          30.29,
+          29.560000000000002,
           11.7,
           10.34
         ]
       },
       "usable_dimensions_m": [
-        1.38,
+        0.6500000000000021,
         2.65,
         1.88
       ],
@@ -3318,22 +3650,99 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
-      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
     },
     {
-      "id": "SUP-BB-29",
-      "module_id": "SUP-BB-29",
-      "part": "unica",
+      "id": "SUP-BB-28-B",
+      "module_id": "SUP-BB-28",
+      "part": "B",
       "deck": 3,
       "side": -1,
-      "split": false,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          29.64,
+          9.05,
+          8.46
+        ],
+        "max": [
+          30.29,
+          11.7,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        0.6499999999999986,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "gafanhotos",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.08
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
+    },
+    {
+      "id": "SUP-BB-29-A",
+      "module_id": "SUP-BB-29",
+      "part": "A",
+      "deck": 3,
+      "side": -1,
+      "split": true,
       "bounds_m": {
         "min": [
           30.51,
+          9.05,
+          4.46
+        ],
+        "max": [
+          31.160000000000004,
+          11.7,
+          6.34
+        ]
+      },
+      "usable_dimensions_m": [
+        0.6500000000000021,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "texugos",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.08
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
+    },
+    {
+      "id": "SUP-BB-29-B",
+      "module_id": "SUP-BB-29",
+      "part": "B",
+      "deck": 3,
+      "side": -1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          31.240000000000002,
           9.05,
           4.46
         ],
@@ -3344,30 +3753,31 @@
         ]
       },
       "usable_dimensions_m": [
-        1.38,
+        0.6499999999999986,
         2.65,
         1.88
       ],
       "gate_closed": true,
-      "animal_key": "texugos",
+      "animal_key": "grilos",
       "quantity": 2,
       "layout": {
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
-      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
     },
     {
-      "id": "SUP-BB-30",
+      "id": "SUP-BB-30-A",
       "module_id": "SUP-BB-30",
-      "part": "unica",
+      "part": "A",
       "deck": 3,
       "side": -1,
-      "split": false,
+      "split": true,
       "bounds_m": {
         "min": [
           30.51,
@@ -3375,13 +3785,13 @@
           8.46
         ],
         "max": [
-          31.89,
+          31.160000000000004,
           11.7,
           10.34
         ]
       },
       "usable_dimensions_m": [
-        1.38,
+        0.6500000000000021,
         2.65,
         1.88
       ],
@@ -3392,11 +3802,50 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
-      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
+    },
+    {
+      "id": "SUP-BB-30-B",
+      "module_id": "SUP-BB-30",
+      "part": "B",
+      "deck": 3,
+      "side": -1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          31.240000000000002,
+          9.05,
+          8.46
+        ],
+        "max": [
+          31.89,
+          11.7,
+          10.34
+        ]
+      },
+      "usable_dimensions_m": [
+        0.6499999999999986,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "louva-a-deus",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.08
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
     },
     {
       "id": "SUP-BB-31",
@@ -3429,7 +3878,7 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -3466,7 +3915,7 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -3503,7 +3952,7 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -3540,7 +3989,7 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -3577,7 +4026,7 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -3614,7 +4063,7 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -3651,7 +4100,7 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -3685,10 +4134,10 @@
       "animal_key": "crocodilianos",
       "quantity": 2,
       "layout": {
-        "columns": 1,
-        "rows": 2,
-        "rotated": false,
-        "gap": 0.1375
+        "columns": 2,
+        "rows": 1,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -3725,7 +4174,7 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -3762,7 +4211,7 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -3796,10 +4245,10 @@
       "animal_key": "rolinhas",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 6,
+        "rows": 3,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -3833,10 +4282,10 @@
       "animal_key": "gralhas",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 6,
+        "rows": 3,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -3870,10 +4319,10 @@
       "animal_key": "codornas",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 10,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -3907,10 +4356,10 @@
       "animal_key": "faisoes",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 6,
+        "rows": 3,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -3944,10 +4393,10 @@
       "animal_key": "perus",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 4,
+        "rows": 4,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -3981,10 +4430,10 @@
       "animal_key": "gansos",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 4,
+        "rows": 4,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -4018,10 +4467,10 @@
       "animal_key": "papagaios",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 6,
+        "rows": 3,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -4055,10 +4504,10 @@
       "animal_key": "periquitos",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 11,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -4092,10 +4541,10 @@
       "animal_key": "tucanos",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 6,
+        "rows": 3,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -4129,10 +4578,10 @@
       "animal_key": "martins_pescadores",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 11,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -4166,10 +4615,10 @@
       "animal_key": "andorinhas",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 13,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -4203,10 +4652,10 @@
       "animal_key": "cotovias",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 13,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -4240,10 +4689,10 @@
       "animal_key": "tentilhoes",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 13,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -4277,10 +4726,10 @@
       "animal_key": "pintassilgos",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 13,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -4314,10 +4763,10 @@
       "animal_key": "abutres",
       "quantity": 14,
       "layout": {
-        "columns": 7,
+        "columns": 13,
         "rows": 2,
         "rotated": true,
-        "gap": 0.175
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -4351,10 +4800,10 @@
       "animal_key": "garcas",
       "quantity": 14,
       "layout": {
-        "columns": 7,
+        "columns": 13,
         "rows": 2,
         "rotated": true,
-        "gap": 0.175
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -4388,10 +4837,10 @@
       "animal_key": "cormoroes",
       "quantity": 14,
       "layout": {
-        "columns": 7,
+        "columns": 13,
         "rows": 2,
         "rotated": true,
-        "gap": 0.175
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -4425,10 +4874,10 @@
       "animal_key": "flamingos",
       "quantity": 14,
       "layout": {
-        "columns": 7,
+        "columns": 13,
         "rows": 2,
         "rotated": true,
-        "gap": 0.175
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -4462,10 +4911,10 @@
       "animal_key": "beija_flores",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 13,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -4499,22 +4948,22 @@
       "animal_key": "falcoes_pequenos",
       "quantity": 14,
       "layout": {
-        "columns": 1,
-        "rows": 14,
-        "rotated": false,
-        "gap": 0.075
+        "columns": 6,
+        "rows": 3,
+        "rotated": true,
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
       "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
     },
     {
-      "id": "SUP-BE-21",
+      "id": "SUP-BE-21-A",
       "module_id": "SUP-BE-21",
-      "part": "unica",
+      "part": "A",
       "deck": 3,
       "side": 1,
-      "split": false,
+      "split": true,
       "bounds_m": {
         "min": [
           24.11,
@@ -4522,13 +4971,13 @@
           -6.34
         ],
         "max": [
-          25.49,
+          24.759999999999998,
           11.7,
           -4.46
         ]
       },
       "usable_dimensions_m": [
-        1.38,
+        0.6499999999999986,
         2.65,
         1.88
       ],
@@ -4539,19 +4988,58 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
-      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
     },
     {
-      "id": "SUP-BE-22",
-      "module_id": "SUP-BE-22",
-      "part": "unica",
+      "id": "SUP-BE-21-B",
+      "module_id": "SUP-BE-21",
+      "part": "B",
       "deck": 3,
       "side": 1,
-      "split": false,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          24.839999999999996,
+          9.05,
+          -6.34
+        ],
+        "max": [
+          25.49,
+          11.7,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        0.6500000000000021,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "bichos-pau",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.08
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
+    },
+    {
+      "id": "SUP-BE-22-A",
+      "module_id": "SUP-BE-22",
+      "part": "A",
+      "deck": 3,
+      "side": 1,
+      "split": true,
       "bounds_m": {
         "min": [
           24.11,
@@ -4559,13 +5047,13 @@
           -10.34
         ],
         "max": [
-          25.49,
+          24.759999999999998,
           11.7,
           -8.46
         ]
       },
       "usable_dimensions_m": [
-        1.38,
+        0.6499999999999986,
         2.65,
         1.88
       ],
@@ -4576,22 +5064,99 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
-      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
     },
     {
-      "id": "SUP-BE-23",
-      "module_id": "SUP-BE-23",
-      "part": "unica",
+      "id": "SUP-BE-22-B",
+      "module_id": "SUP-BE-22",
+      "part": "B",
       "deck": 3,
       "side": 1,
-      "split": false,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          24.839999999999996,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          25.49,
+          11.7,
+          -8.46
+        ]
+      },
+      "usable_dimensions_m": [
+        0.6500000000000021,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "baratas",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.08
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
+    },
+    {
+      "id": "SUP-BE-23-A",
+      "module_id": "SUP-BE-23",
+      "part": "A",
+      "deck": 3,
+      "side": 1,
+      "split": true,
       "bounds_m": {
         "min": [
           25.71,
+          9.05,
+          -6.34
+        ],
+        "max": [
+          26.36,
+          11.7,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        0.6499999999999986,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "castores",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": true,
+        "gap": 0.08
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
+    },
+    {
+      "id": "SUP-BE-23-B",
+      "module_id": "SUP-BE-23",
+      "part": "B",
+      "deck": 3,
+      "side": 1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          26.439999999999998,
           9.05,
           -6.34
         ],
@@ -4602,30 +5167,31 @@
         ]
       },
       "usable_dimensions_m": [
-        1.38,
+        0.6500000000000021,
         2.65,
         1.88
       ],
       "gate_closed": true,
-      "animal_key": "castores",
+      "animal_key": "aranhas",
       "quantity": 2,
       "layout": {
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
-      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
     },
     {
-      "id": "SUP-BE-24",
+      "id": "SUP-BE-24-A",
       "module_id": "SUP-BE-24",
-      "part": "unica",
+      "part": "A",
       "deck": 3,
       "side": 1,
-      "split": false,
+      "split": true,
       "bounds_m": {
         "min": [
           25.71,
@@ -4633,13 +5199,13 @@
           -10.34
         ],
         "max": [
-          27.09,
+          26.36,
           11.7,
           -8.46
         ]
       },
       "usable_dimensions_m": [
-        1.38,
+        0.6499999999999986,
         2.65,
         1.88
       ],
@@ -4650,19 +5216,58 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
-      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
     },
     {
-      "id": "SUP-BE-25",
-      "module_id": "SUP-BE-25",
-      "part": "unica",
+      "id": "SUP-BE-24-B",
+      "module_id": "SUP-BE-24",
+      "part": "B",
       "deck": 3,
       "side": 1,
-      "split": false,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          26.439999999999998,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          27.09,
+          11.7,
+          -8.46
+        ]
+      },
+      "usable_dimensions_m": [
+        0.6500000000000021,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "escorpioes",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.08
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
+    },
+    {
+      "id": "SUP-BE-25-A",
+      "module_id": "SUP-BE-25",
+      "part": "A",
+      "deck": 3,
+      "side": 1,
+      "split": true,
       "bounds_m": {
         "min": [
           27.31,
@@ -4670,13 +5275,13 @@
           -6.34
         ],
         "max": [
-          28.69,
+          27.96,
           11.7,
           -4.46
         ]
       },
       "usable_dimensions_m": [
-        1.38,
+        0.6500000000000021,
         2.65,
         1.88
       ],
@@ -4687,19 +5292,58 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
-      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
     },
     {
-      "id": "SUP-BE-26",
-      "module_id": "SUP-BE-26",
-      "part": "unica",
+      "id": "SUP-BE-25-B",
+      "module_id": "SUP-BE-25",
+      "part": "B",
       "deck": 3,
       "side": 1,
-      "split": false,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          28.04,
+          9.05,
+          -6.34
+        ],
+        "max": [
+          28.69,
+          11.7,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        0.6500000000000021,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "centopeias",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.08
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
+    },
+    {
+      "id": "SUP-BE-26-A",
+      "module_id": "SUP-BE-26",
+      "part": "A",
+      "deck": 3,
+      "side": 1,
+      "split": true,
       "bounds_m": {
         "min": [
           27.31,
@@ -4707,13 +5351,13 @@
           -10.34
         ],
         "max": [
-          28.69,
+          27.96,
           11.7,
           -8.46
         ]
       },
       "usable_dimensions_m": [
-        1.38,
+        0.6500000000000021,
         2.65,
         1.88
       ],
@@ -4724,19 +5368,58 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
-      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
     },
     {
-      "id": "SUP-BE-27",
-      "module_id": "SUP-BE-27",
-      "part": "unica",
+      "id": "SUP-BE-26-B",
+      "module_id": "SUP-BE-26",
+      "part": "B",
       "deck": 3,
       "side": 1,
-      "split": false,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          28.04,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          28.69,
+          11.7,
+          -8.46
+        ]
+      },
+      "usable_dimensions_m": [
+        0.6500000000000021,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "piolhos-de-cobra",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.08
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
+    },
+    {
+      "id": "SUP-BE-27-A",
+      "module_id": "SUP-BE-27",
+      "part": "A",
+      "deck": 3,
+      "side": 1,
+      "split": true,
       "bounds_m": {
         "min": [
           28.91,
@@ -4744,13 +5427,13 @@
           -6.34
         ],
         "max": [
-          30.29,
+          29.560000000000002,
           11.7,
           -4.46
         ]
       },
       "usable_dimensions_m": [
-        1.38,
+        0.6500000000000021,
         2.65,
         1.88
       ],
@@ -4761,19 +5444,58 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
-      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
     },
     {
-      "id": "SUP-BE-28",
-      "module_id": "SUP-BE-28",
-      "part": "unica",
+      "id": "SUP-BE-27-B",
+      "module_id": "SUP-BE-27",
+      "part": "B",
       "deck": 3,
       "side": 1,
-      "split": false,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          29.64,
+          9.05,
+          -6.34
+        ],
+        "max": [
+          30.29,
+          11.7,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        0.6499999999999986,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "caracois-terrestres",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.08
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
+    },
+    {
+      "id": "SUP-BE-28-A",
+      "module_id": "SUP-BE-28",
+      "part": "A",
+      "deck": 3,
+      "side": 1,
+      "split": true,
       "bounds_m": {
         "min": [
           28.91,
@@ -4781,13 +5503,13 @@
           -10.34
         ],
         "max": [
-          30.29,
+          29.560000000000002,
           11.7,
           -8.46
         ]
       },
       "usable_dimensions_m": [
-        1.38,
+        0.6500000000000021,
         2.65,
         1.88
       ],
@@ -4798,19 +5520,58 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
-      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
     },
     {
-      "id": "SUP-BE-29",
-      "module_id": "SUP-BE-29",
-      "part": "unica",
+      "id": "SUP-BE-28-B",
+      "module_id": "SUP-BE-28",
+      "part": "B",
       "deck": 3,
       "side": 1,
-      "split": false,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          29.64,
+          9.05,
+          -10.34
+        ],
+        "max": [
+          30.29,
+          11.7,
+          -8.46
+        ]
+      },
+      "usable_dimensions_m": [
+        0.6499999999999986,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "lesmas",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.08
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
+    },
+    {
+      "id": "SUP-BE-29-A",
+      "module_id": "SUP-BE-29",
+      "part": "A",
+      "deck": 3,
+      "side": 1,
+      "split": true,
       "bounds_m": {
         "min": [
           30.51,
@@ -4818,13 +5579,13 @@
           -6.34
         ],
         "max": [
-          31.89,
+          31.160000000000004,
           11.7,
           -4.46
         ]
       },
       "usable_dimensions_m": [
-        1.38,
+        0.6500000000000021,
         2.65,
         1.88
       ],
@@ -4835,11 +5596,50 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
-      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo."
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
+    },
+    {
+      "id": "SUP-BE-29-B",
+      "module_id": "SUP-BE-29",
+      "part": "B",
+      "deck": 3,
+      "side": 1,
+      "split": true,
+      "bounds_m": {
+        "min": [
+          31.240000000000002,
+          9.05,
+          -6.34
+        ],
+        "max": [
+          31.89,
+          11.7,
+          -4.46
+        ]
+      },
+      "usable_dimensions_m": [
+        0.6499999999999986,
+        2.65,
+        1.88
+      ],
+      "gate_closed": true,
+      "animal_key": "minhocas",
+      "quantity": 2,
+      "layout": {
+        "columns": 1,
+        "rows": 2,
+        "rotated": false,
+        "gap": 0.08
+      },
+      "status": "ocupada",
+      "capacity_pairs": null,
+      "measures_basis": "Faces internas derivadas das peças do gerador V3/GLB; X/Y/Z em metros no Three.js. Limites úteis excluem paredes e, nos conjuntos duplos, a faixa de manejo.",
+      "runtime_partition": true
     },
     {
       "id": "SUP-BE-30",
@@ -4872,7 +5672,7 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -4909,7 +5709,7 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -4946,7 +5746,7 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -4983,7 +5783,7 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -5020,7 +5820,7 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -5057,7 +5857,7 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -5094,7 +5894,7 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -5131,7 +5931,7 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -5168,7 +5968,7 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -5205,7 +6005,7 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
@@ -5242,7 +6042,7 @@
         "columns": 1,
         "rows": 2,
         "rotated": false,
-        "gap": 0.1375
+        "gap": 0.08
       },
       "status": "ocupada",
       "capacity_pairs": null,
