@@ -1,24 +1,26 @@
 import { useEffect, useMemo } from "react"
 import { BufferGeometry, CanvasTexture, Float32BufferAttribute, SRGBColorSpace } from "three"
-import { physicalPens, galleryAnimals } from "./enclosureLayout"
+import { physicalPens } from "./enclosureLayout"
 import dimensions from "../../concepts/arca/dimensoes-animais-jogo-v1.json"
 
 export function EnclosureSigns() {
   const signs = useMemo(() => {
     const labels = physicalPens.map(pen => {
       const animal = dimensions.animals.find(a => a.id === pen.animal_key)
+      if (!animal) throw new Error(`Baia sem animal: ${pen.id}`)
       const { min, max } = pen.bounds_m
-      const composition = animal ? animal.quantity === 2 ? "1 CASAL" : `${animal.quantity} animais` : "DISPONÍVEL"
-      return { name: animal?.name ?? "Baia disponível", detail: `${pen.id} · ${composition}`,
+      const composition = animal.quantity === 2 ? "1 CASAL" : `${animal.quantity} animais`
+      return {
+        name: animal.name,
+        detail: `${pen.id} · ${composition}`,
         measures: `${(max[0] - min[0]).toFixed(2)} × ${(max[2] - min[2]).toFixed(2)} × ${(max[1] - min[1]).toFixed(2)} m`,
-        x: (min[0] + max[0]) / 2, y: min[1] + 1.85,
+        x: (min[0] + max[0]) / 2,
+        y: Math.min(max[1] - 0.45, min[1] + 1.85),
         z: (pen.side > 0 ? max[2] : min[2]) + pen.side * 0.12,
-        face: pen.side, width: Math.min(2.2, max[0] - min[0] - 0.1) }
-    }).concat(galleryAnimals.map(animal => {
-      const p = animal.staging_position_m!
-      return { name: animal.name, detail: `${animal.quantity} animais · BAIA PENDENTE`, measures: "Galeria de referência",
-        x: p[0], y: p[1] + 1.85, z: p[2] + 3.6, face: 1, width: 2.2 }
-    }))
+        face: pen.side,
+        width: Math.max(0.45, Math.min(2.2, max[0] - min[0] - 0.08)),
+      }
+    })
     const columns = 8, rows = Math.ceil(labels.length / columns)
     const canvas = document.createElement("canvas")
     canvas.width = columns * 256; canvas.height = rows * 96
@@ -55,7 +57,7 @@ export function EnclosureSigns() {
     return { geometry, texture }
   }, [])
   useEffect(() => () => { signs.geometry.dispose(); signs.texture.dispose() }, [signs])
-  // Physical pens (including empty ones) and gallery share one draw call.
+  // All 162 internal pen labels share one draw call.
   return <mesh name="Placas_Identificacao_Recintos" geometry={signs.geometry} userData={{ noCollision: true }}>
     <meshBasicMaterial map={signs.texture} toneMapped={false} />
   </mesh>
