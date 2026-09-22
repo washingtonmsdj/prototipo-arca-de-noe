@@ -20,6 +20,9 @@ Referência upstream: `tomjohndesign/pilgrimage@c5e8c507a4ae4fe925f789793dd463b9
 | Elevation | Ativo | `src/pilgrimage/world/elevation-core.ts` |
 | Hydrology | Ativo | `src/pilgrimage/world/hydrology.ts` |
 | Cliff masks/walls | Ativo | world core + Arca renderer |
+| Beaches + diagonal shoreline | Ativo | `src/pilgrimage/world/beaches.ts`, `shoreline.ts` |
+| Waterfall turbulence/motion | Ativo | hydrology + `src/world/WaterMotion.tsx` |
+| Human sockets + attachments | Ativo | `src/humans/attachments.ts` + lab/baker |
 | Safe roaming/lab placement | Ativo | `src/world/terrain.ts` |
 
 ## Preservado como snapshot, mas não executado diretamente
@@ -46,9 +49,9 @@ Esses módulos não são necessários para gerar/animar animais, pessoas ou o te
 
 ## Próximos ports úteis
 
-1. shoreline/beach/corner terrain visual;
-2. waterfalls/foam usando `WaterInfo.motion` e `drop` já calculados;
-3. sockets e props humanos no laboratório;
-4. CLI fino sobre os bakers browser;
-5. LOD sprite/depth em runtime;
+1. CLI fino sobre os bakers browser;
+2. LOD sprite/depth em runtime;
+3. biblioteca real de props/equipamentos;
+4. blend e foot locking do runtime humano original;
+5. pontes/fords quando o gameplay exigir travessia;
 6. navegação/rotas apenas quando o gameplay exigir.
