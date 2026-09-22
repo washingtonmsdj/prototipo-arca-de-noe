@@ -46,9 +46,36 @@ Attachments de desenvolvimento usam `src/humans/attachments.ts`, compartilhado p
 
 O mesmo objeto e o mesmo socket são usados no runtime e no baker, evitando divergência entre preview e atlas.
 
+## Locomoção original em mundo
+
+O rig original não depende mais apenas de playback temporal no laboratório.
+
+Para os clips locomotores `walk`, `wearyWalk`, `carrying` e `procession`:
+
+- a passada em mundo deriva da distância percorrida;
+- a velocidade deriva de stride × cadência;
+- o pé de suporte usa o mesmo contato original do Pilgrimage;
+- `plantFoot()` mantém o apoio em coordenadas de mundo durante a curva;
+- altura e inclinação usam `terrainHeight()` e `terrainSlope()`;
+- editar uma pose congela o deslocamento para não misturar ferramentas de edição e simulação.
+
+O laboratório expõe **Mover no mundo** para validar esse caminho sem criar gameplay artificial.
+
+## Transição entre clips
+
+A troca de clip usa um snapshot do estado exibido e um blend curto.
+
+O sistema interpola:
+
+- posição;
+- quaternion;
+- escala;
+- geometria deformável da roupa/robe e cordas.
+
+Props de ação mudam visibilidade de forma discreta no meio da transição. Isso é necessário porque o rig original deforma vértices de roupa dentro de `pose()`; um blend apenas de transforms seria incorreto.
+
 ## Próximas evoluções
 
-- blend entre clips;
-- foot locking em movimento no runtime original;
 - roupas/cabelo apropriados ao cenário;
-- biblioteca real de ferramentas/objetos além do attachment de teste.
+- biblioteca real de ferramentas/objetos além do attachment de teste;
+- navegação real quando o gameplay exigir deslocamento entre destinos.
