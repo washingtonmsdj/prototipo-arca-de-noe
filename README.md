@@ -8,7 +8,7 @@ O objetivo desta fase é dominar e evoluir geração, rig, animação e bake ant
 
 O projeto usa **Three.js via React Three Fiber**. A página `/arca` apresenta o exterior v9 exportado do Blender, com terreno, câmera orbital e porta interativa. A home `/` preserva o laboratório original e seu botão `Abrir arca 3D` acessa essa página.
 
-A prévia finalizada e o futuro modo de construção são independentes: a primeira carrega `arca-exterior-runtime-v1.glb`; o kit modular legado fica reservado para o segundo e ainda requer correção de transformações. Não há gameplay de construção implementado. A animação interativa da porta usa a dobradiça exportada, independentemente do progresso da obra. Os materiais atuais são PBR básicos; o relevo procedural de madeira do Blender ainda não foi convertido em texturas web. O GLB exterior ainda exige otimização para produção. Esta alteração não foi validada com build ou testes de navegador.
+A prévia finalizada e o futuro modo de construção são independentes: a primeira carrega `arca-exterior-runtime-v1.glb`; o kit modular legado fica reservado para o segundo e ainda requer correção de transformações. Não há gameplay de construção implementado. A animação interativa da porta usa a dobradiça exportada, independentemente do progresso da obra. Os materiais atuais são PBR básicos; o relevo procedural de madeira do Blender ainda não foi convertido em texturas web. O GLB exterior ainda exige otimização para produção. A integração atual passa pela validação automatizada de typecheck, testes e build.
 
 Os assets publicados ficam em `public/assets/arca/` e seu contrato está em `public/assets/arca/manifest.json`. Os `.blend` e briefs em `concepts/arca/` continuam sendo fontes de autoria; os GLBs são os artefatos de runtime. A unidade é metro, o eixo é Y-up e a cena usa nomes estáveis para permitir colisões, LOD e gameplay de construção nas próximas etapas.
 
@@ -36,7 +36,13 @@ Não usamos mais o antigo rio senoidal nem trajetos ambientes cegos.
 
 ### Animais
 
-Há dois motores comparáveis no laboratório.
+Na prévia interna da arca, o cadastro atual contém **162 grupos e 1.080 indivíduos de referência, todos dentro da arca**. Há uma baia física exclusiva por grupo, com 162/162 ocupadas e nenhuma galeria externa pendente.
+
+Os envelopes corporais são calibrados por espécie e postura normal, em vez de reutilizar um bloco genérico. Tamanduás são tratados como quadrúpedes baixos; ursos usam altura quadrúpede; porcos, vombates, aves, pequenos mamíferos, répteis e invertebrados têm dimensões próprias. Grupos grandes que não são compatíveis com a altura útil dos pavimentos são identificados explicitamente como jovens independentes proporcionais.
+
+Vinte volumes foram subdivididos fisicamente para reduzir espaço desperdiçado sem diminuir animais apenas para fazê-los caber. As divisórias, placas, colisões e posições dos blocos usam o mesmo catálogo de bounds e são cobertas por testes geométricos.
+
+Há também dois motores comparáveis no laboratório.
 
 **Pilgrimage original isolado**:
 
