@@ -44,6 +44,7 @@ interface WorldProps {
   humanEditPhase?: number
   humanAttachment?: HumanAttachmentKind
   humanAttachmentSocket?: SocketName
+  humanMoving: boolean
   speedScale: number
   paused: boolean
   showRig: boolean
@@ -183,6 +184,7 @@ export function World({
   humanEditPhase,
   humanAttachment,
   humanAttachmentSocket,
+  humanMoving,
   speedScale,
   paused,
   showRig,
@@ -270,6 +272,9 @@ export function World({
             showRig={showRig}
             attachment={humanAttachment}
             attachmentSocket={humanAttachmentSocket}
+            pathRadius={1.6}
+            pathOffset={0}
+            stationary={!humanMoving || humanEditPhase !== undefined}
           />
         ) : (
           <Human
