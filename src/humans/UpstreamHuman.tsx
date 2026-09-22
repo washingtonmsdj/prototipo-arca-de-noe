@@ -24,6 +24,12 @@ import {
   originalRigWalkContact,
   originalRigWalkSpeed,
 } from "./upstream-motion"
+import {
+  blendHumanPose,
+  captureHumanPose,
+  humanTransitionProgress,
+  type HumanPoseSnapshot,
+} from "./pose-transition"
 
 export const UPSTREAM_PERSON_PRESETS = Object.keys(PERSON_PRESETS)
 export const UPSTREAM_PERSON_CLIPS = Object.keys(PERSON_CLIPS) as BaseClip[]
@@ -76,6 +82,8 @@ export function UpstreamHuman({
   const socketPoint = useRef(new THREE.Vector3())
   const phase = useRef(0)
   const plantedFoot = useRef<FootPlant | null>(null)
+  const lastClip = useRef<BaseClip>(clip)
+  const transition = useRef<{ snapshot: HumanPoseSnapshot; elapsed: number } | null>(null)
   const motion = useRef({
     distance: Math.max(0, pathRadius) * pathOffset,
     angle: pathOffset,
@@ -100,6 +108,12 @@ export function UpstreamHuman({
         object.receiveShadow = true
       }
     })
+    lastClip.current = clip
+    transition.current = null
+    plantedFoot.current = null
+    phase.current = 0
+    motion.current.distance = Math.max(0, pathRadius) * pathOffset
+    motion.current.angle = pathOffset
     return () => setup.rig.dispose()
   }, [setup])
 
@@ -120,14 +134,29 @@ export function UpstreamHuman({
   useFrame((_, delta) => {
     if (!container.current) return
     const dt = paused ? 0 : Math.min(delta, .05)
+    const clipChanged = lastClip.current !== clip
+    if (clipChanged) {
+      transition.current = !paused && phaseOverride === undefined
+        ? { snapshot: captureHumanPose(setup.rig.root), elapsed: 0 }
+        : null
+
+      const preserveWalkPhase = isOriginalMovingClip(lastClip.current)
+        && isOriginalMovingClip(clip)
+      if (!preserveWalkPhase) phase.current = 0
+
+      lastClip.current = clip
+      plantedFoot.current = null
+    }
+
     const moving = !stationary
       && phaseOverride === undefined
       && isOriginalMovingClip(clip)
       && pathRadius > 0
 
+    const transitioning = transition.current !== null
     const previousPhase = phase.current
     const cadence = 1.1 * speedScale
-    const distance = moving
+    const distance = moving && !transitioning
       ? originalRigWalkSpeed(setup.recipe.body, scale, cadence) * dt
       : 0
 
@@ -141,7 +170,7 @@ export function UpstreamHuman({
         setup.recipe.body,
         scale,
       )
-    } else {
+    } else if (!moving) {
       phase.current = (phase.current + dt * cadence) % 1
     }
 
@@ -195,6 +224,14 @@ export function UpstreamHuman({
     container.current.rotation.z = Math.atan(slope.dx * .22)
 
     setup.rig.pose(displayPhase, clip, edits)
+
+    if (transition.current && phaseOverride === undefined && !paused) {
+      transition.current.elapsed += Math.min(delta, .05)
+      const progress = humanTransitionProgress(transition.current.elapsed, .18)
+      blendHumanPose(transition.current.snapshot, progress)
+      if (progress >= 1) transition.current = null
+    }
+
     const joints = setup.rig.joints()
     for (const name of EDITABLE_JOINTS) {
       const marker = markers.current[name]
