@@ -257,7 +257,12 @@ export async function bakeHumanClip(
   }
 }
 
-export function humanBakeFileStem(preset: string, clip: BaseClip) {
+export function humanBakeFileStem(
+  preset: string,
+  clip: BaseClip,
+  attachment?: HumanBakeAttachment,
+) {
   const safePreset = preset.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
-  return `human-${safePreset || "custom"}-${clip}`
+  const suffix = attachment ? `-${attachment.kind}-${attachment.socket}` : ""
+  return `human-${safePreset || "custom"}-${clip}${suffix}`
 }
