@@ -1,8 +1,8 @@
 {
-  "version": 4,
+  "version": 5,
   "unit": "metre",
-  "source": "162 grupos; envelopes recalibrados por espécie e postura normal. Grandes grupos mantêm política de jovem independente quando a altura adulta conflita com os pavimentos.",
-  "status": "162 baias físicas ocupadas; 0 grupos externos; 1080 indivíduos dentro da arca.",
+  "source": "162 grupos; envelopes revisados por espécie/tipo de referência, postura e estágio de vida. O runtime usa planejamento automático por classe de alojamento.",
+  "status": "162 grupos / 1080 indivíduos; escala corporal revisada e layout recalculado automaticamente no runtime.",
   "scope": "Catálogo editorial ampliado, não inventário de todas as espécies ou de todos os tipos bíblicos. Fauna extinta e grupos não enumerados continuam pendentes.",
   "axes": {
     "blender": "X=comprimento, Y=largura, Z=altura",
@@ -37,7 +37,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "jovem_independente_proporcional"
+      "dimension_basis": "jovem_independente_proporcional",
+      "reference_form": "Elefante-africano-da-savana",
+      "life_stage": "juvenile_independent",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "rinocerontes",
@@ -64,7 +69,23 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "jovem_independente_proporcional"
+      "dimension_basis": "jovem_independente_proporcional",
+      "reference_form": "Rinoceronte-branco",
+      "life_stage": "juvenile_independent",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "high",
+      "reference_scope": "representative_form",
+      "adult_reference": {
+        "length_m": [
+          3.8,
+          5
+        ],
+        "height_m": [
+          1.5,
+          1.8
+        ],
+        "measurement": "rinoceronte-branco adulto"
+      }
     },
     {
       "id": "hipopotamos",
@@ -91,7 +112,23 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "jovem_independente_proporcional"
+      "dimension_basis": "jovem_independente_proporcional",
+      "reference_form": "Hipopótamo-comum",
+      "life_stage": "juvenile_independent",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "high",
+      "reference_scope": "representative_form",
+      "adult_reference": {
+        "length_m": [
+          3.3,
+          5
+        ],
+        "height_m": [
+          1.3,
+          1.6
+        ],
+        "measurement": "hipopótamo-comum adulto"
+      }
     },
     {
       "id": "tapires",
@@ -118,7 +155,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Anta-sul-americana",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "cavalos",
@@ -145,7 +187,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Cavalo doméstico",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "asnos",
@@ -172,7 +219,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Asno doméstico",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "zebras",
@@ -199,7 +251,19 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Zebra-das-planícies",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "high",
+      "reference_scope": "representative_form",
+      "adult_reference": {
+        "height_m": [
+          1.3,
+          1.5
+        ],
+        "measurement": "zebra adulta; altura ao ombro"
+      }
     },
     {
       "id": "camelos",
@@ -210,23 +274,39 @@
       "males": 1,
       "females": 1,
       "dimensions_m": {
-        "length": 2.8,
-        "width": 0.9,
-        "height": 2
+        "length": 3.3,
+        "width": 0.95,
+        "height": 2.1
       },
       "blender_dimensions_m": [
-        2.8,
-        0.9,
-        2
+        3.3,
+        0.95,
+        2.1
       ],
       "threejs_box_args_m": [
-        2.8,
-        2,
-        0.9
+        3.3,
+        2.1,
+        0.95
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Camelo-bactriano",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "high",
+      "reference_scope": "representative_form",
+      "adult_reference": {
+        "length_m": [
+          3.2,
+          3.5
+        ],
+        "height_m": [
+          1.6,
+          1.8
+        ],
+        "measurement": "camelo-bactriano; comprimento e altura ao ombro"
+      }
     },
     {
       "id": "bovinos",
@@ -253,7 +333,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "jovem_independente_proporcional"
+      "dimension_basis": "jovem_independente_proporcional",
+      "reference_form": "Bovino doméstico",
+      "life_stage": "juvenile_independent",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "bufalos",
@@ -280,7 +365,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "jovem_independente_proporcional"
+      "dimension_basis": "jovem_independente_proporcional",
+      "reference_form": "Búfalo-asiático",
+      "life_stage": "juvenile_independent",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "bisoes",
@@ -307,7 +397,23 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "jovem_independente_proporcional"
+      "dimension_basis": "jovem_independente_proporcional",
+      "reference_form": "Bisão-americano",
+      "life_stage": "juvenile_independent",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "high",
+      "reference_scope": "representative_form",
+      "adult_reference": {
+        "length_m": [
+          2.7,
+          3.8
+        ],
+        "height_m": [
+          1.4,
+          1.9
+        ],
+        "measurement": "bisão-americano adulto; altura no ombro/corcova conforme sexo"
+      }
     },
     {
       "id": "iaques",
@@ -334,7 +440,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "jovem_independente_proporcional"
+      "dimension_basis": "jovem_independente_proporcional",
+      "reference_form": "Iaque",
+      "life_stage": "juvenile_independent",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "girafas",
@@ -361,7 +472,19 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "jovem_independente_proporcional"
+      "dimension_basis": "jovem_independente_proporcional",
+      "reference_form": "Girafa",
+      "life_stage": "juvenile_independent",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "high",
+      "reference_scope": "representative_form",
+      "adult_reference": {
+        "height_m": [
+          4.5,
+          5.5
+        ],
+        "measurement": "girafa adulta; altura total"
+      }
     },
     {
       "id": "alces",
@@ -388,7 +511,23 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "jovem_independente_proporcional"
+      "dimension_basis": "jovem_independente_proporcional",
+      "reference_form": "Alce",
+      "life_stage": "juvenile_independent",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "high",
+      "reference_scope": "representative_form",
+      "adult_reference": {
+        "length_m": [
+          2.4,
+          2.8
+        ],
+        "height_m": [
+          1.5,
+          2.1
+        ],
+        "measurement": "alce adulto; altura ao ombro"
+      }
     },
     {
       "id": "renas",
@@ -415,7 +554,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "jovem_independente_proporcional"
+      "dimension_basis": "jovem_independente_proporcional",
+      "reference_form": "Rena",
+      "life_stage": "juvenile_independent",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "cervos",
@@ -442,7 +586,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "jovem_independente_proporcional"
+      "dimension_basis": "jovem_independente_proporcional",
+      "reference_form": "Veado-vermelho",
+      "life_stage": "juvenile_independent",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "ovelhas",
@@ -469,7 +618,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Ovelha doméstica",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "cabras",
@@ -496,7 +650,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Cabra doméstica",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "ibex",
@@ -523,7 +682,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Íbex-alpino",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "gazelas",
@@ -550,7 +714,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Gazela de porte médio",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "orix",
@@ -577,7 +746,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Órix/gemsbok",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "impala",
@@ -604,7 +778,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Impala",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "kudu",
@@ -631,7 +810,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Kudu-maior",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "gnus",
@@ -658,7 +842,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Gnu-azul",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "gorilas",
@@ -685,7 +874,12 @@
       ],
       "staging_position_m": null,
       "posture": "apoio_quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Gorila-ocidental",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "chimpanzes",
@@ -712,7 +906,12 @@
       ],
       "staging_position_m": null,
       "posture": "apoio_quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Chimpanzé",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "leoes",
@@ -739,7 +938,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Leão",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "tigres",
@@ -766,7 +970,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Tigre",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "leopardos",
@@ -793,7 +1002,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Leopardo",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "jaguares",
@@ -820,7 +1034,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Onça-pintada",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "pumas",
@@ -847,7 +1066,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Puma",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "guepardos",
@@ -874,7 +1098,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Guepardo",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "ursos_pardos",
@@ -885,23 +1114,39 @@
       "males": 1,
       "females": 1,
       "dimensions_m": {
-        "length": 2.2,
+        "length": 2.1,
         "width": 0.9,
-        "height": 1.2
+        "height": 1.1
       },
       "blender_dimensions_m": [
-        2.2,
+        2.1,
         0.9,
-        1.2
+        1.1
       ],
       "threejs_box_args_m": [
-        2.2,
-        1.2,
+        2.1,
+        1.1,
         0.9
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Urso-pardo",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "high",
+      "reference_scope": "representative_form",
+      "adult_reference": {
+        "length_m": [
+          1.5,
+          2.1
+        ],
+        "height_m": [
+          0.9,
+          1.5
+        ],
+        "measurement": "comprimento corporal e altura ao ombro em quatro patas"
+      }
     },
     {
       "id": "ursos_negros",
@@ -928,7 +1173,19 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Urso-negro-americano",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "high",
+      "reference_scope": "representative_form",
+      "adult_reference": {
+        "height_m": [
+          0.9,
+          0.95
+        ],
+        "measurement": "altura aproximada ao ombro em quatro patas"
+      }
     },
     {
       "id": "lobos",
@@ -955,7 +1212,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Lobo-cinzento",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "raposas",
@@ -982,7 +1244,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Raposa-vermelha",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "hienas",
@@ -1009,7 +1276,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Hiena-malhada",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "chacais",
@@ -1036,7 +1308,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Chacal-de-dorso-negro",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "porcos",
@@ -1063,7 +1340,19 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Porco doméstico",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "high",
+      "reference_scope": "representative_form",
+      "adult_reference": {
+        "length_m": [
+          0.9,
+          1.8
+        ],
+        "measurement": "porco doméstico adulto; comprimento cabeça-corpo"
+      }
     },
     {
       "id": "javalis",
@@ -1090,7 +1379,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Javali",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "cangurus",
@@ -1101,23 +1395,28 @@
       "males": 1,
       "females": 1,
       "dimensions_m": {
-        "length": 1.4,
+        "length": 1.8,
         "width": 0.6,
         "height": 1.6
       },
       "blender_dimensions_m": [
-        1.4,
+        1.8,
         0.6,
         1.6
       ],
       "threejs_box_args_m": [
-        1.4,
+        1.8,
         1.6,
         0.6
       ],
       "staging_position_m": null,
       "posture": "ereto_relaxado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Canguru-vermelho",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "vombates",
@@ -1144,7 +1443,23 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Vombate-comum",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "high",
+      "reference_scope": "representative_form",
+      "adult_reference": {
+        "length_m": [
+          0.84,
+          1.15
+        ],
+        "height_m": [
+          0.35,
+          0.45
+        ],
+        "measurement": "vombate-comum adulto"
+      }
     },
     {
       "id": "capivaras",
@@ -1171,7 +1486,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Capivara",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "high",
+      "reference_scope": "representative_form"
     },
     {
       "id": "tamanduas",
@@ -1182,23 +1502,39 @@
       "males": 1,
       "females": 1,
       "dimensions_m": {
-        "length": 2,
+        "length": 2.1,
         "width": 0.55,
-        "height": 0.75
+        "height": 0.65
       },
       "blender_dimensions_m": [
-        2,
+        2.1,
         0.55,
-        0.75
+        0.65
       ],
       "threejs_box_args_m": [
-        2,
-        0.75,
+        2.1,
+        0.65,
         0.55
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo_cauda_incluida"
+      "dimension_basis": "adulto_representativo_cauda_incluida",
+      "reference_form": "Tamanduá-bandeira",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "high",
+      "reference_scope": "representative_form",
+      "adult_reference": {
+        "length_m": [
+          1.8,
+          2.4
+        ],
+        "height_m": [
+          0.6,
+          0.7
+        ],
+        "measurement": "comprimento total incluindo focinho e cauda; altura aproximada ao ombro"
+      }
     },
     {
       "id": "avestruzes",
@@ -1225,7 +1561,19 @@
       ],
       "staging_position_m": null,
       "posture": "ereto",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Avestruz-comum",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "high",
+      "reference_scope": "representative_form",
+      "adult_reference": {
+        "height_m": [
+          1.7,
+          2.7
+        ],
+        "measurement": "altura total adulta"
+      }
     },
     {
       "id": "emas",
@@ -1252,7 +1600,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Ema",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "babuinos",
@@ -1279,7 +1632,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Babuíno-oliva",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "macacos",
@@ -1306,7 +1664,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Macaco de porte pequeno/médio",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "pombos",
@@ -1333,7 +1696,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Pombo-da-rocha/doméstico",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "corvos",
@@ -1360,7 +1728,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Corvo-comum",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "galinhas",
@@ -1387,7 +1760,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Galinha doméstica",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "perdizes",
@@ -1414,7 +1792,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Perdiz de porte médio",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "pavoes",
@@ -1425,23 +1808,28 @@
       "males": 7,
       "females": 7,
       "dimensions_m": {
-        "length": 1.1,
-        "width": 0.35,
+        "length": 1.5,
+        "width": 0.4,
         "height": 1
       },
       "blender_dimensions_m": [
-        1.1,
-        0.35,
+        1.5,
+        0.4,
         1
       ],
       "threejs_box_args_m": [
-        1.1,
+        1.5,
         1,
-        0.35
+        0.4
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Pavão-indiano",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "patos",
@@ -1468,7 +1856,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Pato doméstico/de porte médio",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "marrecos",
@@ -1495,7 +1888,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Marreco de porte médio",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "araras",
@@ -1522,7 +1920,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Arara de grande porte",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "cacatuas",
@@ -1549,7 +1952,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Cacatua de porte médio",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "pica_paus",
@@ -1576,7 +1984,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Pica-pau de porte médio",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "poupas",
@@ -1603,7 +2016,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Poupa-eurasiática",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "andorinhoes",
@@ -1630,7 +2048,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Andorinhão de porte médio",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "pardais",
@@ -1657,7 +2080,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Pardal-doméstico",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "canarios",
@@ -1684,7 +2112,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Canário",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "aguias",
@@ -1711,7 +2144,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Águia de grande porte",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "cegonhas",
@@ -1738,7 +2176,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Cegonha-branca",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "pelicanos",
@@ -1765,7 +2208,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Pelicano de grande porte",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "grous",
@@ -1792,7 +2240,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Grou de grande porte",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "cucos",
@@ -1819,7 +2272,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Cuco-comum",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "corujas_pequenas",
@@ -1846,7 +2304,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Coruja de pequeno porte",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "coelhos",
@@ -1873,7 +2336,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Coelho-europeu",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "hiraxes",
@@ -1900,7 +2368,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Hírax-das-rochas",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "marmotas",
@@ -1927,7 +2400,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Marmota",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "porcos_espinhos",
@@ -1954,7 +2432,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Porco-espinho de grande porte",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "porquinhos_da_india",
@@ -1981,7 +2464,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Porquinho-da-índia",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "gerbos",
@@ -2008,7 +2496,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Gerbil-mongol",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "ratos",
@@ -2035,7 +2528,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Rato-marrom",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "toupeiras",
@@ -2062,7 +2560,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Toupeira-europeia",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "texugos",
@@ -2089,7 +2592,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Texugo-europeu",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "mangustos",
@@ -2116,7 +2624,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Mangusto de porte médio",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "jabutis",
@@ -2143,7 +2656,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Jabuti/tartaruga terrestre de porte médio",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "iguanas",
@@ -2170,7 +2688,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Iguana-verde",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "teius",
@@ -2197,7 +2720,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Teiú de grande porte",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "camaleoes",
@@ -2224,7 +2752,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Camaleão de porte médio",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "escincos",
@@ -2251,7 +2784,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Escinco de porte médio",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "pitons",
@@ -2278,7 +2816,12 @@
       ],
       "staging_position_m": null,
       "posture": "enrodado_relaxado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Píton de porte médio em repouso",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "viboras",
@@ -2305,7 +2848,12 @@
       ],
       "staging_position_m": null,
       "posture": "enrodado_relaxado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Víbora de porte médio em repouso",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "crocodilianos",
@@ -2332,7 +2880,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "jovem_independente_proporcional"
+      "dimension_basis": "jovem_independente_proporcional",
+      "reference_form": "Crocodiliano jovem independente",
+      "life_stage": "juvenile_independent",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "sapos",
@@ -2359,7 +2912,12 @@
       ],
       "staging_position_m": null,
       "posture": "repouso",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Sapo de grande porte",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "salamandras",
@@ -2386,7 +2944,12 @@
       ],
       "staging_position_m": null,
       "posture": "repouso",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Salamandra de porte médio",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "rolinhas",
@@ -2413,7 +2976,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Rolinha",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "gralhas",
@@ -2440,7 +3008,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Gralha",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "codornas",
@@ -2467,7 +3040,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Codorna",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "faisoes",
@@ -2494,7 +3072,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Faisão",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "perus",
@@ -2521,7 +3104,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Peru doméstico",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "gansos",
@@ -2548,7 +3136,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Ganso",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "papagaios",
@@ -2575,7 +3168,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Papagaio de porte médio",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "periquitos",
@@ -2602,7 +3200,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Periquito",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "tucanos",
@@ -2629,7 +3232,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Tucano",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "martins_pescadores",
@@ -2656,7 +3264,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Martim-pescador",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "andorinhas",
@@ -2683,7 +3296,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Andorinha",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "cotovias",
@@ -2710,7 +3328,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Cotovia",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "tentilhoes",
@@ -2737,7 +3360,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Tentilhão",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "pintassilgos",
@@ -2764,7 +3392,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Pintassilgo",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "abutres",
@@ -2791,7 +3424,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Abutre de grande porte",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "garcas",
@@ -2818,7 +3456,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Garça de grande porte",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "cormoroes",
@@ -2845,7 +3488,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Cormorão",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "flamingos",
@@ -2872,7 +3520,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Flamingo",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "beija_flores",
@@ -2899,7 +3552,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Beija-flor",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "falcoes_pequenos",
@@ -2926,7 +3584,12 @@
       ],
       "staging_position_m": null,
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Falcão de pequeno porte",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "lebres",
@@ -2953,7 +3616,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Lebre",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "esquilos",
@@ -2980,7 +3648,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Esquilo",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "castores",
@@ -3007,7 +3680,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Castor",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "chinchilas",
@@ -3034,7 +3712,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Chinchila",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "hamsters",
@@ -3061,7 +3744,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Hamster",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "camundongos",
@@ -3088,7 +3776,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Camundongo",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "musaranhos",
@@ -3115,7 +3808,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Musaranho",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "ouricos",
@@ -3142,7 +3840,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Ouriço-cacheiro",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "furoes",
@@ -3169,7 +3872,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Furão",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "morcegos",
@@ -3196,7 +3904,12 @@
       ],
       "staging_position_m": null,
       "posture": "pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Morcego de porte médio",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "tartarugas_semiaquaticas",
@@ -3223,7 +3936,12 @@
       ],
       "staging_position_m": null,
       "posture": "repouso",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Tartaruga semiaquática de porte médio",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "varanos",
@@ -3250,7 +3968,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Varano de porte médio/grande",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "agamas",
@@ -3277,7 +4000,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Agama",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "lagartixas",
@@ -3304,7 +4032,12 @@
       ],
       "staging_position_m": null,
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Lagartixa",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "jiboias",
@@ -3331,7 +4064,12 @@
       ],
       "staging_position_m": null,
       "posture": "enrodado_relaxado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Jiboia em repouso",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "cobras_nao_peconhentas",
@@ -3358,7 +4096,12 @@
       ],
       "staging_position_m": null,
       "posture": "enrodado_relaxado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Serpente não peçonhenta de porte médio",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "najas",
@@ -3385,7 +4128,12 @@
       ],
       "staging_position_m": null,
       "posture": "enrodado_relaxado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Naja em repouso",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "ras",
@@ -3412,7 +4160,12 @@
       ],
       "staging_position_m": null,
       "posture": "repouso",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Rã de grande porte",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "pererecas",
@@ -3439,7 +4192,12 @@
       ],
       "staging_position_m": null,
       "posture": "repouso",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Perereca",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "cecilias",
@@ -3466,7 +4224,12 @@
       ],
       "staging_position_m": null,
       "posture": "repouso",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Cecília",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "preguicas",
@@ -3497,7 +4260,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "quadrupede_suspenso_referencia",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Preguiça de porte médio",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "tatus",
@@ -3528,7 +4296,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Tatu de porte médio",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "pandas",
@@ -3559,7 +4332,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Panda-gigante",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "coalas",
@@ -3590,7 +4368,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Coala",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "lemures",
@@ -3621,7 +4404,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Lêmure de porte médio",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "lontras",
@@ -3652,7 +4440,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Lontra de porte médio",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "suricatos",
@@ -3683,7 +4476,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Suricato",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "ocapis",
@@ -3714,7 +4512,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Ocapi",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "pangolins",
@@ -3745,7 +4548,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Pangolim de porte médio",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "porcos-formigueiros",
@@ -3776,7 +4584,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "quadrupede",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Porco-formigueiro",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "pinguins",
@@ -3807,7 +4620,12 @@
       "quantity_status": "14 indivíduos: convenção editorial de sete pares de aves.",
       "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Pinguim de porte médio",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "kiwis",
@@ -3838,7 +4656,12 @@
       "quantity_status": "14 indivíduos: convenção editorial de sete pares de aves.",
       "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Kiwi",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "casuares",
@@ -3869,7 +4692,19 @@
       "quantity_status": "14 indivíduos: convenção editorial de sete pares de aves.",
       "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Casuar-do-sul",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "high",
+      "reference_scope": "representative_form",
+      "adult_reference": {
+        "height_m": [
+          1.5,
+          1.8
+        ],
+        "measurement": "altura total adulta aproximada"
+      }
     },
     {
       "id": "cisnes",
@@ -3880,18 +4715,18 @@
       "males": 7,
       "females": 7,
       "dimensions_m": {
-        "length": 1.2,
+        "length": 1.4,
         "width": 0.5,
-        "height": 0.8
+        "height": 0.85
       },
       "blender_dimensions_m": [
-        1.2,
+        1.4,
         0.5,
-        0.8
+        0.85
       ],
       "threejs_box_args_m": [
-        1.2,
-        0.8,
+        1.4,
+        0.85,
         0.5
       ],
       "staging_position_m": null,
@@ -3900,7 +4735,19 @@
       "quantity_status": "14 indivíduos: convenção editorial de sete pares de aves.",
       "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Cisne-mudo",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "high",
+      "reference_scope": "representative_form",
+      "adult_reference": {
+        "length_m": [
+          1.27,
+          1.52
+        ],
+        "measurement": "cisne-mudo adulto; comprimento corporal total"
+      }
     },
     {
       "id": "turacos",
@@ -3931,7 +4778,12 @@
       "quantity_status": "14 indivíduos: convenção editorial de sete pares de aves.",
       "sex_status": "Sem dimorfismo dimensional modelado.",
       "posture": "ereto_pousado",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Turaco de porte médio",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "formigas",
@@ -3962,7 +4814,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Formiga de grande porte para leitura visual",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "abelhas",
@@ -3993,7 +4850,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Abelha",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "vespas",
@@ -4024,7 +4886,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Vespa",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "cupins",
@@ -4055,7 +4922,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Cupim",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "besouros",
@@ -4086,7 +4958,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Besouro de grande porte",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "borboletas",
@@ -4117,7 +4994,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Borboleta de grande porte",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "mariposas",
@@ -4148,7 +5030,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Mariposa de grande porte",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "gafanhotos",
@@ -4179,7 +5066,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Gafanhoto de grande porte",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "grilos",
@@ -4210,7 +5102,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Grilo",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "louva-a-deus",
@@ -4241,7 +5138,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Louva-a-deus de grande porte",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "bichos-pau",
@@ -4272,7 +5174,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Bicho-pau de grande porte",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "baratas",
@@ -4303,7 +5210,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Barata de grande porte",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "aranhas",
@@ -4334,7 +5246,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Aranha de grande porte",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "escorpioes",
@@ -4365,7 +5282,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Escorpião de grande porte",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "centopeias",
@@ -4396,7 +5318,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Centopeia de grande porte",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "piolhos-de-cobra",
@@ -4427,7 +5354,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Diplópode de grande porte",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "caracois-terrestres",
@@ -4458,7 +5390,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Caracol terrestre de grande porte",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "lesmas",
@@ -4489,7 +5426,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Lesma de grande porte",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     },
     {
       "id": "minhocas",
@@ -4520,7 +5462,12 @@
       "quantity_status": "2 indivíduos: provisório; classificação e quantidade bíblica não validadas.",
       "sex_status": "M/F são apenas rótulos de instância; não modelam hermafroditismo, castas ou colônias.",
       "posture": "repouso",
-      "dimension_basis": "adulto_representativo"
+      "dimension_basis": "adulto_representativo",
+      "reference_form": "Minhoca de grande porte",
+      "life_stage": "adult",
+      "scale_review": "zoological-proportion-v2",
+      "scale_confidence": "medium",
+      "reference_scope": "representative_form"
     }
   ],
   "penguins": {
@@ -4536,5 +5483,7 @@
     "Espécies extintas não incluídas: exigem decisão explícita sobre escopo e período do jogo.",
     "Divisórias centrais agora definem baias A/B distintas. 10 casais transferidos da galeria para baias B, sem alterar a quantidade total de indivíduos."
   ],
-  "physical_catalog": "catalogo-baias-fisicas-v1.json"
+  "physical_catalog": "catalogo-baias-fisicas-v1.json",
+  "scale_method": "Separar referência adulta da caixa usada no jogo. Grupos grandes podem usar jovens independentes explicitamente; nunca converter comprimento corporal em altura.",
+  "scale_review_date": "2026-09-22"
 }
