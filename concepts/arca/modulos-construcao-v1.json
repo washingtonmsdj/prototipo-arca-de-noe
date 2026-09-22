@@ -1,0 +1,6611 @@
+{
+  "version": 1,
+  "units": "meters",
+  "coordinates": "Blender Z-up; GLB converts to Y-up. Use GLB node transforms, not these anchors directly.",
+  "module_count": 379,
+  "recipes_status": "undefined; not playable construction logic",
+  "modules": [
+    {
+      "id": "BERCO_00",
+      "stage": 1,
+      "kind": "temporary_support",
+      "anchor": [
+        -65,
+        0,
+        0
+      ],
+      "requires": [],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BASE_00",
+      "stage": 2,
+      "kind": "hull_base",
+      "anchor": [
+        -65,
+        0,
+        0
+      ],
+      "requires": [
+        "BERCO_00"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BERCO_01",
+      "stage": 1,
+      "kind": "temporary_support",
+      "anchor": [
+        -60,
+        0,
+        0
+      ],
+      "requires": [],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BASE_01",
+      "stage": 2,
+      "kind": "hull_base",
+      "anchor": [
+        -60,
+        0,
+        0
+      ],
+      "requires": [
+        "BERCO_01"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BERCO_02",
+      "stage": 1,
+      "kind": "temporary_support",
+      "anchor": [
+        -55,
+        0,
+        0
+      ],
+      "requires": [],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BASE_02",
+      "stage": 2,
+      "kind": "hull_base",
+      "anchor": [
+        -55,
+        0,
+        0
+      ],
+      "requires": [
+        "BERCO_02"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BERCO_03",
+      "stage": 1,
+      "kind": "temporary_support",
+      "anchor": [
+        -50,
+        0,
+        0
+      ],
+      "requires": [],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BASE_03",
+      "stage": 2,
+      "kind": "hull_base",
+      "anchor": [
+        -50,
+        0,
+        0
+      ],
+      "requires": [
+        "BERCO_03"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BERCO_04",
+      "stage": 1,
+      "kind": "temporary_support",
+      "anchor": [
+        -45,
+        0,
+        0
+      ],
+      "requires": [],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BASE_04",
+      "stage": 2,
+      "kind": "hull_base",
+      "anchor": [
+        -45,
+        0,
+        0
+      ],
+      "requires": [
+        "BERCO_04"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BERCO_05",
+      "stage": 1,
+      "kind": "temporary_support",
+      "anchor": [
+        -40,
+        0,
+        0
+      ],
+      "requires": [],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BASE_05",
+      "stage": 2,
+      "kind": "hull_base",
+      "anchor": [
+        -40,
+        0,
+        0
+      ],
+      "requires": [
+        "BERCO_05"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BERCO_06",
+      "stage": 1,
+      "kind": "temporary_support",
+      "anchor": [
+        -35,
+        0,
+        0
+      ],
+      "requires": [],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BASE_06",
+      "stage": 2,
+      "kind": "hull_base",
+      "anchor": [
+        -35,
+        0,
+        0
+      ],
+      "requires": [
+        "BERCO_06"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BERCO_07",
+      "stage": 1,
+      "kind": "temporary_support",
+      "anchor": [
+        -30,
+        0,
+        0
+      ],
+      "requires": [],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BASE_07",
+      "stage": 2,
+      "kind": "hull_base",
+      "anchor": [
+        -30,
+        0,
+        0
+      ],
+      "requires": [
+        "BERCO_07"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BERCO_08",
+      "stage": 1,
+      "kind": "temporary_support",
+      "anchor": [
+        -25,
+        0,
+        0
+      ],
+      "requires": [],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BASE_08",
+      "stage": 2,
+      "kind": "hull_base",
+      "anchor": [
+        -25,
+        0,
+        0
+      ],
+      "requires": [
+        "BERCO_08"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BERCO_09",
+      "stage": 1,
+      "kind": "temporary_support",
+      "anchor": [
+        -20,
+        0,
+        0
+      ],
+      "requires": [],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BASE_09",
+      "stage": 2,
+      "kind": "hull_base",
+      "anchor": [
+        -20,
+        0,
+        0
+      ],
+      "requires": [
+        "BERCO_09"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BERCO_10",
+      "stage": 1,
+      "kind": "temporary_support",
+      "anchor": [
+        -15,
+        0,
+        0
+      ],
+      "requires": [],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BASE_10",
+      "stage": 2,
+      "kind": "hull_base",
+      "anchor": [
+        -15,
+        0,
+        0
+      ],
+      "requires": [
+        "BERCO_10"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BERCO_11",
+      "stage": 1,
+      "kind": "temporary_support",
+      "anchor": [
+        -10,
+        0,
+        0
+      ],
+      "requires": [],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BASE_11",
+      "stage": 2,
+      "kind": "hull_base",
+      "anchor": [
+        -10,
+        0,
+        0
+      ],
+      "requires": [
+        "BERCO_11"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BERCO_12",
+      "stage": 1,
+      "kind": "temporary_support",
+      "anchor": [
+        -5,
+        0,
+        0
+      ],
+      "requires": [],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BASE_12",
+      "stage": 2,
+      "kind": "hull_base",
+      "anchor": [
+        -5,
+        0,
+        0
+      ],
+      "requires": [
+        "BERCO_12"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BERCO_13",
+      "stage": 1,
+      "kind": "temporary_support",
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "requires": [],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BASE_13",
+      "stage": 2,
+      "kind": "hull_base",
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "requires": [
+        "BERCO_13"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BERCO_14",
+      "stage": 1,
+      "kind": "temporary_support",
+      "anchor": [
+        5,
+        0,
+        0
+      ],
+      "requires": [],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BASE_14",
+      "stage": 2,
+      "kind": "hull_base",
+      "anchor": [
+        5,
+        0,
+        0
+      ],
+      "requires": [
+        "BERCO_14"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BERCO_15",
+      "stage": 1,
+      "kind": "temporary_support",
+      "anchor": [
+        10,
+        0,
+        0
+      ],
+      "requires": [],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BASE_15",
+      "stage": 2,
+      "kind": "hull_base",
+      "anchor": [
+        10,
+        0,
+        0
+      ],
+      "requires": [
+        "BERCO_15"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BERCO_16",
+      "stage": 1,
+      "kind": "temporary_support",
+      "anchor": [
+        15,
+        0,
+        0
+      ],
+      "requires": [],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BASE_16",
+      "stage": 2,
+      "kind": "hull_base",
+      "anchor": [
+        15,
+        0,
+        0
+      ],
+      "requires": [
+        "BERCO_16"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BERCO_17",
+      "stage": 1,
+      "kind": "temporary_support",
+      "anchor": [
+        20,
+        0,
+        0
+      ],
+      "requires": [],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BASE_17",
+      "stage": 2,
+      "kind": "hull_base",
+      "anchor": [
+        20,
+        0,
+        0
+      ],
+      "requires": [
+        "BERCO_17"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BERCO_18",
+      "stage": 1,
+      "kind": "temporary_support",
+      "anchor": [
+        25,
+        0,
+        0
+      ],
+      "requires": [],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BASE_18",
+      "stage": 2,
+      "kind": "hull_base",
+      "anchor": [
+        25,
+        0,
+        0
+      ],
+      "requires": [
+        "BERCO_18"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BERCO_19",
+      "stage": 1,
+      "kind": "temporary_support",
+      "anchor": [
+        30,
+        0,
+        0
+      ],
+      "requires": [],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BASE_19",
+      "stage": 2,
+      "kind": "hull_base",
+      "anchor": [
+        30,
+        0,
+        0
+      ],
+      "requires": [
+        "BERCO_19"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BERCO_20",
+      "stage": 1,
+      "kind": "temporary_support",
+      "anchor": [
+        35,
+        0,
+        0
+      ],
+      "requires": [],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BASE_20",
+      "stage": 2,
+      "kind": "hull_base",
+      "anchor": [
+        35,
+        0,
+        0
+      ],
+      "requires": [
+        "BERCO_20"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BERCO_21",
+      "stage": 1,
+      "kind": "temporary_support",
+      "anchor": [
+        40,
+        0,
+        0
+      ],
+      "requires": [],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BASE_21",
+      "stage": 2,
+      "kind": "hull_base",
+      "anchor": [
+        40,
+        0,
+        0
+      ],
+      "requires": [
+        "BERCO_21"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BERCO_22",
+      "stage": 1,
+      "kind": "temporary_support",
+      "anchor": [
+        45,
+        0,
+        0
+      ],
+      "requires": [],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BASE_22",
+      "stage": 2,
+      "kind": "hull_base",
+      "anchor": [
+        45,
+        0,
+        0
+      ],
+      "requires": [
+        "BERCO_22"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BERCO_23",
+      "stage": 1,
+      "kind": "temporary_support",
+      "anchor": [
+        50,
+        0,
+        0
+      ],
+      "requires": [],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BASE_23",
+      "stage": 2,
+      "kind": "hull_base",
+      "anchor": [
+        50,
+        0,
+        0
+      ],
+      "requires": [
+        "BERCO_23"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BERCO_24",
+      "stage": 1,
+      "kind": "temporary_support",
+      "anchor": [
+        55,
+        0,
+        0
+      ],
+      "requires": [],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BASE_24",
+      "stage": 2,
+      "kind": "hull_base",
+      "anchor": [
+        55,
+        0,
+        0
+      ],
+      "requires": [
+        "BERCO_24"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BERCO_25",
+      "stage": 1,
+      "kind": "temporary_support",
+      "anchor": [
+        60,
+        0,
+        0
+      ],
+      "requires": [],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BASE_25",
+      "stage": 2,
+      "kind": "hull_base",
+      "anchor": [
+        60,
+        0,
+        0
+      ],
+      "requires": [
+        "BERCO_25"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BERCO_26",
+      "stage": 1,
+      "kind": "temporary_support",
+      "anchor": [
+        65,
+        0,
+        0
+      ],
+      "requires": [],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "BASE_26",
+      "stage": 2,
+      "kind": "hull_base",
+      "anchor": [
+        65,
+        0,
+        0
+      ],
+      "requires": [
+        "BERCO_26"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_00",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        -65,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_00"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_01",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        -62.5,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_00",
+        "BASE_01"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_02",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        -57.5,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_01",
+        "BASE_02"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_03",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        -52.5,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_02",
+        "BASE_03"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_04",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        -47.5,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_03",
+        "BASE_04"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_05",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        -42.5,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_04",
+        "BASE_05"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_06",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        -37.5,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_05",
+        "BASE_06"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_07",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        -32.5,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_06",
+        "BASE_07"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_08",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        -27.5,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_07",
+        "BASE_08"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_09",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        -22.5,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_08",
+        "BASE_09"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_10",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        -17.5,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_09",
+        "BASE_10"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_11",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        -12.5,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_10",
+        "BASE_11"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_12",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        -7.5,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_11",
+        "BASE_12"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_13",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        -2.5,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_12",
+        "BASE_13"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_14",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        2.5,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_13",
+        "BASE_14"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_15",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        7.5,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_14",
+        "BASE_15"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_16",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        12.5,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_15",
+        "BASE_16"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_17",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        17.5,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_16",
+        "BASE_17"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_18",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        22.5,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_17",
+        "BASE_18"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_19",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        27.5,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_18",
+        "BASE_19"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_20",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        32.5,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_19",
+        "BASE_20"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_21",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        37.5,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_20",
+        "BASE_21"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_22",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        42.5,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_21",
+        "BASE_22"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_23",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        47.5,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_22",
+        "BASE_23"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_24",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        52.5,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_23",
+        "BASE_24"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_25",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        57.5,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_24",
+        "BASE_25"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_26",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        62.5,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_25",
+        "BASE_26"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "FRAME_27",
+      "stage": 3,
+      "kind": "structural_frame",
+      "anchor": [
+        65,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_26"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_INF_00",
+      "stage": 3,
+      "kind": "floor_lower",
+      "anchor": [
+        -65,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_00",
+        "FRAME_01"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_INF_01",
+      "stage": 3,
+      "kind": "floor_lower",
+      "anchor": [
+        -60,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_01",
+        "FRAME_02"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_INF_02",
+      "stage": 3,
+      "kind": "floor_lower",
+      "anchor": [
+        -55,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_02",
+        "FRAME_03"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_INF_03",
+      "stage": 3,
+      "kind": "floor_lower",
+      "anchor": [
+        -50,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_03",
+        "FRAME_04"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_INF_04",
+      "stage": 3,
+      "kind": "floor_lower",
+      "anchor": [
+        -45,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_04",
+        "FRAME_05"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_INF_05",
+      "stage": 3,
+      "kind": "floor_lower",
+      "anchor": [
+        -40,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_05",
+        "FRAME_06"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_INF_06",
+      "stage": 3,
+      "kind": "floor_lower",
+      "anchor": [
+        -35,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_06",
+        "FRAME_07"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_INF_07",
+      "stage": 3,
+      "kind": "floor_lower",
+      "anchor": [
+        -30,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_07",
+        "FRAME_08"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_INF_08",
+      "stage": 3,
+      "kind": "floor_lower",
+      "anchor": [
+        -25,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_08",
+        "FRAME_09"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_INF_09",
+      "stage": 3,
+      "kind": "floor_lower",
+      "anchor": [
+        -20,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_09",
+        "FRAME_10"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_INF_10",
+      "stage": 3,
+      "kind": "floor_lower",
+      "anchor": [
+        -15,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_10",
+        "FRAME_11"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_INF_11",
+      "stage": 3,
+      "kind": "floor_lower",
+      "anchor": [
+        -10,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_11",
+        "FRAME_12"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_INF_12",
+      "stage": 3,
+      "kind": "floor_lower",
+      "anchor": [
+        -5,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_12",
+        "FRAME_13"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_INF_13",
+      "stage": 3,
+      "kind": "floor_lower",
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_13",
+        "FRAME_14"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_INF_14",
+      "stage": 3,
+      "kind": "floor_lower",
+      "anchor": [
+        5,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_14",
+        "FRAME_15"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_INF_15",
+      "stage": 3,
+      "kind": "floor_lower",
+      "anchor": [
+        10,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_15",
+        "FRAME_16"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_INF_16",
+      "stage": 3,
+      "kind": "floor_lower",
+      "anchor": [
+        15,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_16",
+        "FRAME_17"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_INF_17",
+      "stage": 3,
+      "kind": "floor_lower",
+      "anchor": [
+        20,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_17",
+        "FRAME_18"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_INF_18",
+      "stage": 3,
+      "kind": "floor_lower",
+      "anchor": [
+        25,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_18",
+        "FRAME_19"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_INF_19",
+      "stage": 3,
+      "kind": "floor_lower",
+      "anchor": [
+        30,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_19",
+        "FRAME_20"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_INF_20",
+      "stage": 3,
+      "kind": "floor_lower",
+      "anchor": [
+        35,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_20",
+        "FRAME_21"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_INF_21",
+      "stage": 3,
+      "kind": "floor_lower",
+      "anchor": [
+        40,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_21",
+        "FRAME_22"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_INF_22",
+      "stage": 3,
+      "kind": "floor_lower",
+      "anchor": [
+        45,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_22",
+        "FRAME_23"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_INF_23",
+      "stage": 3,
+      "kind": "floor_lower",
+      "anchor": [
+        50,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_23",
+        "FRAME_24"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_INF_24",
+      "stage": 3,
+      "kind": "floor_lower",
+      "anchor": [
+        55,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_24",
+        "FRAME_25"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_INF_25",
+      "stage": 3,
+      "kind": "floor_lower",
+      "anchor": [
+        60,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_25",
+        "FRAME_26"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_INF_26",
+      "stage": 3,
+      "kind": "floor_lower",
+      "anchor": [
+        65,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_26",
+        "FRAME_27"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_MED_00",
+      "stage": 4,
+      "kind": "floor_middle",
+      "anchor": [
+        -65,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_00",
+        "FRAME_01",
+        "PISO_INF_00"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_MED_01",
+      "stage": 4,
+      "kind": "floor_middle",
+      "anchor": [
+        -60,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_01",
+        "FRAME_02",
+        "PISO_INF_01"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_MED_02",
+      "stage": 4,
+      "kind": "floor_middle",
+      "anchor": [
+        -55,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_02",
+        "FRAME_03",
+        "PISO_INF_02"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_MED_03",
+      "stage": 4,
+      "kind": "floor_middle",
+      "anchor": [
+        -50,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_03",
+        "FRAME_04",
+        "PISO_INF_03"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_MED_04",
+      "stage": 4,
+      "kind": "floor_middle",
+      "anchor": [
+        -45,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_04",
+        "FRAME_05",
+        "PISO_INF_04"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_MED_05",
+      "stage": 4,
+      "kind": "floor_middle",
+      "anchor": [
+        -40,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_05",
+        "FRAME_06",
+        "PISO_INF_05"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_MED_06",
+      "stage": 4,
+      "kind": "floor_middle",
+      "anchor": [
+        -35,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_06",
+        "FRAME_07",
+        "PISO_INF_06"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_MED_07",
+      "stage": 4,
+      "kind": "floor_middle",
+      "anchor": [
+        -30,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_07",
+        "FRAME_08",
+        "PISO_INF_07"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_MED_08",
+      "stage": 4,
+      "kind": "floor_middle",
+      "anchor": [
+        -25,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_08",
+        "FRAME_09",
+        "PISO_INF_08"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_MED_09",
+      "stage": 4,
+      "kind": "floor_middle",
+      "anchor": [
+        -20,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_09",
+        "FRAME_10",
+        "PISO_INF_09"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_MED_10",
+      "stage": 4,
+      "kind": "floor_middle",
+      "anchor": [
+        -15,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_10",
+        "FRAME_11",
+        "PISO_INF_10"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_MED_11",
+      "stage": 4,
+      "kind": "floor_middle",
+      "anchor": [
+        -10,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_11",
+        "FRAME_12",
+        "PISO_INF_11"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_MED_12",
+      "stage": 4,
+      "kind": "floor_middle",
+      "anchor": [
+        -5,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_12",
+        "FRAME_13",
+        "PISO_INF_12"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_MED_13",
+      "stage": 4,
+      "kind": "floor_middle",
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_13",
+        "FRAME_14",
+        "PISO_INF_13"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_MED_14",
+      "stage": 4,
+      "kind": "floor_middle",
+      "anchor": [
+        5,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_14",
+        "FRAME_15",
+        "PISO_INF_14"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_MED_15",
+      "stage": 4,
+      "kind": "floor_middle",
+      "anchor": [
+        10,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_15",
+        "FRAME_16",
+        "PISO_INF_15"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_MED_16",
+      "stage": 4,
+      "kind": "floor_middle",
+      "anchor": [
+        15,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_16",
+        "FRAME_17",
+        "PISO_INF_16"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_MED_17",
+      "stage": 4,
+      "kind": "floor_middle",
+      "anchor": [
+        20,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_17",
+        "FRAME_18",
+        "PISO_INF_17"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_MED_18",
+      "stage": 4,
+      "kind": "floor_middle",
+      "anchor": [
+        25,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_18",
+        "FRAME_19",
+        "PISO_INF_18"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_MED_19",
+      "stage": 4,
+      "kind": "floor_middle",
+      "anchor": [
+        30,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_19",
+        "FRAME_20",
+        "PISO_INF_19"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_MED_20",
+      "stage": 4,
+      "kind": "floor_middle",
+      "anchor": [
+        35,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_20",
+        "FRAME_21",
+        "PISO_INF_20"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_MED_21",
+      "stage": 4,
+      "kind": "floor_middle",
+      "anchor": [
+        40,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_21",
+        "FRAME_22",
+        "PISO_INF_21"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_MED_22",
+      "stage": 4,
+      "kind": "floor_middle",
+      "anchor": [
+        45,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_22",
+        "FRAME_23",
+        "PISO_INF_22"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_MED_23",
+      "stage": 4,
+      "kind": "floor_middle",
+      "anchor": [
+        50,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_23",
+        "FRAME_24",
+        "PISO_INF_23"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_MED_24",
+      "stage": 4,
+      "kind": "floor_middle",
+      "anchor": [
+        55,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_24",
+        "FRAME_25",
+        "PISO_INF_24"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_MED_25",
+      "stage": 4,
+      "kind": "floor_middle",
+      "anchor": [
+        60,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_25",
+        "FRAME_26",
+        "PISO_INF_25"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_MED_26",
+      "stage": 4,
+      "kind": "floor_middle",
+      "anchor": [
+        65,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_26",
+        "FRAME_27",
+        "PISO_INF_26"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_SUP_00",
+      "stage": 4,
+      "kind": "floor_upper",
+      "anchor": [
+        -65,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_00",
+        "FRAME_01",
+        "PISO_MED_00"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_SUP_01",
+      "stage": 4,
+      "kind": "floor_upper",
+      "anchor": [
+        -60,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_01",
+        "FRAME_02",
+        "PISO_MED_01"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_SUP_02",
+      "stage": 4,
+      "kind": "floor_upper",
+      "anchor": [
+        -55,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_02",
+        "FRAME_03",
+        "PISO_MED_02"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_SUP_03",
+      "stage": 4,
+      "kind": "floor_upper",
+      "anchor": [
+        -50,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_03",
+        "FRAME_04",
+        "PISO_MED_03"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_SUP_04",
+      "stage": 4,
+      "kind": "floor_upper",
+      "anchor": [
+        -45,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_04",
+        "FRAME_05",
+        "PISO_MED_04"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_SUP_05",
+      "stage": 4,
+      "kind": "floor_upper",
+      "anchor": [
+        -40,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_05",
+        "FRAME_06",
+        "PISO_MED_05"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_SUP_06",
+      "stage": 4,
+      "kind": "floor_upper",
+      "anchor": [
+        -35,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_06",
+        "FRAME_07",
+        "PISO_MED_06"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_SUP_07",
+      "stage": 4,
+      "kind": "floor_upper",
+      "anchor": [
+        -30,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_07",
+        "FRAME_08",
+        "PISO_MED_07"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_SUP_08",
+      "stage": 4,
+      "kind": "floor_upper",
+      "anchor": [
+        -25,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_08",
+        "FRAME_09",
+        "PISO_MED_08"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_SUP_09",
+      "stage": 4,
+      "kind": "floor_upper",
+      "anchor": [
+        -20,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_09",
+        "FRAME_10",
+        "PISO_MED_09"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_SUP_10",
+      "stage": 4,
+      "kind": "floor_upper",
+      "anchor": [
+        -15,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_10",
+        "FRAME_11",
+        "PISO_MED_10"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_SUP_11",
+      "stage": 4,
+      "kind": "floor_upper",
+      "anchor": [
+        -10,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_11",
+        "FRAME_12",
+        "PISO_MED_11"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_SUP_12",
+      "stage": 4,
+      "kind": "floor_upper",
+      "anchor": [
+        -5,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_12",
+        "FRAME_13",
+        "PISO_MED_12"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_SUP_13",
+      "stage": 4,
+      "kind": "floor_upper",
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_13",
+        "FRAME_14",
+        "PISO_MED_13"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_SUP_14",
+      "stage": 4,
+      "kind": "floor_upper",
+      "anchor": [
+        5,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_14",
+        "FRAME_15",
+        "PISO_MED_14"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_SUP_15",
+      "stage": 4,
+      "kind": "floor_upper",
+      "anchor": [
+        10,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_15",
+        "FRAME_16",
+        "PISO_MED_15"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_SUP_16",
+      "stage": 4,
+      "kind": "floor_upper",
+      "anchor": [
+        15,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_16",
+        "FRAME_17",
+        "PISO_MED_16"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_SUP_17",
+      "stage": 4,
+      "kind": "floor_upper",
+      "anchor": [
+        20,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_17",
+        "FRAME_18",
+        "PISO_MED_17"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_SUP_18",
+      "stage": 4,
+      "kind": "floor_upper",
+      "anchor": [
+        25,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_18",
+        "FRAME_19",
+        "PISO_MED_18"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_SUP_19",
+      "stage": 4,
+      "kind": "floor_upper",
+      "anchor": [
+        30,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_19",
+        "FRAME_20",
+        "PISO_MED_19"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_SUP_20",
+      "stage": 4,
+      "kind": "floor_upper",
+      "anchor": [
+        35,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_20",
+        "FRAME_21",
+        "PISO_MED_20"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_SUP_21",
+      "stage": 4,
+      "kind": "floor_upper",
+      "anchor": [
+        40,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_21",
+        "FRAME_22",
+        "PISO_MED_21"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_SUP_22",
+      "stage": 4,
+      "kind": "floor_upper",
+      "anchor": [
+        45,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_22",
+        "FRAME_23",
+        "PISO_MED_22"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_SUP_23",
+      "stage": 4,
+      "kind": "floor_upper",
+      "anchor": [
+        50,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_23",
+        "FRAME_24",
+        "PISO_MED_23"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_SUP_24",
+      "stage": 4,
+      "kind": "floor_upper",
+      "anchor": [
+        55,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_24",
+        "FRAME_25",
+        "PISO_MED_24"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_SUP_25",
+      "stage": 4,
+      "kind": "floor_upper",
+      "anchor": [
+        60,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_25",
+        "FRAME_26",
+        "PISO_MED_25"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PISO_SUP_26",
+      "stage": 4,
+      "kind": "floor_upper",
+      "anchor": [
+        65,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_26",
+        "FRAME_27",
+        "PISO_MED_26"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BB_00",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        -65,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_00",
+        "FRAME_01"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BB_01",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        -60,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_01",
+        "FRAME_02"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BB_02",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        -55,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_02",
+        "FRAME_03"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BB_03",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        -50,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_03",
+        "FRAME_04"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BB_04",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        -45,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_04",
+        "FRAME_05"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BB_05",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        -40,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_05",
+        "FRAME_06"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BB_06",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        -35,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_06",
+        "FRAME_07"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BB_07",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        -30,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_07",
+        "FRAME_08"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BB_08",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        -25,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_08",
+        "FRAME_09"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BB_09",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        -20,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_09",
+        "FRAME_10"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BB_10",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        -15,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_10",
+        "FRAME_11"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BB_11",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        -10,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_11",
+        "FRAME_12"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BB_12",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        -5,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_12",
+        "FRAME_13"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BB_13",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_13",
+        "FRAME_14"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BB_14",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        5,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_14",
+        "FRAME_15"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BB_15",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        10,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_15",
+        "FRAME_16"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BB_16",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        15,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_16",
+        "FRAME_17"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BB_17",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        20,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_17",
+        "FRAME_18"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BB_18",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        25,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_18",
+        "FRAME_19"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BB_19",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        30,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_19",
+        "FRAME_20"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BB_20",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        35,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_20",
+        "FRAME_21"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BB_21",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        40,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_21",
+        "FRAME_22"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BB_22",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        45,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_22",
+        "FRAME_23"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BB_23",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        50,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_23",
+        "FRAME_24"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BB_24",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        55,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_24",
+        "FRAME_25"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BB_25",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        60,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_25",
+        "FRAME_26"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BB_26",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        65,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_26",
+        "FRAME_27"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BE_00",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        -65,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_00",
+        "FRAME_01"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BE_01",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        -60,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_01",
+        "FRAME_02"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BE_02",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        -55,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_02",
+        "FRAME_03"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BE_03",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        -50,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_03",
+        "FRAME_04"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BE_04",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        -45,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_04",
+        "FRAME_05"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BE_05",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        -40,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_05",
+        "FRAME_06"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BE_06",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        -35,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_06",
+        "FRAME_07"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BE_07",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        -30,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_07",
+        "FRAME_08"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BE_08",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        -25,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_08",
+        "FRAME_09"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BE_09",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        -20,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_09",
+        "FRAME_10"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BE_10",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        -15,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_10",
+        "FRAME_11"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BE_11",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        -10,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_11",
+        "FRAME_12"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BE_12",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        -5,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_12",
+        "FRAME_13"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BE_13",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_13",
+        "FRAME_14"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BE_14",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        5,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_14",
+        "FRAME_15"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BE_15",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        10,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_15",
+        "FRAME_16"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BE_16",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        15,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_16",
+        "FRAME_17"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BE_17",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        20,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_17",
+        "FRAME_18"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BE_18",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        25,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_18",
+        "FRAME_19"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BE_19",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        30,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_19",
+        "FRAME_20"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BE_20",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        35,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_20",
+        "FRAME_21"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BE_21",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        40,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_21",
+        "FRAME_22"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BE_22",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        45,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_22",
+        "FRAME_23"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BE_23",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        50,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_23",
+        "FRAME_24"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BE_24",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        55,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_24",
+        "FRAME_25"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BE_25",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        60,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_25",
+        "FRAME_26"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "LATERAL_BE_26",
+      "stage": 5,
+      "kind": "hull_side",
+      "anchor": [
+        65,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_26",
+        "FRAME_27"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "TELHADO_00",
+      "stage": 5,
+      "kind": "roof",
+      "anchor": [
+        -65,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_00",
+        "FRAME_01",
+        "PISO_SUP_00"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "TELHADO_01",
+      "stage": 5,
+      "kind": "roof",
+      "anchor": [
+        -60,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_01",
+        "FRAME_02",
+        "PISO_SUP_01"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "TELHADO_02",
+      "stage": 5,
+      "kind": "roof",
+      "anchor": [
+        -55,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_02",
+        "FRAME_03",
+        "PISO_SUP_02"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "TELHADO_03",
+      "stage": 5,
+      "kind": "roof",
+      "anchor": [
+        -50,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_03",
+        "FRAME_04",
+        "PISO_SUP_03"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "TELHADO_04",
+      "stage": 5,
+      "kind": "roof",
+      "anchor": [
+        -45,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_04",
+        "FRAME_05",
+        "PISO_SUP_04"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "TELHADO_05",
+      "stage": 5,
+      "kind": "roof",
+      "anchor": [
+        -40,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_05",
+        "FRAME_06",
+        "PISO_SUP_05"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "TELHADO_06",
+      "stage": 5,
+      "kind": "roof",
+      "anchor": [
+        -35,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_06",
+        "FRAME_07",
+        "PISO_SUP_06"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "TELHADO_07",
+      "stage": 5,
+      "kind": "roof",
+      "anchor": [
+        -30,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_07",
+        "FRAME_08",
+        "PISO_SUP_07"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "TELHADO_08",
+      "stage": 5,
+      "kind": "roof",
+      "anchor": [
+        -25,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_08",
+        "FRAME_09",
+        "PISO_SUP_08"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "TELHADO_09",
+      "stage": 5,
+      "kind": "roof",
+      "anchor": [
+        -20,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_09",
+        "FRAME_10",
+        "PISO_SUP_09"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "TELHADO_10",
+      "stage": 5,
+      "kind": "roof",
+      "anchor": [
+        -15,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_10",
+        "FRAME_11",
+        "PISO_SUP_10"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "TELHADO_11",
+      "stage": 5,
+      "kind": "roof",
+      "anchor": [
+        -10,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_11",
+        "FRAME_12",
+        "PISO_SUP_11"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "TELHADO_12",
+      "stage": 5,
+      "kind": "roof",
+      "anchor": [
+        -5,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_12",
+        "FRAME_13",
+        "PISO_SUP_12"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "TELHADO_13",
+      "stage": 5,
+      "kind": "roof",
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_13",
+        "FRAME_14",
+        "PISO_SUP_13"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "TELHADO_14",
+      "stage": 5,
+      "kind": "roof",
+      "anchor": [
+        5,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_14",
+        "FRAME_15",
+        "PISO_SUP_14"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "TELHADO_15",
+      "stage": 5,
+      "kind": "roof",
+      "anchor": [
+        10,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_15",
+        "FRAME_16",
+        "PISO_SUP_15"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "TELHADO_16",
+      "stage": 5,
+      "kind": "roof",
+      "anchor": [
+        15,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_16",
+        "FRAME_17",
+        "PISO_SUP_16"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "TELHADO_17",
+      "stage": 5,
+      "kind": "roof",
+      "anchor": [
+        20,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_17",
+        "FRAME_18",
+        "PISO_SUP_17"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "TELHADO_18",
+      "stage": 5,
+      "kind": "roof",
+      "anchor": [
+        25,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_18",
+        "FRAME_19",
+        "PISO_SUP_18"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "TELHADO_19",
+      "stage": 5,
+      "kind": "roof",
+      "anchor": [
+        30,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_19",
+        "FRAME_20",
+        "PISO_SUP_19"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "TELHADO_20",
+      "stage": 5,
+      "kind": "roof",
+      "anchor": [
+        35,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_20",
+        "FRAME_21",
+        "PISO_SUP_20"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "TELHADO_21",
+      "stage": 5,
+      "kind": "roof",
+      "anchor": [
+        40,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_21",
+        "FRAME_22",
+        "PISO_SUP_21"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "TELHADO_22",
+      "stage": 5,
+      "kind": "roof",
+      "anchor": [
+        45,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_22",
+        "FRAME_23",
+        "PISO_SUP_22"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "TELHADO_23",
+      "stage": 5,
+      "kind": "roof",
+      "anchor": [
+        50,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_23",
+        "FRAME_24",
+        "PISO_SUP_23"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "TELHADO_24",
+      "stage": 5,
+      "kind": "roof",
+      "anchor": [
+        55,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_24",
+        "FRAME_25",
+        "PISO_SUP_24"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "TELHADO_25",
+      "stage": 5,
+      "kind": "roof",
+      "anchor": [
+        60,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_25",
+        "FRAME_26",
+        "PISO_SUP_25"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "TELHADO_26",
+      "stage": 5,
+      "kind": "roof",
+      "anchor": [
+        65,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_26",
+        "FRAME_27",
+        "PISO_SUP_26"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "EXTREMIDADE_-1",
+      "stage": 5,
+      "kind": "hull_end",
+      "anchor": [
+        -67,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_00"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "EXTREMIDADE_1",
+      "stage": 5,
+      "kind": "hull_end",
+      "anchor": [
+        67,
+        0,
+        0
+      ],
+      "requires": [
+        "FRAME_27"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "ENTRADA",
+      "stage": 2,
+      "kind": "access",
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "requires": [
+        "BASE_02"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "RAMPA_INF_MED",
+      "stage": 4,
+      "kind": "access",
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "requires": [
+        "PISO_INF_03",
+        "PISO_INF_04",
+        "PISO_INF_05",
+        "PISO_INF_06",
+        "PISO_INF_07",
+        "PISO_INF_08",
+        "PISO_INF_09",
+        "PISO_INF_10",
+        "PISO_INF_11",
+        "PISO_MED_03",
+        "PISO_MED_04",
+        "PISO_MED_05",
+        "PISO_MED_06",
+        "PISO_MED_07",
+        "PISO_MED_08",
+        "PISO_MED_09",
+        "PISO_MED_10",
+        "PISO_MED_11"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "RAMPA_MED_SUP",
+      "stage": 4,
+      "kind": "access",
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "requires": [
+        "PISO_MED_15",
+        "PISO_MED_16",
+        "PISO_MED_17",
+        "PISO_MED_18",
+        "PISO_MED_19",
+        "PISO_MED_20",
+        "PISO_MED_21",
+        "PISO_MED_22",
+        "PISO_SUP_15",
+        "PISO_SUP_16",
+        "PISO_SUP_17",
+        "PISO_SUP_18",
+        "PISO_SUP_19",
+        "PISO_SUP_20",
+        "PISO_SUP_21",
+        "PISO_SUP_22"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "PORTA",
+      "stage": 5,
+      "kind": "access",
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "requires": [
+        "LATERAL_BB_02"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    },
+    {
+      "id": "RECINTO_INF-BB-01",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -43,
+        -6.400000095367432,
+        0.6499999761581421
+      ],
+      "requires": [
+        "PISO_INF_03",
+        "PISO_INF_04",
+        "PISO_INF_05",
+        "PISO_INF_06",
+        "TELHADO_03",
+        "TELHADO_04",
+        "TELHADO_05",
+        "TELHADO_06"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "elefantes",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_INF-BB-02",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -30,
+        -6.400000095367432,
+        0.6499999761581421
+      ],
+      "requires": [
+        "PISO_INF_06",
+        "PISO_INF_07",
+        "PISO_INF_08",
+        "TELHADO_06",
+        "TELHADO_07",
+        "TELHADO_08"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "rinocerontes",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_INF-BB-03",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -18,
+        -6.400000095367432,
+        0.6499999761581421
+      ],
+      "requires": [
+        "PISO_INF_08",
+        "PISO_INF_09",
+        "PISO_INF_10",
+        "PISO_INF_11",
+        "TELHADO_08",
+        "TELHADO_09",
+        "TELHADO_10",
+        "TELHADO_11"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "hipopotamos",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_INF-BB-04",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -8,
+        -6.400000095367432,
+        0.6499999761581421
+      ],
+      "requires": [
+        "PISO_INF_11",
+        "PISO_INF_12",
+        "TELHADO_11",
+        "TELHADO_12"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "tapires",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_INF-BB-05",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        0,
+        -6.400000095367432,
+        0.6499999761581421
+      ],
+      "requires": [
+        "PISO_INF_12",
+        "PISO_INF_13",
+        "PISO_INF_14",
+        "TELHADO_12",
+        "TELHADO_13",
+        "TELHADO_14"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "cavalos",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_INF-BB-06",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        8,
+        -6.400000095367432,
+        0.6499999761581421
+      ],
+      "requires": [
+        "PISO_INF_14",
+        "PISO_INF_15",
+        "TELHADO_14",
+        "TELHADO_15"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "asnos",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_INF-BB-07",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        16,
+        -6.400000095367432,
+        0.6499999761581421
+      ],
+      "requires": [
+        "PISO_INF_15",
+        "PISO_INF_16",
+        "PISO_INF_17",
+        "TELHADO_15",
+        "TELHADO_16",
+        "TELHADO_17"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "zebras",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_INF-BB-08",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        25,
+        -6.400000095367432,
+        0.6499999761581421
+      ],
+      "requires": [
+        "PISO_INF_17",
+        "PISO_INF_18",
+        "PISO_INF_19",
+        "TELHADO_17",
+        "TELHADO_18",
+        "TELHADO_19"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "camelos",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_INF-BE-01",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -42.148101806640625,
+        6.400000095367432,
+        0.6499999761581421
+      ],
+      "requires": [
+        "PISO_INF_03",
+        "PISO_INF_04",
+        "PISO_INF_05",
+        "PISO_INF_06",
+        "TELHADO_03",
+        "TELHADO_04",
+        "TELHADO_05",
+        "TELHADO_06"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "bovinos",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_INF-BE-02",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -26.444400787353516,
+        6.400000095367432,
+        0.6499999761581421
+      ],
+      "requires": [
+        "PISO_INF_06",
+        "PISO_INF_07",
+        "PISO_INF_08",
+        "PISO_INF_09",
+        "TELHADO_06",
+        "TELHADO_07",
+        "TELHADO_08",
+        "TELHADO_09"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "bufalos",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_INF-BE-03",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -11.722200393676758,
+        6.400000095367432,
+        0.6499999761581421
+      ],
+      "requires": [
+        "PISO_INF_09",
+        "PISO_INF_10",
+        "PISO_INF_11",
+        "PISO_INF_12",
+        "TELHADO_09",
+        "TELHADO_10",
+        "TELHADO_11",
+        "TELHADO_12"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "bisoes",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_INF-BE-04",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        1.0369999408721924,
+        6.400000095367432,
+        0.6499999761581421
+      ],
+      "requires": [
+        "PISO_INF_12",
+        "PISO_INF_13",
+        "PISO_INF_14",
+        "TELHADO_12",
+        "TELHADO_13",
+        "TELHADO_14"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "iaques",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_INF-BE-05",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        14.777799606323242,
+        6.400000095367432,
+        0.6499999761581421
+      ],
+      "requires": [
+        "PISO_INF_14",
+        "PISO_INF_15",
+        "PISO_INF_16",
+        "PISO_INF_17",
+        "PISO_INF_18",
+        "TELHADO_14",
+        "TELHADO_15",
+        "TELHADO_16",
+        "TELHADO_17",
+        "TELHADO_18"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "girafas",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_INF-BE-06",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        28.51849937438965,
+        6.400000095367432,
+        0.6499999761581421
+      ],
+      "requires": [
+        "PISO_INF_18",
+        "PISO_INF_19",
+        "PISO_INF_20",
+        "TELHADO_18",
+        "TELHADO_19",
+        "TELHADO_20"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "alces",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_INF-BE-07",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        39.31480026245117,
+        6.400000095367432,
+        0.6499999761581421
+      ],
+      "requires": [
+        "PISO_INF_20",
+        "PISO_INF_21",
+        "PISO_INF_22",
+        "TELHADO_20",
+        "TELHADO_21",
+        "TELHADO_22"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "renas",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_INF-BE-08",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        50.11109924316406,
+        6.400000095367432,
+        0.6499999761581421
+      ],
+      "requires": [
+        "PISO_INF_22",
+        "PISO_INF_23",
+        "PISO_INF_24",
+        "TELHADO_22",
+        "TELHADO_23",
+        "TELHADO_24"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "cervos",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_MED-BB-01",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -46.69419860839844,
+        -7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_03",
+        "PISO_MED_04",
+        "TELHADO_03",
+        "TELHADO_04"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "ovelhas",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_MED-BB-02",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -40.08259963989258,
+        -7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_04",
+        "PISO_MED_05",
+        "PISO_MED_06",
+        "TELHADO_04",
+        "TELHADO_05",
+        "TELHADO_06"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "cabras",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_MED-BB-03",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -33.471099853515625,
+        -7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_06",
+        "PISO_MED_07",
+        "TELHADO_06",
+        "TELHADO_07"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "ibex",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_MED-BB-04",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -26.859500885009766,
+        -7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_07",
+        "PISO_MED_08",
+        "TELHADO_07",
+        "TELHADO_08"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "gazelas",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_MED-BB-05",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -19.834699630737305,
+        -7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_08",
+        "PISO_MED_09",
+        "PISO_MED_10",
+        "TELHADO_08",
+        "TELHADO_09",
+        "TELHADO_10"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "orix",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_MED-BB-06",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -12.809900283813477,
+        -7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_10",
+        "PISO_MED_11",
+        "TELHADO_10",
+        "TELHADO_11"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "impala",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_MED-BB-07",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -5.3719000816345215,
+        -7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_11",
+        "PISO_MED_12",
+        "PISO_MED_13",
+        "TELHADO_11",
+        "TELHADO_12",
+        "TELHADO_13"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "kudu",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_MED-BB-08",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        2.8926000595092773,
+        -7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_13",
+        "PISO_MED_14",
+        "TELHADO_13",
+        "TELHADO_14"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "gnus",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_MED-BB-09",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        11.156999588012695,
+        -7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_14",
+        "PISO_MED_15",
+        "PISO_MED_16",
+        "TELHADO_14",
+        "TELHADO_15",
+        "TELHADO_16"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "gorilas",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_MED-BB-10",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        18.594999313354492,
+        -7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_16",
+        "PISO_MED_17",
+        "TELHADO_16",
+        "TELHADO_17"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "chimpanzes",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_MED-BB-11",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        24.793399810791016,
+        -7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_17",
+        "PISO_MED_18",
+        "PISO_MED_19",
+        "TELHADO_17",
+        "TELHADO_18",
+        "TELHADO_19"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "leoes",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_MED-BB-12",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        30.578500747680664,
+        -7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_19",
+        "PISO_MED_20",
+        "TELHADO_19",
+        "TELHADO_20"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "tigres",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_MED-BB-13",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        35.537200927734375,
+        -7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_20",
+        "PISO_MED_21",
+        "TELHADO_20",
+        "TELHADO_21"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "leopardos",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_MED-BB-14",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        39.66939926147461,
+        -7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_21",
+        "TELHADO_21"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "jaguares",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_MED-BB-15",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        43.801700592041016,
+        -7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_21",
+        "PISO_MED_22",
+        "TELHADO_21",
+        "TELHADO_22"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "pumas",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_MED-BB-16",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        47.93389892578125,
+        -7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_22",
+        "PISO_MED_23",
+        "TELHADO_22",
+        "TELHADO_23"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "guepardos",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_MED-BE-01",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -45.145599365234375,
+        7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_03",
+        "PISO_MED_04",
+        "PISO_MED_05",
+        "TELHADO_03",
+        "TELHADO_04",
+        "TELHADO_05"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "ursos_pardos",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_MED-BE-02",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -36.407798767089844,
+        7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_05",
+        "PISO_MED_06",
+        "TELHADO_05",
+        "TELHADO_06"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "ursos_negros",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_MED-BE-03",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -29.6117000579834,
+        7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_06",
+        "PISO_MED_07",
+        "PISO_MED_08",
+        "TELHADO_06",
+        "TELHADO_07",
+        "TELHADO_08"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "lobos",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_MED-BE-04",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -24.757299423217773,
+        7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_08",
+        "TELHADO_08"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "raposas",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_MED-BE-05",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -19.90290069580078,
+        7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_08",
+        "PISO_MED_09",
+        "PISO_MED_10",
+        "TELHADO_08",
+        "TELHADO_09",
+        "TELHADO_10"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "hienas",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_MED-BE-06",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -14.56309986114502,
+        7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_10",
+        "PISO_MED_11",
+        "TELHADO_10",
+        "TELHADO_11"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "chacais",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_MED-BE-07",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -9.708700180053711,
+        7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_11",
+        "PISO_MED_12",
+        "TELHADO_11",
+        "TELHADO_12"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "porcos",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_MED-BE-08",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -4.854400157928467,
+        7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_12",
+        "PISO_MED_13",
+        "TELHADO_12",
+        "TELHADO_13"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "javalis",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_MED-BE-09",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        0.9708999991416931,
+        7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_13",
+        "PISO_MED_14",
+        "TELHADO_13",
+        "TELHADO_14"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "cangurus",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_MED-BE-10",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        6.310699939727783,
+        7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_14",
+        "PISO_MED_15",
+        "TELHADO_14",
+        "TELHADO_15"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "vombates",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_MED-BE-11",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        10.67959976196289,
+        7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_15",
+        "PISO_MED_16",
+        "TELHADO_15",
+        "TELHADO_16"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "capivaras",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_MED-BE-12",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        15.534000396728516,
+        7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_16",
+        "PISO_MED_17",
+        "TELHADO_16",
+        "TELHADO_17"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "tamanduas",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_MED-BE-13",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        23.786399841308594,
+        7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_17",
+        "PISO_MED_18",
+        "PISO_MED_19",
+        "TELHADO_17",
+        "TELHADO_18",
+        "TELHADO_19"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "avestruzes",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_MED-BE-14",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        34.465999603271484,
+        7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_19",
+        "PISO_MED_20",
+        "PISO_MED_21",
+        "TELHADO_19",
+        "TELHADO_20",
+        "TELHADO_21"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "emas",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_MED-BE-15",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        42.233001708984375,
+        7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_21",
+        "PISO_MED_22",
+        "TELHADO_21",
+        "TELHADO_22"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "babuinos",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_MED-BE-16",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        47.57279968261719,
+        7.400000095367432,
+        4.849999904632568
+      ],
+      "requires": [
+        "PISO_MED_22",
+        "PISO_MED_23",
+        "TELHADO_22",
+        "TELHADO_23"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "macacos",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BB-01",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -48.75,
+        -7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_03",
+        "TELHADO_03"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "pombos",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BB-02",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -46.25,
+        -7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_04",
+        "TELHADO_04"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "corvos",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BB-03",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -43.75,
+        -7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_04",
+        "TELHADO_04"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "galinhas",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BB-04",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -41.25,
+        -7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_05",
+        "TELHADO_05"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "perdizes",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BB-05",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -38.75,
+        -7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_05",
+        "TELHADO_05"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "pavoes",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BB-06",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -36.25,
+        -7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_06",
+        "TELHADO_06"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "patos",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BB-07",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -33.75,
+        -7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_06",
+        "TELHADO_06"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "marrecos",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BB-08",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -31.25,
+        -7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_07",
+        "TELHADO_07"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "araras",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BB-09",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -28.75,
+        -7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_07",
+        "TELHADO_07"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "cacatuas",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BB-10",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -26.25,
+        -7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_08",
+        "TELHADO_08"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "pica_paus",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BB-11",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -23.75,
+        -7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_08",
+        "TELHADO_08"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "poupas",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BB-12",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -21.25,
+        -7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_09",
+        "TELHADO_09"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "andorinhoes",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BB-13",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -18.75,
+        -7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_09",
+        "TELHADO_09"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "pardais",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BB-14",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -16.25,
+        -7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_10",
+        "TELHADO_10"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "canarios",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BB-15",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -11,
+        -7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_10",
+        "PISO_SUP_11",
+        "PISO_SUP_12",
+        "TELHADO_10",
+        "TELHADO_11",
+        "TELHADO_12"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "aguias",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BB-16",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -3,
+        -7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_12",
+        "PISO_SUP_13",
+        "TELHADO_12",
+        "TELHADO_13"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "cegonhas",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BB-17",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        5,
+        -7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_13",
+        "PISO_SUP_14",
+        "PISO_SUP_15",
+        "TELHADO_13",
+        "TELHADO_14",
+        "TELHADO_15"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "pelicanos",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BB-18",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        13,
+        -7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_15",
+        "PISO_SUP_16",
+        "TELHADO_15",
+        "TELHADO_16"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "grous",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BB-19",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        18.25,
+        -7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_16",
+        "PISO_SUP_17",
+        "TELHADO_16",
+        "TELHADO_17"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "cucos",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BB-20",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        20.75,
+        -7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_17",
+        "TELHADO_17"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "corujas_pequenas",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BB-21",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        24.799999237060547,
+        -5.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_18",
+        "TELHADO_18"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "coelhos",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BB-22",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        24.799999237060547,
+        -9.399999618530273,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_18",
+        "TELHADO_18"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "hiraxes",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BB-23",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        26.399999618530273,
+        -5.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_18",
+        "TELHADO_18"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "marmotas",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BB-24",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        26.399999618530273,
+        -9.399999618530273,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_18",
+        "TELHADO_18"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "porcos_espinhos",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BB-25",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        28,
+        -5.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_18",
+        "PISO_SUP_19",
+        "TELHADO_18",
+        "TELHADO_19"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "porquinhos_da_india",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BB-26",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        28,
+        -9.399999618530273,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_18",
+        "PISO_SUP_19",
+        "TELHADO_18",
+        "TELHADO_19"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "gerbos",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BB-27",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        29.600000381469727,
+        -5.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_19",
+        "TELHADO_19"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "ratos",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BB-28",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        29.600000381469727,
+        -9.399999618530273,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_19",
+        "TELHADO_19"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "toupeiras",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BB-29",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        31.200000762939453,
+        -5.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_19",
+        "TELHADO_19"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "texugos",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BB-30",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        31.200000762939453,
+        -9.399999618530273,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_19",
+        "TELHADO_19"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "mangustos",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BB-31",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        32.79999923706055,
+        -5.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_19",
+        "PISO_SUP_20",
+        "TELHADO_19",
+        "TELHADO_20"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "jabutis",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BB-32",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        32.79999923706055,
+        -9.399999618530273,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_19",
+        "PISO_SUP_20",
+        "TELHADO_19",
+        "TELHADO_20"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "iguanas",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BB-33",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        34.400001525878906,
+        -5.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_20",
+        "TELHADO_20"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "teius",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BB-34",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        34.400001525878906,
+        -9.399999618530273,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_20",
+        "TELHADO_20"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "camaleoes",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BB-35",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        36,
+        -5.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_20",
+        "TELHADO_20"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "escincos",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BB-36",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        36,
+        -9.399999618530273,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_20",
+        "TELHADO_20"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "pitons",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BB-37",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        37.599998474121094,
+        -5.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_20",
+        "PISO_SUP_21",
+        "TELHADO_20",
+        "TELHADO_21"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "viboras",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BB-38",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        37.599998474121094,
+        -9.399999618530273,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_20",
+        "PISO_SUP_21",
+        "TELHADO_20",
+        "TELHADO_21"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "crocodilianos",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BB-39",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        39.20000076293945,
+        -5.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_21",
+        "TELHADO_21"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "sapos",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BB-40",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        39.20000076293945,
+        -9.399999618530273,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_21",
+        "TELHADO_21"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "salamandras",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BE-01",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -48.75,
+        7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_03",
+        "TELHADO_03"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "rolinhas",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BE-02",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -46.25,
+        7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_04",
+        "TELHADO_04"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "gralhas",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BE-03",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -43.75,
+        7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_04",
+        "TELHADO_04"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "codornas",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BE-04",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -41.25,
+        7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_05",
+        "TELHADO_05"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "faisoes",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BE-05",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -38.75,
+        7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_05",
+        "TELHADO_05"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "perus",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BE-06",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -36.25,
+        7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_06",
+        "TELHADO_06"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "gansos",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BE-07",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -33.75,
+        7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_06",
+        "TELHADO_06"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "papagaios",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BE-08",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -31.25,
+        7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_07",
+        "TELHADO_07"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "periquitos",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BE-09",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -28.75,
+        7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_07",
+        "TELHADO_07"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "tucanos",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BE-10",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -26.25,
+        7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_08",
+        "TELHADO_08"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "martins_pescadores",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BE-11",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -23.75,
+        7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_08",
+        "TELHADO_08"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "andorinhas",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BE-12",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -21.25,
+        7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_09",
+        "TELHADO_09"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "cotovias",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BE-13",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -18.75,
+        7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_09",
+        "TELHADO_09"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "tentilhoes",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BE-14",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -16.25,
+        7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_10",
+        "TELHADO_10"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "pintassilgos",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BE-15",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -11,
+        7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_10",
+        "PISO_SUP_11",
+        "PISO_SUP_12",
+        "TELHADO_10",
+        "TELHADO_11",
+        "TELHADO_12"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "abutres",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BE-16",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        -3,
+        7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_12",
+        "PISO_SUP_13",
+        "TELHADO_12",
+        "TELHADO_13"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "garcas",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BE-17",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        5,
+        7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_13",
+        "PISO_SUP_14",
+        "PISO_SUP_15",
+        "TELHADO_13",
+        "TELHADO_14",
+        "TELHADO_15"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "cormoroes",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BE-18",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        13,
+        7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_15",
+        "PISO_SUP_16",
+        "TELHADO_15",
+        "TELHADO_16"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "flamingos",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BE-19",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        18.25,
+        7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_16",
+        "PISO_SUP_17",
+        "TELHADO_16",
+        "TELHADO_17"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "beija_flores",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BE-20",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        20.75,
+        7.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_17",
+        "TELHADO_17"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "falcoes_pequenos",
+      "quantity": 14
+    },
+    {
+      "id": "RECINTO_SUP-BE-21",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        24.799999237060547,
+        5.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_18",
+        "TELHADO_18"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "lebres",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BE-22",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        24.799999237060547,
+        9.399999618530273,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_18",
+        "TELHADO_18"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "esquilos",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BE-23",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        26.399999618530273,
+        5.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_18",
+        "TELHADO_18"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "castores",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BE-24",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        26.399999618530273,
+        9.399999618530273,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_18",
+        "TELHADO_18"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "chinchilas",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BE-25",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        28,
+        5.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_18",
+        "PISO_SUP_19",
+        "TELHADO_18",
+        "TELHADO_19"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "hamsters",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BE-26",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        28,
+        9.399999618530273,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_18",
+        "PISO_SUP_19",
+        "TELHADO_18",
+        "TELHADO_19"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "camundongos",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BE-27",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        29.600000381469727,
+        5.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_19",
+        "TELHADO_19"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "musaranhos",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BE-28",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        29.600000381469727,
+        9.399999618530273,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_19",
+        "TELHADO_19"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "ouricos",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BE-29",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        31.200000762939453,
+        5.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_19",
+        "TELHADO_19"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "furoes",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BE-30",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        31.200000762939453,
+        9.399999618530273,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_19",
+        "TELHADO_19"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "morcegos",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BE-31",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        32.79999923706055,
+        5.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_19",
+        "PISO_SUP_20",
+        "TELHADO_19",
+        "TELHADO_20"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "tartarugas_semiaquaticas",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BE-32",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        32.79999923706055,
+        9.399999618530273,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_19",
+        "PISO_SUP_20",
+        "TELHADO_19",
+        "TELHADO_20"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "varanos",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BE-33",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        34.400001525878906,
+        5.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_20",
+        "TELHADO_20"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "agamas",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BE-34",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        34.400001525878906,
+        9.399999618530273,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_20",
+        "TELHADO_20"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "lagartixas",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BE-35",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        36,
+        5.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_20",
+        "TELHADO_20"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "jiboias",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BE-36",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        36,
+        9.399999618530273,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_20",
+        "TELHADO_20"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "cobras_nao_peconhentas",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BE-37",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        37.599998474121094,
+        5.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_20",
+        "PISO_SUP_21",
+        "TELHADO_20",
+        "TELHADO_21"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "najas",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BE-38",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        37.599998474121094,
+        9.399999618530273,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_20",
+        "PISO_SUP_21",
+        "TELHADO_20",
+        "TELHADO_21"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "ras",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BE-39",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        39.20000076293945,
+        5.400000095367432,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_21",
+        "TELHADO_21"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "pererecas",
+      "quantity": 2
+    },
+    {
+      "id": "RECINTO_SUP-BE-40",
+      "stage": 6,
+      "kind": "enclosure",
+      "anchor": [
+        39.20000076293945,
+        9.399999618530273,
+        9.050000190734863
+      ],
+      "requires": [
+        "PISO_SUP_21",
+        "TELHADO_21"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced",
+      "animal_key": "cecilias",
+      "quantity": 2
+    },
+    {
+      "id": "DEPOSITOS_ALOJAMENTOS",
+      "stage": 6,
+      "kind": "storage_accommodation",
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "requires": [
+        "PISO_INF_00",
+        "PISO_INF_01",
+        "PISO_INF_02",
+        "PISO_INF_03",
+        "PISO_INF_04",
+        "PISO_INF_05",
+        "PISO_INF_06",
+        "PISO_INF_07",
+        "PISO_INF_08",
+        "PISO_INF_09",
+        "PISO_INF_10",
+        "PISO_INF_11",
+        "PISO_INF_12",
+        "PISO_INF_13",
+        "PISO_INF_14",
+        "PISO_INF_15",
+        "PISO_INF_16",
+        "PISO_INF_17",
+        "PISO_INF_18",
+        "PISO_INF_19",
+        "PISO_INF_20",
+        "PISO_INF_21",
+        "PISO_INF_22",
+        "PISO_INF_23",
+        "PISO_INF_24",
+        "PISO_INF_25",
+        "PISO_INF_26",
+        "PISO_MED_00",
+        "PISO_MED_01",
+        "PISO_MED_02",
+        "PISO_MED_03",
+        "PISO_MED_04",
+        "PISO_MED_05",
+        "PISO_MED_06",
+        "PISO_MED_07",
+        "PISO_MED_08",
+        "PISO_MED_09",
+        "PISO_MED_10",
+        "PISO_MED_11",
+        "PISO_MED_12",
+        "PISO_MED_13",
+        "PISO_MED_14",
+        "PISO_MED_15",
+        "PISO_MED_16",
+        "PISO_MED_17",
+        "PISO_MED_18",
+        "PISO_MED_19",
+        "PISO_MED_20",
+        "PISO_MED_21",
+        "PISO_MED_22",
+        "PISO_MED_23",
+        "PISO_MED_24",
+        "PISO_MED_25",
+        "PISO_MED_26",
+        "PISO_SUP_00",
+        "PISO_SUP_01",
+        "PISO_SUP_02",
+        "PISO_SUP_03",
+        "PISO_SUP_04",
+        "PISO_SUP_05",
+        "PISO_SUP_06",
+        "PISO_SUP_07",
+        "PISO_SUP_08",
+        "PISO_SUP_09",
+        "PISO_SUP_10",
+        "PISO_SUP_11",
+        "PISO_SUP_12",
+        "PISO_SUP_13",
+        "PISO_SUP_14",
+        "PISO_SUP_15",
+        "PISO_SUP_16",
+        "PISO_SUP_17",
+        "PISO_SUP_18",
+        "PISO_SUP_19",
+        "PISO_SUP_20",
+        "PISO_SUP_21",
+        "PISO_SUP_22",
+        "PISO_SUP_23",
+        "PISO_SUP_24",
+        "PISO_SUP_25",
+        "PISO_SUP_26"
+      ],
+      "materials": null,
+      "recipe_status": "not_balanced"
+    }
+  ]
+}

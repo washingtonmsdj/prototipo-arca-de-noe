@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react"
 import { Canvas } from "@react-three/fiber"
 import { World, type AnimalEngine, type HumanEngine, type LabRepresentation, type LabSubject, type OriginalAnimalGroup } from "./world/World"
+import { ArcaScene } from "./arca/ArcaScene"
 import { SPECIES, speciesById } from "./animals/species"
 import type { GaitName } from "./animals/types"
 import {
@@ -141,6 +142,8 @@ export function App() {
   const [speedScale, setSpeedScale] = useState(1)
   const [paused, setPaused] = useState(false)
   const [showRig, setShowRig] = useState(true)
+  const [showArca, setShowArca] = useState(false)
+  const [arcaDoorOpen, setArcaDoorOpen] = useState(false)
 
   const species = useMemo(() => speciesById(speciesId), [speciesId])
   const human = useMemo(
@@ -241,46 +244,70 @@ export function App() {
         camera={{ position: [13, 10, 14], fov: 42, near: .1, far: 100 }}
         gl={{ antialias: true }}
       >
-        <World
-          labSubject={labSubject}
-          animalEngine={animalEngine}
-          upstreamAnimalGroup={upstreamAnimalGroup}
-          upstreamTransportKind={upstreamTransportKind}
-          upstreamTransportClip={upstreamTransportClip}
-          upstreamTransportCoat={upstreamTransportCoat}
-          animalEdits={animalEdits}
-          animalEditPhase={animalRigEditing ? animalEditFrame / ANIMAL_FRAMES : undefined}
-          animalMoving={animalMoving}
-          animalRepresentation={animalRepresentation}
-          animalBakePreview={animalBakePreview}
-          labSpecies={species}
-          labGait={gait}
-          upstreamAnimalKind={upstreamAnimalKind}
-          upstreamAnimalClip={upstreamAnimalClip}
-          labHuman={human}
-          humanClip={humanClip}
-          humanEngine={humanEngine}
-          upstreamHumanPreset={upstreamHumanPreset}
-          upstreamHumanClip={upstreamHumanClip}
-          humanEdits={humanEdits}
-          humanEditPhase={humanRigEditing ? safeHumanEditFrame / upstreamHumanFrameCount : undefined}
-          humanAttachment={humanAttachment || undefined}
-          humanAttachmentSocket={humanAttachment ? humanAttachmentSocket : undefined}
-          humanMoving={humanMoving}
-          humanRepresentation={humanRepresentation}
-          humanBakePreview={humanBakePreview}
-          speedScale={speedScale}
-          paused={paused}
-          showRig={showRig}
-        />
+        {showArca ? (
+          <ArcaScene doorOpen={arcaDoorOpen} paused={paused} />
+        ) : (
+          <World
+            labSubject={labSubject}
+            animalEngine={animalEngine}
+            upstreamAnimalGroup={upstreamAnimalGroup}
+            upstreamTransportKind={upstreamTransportKind}
+            upstreamTransportClip={upstreamTransportClip}
+            upstreamTransportCoat={upstreamTransportCoat}
+            animalEdits={animalEdits}
+            animalEditPhase={animalRigEditing ? animalEditFrame / ANIMAL_FRAMES : undefined}
+            animalMoving={animalMoving}
+            animalRepresentation={animalRepresentation}
+            animalBakePreview={animalBakePreview}
+            labSpecies={species}
+            labGait={gait}
+            upstreamAnimalKind={upstreamAnimalKind}
+            upstreamAnimalClip={upstreamAnimalClip}
+            labHuman={human}
+            humanClip={humanClip}
+            humanEngine={humanEngine}
+            upstreamHumanPreset={upstreamHumanPreset}
+            upstreamHumanClip={upstreamHumanClip}
+            humanEdits={humanEdits}
+            humanEditPhase={humanRigEditing ? safeHumanEditFrame / upstreamHumanFrameCount : undefined}
+            humanAttachment={humanAttachment || undefined}
+            humanAttachmentSocket={humanAttachment ? humanAttachmentSocket : undefined}
+            humanMoving={humanMoving}
+            humanRepresentation={humanRepresentation}
+            humanBakePreview={humanBakePreview}
+            speedScale={speedScale}
+            paused={paused}
+            showRig={showRig}
+          />
+        )}
       </Canvas>
 
       <section className="dev-panel" aria-label="Laboratório de animação procedural">
         <div className="eyebrow">ARCA / PROCEDURAL LAB</div>
-        <h1>Mundo + animais + humanos</h1>
+        <h1>{showArca ? "Prévia 3D da arca" : "Mundo + animais + humanos"}</h1>
         <p className="intro">
-          Laboratório para comparar a implementação Arca com os sistemas autorizados do Pilgrimage.
+          {showArca
+            ? "Assets GLB preparados para o runtime Three.js: terreno do canteiro, arca modular e porta com pivot de acesso."
+            : "Laboratório para comparar a implementação Arca com os sistemas autorizados do Pilgrimage."}
         </p>
+
+        <div className="button-row arca-toolbar">
+          <button
+            type="button"
+            className={showArca ? "active" : ""}
+            onClick={() => setShowArca((value) => !value)}
+          >
+            {showArca ? "Voltar ao laboratório" : "Abrir arca 3D"}
+          </button>
+          <button
+            type="button"
+            className={arcaDoorOpen ? "active" : ""}
+            disabled={!showArca}
+            onClick={() => setArcaDoorOpen((value) => !value)}
+          >
+            {arcaDoorOpen ? "Fechar porta" : "Abrir porta"}
+          </button>
+        </div>
 
         <label>
           Tipo

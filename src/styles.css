@@ -45,8 +45,10 @@ select { width: 100%; padding: 10px 12px; }
 input[type="range"] { width: 100%; accent-color: #98b07d; }
 
 .button-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; }
+.arca-toolbar { margin-bottom: 14px; }
 button { padding: 10px 12px; cursor: pointer; }
 button:hover, button.active { background: #394a35; }
+button:disabled { cursor: not-allowed; opacity: .48; }
 
 dl { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 16px 0 0; }
 dl div { padding: 9px 10px; border-radius: 10px; background: rgba(255, 255, 255, .045); }

@@ -4,6 +4,12 @@ Laboratório técnico de **mundo + fauna + humanos + animação procedural**, co
 
 O objetivo desta fase é dominar e evoluir geração, rig, animação e bake antes de adicionar gameplay completo e a arca propriamente dita.
 
+## Runtime 3D da arca
+
+O projeto já está preparado para o runtime web em **Three.js via React Three Fiber**. A ação `Abrir arca 3D` no laboratório carrega o terreno do canteiro e o kit modular da arca em GLB, sem duplicar a cena procedural de animais/humanos. `Abrir porta` anima o nó `PORTA` por um pivot colocado na borda da rampa, mantendo o acesso livre.
+
+Os assets publicados ficam em `public/assets/arca/` e seu contrato está em `public/assets/arca/manifest.json`. Os `.blend` e briefs em `concepts/arca/` continuam sendo fontes de autoria; os GLBs são os artefatos de runtime. A unidade é metro, o eixo é Y-up e a cena usa nomes estáveis para permitir colisões, LOD e gameplay de construção nas próximas etapas.
+
 ## Estado atual
 
 ### Mundo procedural
@@ -95,6 +101,7 @@ npm run build
 
 ```text
 src/
+  arca/                    # carregamento GLB e prévia runtime da arca
   animals/                 # motor próprio + adaptadores dos animais originais
   humans/                  # motor próprio + adaptador humano original
   dev/                     # editores e painéis de bake

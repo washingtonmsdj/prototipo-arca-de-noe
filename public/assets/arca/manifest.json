@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "coordinateSystem": "Y-up",
+  "unit": "metre",
+  "assets": [
+    {
+      "id": "arca-modular-v1",
+      "url": "/assets/arca/arca-modular-v1.glb",
+      "source": "concepts/arca/arca-modular-v1.glb",
+      "bounds": { "length": 269, "width": 39.84, "height": 21.72 },
+      "notes": "Kit modular com base, armações, pisos, baias, rampa e cobertura; a porta PORTA recebe pivot no runtime."
+    },
+    {
+      "id": "terreno-canteiro-v2",
+      "url": "/assets/arca/terreno-canteiro-v2.glb",
+      "source": "concepts/arca/terreno-canteiro-v2.glb",
+      "bounds": { "length": 420, "width": 322.18, "height": 35.65 },
+      "notes": "Canteiro com terreno, água, passarelas, estoque de madeira, oficina e área de montagem."
+    }
+  ],
+  "runtime": {
+    "loader": "THREE.GLTFLoader",
+    "renderLayer": "static-architecture",
+    "doorNode": "PORTA",
+    "doorPivot": [-58, 0.65, 9.5],
+    "doorOpenRotationY": -1.5707963267948966
+  }
+}
