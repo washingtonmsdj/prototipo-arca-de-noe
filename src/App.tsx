@@ -8,7 +8,7 @@ import {
   upstreamAnimalClips,
   type UpstreamAnimalClip,
 } from "./animals/UpstreamAnimal"
-import { WILDLIFE_PROFILES, type WildlifeKind } from "../vendor/pilgrimage/lib/game/wildlife/species"
+import { WILDLIFE_PROFILES, type WildlifeKind } from "./pilgrimage/wildlife/species"
 import { HUMAN_DESIGNS, generatedHuman, humanById } from "./humans/designs"
 import { UPSTREAM_PERSON_PRESETS } from "./humans/UpstreamHuman"
 import type { HumanClip } from "./humans/types"
