@@ -3,11 +3,13 @@ import { Animal } from "../animals/Animal"
 import { SPECIES } from "../animals/species"
 import type { AnimalSpecies, GaitName } from "../animals/types"
 import { Human } from "../humans/Human"
+import { UpstreamHuman } from "../humans/UpstreamHuman"
 import { HUMAN_DESIGNS, generatedHuman } from "../humans/designs"
 import type { HumanClip, HumanDesign } from "../humans/types"
 import { createTerrainGeometry, seeded, terrainHeight, WORLD_SIZE } from "./terrain"
 
 export type LabSubject = "animal" | "human"
+export type HumanEngine = "arca" | "pilgrimage"
 
 interface WorldProps {
   labSubject: LabSubject
@@ -15,6 +17,8 @@ interface WorldProps {
   labGait: GaitName
   labHuman: HumanDesign
   humanClip: HumanClip
+  humanEngine: HumanEngine
+  upstreamHumanPreset: string
   speedScale: number
   paused: boolean
   showRig: boolean
@@ -140,6 +144,8 @@ export function World({
   labGait,
   labHuman,
   humanClip,
+  humanEngine,
+  upstreamHumanPreset,
   speedScale,
   paused,
   showRig,
@@ -182,6 +188,14 @@ export function World({
             speedScale={speedScale}
             paused={paused}
             showRig={showRig}
+          />
+        ) : humanEngine === "pilgrimage" ? (
+          <UpstreamHuman
+            preset={upstreamHumanPreset}
+            clip={humanClip}
+            paused={paused}
+            origin={[0, 0]}
+            scale={1.2}
           />
         ) : (
           <Human
