@@ -113,7 +113,8 @@ finishElevation(
   GENERATED_HYDROLOGY.surface,
 )
 
-const TILE_SIZE = WORLD_SIZE / WORLD_TILES
+export const WORLD_TILE_SIZE = WORLD_SIZE / WORLD_TILES
+const TILE_SIZE = WORLD_TILE_SIZE
 const HALF_WORLD = WORLD_SIZE / 2
 
 function worldSample(x: number, z: number) {
