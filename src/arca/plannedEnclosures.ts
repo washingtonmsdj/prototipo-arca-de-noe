@@ -1,5 +1,5 @@
 import dimensionsJson from "../../concepts/arca/dimensoes-animais-jogo-v1.json"
-import catalogJson from "../../concepts/arca/catalogo-baias-fisicas-v1.json"
+import modulesJson from "../../concepts/arca/modulos-alojamento-base-v1.json"
 import { housingClassFor, housingRuleFor, type HousingClass } from "./animalPlanning"
 
 type Vec3 = [number, number, number]
@@ -14,9 +14,8 @@ interface AnimalRecord {
   dimension_basis: string
 }
 
-interface SourcePen {
+interface SourceModule {
   id: string
-  module_id: string
   deck: number
   side: number
   bounds_m: { min: Vec3; max: Vec3 }
@@ -111,41 +110,24 @@ export interface ServiceZone {
 }
 
 const animals = dimensionsJson.animals as unknown as AnimalRecord[]
-const sourcePens = catalogJson.pens as unknown as SourcePen[]
+const sourceModules = modulesJson.modules as unknown as SourceModule[]
 
-function buildBaseModules(): BaseModule[] {
-  const grouped = new Map<string, Omit<BaseModule, "width" | "depth" | "height">>()
+export const baseModules: BaseModule[] = sourceModules
+  .map(module => ({
+    id: module.id,
+    deck: module.deck,
+    side: module.side,
+    min: [...module.bounds_m.min] as Vec3,
+    max: [...module.bounds_m.max] as Vec3,
+    width: module.bounds_m.max[0] - module.bounds_m.min[0],
+    height: module.bounds_m.max[1] - module.bounds_m.min[1],
+    depth: module.bounds_m.max[2] - module.bounds_m.min[2],
+  }))
+  .sort((a, b) => a.deck - b.deck || a.min[0] - b.min[0] || a.side - b.side)
 
-  for (const pen of sourcePens) {
-    let module = grouped.get(pen.module_id)
-    if (!module) {
-      module = {
-        id: pen.module_id,
-        deck: pen.deck,
-        side: pen.side,
-        min: [Infinity, Infinity, Infinity],
-        max: [-Infinity, -Infinity, -Infinity],
-      }
-      grouped.set(pen.module_id, module)
-    }
-
-    for (let axis = 0; axis < 3; axis++) {
-      module.min[axis] = Math.min(module.min[axis], pen.bounds_m.min[axis])
-      module.max[axis] = Math.max(module.max[axis], pen.bounds_m.max[axis])
-    }
-  }
-
-  return [...grouped.values()]
-    .map(module => ({
-      ...module,
-      width: module.max[0] - module.min[0],
-      height: module.max[1] - module.min[1],
-      depth: module.max[2] - module.min[2],
-    }))
-    .sort((a, b) => a.deck - b.deck || a.min[0] - b.min[0] || a.side - b.side)
+if (baseModules.length !== 128) {
+  throw new Error(`Cadastro estrutural inválido: ${baseModules.length}/128 módulos.`)
 }
-
-export const baseModules = buildBaseModules()
 
 function rectangleCandidates(animal: AnimalRecord): Candidate[] {
   const housingClass = housingClassFor(animal.id)
