@@ -6,6 +6,11 @@ import { COATS } from "../pilgrimage/transport/coats"
 import { animalProfile, type Animal, type HorseVariant } from "../pilgrimage/transport-core"
 import { ANIMAL_JOINT_LABELS, type AnimalJoint, type AnimalRigEdits } from "../pilgrimage/wildlife/rig-edits"
 import { terrainHeight, terrainSlope } from "../world/terrain"
+import {
+  advanceDistancePhase,
+  directTransportSpeed,
+  directTransportStride,
+} from "./upstream-motion"
 
 export type UpstreamTransportClip = "idle" | "walk" | "graze"
 export type UpstreamTransportKind = "donkey" | "horse-common" | "horse-noble" | "ox"
@@ -42,6 +47,9 @@ interface UpstreamTransportAnimalProps {
   speedScale?: number
   edits?: AnimalRigEdits
   phaseOverride?: number
+  pathRadius?: number
+  pathOffset?: number
+  stationary?: boolean
 }
 
 export function UpstreamTransportAnimal({
@@ -55,10 +63,17 @@ export function UpstreamTransportAnimal({
   speedScale = 1,
   edits,
   phaseOverride,
+  pathRadius = 1.6,
+  pathOffset = 0,
+  stationary = true,
 }: UpstreamTransportAnimalProps) {
   const container = useRef<THREE.Group>(null)
   const markers = useRef<Partial<Record<AnimalJoint, THREE.Mesh | null>>>({})
   const phase = useRef(0)
+  const motion = useRef({
+    distance: Math.max(0, pathRadius) * pathOffset,
+    angle: pathOffset,
+  })
   const definition = upstreamTransportDefinition(kind)
 
   const rig = useMemo(
@@ -81,19 +96,47 @@ export function UpstreamTransportAnimal({
     const dt = paused ? 0 : Math.min(delta, .05)
     const profile = animalProfile(definition.animal, definition.variant)
     const cadenceEdit = edits?.clips.walk?.cadence ?? 1
-    phase.current = (phase.current + dt * profile.cyclesPerSecond * cadenceEdit * speedScale) % 1
-    const displayPhase = phaseOverride ?? phase.current
-
     const moving = clip === "walk"
+    const worldMoving = moving
+      && !stationary
+      && phaseOverride === undefined
+      && pathRadius > 0
+
+    if (worldMoving) {
+      const distance = directTransportSpeed(
+        definition.animal,
+        definition.variant,
+        scale,
+        speedScale,
+        edits,
+      ) * dt
+      const stride = directTransportStride(
+        definition.animal,
+        definition.variant,
+        scale,
+      )
+      phase.current = advanceDistancePhase(phase.current, distance, stride)
+      motion.current.distance += distance
+      motion.current.angle += distance / Math.max(.25, pathRadius)
+    } else {
+      phase.current = (
+        phase.current
+        + dt * profile.cyclesPerSecond * cadenceEdit * speedScale
+      ) % 1
+    }
+
+    const displayPhase = phaseOverride ?? phase.current
     const grazing = clip === "graze" ? 1 : 0
     rig.pose(displayPhase, moving, grazing, edits)
 
-    const x = origin[0]
-    const z = origin[1]
+    const angle = motion.current.angle
+    const x = worldMoving ? origin[0] + Math.cos(angle) * pathRadius : origin[0]
+    const z = worldMoving ? origin[1] + Math.sin(angle) * pathRadius : origin[1]
     const y = terrainHeight(x, z)
     const slope = terrainSlope(x, z)
     container.current.position.set(x, y, z)
     container.current.rotation.order = "YXZ"
+    container.current.rotation.y = worldMoving ? -angle : 0
     container.current.rotation.x = -Math.atan(slope.dz * .16)
     container.current.rotation.z = Math.atan(slope.dx * .16)
 
