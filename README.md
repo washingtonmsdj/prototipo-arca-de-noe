@@ -1,6 +1,6 @@
 # Protótipo Arca de Noé
 
-Laboratório técnico de **mundo + fauna + humanos + animação procedural**, criado do zero para este repositório.
+Laboratório técnico de **mundo + fauna + humanos + animação procedural**, combinando desenvolvimento próprio do Arca de Noé com uma importação autorizada do núcleo técnico do Pilgrimage.
 
 O objetivo desta fase é construir um sistema próprio capaz de gerar criaturas e pessoas coerentes, animá-las proceduralmente e testá-las no mesmo mundo antes de adicionar gameplay completo e a arca propriamente dita.
 
@@ -123,8 +123,15 @@ runtime
 
 A próxima evolução importante é adicionar **foot locking global, rigs especializados por família, aves, répteis, idle/graze/lie, sockets, ferramentas seguindo as mãos, editor de poses e baker automático de sprites/LOD**.
 
-## Origem e licença de terceiros
+## Pilgrimage upstream
 
-Este repositório **não contém código, assets, geradores ou receitas copiados de Pilgrimage**. A licença atual daquele projeto permite cópia e modificação somente para fins não comerciais e inclui explicitamente código, assets e geradores procedurais como material coberto.
+O repositório contém um snapshot autorizado de partes do Pilgrimage em `vendor/pilgrimage/`.
 
-Por isso, este projeto reimplementa de forma independente apenas conceitos gerais de computação gráfica, como inverse kinematics, gait procedural, geração paramétrica, animação baseada em distância, LOD e baking.
+Origem: `tomjohndesign/pilgrimage`  
+Commit de referência: `c5e8c507a4ae4fe925f789793dd463b93821487d`
+
+A licença original está preservada em `vendor/pilgrimage/LICENSE` e a procedência em `vendor/pilgrimage/UPSTREAM.md`.
+
+O diretório `vendor/` preserva a fonte upstream; adaptações usadas pelo runtime ficam separadas. O Arca já reutiliza diretamente a curva de passada `walkFoot()` do upstream nos sistemas humano e animal.
+
+Este trabalho é conduzido como projeto não comercial e, conforme informado pelo responsável pelo repositório Arca de Noé, existe autorização do autor para reutilizar, modificar e desenvolver esse código neste projeto.
