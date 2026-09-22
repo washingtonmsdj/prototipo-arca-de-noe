@@ -9,6 +9,8 @@ import type { AnimalClip, AnimalRigEdits } from "../pilgrimage/wildlife/rig-edit
 import type { WildlifeKind } from "../pilgrimage/wildlife/species"
 import { Human } from "../humans/Human"
 import { UpstreamHuman, type UpstreamHumanClip } from "../humans/UpstreamHuman"
+import type { HumanAttachmentKind } from "../humans/attachments"
+import type { SocketName } from "../../vendor/pilgrimage/lib/game/base-person/pose"
 import { HUMAN_DESIGNS, generatedHuman } from "../humans/designs"
 import type { HumanClip, HumanDesign } from "../humans/types"
 import type { PoseEdits } from "../../vendor/pilgrimage/lib/game/base-person/pose-edits"
@@ -40,6 +42,8 @@ interface WorldProps {
   upstreamHumanClip: UpstreamHumanClip
   humanEdits: PoseEdits
   humanEditPhase?: number
+  humanAttachment?: HumanAttachmentKind
+  humanAttachmentSocket?: SocketName
   speedScale: number
   paused: boolean
   showRig: boolean
@@ -177,6 +181,8 @@ export function World({
   upstreamHumanClip,
   humanEdits,
   humanEditPhase,
+  humanAttachment,
+  humanAttachmentSocket,
   speedScale,
   paused,
   showRig,
@@ -262,6 +268,8 @@ export function World({
             edits={humanEdits}
             phaseOverride={humanEditPhase}
             showRig={showRig}
+            attachment={humanAttachment}
+            attachmentSocket={humanAttachmentSocket}
           />
         ) : (
           <Human
