@@ -2,11 +2,19 @@ import { useEffect, useMemo } from "react"
 import { Animal } from "../animals/Animal"
 import { SPECIES } from "../animals/species"
 import type { AnimalSpecies, GaitName } from "../animals/types"
+import { Human } from "../humans/Human"
+import { HUMAN_DESIGNS, generatedHuman } from "../humans/designs"
+import type { HumanClip, HumanDesign } from "../humans/types"
 import { createTerrainGeometry, seeded, terrainHeight, WORLD_SIZE } from "./terrain"
 
+export type LabSubject = "animal" | "human"
+
 interface WorldProps {
+  labSubject: LabSubject
   labSpecies: AnimalSpecies
   labGait: GaitName
+  labHuman: HumanDesign
+  humanClip: HumanClip
   speedScale: number
   paused: boolean
   showRig: boolean
@@ -92,7 +100,50 @@ function AmbientHerds({ paused }: { paused: boolean }) {
   )
 }
 
-export function World({ labSpecies, labGait, speedScale, paused, showRig }: WorldProps) {
+function AmbientPeople({ paused }: { paused: boolean }) {
+  return (
+    <group>
+      {HUMAN_DESIGNS.flatMap((design, index) => {
+        const generated = generatedHuman(100 + index)
+        const side = index % 2 ? -1 : 1
+        const z = 7 + Math.floor(index / 2) * 4
+        return [
+          <Human
+            key={design.id}
+            design={design}
+            clip="walk"
+            pathRadius={2.1}
+            pathOffset={index * .83}
+            origin={[side * (6.5 + index * .6), z]}
+            speedScale={.72}
+            paused={paused}
+          />,
+          <Human
+            key={generated.id}
+            design={generated}
+            clip="walk"
+            pathRadius={2.7}
+            pathOffset={index * .83 + 1.7}
+            origin={[side * (6.5 + index * .6), z]}
+            speedScale={.64}
+            paused={paused}
+          />,
+        ]
+      })}
+    </group>
+  )
+}
+
+export function World({
+  labSubject,
+  labSpecies,
+  labGait,
+  labHuman,
+  humanClip,
+  speedScale,
+  paused,
+  showRig,
+}: WorldProps) {
   return (
     <>
       <color attach="background" args={["#bac5a7"]} />
@@ -114,21 +165,35 @@ export function World({ labSpecies, labGait, speedScale, paused, showRig }: Worl
       <River />
       <Vegetation />
       <AmbientHerds paused={paused} />
+      <AmbientPeople paused={paused} />
 
       <group>
         <mesh position={[0, terrainHeight(0, 0) + .02, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
           <circleGeometry args={[2.2, 48]} />
           <meshStandardMaterial color="#8b9c6d" roughness={1} />
         </mesh>
-        <Animal
-          species={labSpecies}
-          gait={labGait}
-          stationary
-          origin={[0, 0]}
-          speedScale={speedScale}
-          paused={paused}
-          showRig={showRig}
-        />
+
+        {labSubject === "animal" ? (
+          <Animal
+            species={labSpecies}
+            gait={labGait}
+            stationary
+            origin={[0, 0]}
+            speedScale={speedScale}
+            paused={paused}
+            showRig={showRig}
+          />
+        ) : (
+          <Human
+            design={labHuman}
+            clip={humanClip}
+            stationary
+            origin={[0, 0]}
+            speedScale={speedScale}
+            paused={paused}
+            showRig={showRig}
+          />
+        )}
       </group>
     </>
   )
