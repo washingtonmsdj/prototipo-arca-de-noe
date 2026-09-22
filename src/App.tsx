@@ -33,6 +33,7 @@ import type { EditableJoint, PoseEdits } from "../vendor/pilgrimage/lib/game/bas
 import { SOCKET_NAMES, type SocketName } from "../vendor/pilgrimage/lib/game/base-person/pose"
 import { HUMAN_ATTACHMENTS, type HumanAttachmentKind } from "./humans/attachments"
 import { isOriginalMovingClip } from "./humans/upstream-motion"
+import { isGroundWildlifeClip } from "./animals/upstream-motion"
 import {
   ANIMAL_FRAMES,
   EMPTY_ANIMAL_EDITS,
@@ -155,6 +156,9 @@ export function App() {
   const editableAnimalClip: AnimalClip = upstreamAnimalGroup === "wildlife"
     ? upstreamAnimalClip
     : upstreamTransportClip
+  const canMoveOriginalAnimal = upstreamAnimalGroup === "wildlife"
+    ? isGroundWildlifeClip(upstreamAnimalClip)
+    : upstreamTransportClip === "walk"
   const animalBakeTarget = useMemo<AnimalBakeTarget>(
     () => upstreamAnimalGroup === "wildlife"
       ? {
@@ -202,6 +206,10 @@ export function App() {
   }, [availableTransportCoats, upstreamTransportCoat])
 
   useEffect(() => {
+    if (!canMoveOriginalAnimal && animalMoving) setAnimalMoving(false)
+  }, [canMoveOriginalAnimal, animalMoving])
+
+  useEffect(() => {
     if (humanEditFrame !== safeHumanEditFrame) setHumanEditFrame(safeHumanEditFrame)
   }, [humanEditFrame, safeHumanEditFrame])
 
@@ -226,6 +234,7 @@ export function App() {
           upstreamTransportCoat={upstreamTransportCoat}
           animalEdits={animalEdits}
           animalEditPhase={animalRigEditing ? animalEditFrame / ANIMAL_FRAMES : undefined}
+          animalMoving={animalMoving}
           labSpecies={species}
           labGait={gait}
           upstreamAnimalKind={upstreamAnimalKind}
@@ -350,6 +359,14 @@ export function App() {
                   </>
                 )}
                 <div className="button-row">
+                  <button
+                    type="button"
+                    className={animalMoving ? "active" : ""}
+                    disabled={!canMoveOriginalAnimal || animalRigEditing}
+                    onClick={() => setAnimalMoving((value) => !value)}
+                  >
+                    {animalMoving ? "Parar deslocamento" : "Mover no mundo"}
+                  </button>
                   <button
                     type="button"
                     className={animalRigEditing ? "active" : ""}
@@ -554,6 +571,7 @@ export function App() {
                   <div><dt>Espécie</dt><dd>{WILDLIFE_PROFILES[upstreamAnimalKind].label}</dd></div>
                   <div><dt>Rig</dt><dd>wildlife original</dd></div>
                   <div><dt>Ação</dt><dd>{upstreamAnimalClipLabels[upstreamAnimalClip]}</dd></div>
+                  <div><dt>Locomoção</dt><dd>{animalMoving ? "fase por distância" : "preview estacionário"}</dd></div>
                 </>
               ) : (
                 <>
@@ -561,6 +579,7 @@ export function App() {
                   <div><dt>Animal</dt><dd>{transportDefinition.label}</dd></div>
                   <div><dt>Rig</dt><dd>transport original</dd></div>
                   <div><dt>Ação</dt><dd>{upstreamTransportClipLabels[upstreamTransportClip]}</dd></div>
+                  <div><dt>Locomoção</dt><dd>{animalMoving ? "fase por distância" : "preview estacionário"}</dd></div>
                 </>
               )
             ) : (
