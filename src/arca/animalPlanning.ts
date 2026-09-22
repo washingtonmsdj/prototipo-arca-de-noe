@@ -23,10 +23,10 @@ export interface HousingRule {
 const groups: Record<HousingClass, readonly string[]> = {
   large_mammal: `elefantes rinocerontes hipopotamos tapires cavalos asnos zebras camelos bovinos bufalos bisoes iaques girafas alces renas cervos`.split(" "),
   herd_mammal: `ovelhas cabras ibex gazelas orix impala kudu gnus`.split(" "),
-  medium_mammal: `gorilas chimpanzes leoes tigres leopardos jaguares pumas guepardos ursos_pardos ursos_negros lobos raposas hienas chacais porcos javalis cangurus vombates capivaras tamanduas babuinos macacos preguicas tatus pandas coalas lemures lontras suricatos ocapis pangolins porcos-formigueiros`.split(" "),
+  medium_mammal: `gorilas chimpanzes leoes tigres leopardos jaguares pumas guepardos ursos_pardos ursos_negros lobos raposas hienas chacais porcos javalis cangurus vombates capivaras tamanduas babuinos pandas ocapis porcos-formigueiros`.split(" "),
   large_bird: `avestruzes emas aguias cegonhas pelicanos grous abutres garcas cormoroes flamingos pavoes perus gansos pinguins casuares cisnes`.split(" "),
   small_bird: `pombos corvos galinhas perdizes patos marrecos araras cacatuas pica_paus poupas andorinhoes pardais canarios cucos corujas_pequenas rolinhas gralhas codornas faisoes papagaios periquitos tucanos martins_pescadores andorinhas cotovias tentilhoes pintassilgos beija_flores falcoes_pequenos kiwis turacos`.split(" "),
-  small_mammal: `coelhos hiraxes marmotas porcos_espinhos porquinhos_da_india gerbos ratos toupeiras texugos mangustos lebres esquilos castores chinchilas hamsters camundongos musaranhos ouricos furoes morcegos`.split(" "),
+  small_mammal: `coelhos hiraxes marmotas porcos_espinhos porquinhos_da_india gerbos ratos toupeiras texugos mangustos lebres esquilos castores chinchilas hamsters camundongos musaranhos ouricos furoes morcegos macacos preguicas tatus coalas lemures lontras suricatos pangolins`.split(" "),
   terrarium: `jabutis iguanas teius camaleoes escincos pitons viboras crocodilianos sapos salamandras tartarugas_semiaquaticas varanos agamas lagartixas jiboias cobras_nao_peconhentas najas ras pererecas cecilias`.split(" "),
   insectarium: `formigas abelhas vespas cupins besouros borboletas mariposas gafanhotos grilos louva-a-deus bichos-pau baratas aranhas escorpioes centopeias piolhos-de-cobra caracois-terrestres lesmas minhocas`.split(" "),
 }
@@ -72,7 +72,7 @@ export const HOUSING_RULES: Record<HousingClass, HousingRule> = {
   },
   small_mammal: {
     pairOccupancy: .30, groupOccupancy: .38,
-    minPairArea: 1, minGroupArea: 5, minSide: .7,
+    minPairArea: 1.2, minGroupArea: 5, minSide: .7,
     maxPairAspect: 3, maxGroupAspect: 3,
     wallHeight: 1.05, label: "recinto pequeno",
   },
