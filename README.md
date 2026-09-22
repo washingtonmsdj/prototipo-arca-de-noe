@@ -1,26 +1,56 @@
 # Protótipo Arca de Noé
 
-Laboratório técnico de **mundo + fauna + animação procedural**, criado do zero para este repositório.
+Laboratório técnico de **mundo + fauna + humanos + animação procedural**, criado do zero para este repositório.
 
-O objetivo desta fase é dominar o sistema que gera, movimenta e testa animais antes de adicionar gameplay, pessoas ou a arca propriamente dita.
+O objetivo desta fase é construir um sistema próprio capaz de gerar criaturas e pessoas coerentes, animá-las proceduralmente e testá-las no mesmo mundo antes de adicionar gameplay completo e a arca propriamente dita.
 
 ## O que já existe
 
-- mundo 3D procedural com relevo;
-- rio e vegetação determinística;
-- pares de animais distribuídos pelo mundo;
+### Mundo
+
+- terreno 3D procedural;
+- rio;
+- vegetação determinística;
+- distribuição ambiental por seed;
+- ajuste de personagens ao declive do terreno.
+
+### Animais
+
 - ovelha, cabra, bovino, cavalo, jumento, cervo, javali e leão;
 - anatomia paramétrica por espécie;
-- walk, trot, canter e gallop conforme capacidade da espécie;
-- fase da animação derivada da distância percorrida;
+- camada separada de morfologia;
+- peito, tronco, garupa, pescoço, cabeça, focinho e cauda;
+- orelhas parametrizadas;
+- chifres, galhadas e juba por perfil;
+- walk, trot, canter e gallop conforme capacidade;
+- fase derivada da distância percorrida;
 - contatos independentes das quatro patas;
 - IK de duas articulações;
-- bounce, pitch, roll e sway do corpo;
-- ajuste ao declive do terreno;
-- laboratório central para trocar espécie, gait, velocidade, pausa e visualização das juntas;
+- bounce, pitch, roll e sway do corpo.
+
+### Humanos
+
+- viajante, pastor, construtor, agricultor e sacerdote;
+- gerador determinístico de variações por seed;
+- altura, ombros, quadril, passada, cadência e cabeça parametrizados;
+- rig procedural de torso, cabeça, braços, mãos, pernas e pés;
+- IK nas pernas;
+- caminhada sincronizada pela distância;
+- clips `idle`, `walk`, `carry`, `pray`, `build` e `gather`;
+- pessoas geradas e perfis-base distribuídos no mundo.
+
+### Desenvolvimento
+
+- laboratório central para alternar entre animal e humano;
+- seleção de espécie/perfil;
+- geração humana por seed;
+- seleção de gait/clip;
+- velocidade;
+- pause/resume;
+- visualização de juntas;
 - testes automatizados;
 - GitHub Actions;
-- documentação de arquitetura e desenvolvimento.
+- documentação de arquitetura, animação, mundo, humanos e geração.
 
 ## Executar
 
@@ -42,29 +72,59 @@ npm run build
 ```
 src/
   animals/
-    Animal.tsx       rig visual e atualização runtime
-    gait.ts          passada, contatos e cadência
-    ik.ts            solução geométrica das pernas
-    species.ts       anatomia e capacidades por espécie
-    types.ts         contratos do domínio
+    Animal.tsx
+    gait.ts
+    ik.ts
+    morphology.ts
+    species.ts
+    types.ts
+
+  humans/
+    Human.tsx
+    designs.ts
+    gait.ts
+    pose.ts
+    types.ts
+
   world/
-    terrain.ts       fonte de verdade do relevo
-    World.tsx        composição do ambiente e fauna
+    terrain.ts
+    World.tsx
 
 docs/
   ARCHITECTURE.md
   ANIMATION_SYSTEM.md
+  HUMAN_SYSTEM.md
+  GENERATION_SYSTEM.md
   WORLD_SYSTEM.md
   DEVELOPMENT.md
   SPECIES_AUTHORING.md
 ```
 
-## Direção técnica
+## Arquitetura-alvo
 
-O projeto não deve depender de animações desenhadas quadro a quadro para sua fundação. Primeiro existe um animal coerente, com anatomia, contatos e movimento; depois poderemos derivar LODs, atlas ou outros formatos do mesmo rig.
+```
+Definition
+   ↓
+deterministic generator
+   ↓
+morphology / skeleton
+   ↓
+procedural geometry
+   ↓
+rig
+   ↓
+locomotion / actions
+   ↓
+runtime
+   ├── full 3D
+   ├── simplified LOD
+   └── baked sprite/depth atlas
+```
 
-A próxima evolução natural é adicionar **foot locking global, rigs especializados para equinos, aves, répteis, idle/graze/lie e um baker de sprites/LOD**.
+A próxima evolução importante é adicionar **foot locking global, rigs especializados por família, aves, répteis, idle/graze/lie, sockets, ferramentas seguindo as mãos, editor de poses e baker automático de sprites/LOD**.
 
 ## Origem e licença de terceiros
 
-Este repositório **não contém código nem assets copiados de Pilgrimage**. A implementação é clean-room e usa apenas conceitos gerais de animação procedural, inverse kinematics, locomoção e geração de mundo. Isso evita incorporar ao projeto código sujeito às restrições de licença daquele repositório.
+Este repositório **não contém código, assets, geradores ou receitas copiados de Pilgrimage**. A licença atual daquele projeto permite cópia e modificação somente para fins não comerciais e inclui explicitamente código, assets e geradores procedurais como material coberto.
+
+Por isso, este projeto reimplementa de forma independente apenas conceitos gerais de computação gráfica, como inverse kinematics, gait procedural, geração paramétrica, animação baseada em distância, LOD e baking.
