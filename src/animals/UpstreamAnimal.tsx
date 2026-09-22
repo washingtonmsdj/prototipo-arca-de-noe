@@ -35,6 +35,7 @@ export interface UpstreamAnimalProps {
   showRig?: boolean
   origin?: [number, number]
   scale?: number
+  speedScale?: number
 }
 
 export function UpstreamAnimal({
@@ -44,6 +45,7 @@ export function UpstreamAnimal({
   showRig = true,
   origin = [0, 0],
   scale = 1.35,
+  speedScale = 1,
 }: UpstreamAnimalProps) {
   const container = useRef<THREE.Group>(null)
   const markers = useRef<Partial<Record<AnimalJoint, THREE.Mesh | null>>>({})
@@ -59,7 +61,7 @@ export function UpstreamAnimal({
     const dt = paused ? 0 : Math.min(delta, .05)
     const profile = WILDLIFE_PROFILES[kind]
     const cadence = profile.cyclesPerSecond || 1
-    phase.current = (phase.current + dt * cadence) % 1
+    phase.current = (phase.current + dt * cadence * speedScale) % 1
     age.current += dt
 
     const moving = ["walk", "trot", "canter", "gallop", "hop", "leap"].includes(clip)
