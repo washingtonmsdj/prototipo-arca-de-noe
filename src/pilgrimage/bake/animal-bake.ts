@@ -70,6 +70,7 @@ export interface AnimalClipBake {
     anchor: number[]
     safePadding: number
     depthEncoding: typeof SPRITE_DEPTH_ENCODING
+    source: AnimalBakeTarget
     registrations: AnimalBakeRegistration[]
   }
 }
@@ -340,6 +341,7 @@ export async function bakeAnimalClip(
         anchor: config.anchor,
         safePadding,
         depthEncoding: SPRITE_DEPTH_ENCODING,
+        source: target,
         registrations,
       },
     }
