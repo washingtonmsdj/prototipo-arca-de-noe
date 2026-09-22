@@ -1,17 +1,21 @@
 import { useEffect, useRef, useState } from "react"
 import { PERSON_PRESETS } from "../../vendor/pilgrimage/lib/game/base-person/design"
 import type { PoseEdits } from "../../vendor/pilgrimage/lib/game/base-person/pose-edits"
-import type { BaseClip } from "../../vendor/pilgrimage/lib/game/base-person/pose"
+import type { BaseClip, SocketName } from "../../vendor/pilgrimage/lib/game/base-person/pose"
+import type { HumanAttachmentKind } from "../humans/attachments"
 import {
   bakeHumanClip,
   humanBakeFileStem,
   type HumanClipBake,
+  type HumanBakeAttachment,
 } from "../pilgrimage/bake/human-bake"
 
 interface HumanBakePanelProps {
   preset: string
   clip: BaseClip
   edits: PoseEdits
+  attachment?: HumanAttachmentKind
+  attachmentSocket?: SocketName
 }
 
 function downloadUrl(filename: string, url: string) {
@@ -31,7 +35,7 @@ function downloadJson(filename: string, value: unknown) {
   }
 }
 
-export function HumanBakePanel({ preset, clip, edits }: HumanBakePanelProps) {
+export function HumanBakePanel({ preset, clip, edits, attachment, attachmentSocket }: HumanBakePanelProps) {
   const [busy, setBusy] = useState(false)
   const [progress, setProgress] = useState({ done: 0, total: 0 })
   const [result, setResult] = useState<HumanClipBake | null>(null)
@@ -44,7 +48,7 @@ export function HumanBakePanel({ preset, clip, edits }: HumanBakePanelProps) {
     setResult(null)
     setError(null)
     setProgress({ done: 0, total: 0 })
-  }, [preset, clip, edits])
+  }, [preset, clip, edits, attachment, attachmentSocket])
 
   const bake = async () => {
     if (busy) return
@@ -56,6 +60,9 @@ export function HumanBakePanel({ preset, clip, edits }: HumanBakePanelProps) {
 
     try {
       const design = PERSON_PRESETS[preset] ?? PERSON_PRESETS.Storybook
+      const bakeAttachment: HumanBakeAttachment | undefined = attachment && attachmentSocket
+        ? { kind: attachment, socket: attachmentSocket }
+        : undefined
       const baked = await bakeHumanClip(
         clip,
         design,
@@ -63,6 +70,7 @@ export function HumanBakePanel({ preset, clip, edits }: HumanBakePanelProps) {
         (done, total) => {
           if (run === generation.current) setProgress({ done, total })
         },
+        bakeAttachment,
       )
       if (run === generation.current) setResult(baked)
     } catch (cause) {
@@ -74,7 +82,10 @@ export function HumanBakePanel({ preset, clip, edits }: HumanBakePanelProps) {
     }
   }
 
-  const stem = humanBakeFileStem(preset, clip)
+  const bakeAttachment: HumanBakeAttachment | undefined = attachment && attachmentSocket
+    ? { kind: attachment, socket: attachmentSocket }
+    : undefined
+  const stem = humanBakeFileStem(preset, clip, bakeAttachment)
   const percent = progress.total
     ? Math.round(progress.done / progress.total * 100)
     : 0
