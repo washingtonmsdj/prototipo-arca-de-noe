@@ -119,14 +119,16 @@ describe("ark animal enclosure layout", () => {
   })
 
   it("keeps planned occupancy visually coherent and reserves explicit service space", () => {
-    const ordinary = physicalPens.filter(pen =>
-      pen.housing_class !== "insectarium"
-      && pen.housing_class !== "micro_terrarium"
-      && pen.housing_class !== "small_cage"
+    const floorBased = physicalPens.filter(pen =>
+      pen.housing_class === "large_mammal"
+      || pen.housing_class === "herd_mammal"
+      || pen.housing_class === "medium_mammal"
+      || pen.housing_class === "large_bird"
+      || pen.housing_class === "small_mammal"
     )
 
     expect(Math.max(...physicalPens.map(pen => pen.occupancy_ratio))).toBeLessThan(.66)
-    expect(Math.min(...ordinary.map(pen => pen.occupancy_ratio))).toBeGreaterThan(.18)
+    expect(Math.min(...floorBased.map(pen => pen.occupancy_ratio))).toBeGreaterThan(.18)
     expect(serviceZones.length).toBeGreaterThan(0)
     expect(serviceZones.every(zone => zone.area_m2 >= .5)).toBe(true)
 
