@@ -26,6 +26,8 @@ describe("Pilgrimage human bake primitives", () => {
   it("creates stable filesystem-safe bake names", () => {
     expect(humanBakeFileStem("Storybook", "wearyWalk")).toBe("human-storybook-wearyWalk")
     expect(humanBakeFileStem("Tall / Warm", "idle")).toBe("human-tall-warm-idle")
+    expect(humanBakeFileStem("Storybook", "walk", { kind: "hammer", socket: "rightHand" }))
+      .toBe("human-storybook-walk-hammer-rightHand")
     expect(animalBakeFileStem({ family: "wildlife", kind: "deer", clip: "walk" })).toBe("animal-deer-walk")
     expect(animalBakeFileStem({ family: "transport", kind: "horse", variant: "noble", clip: "graze" })).toBe("animal-horse-noble-graze")
   })
