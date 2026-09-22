@@ -49,6 +49,27 @@ Os clips locomotores humanos usam fase por distância + foot locking. Mudanças 
 
 O motor próprio continua separado. Em movimento, a fase é derivada da distância percorrida para reduzir foot sliding.
 
+
+## LOD rig 3D ↔ sprite/depth
+
+O laboratório possui três modos de representação para os rigs originais:
+
+- `Rig 3D`;
+- `Sprite + depth`;
+- `Auto por distância`.
+
+O estado locomotor pertence ao ator, não à representação. Fase, posição, heading, inclinação do terreno e foot/support lock sobrevivem à troca de LOD. O rig e o sprite não ficam montados ao mesmo tempo: o modo sprite desmonta o rig caro em vez de mantê-lo atualizado invisivelmente.
+
+O modo automático usa histerese em torno da distância de troca para impedir alternância quadro a quadro perto do limite.
+
+### Depth em câmera perspectiva
+
+O bake continua ortográfico, mas o runtime Arca usa câmera perspectiva. `DepthAtlasSprite` reconstrói o offset RG16 em espaço de câmera, converte-o novamente para depth usando a matriz de projeção runtime e limita os pixels pelo plano local do terreno.
+
+Isso preserva oclusão com terreno e objetos que usam o depth buffer sem copiar o shader ortográfico do upstream de forma incorreta.
+
+Os atlases de sombra continuam exportados. Assim como no runtime atual do Pilgrimage, eles não são desenhados no mapa; a aparência principal usa surface lighting baked.
+
 ## Baker
 
 Os mesmos rigs podem ser convertidos para atlas sem manter uma segunda animação desenhada à mão.
