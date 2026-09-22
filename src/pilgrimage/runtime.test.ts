@@ -1,7 +1,8 @@
 import { describe, expect, it } from "vitest"
+import * as THREE from "three"
 import { createBasePersonRig } from "../../vendor/pilgrimage/lib/game/base-person/rig"
 import { PERSON_PRESETS, personRecipe } from "../../vendor/pilgrimage/lib/game/base-person/design"
-import { PERSON_CLIPS, type BaseClip } from "../../vendor/pilgrimage/lib/game/base-person/pose"
+import { PERSON_CLIPS, SOCKET_NAMES, type BaseClip } from "../../vendor/pilgrimage/lib/game/base-person/pose"
 import { createWildlifeRig } from "./wildlife/rig"
 import { speciesGaits } from "./wildlife/gait"
 import { WILDLIFE_SPECIES, isBird, type WildlifeKind } from "./wildlife/species"
@@ -12,8 +13,14 @@ describe("Pilgrimage isolated runtime", () => {
   it("poses every original human clip", () => {
     const rig = createBasePersonRig(personRecipe(PERSON_PRESETS.Storybook))
     try {
+      const point = new THREE.Vector3()
       for (const clip of Object.keys(PERSON_CLIPS) as BaseClip[]) {
         expect(() => rig.pose(.37, clip)).not.toThrow()
+        rig.root.updateMatrixWorld(true)
+        for (const socket of SOCKET_NAMES) {
+          rig.sockets[socket].getWorldPosition(point)
+          expect(point.toArray().every(Number.isFinite)).toBe(true)
+        }
       }
       expect(Object.keys(PERSON_CLIPS)).toHaveLength(19)
       expect(PERSON_CLIPS.walk.frames).toBe(20)
