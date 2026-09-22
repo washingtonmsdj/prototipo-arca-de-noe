@@ -31,6 +31,7 @@ interface WorldProps {
   upstreamTransportCoat: string
   animalEdits: AnimalRigEdits
   animalEditPhase?: number
+  animalMoving: boolean
   labSpecies: AnimalSpecies
   labGait: GaitName
   upstreamAnimalKind: WildlifeKind
@@ -171,6 +172,7 @@ export function World({
   upstreamTransportCoat,
   animalEdits,
   animalEditPhase,
+  animalMoving,
   labSpecies,
   labGait,
   upstreamAnimalKind,
@@ -235,6 +237,9 @@ export function World({
                 edits={animalEdits}
                 phaseOverride={animalEditPhase}
                 origin={LAB_SITE}
+                pathRadius={1.6}
+                pathOffset={0}
+                stationary={!animalMoving || animalEditPhase !== undefined}
               />
             ) : (
               <UpstreamAnimal
@@ -246,6 +251,9 @@ export function World({
                 edits={animalEdits}
                 phaseOverride={animalEditPhase}
                 origin={LAB_SITE}
+                pathRadius={1.6}
+                pathOffset={0}
+                stationary={!animalMoving || animalEditPhase !== undefined}
               />
             )
           ) : (
