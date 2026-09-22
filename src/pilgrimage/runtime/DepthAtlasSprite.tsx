@@ -1,6 +1,7 @@
 import { useEffect, useMemo } from "react"
 import { useFrame, useLoader } from "@react-three/fiber"
 import * as THREE from "three"
+import type { ActorMotionRef } from "./actor-motion"
 import {
   anchorInCell,
   atlasCell,
@@ -12,9 +13,10 @@ interface DepthAtlasSpriteProps {
   color: string
   depth: string
   metadata: DepthSpriteMetadata
-  phase: number | { current: number }
+  phase?: number | { current: number }
   heading?: number
-  position: readonly [number, number, number]
+  position?: readonly [number, number, number]
+  motion?: ActorMotionRef
   scale?: number
   groundNormal?: readonly [number, number, number]
 }
@@ -101,9 +103,10 @@ export function DepthAtlasSprite({
   color,
   depth,
   metadata,
-  phase,
+  phase = 0,
   heading = 0,
-  position,
+  position = [0, 0, 0],
+  motion,
   scale = 1,
   groundNormal = [0, 1, 0],
 }: DepthAtlasSpriteProps) {
@@ -159,11 +162,15 @@ export function DepthAtlasSprite({
 
   useEffect(() => () => material.dispose(), [material])
 
+  const mesh = useMemo(() => new THREE.Mesh(), [])
+
   useFrame(({ camera }) => {
     const matrix = camera.matrixWorld.elements
     const cameraYaw = Math.atan2(matrix[8], matrix[10])
-    const row = spriteRow(heading, cameraYaw, metadata.directions.length)
-    const currentPhase = typeof phase === "number" ? phase : phase.current
+    const currentHeading = motion?.current.heading ?? heading
+    const row = spriteRow(currentHeading, cameraYaw, metadata.directions.length)
+    const currentPhase = motion?.current.phase
+      ?? (typeof phase === "number" ? phase : phase.current)
     const frame = Math.floor(((currentPhase % 1 + 1) % 1) * metadata.frames)
     const cell = atlasCell(
       frame,
@@ -172,20 +179,24 @@ export function DepthAtlasSprite({
       metadata.directions.length,
     )
 
+    const px = motion?.current.x ?? position[0]
+    const py = motion?.current.y ?? position[1]
+    const pz = motion?.current.z ?? position[2]
+    const nx = motion ? -motion.current.slopeX : groundNormal[0]
+    const ny = motion ? 1 : groundNormal[1]
+    const nz = motion ? -motion.current.slopeZ : groundNormal[2]
+
+    mesh.position.set(px, py, pz)
     material.uniforms.spriteWorldSize.value = metadata.viewSize * scale
-    material.uniforms.spriteGroundPoint.value.set(...position)
-    material.uniforms.spriteGroundNormal.value.set(...groundNormal).normalize()
+    material.uniforms.spriteGroundPoint.value.set(px, py, pz)
+    material.uniforms.spriteGroundNormal.value.set(nx, ny, nz).normalize()
     material.uniforms.atlasScale.value.set(...cell.scale)
     material.uniforms.atlasOffset.value.set(...cell.offset)
   })
 
   return (
-    <mesh
-      position={position as [number, number, number]}
-      material={material}
-      frustumCulled={false}
-    >
+    <primitive object={mesh} material={material} frustumCulled={false}>
       <planeGeometry args={[1, 1]} />
-    </mesh>
+    </primitive>
   )
 }
