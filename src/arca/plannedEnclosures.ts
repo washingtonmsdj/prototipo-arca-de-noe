@@ -313,18 +313,26 @@ function packDeck(deck: number) {
     .filter(animal => animal.deck === deck)
     .map(animal => {
       const candidates = rectangleCandidates(animal)
+      const initialFits = bins.map(bin => fittingOptions(bin, candidates))
+      const feasibleModules = initialFits.filter(options => options.length > 0).length
+      const minAxisDemand = Math.min(
+        ...initialFits.flatMap(options =>
+          options.map(option =>
+            option.mode === "service_spine" ? option.depth : option.width
+          )
+        ),
+      )
       return {
         animal,
         candidates,
-        initialOptions: bins.reduce(
-          (sum, bin) => sum + fittingOptions(bin, candidates).length,
-          0,
-        ),
+        feasibleModules,
+        minAxisDemand,
         maxArea: Math.max(...candidates.map(candidate => candidate.area)),
       }
     })
     .sort((a, b) =>
-      a.initialOptions - b.initialOptions
+      a.feasibleModules - b.feasibleModules
+      || b.minAxisDemand - a.minAxisDemand
       || b.maxArea - a.maxArea
     )
 
