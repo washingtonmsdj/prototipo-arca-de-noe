@@ -2,11 +2,13 @@ import { useEffect, useMemo, useRef } from "react"
 import { useFrame } from "@react-three/fiber"
 import * as THREE from "three"
 import { waterfallTurbulence } from "../pilgrimage/world/waterfall-turbulence"
+import { SHORE_CORNERS, shorelineCorners } from "../pilgrimage/world/shoreline"
 import {
   GENERATED_ELEVATION,
   GENERATED_HYDROLOGY,
   GENERATED_WATER,
   HEIGHT_SCALE,
+  SHORELINE_FIELD,
   WORLD_TILE_SIZE,
   WORLD_TILES,
   tileToWorld,
@@ -24,6 +26,64 @@ function createMotionGeometry() {
     WORLD_TILES * WORLD_TILES,
     GENERATED_ELEVATION.settings.turbulenceReach,
   )
+
+  const cornerX = [0, 1, 0, 1] as const
+  const cornerZ = [0, 0, 1, 1] as const
+  const cornerUv = [[0, 0], [1, 0], [0, 1], [1, 1]] as const
+
+  const geometricCorner = (shoreIndex: number) => {
+    const [dx, dz] = SHORE_CORNERS[shoreIndex]
+    return (dx > 0 ? 1 : 0) + (dz > 0 ? 2 : 0)
+  }
+
+  const waterHeightAtVertex = (vertexX: number, vertexZ: number) => {
+    const samples: number[] = []
+    for (let dz = -1; dz <= 0; dz++) for (let dx = -1; dx <= 0; dx++) {
+      const x = vertexX + dx
+      const z = vertexZ + dz
+      if (x < 0 || z < 0 || x >= WORLD_TILES || z >= WORLD_TILES) continue
+      const index = z * WORLD_TILES + x
+      if (GENERATED_WATER.kind[index]) samples.push(GENERATED_HYDROLOGY.surface[index])
+    }
+    return (samples.length ? samples.reduce((sum, value) => sum + value, 0) / samples.length : 0) * HEIGHT_SCALE + .018
+  }
+
+  const pushTriangle = (
+    points: readonly [number, number, number][],
+    uvs: readonly (readonly [number, number])[],
+    intensity: number,
+    direction: readonly [number, number],
+    fall: number,
+  ) => {
+    points.forEach((point, index) => {
+      positions.push(...point)
+      uv.push(...uvs[index])
+      strength.push(intensity)
+      flow.push(direction[0], direction[1])
+      falling.push(fall)
+    })
+  }
+
+  const pushCornerTriangle = (
+    tileX: number,
+    tileZ: number,
+    cornerIds: readonly [number, number, number],
+    heights: (vertexX: number, vertexZ: number) => number,
+    intensity: number,
+    direction: readonly [number, number],
+  ) => {
+    const points = cornerIds.map((corner) => {
+      const vertexX = tileX + cornerX[corner]
+      const vertexZ = tileZ + cornerZ[corner]
+      return [
+        (vertexX - WORLD_TILES / 2) * WORLD_TILE_SIZE,
+        heights(vertexX, vertexZ),
+        (vertexZ - WORLD_TILES / 2) * WORLD_TILE_SIZE,
+      ] as [number, number, number]
+    })
+    const uvs = cornerIds.map((corner) => cornerUv[corner])
+    pushTriangle(points, uvs, intensity, direction, 0)
+  }
 
   const pushQuad = (
     a: readonly [number, number, number],
@@ -47,25 +107,48 @@ function createMotionGeometry() {
 
   for (let z = 0; z < WORLD_TILES; z++) for (let x = 0; x < WORLD_TILES; x++) {
     const index = z * WORLD_TILES + x
-    if (!GENERATED_WATER.kind[index]) continue
+    const flags = shorelineCorners(SHORELINE_FIELD, x, z)
+    const shoreIndex = flags.findIndex(Boolean)
+    const wet = !!GENERATED_WATER.kind[index]
+    if (!wet && shoreIndex < 0) continue
 
+    const donorIndex = wet
+      ? index
+      : z * WORLD_TILES + x + SHORE_CORNERS[shoreIndex][0]
     const centre = tileToWorld(x, z)
     const half = WORLD_TILE_SIZE * .5
-    const surface = GENERATED_HYDROLOGY.surface[index] * HEIGHT_SCALE + .018
-    const turbulence = field[index * 3]
-    const heading = GENERATED_HYDROLOGY.flow[index] ?? [field[index * 3 + 1], field[index * 3 + 2]]
-    const base = GENERATED_HYDROLOGY.motion[index] === "flow" ? .18 : .055
+    const surface = GENERATED_HYDROLOGY.surface[donorIndex] * HEIGHT_SCALE + .018
+    const turbulence = field[donorIndex * 3]
+    const heading = GENERATED_HYDROLOGY.flow[donorIndex]
+      ?? [field[donorIndex * 3 + 1], field[donorIndex * 3 + 2]]
+    const base = GENERATED_HYDROLOGY.motion[donorIndex] === "flow" ? .18 : .055
     const intensity = Math.max(base, turbulence)
 
-    pushQuad(
-      [centre.x - half, surface, centre.z - half],
-      [centre.x + half, surface, centre.z - half],
-      [centre.x - half, surface, centre.z + half],
-      [centre.x + half, surface, centre.z + half],
-      intensity,
-      heading,
-      0,
-    )
+    if (shoreIndex < 0) {
+      pushQuad(
+        [centre.x - half, surface, centre.z - half],
+        [centre.x + half, surface, centre.z - half],
+        [centre.x - half, surface, centre.z + half],
+        [centre.x + half, surface, centre.z + half],
+        intensity,
+        heading,
+        0,
+      )
+    } else {
+      const corner = geometricCorner(shoreIndex)
+      pushCornerTriangle(
+        x,
+        z,
+        wet
+          ? [corner ^ 3, corner ^ 1, corner ^ 2]
+          : [corner, corner ^ 1, corner ^ 2],
+        wet ? () => surface : waterHeightAtVertex,
+        intensity,
+        heading,
+      )
+    }
+
+    if (!wet) continue
 
     const downstream = GENERATED_HYDROLOGY.downstream[index]
     if (
