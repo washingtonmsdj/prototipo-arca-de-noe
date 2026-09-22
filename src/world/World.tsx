@@ -11,6 +11,7 @@ import { UpstreamHuman } from "../humans/UpstreamHuman"
 import { HUMAN_DESIGNS, generatedHuman } from "../humans/designs"
 import type { HumanClip, HumanDesign } from "../humans/types"
 import { createTerrainGeometry, seeded, terrainHeight, WORLD_SIZE } from "./terrain"
+import { GeneratedEnvironment } from "./GeneratedEnvironment"
 
 export type LabSubject = "animal" | "human"
 export type HumanEngine = "arca" | "pilgrimage"
@@ -44,7 +45,7 @@ function Terrain() {
   useEffect(() => () => geometry.dispose(), [geometry])
   return (
     <mesh geometry={geometry} receiveShadow>
-      <meshStandardMaterial color="#6f8657" roughness={1} flatShading />
+      <meshStandardMaterial vertexColors roughness={1} flatShading />
     </mesh>
   )
 }
@@ -192,8 +193,7 @@ export function World({
       />
 
       <Terrain />
-      <River />
-      <Vegetation />
+      <GeneratedEnvironment />
       <AmbientHerds paused={paused} />
       <AmbientPeople paused={paused} />
 
