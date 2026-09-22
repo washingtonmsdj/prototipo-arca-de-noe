@@ -40,6 +40,9 @@ finishElevation()
 Arca 3D
    ├── terrain triangles
    ├── water depth colors
+   ├── hydrology-driven ripples / waterfalls
+   ├── physical beach classification
+   ├── reciprocal diagonal shorelines
    ├── cliff walls
    ├── forest instances
    ├── safe roaming loops
@@ -79,9 +82,7 @@ Configuração atual do laboratório:
 
 ## Ainda não portado
 
-- shoreline diagonal/corner clipping;
-- classificação final de praia e refinamentos completos de margens;
-- geometria específica de cachoeira/espuma;
+- refinamentos avançados de shoreline/cliff-corner compartilhados com roads;
 - pontes, fords e estradas;
 - sistema de rotas e navegação do gameplay.
 
