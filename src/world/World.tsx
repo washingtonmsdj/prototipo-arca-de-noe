@@ -1,4 +1,5 @@
 import { useEffect, useMemo } from "react"
+import { useThree } from "@react-three/fiber"
 import { Animal } from "../animals/Animal"
 import { UpstreamAnimal } from "../animals/UpstreamAnimal"
 import { UpstreamTransportAnimal, type UpstreamTransportClip, type UpstreamTransportKind } from "../animals/UpstreamTransportAnimal"
@@ -11,7 +12,7 @@ import { UpstreamHuman, type UpstreamHumanClip } from "../humans/UpstreamHuman"
 import { HUMAN_DESIGNS, generatedHuman } from "../humans/designs"
 import type { HumanClip, HumanDesign } from "../humans/types"
 import type { PoseEdits } from "../../vendor/pilgrimage/lib/game/base-person/pose-edits"
-import { createCliffGeometry, createTerrainGeometry, findWalkableLoop, terrainHeight } from "./terrain"
+import { LAB_SITE, createCliffGeometry, createTerrainGeometry, findWalkableLoop, terrainHeight } from "./terrain"
 import { GeneratedEnvironment } from "./GeneratedEnvironment"
 
 export type LabSubject = "animal" | "human"
@@ -63,6 +64,19 @@ function Terrain() {
       </mesh>
     </group>
   )
+}
+
+function LabCamera() {
+  const { camera } = useThree()
+
+  useEffect(() => {
+    const ground = terrainHeight(LAB_SITE[0], LAB_SITE[1])
+    camera.position.set(LAB_SITE[0] + 13, ground + 10, LAB_SITE[1] + 14)
+    camera.lookAt(LAB_SITE[0], ground + 1, LAB_SITE[1])
+    camera.updateProjectionMatrix()
+  }, [camera])
+
+  return null
 }
 
 function AmbientHerds({ paused }: { paused: boolean }) {
@@ -184,13 +198,18 @@ export function World({
         shadow-camera-bottom={-24}
       />
 
+      <LabCamera />
       <Terrain />
       <GeneratedEnvironment />
       <AmbientHerds paused={paused} />
       <AmbientPeople paused={paused} />
 
       <group>
-        <mesh position={[0, terrainHeight(0, 0) + .02, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
+        <mesh
+          position={[LAB_SITE[0], terrainHeight(LAB_SITE[0], LAB_SITE[1]) + .02, LAB_SITE[1]]}
+          rotation={[-Math.PI / 2, 0, 0]}
+          receiveShadow
+        >
           <circleGeometry args={[2.2, 48]} />
           <meshStandardMaterial color="#8b9c6d" roughness={1} />
         </mesh>
@@ -207,7 +226,7 @@ export function World({
                 speedScale={speedScale}
                 edits={animalEdits}
                 phaseOverride={animalEditPhase}
-                origin={[0, 0]}
+                origin={LAB_SITE}
               />
             ) : (
               <UpstreamAnimal
@@ -218,7 +237,7 @@ export function World({
                 speedScale={speedScale}
                 edits={animalEdits}
                 phaseOverride={animalEditPhase}
-                origin={[0, 0]}
+                origin={LAB_SITE}
               />
             )
           ) : (
@@ -226,7 +245,7 @@ export function World({
               species={labSpecies}
               gait={labGait}
               stationary
-              origin={[0, 0]}
+              origin={LAB_SITE}
               speedScale={speedScale}
               paused={paused}
               showRig={showRig}
@@ -237,7 +256,7 @@ export function World({
             preset={upstreamHumanPreset}
             clip={upstreamHumanClip}
             paused={paused}
-            origin={[0, 0]}
+            origin={LAB_SITE}
             scale={1.2}
             speedScale={speedScale}
             edits={humanEdits}
@@ -249,7 +268,7 @@ export function World({
             design={labHuman}
             clip={humanClip}
             stationary
-            origin={[0, 0]}
+            origin={LAB_SITE}
             speedScale={speedScale}
             paused={paused}
             showRig={showRig}
