@@ -36,11 +36,13 @@ Não usamos mais o antigo rio senoidal nem trajetos ambientes cegos.
 
 ### Animais
 
-Na prévia interna da arca, o cadastro atual contém **162 grupos e 1.080 indivíduos de referência, todos dentro da arca**. Há uma baia física exclusiva por grupo, com 162/162 ocupadas e nenhuma galeria externa pendente.
+Na prévia interna da arca, o cadastro atual contém **162 grupos e 1.080 indivíduos de referência, todos dentro da arca**. O interior possui **128 módulos estruturais de alojamento**; dentro deles, o runtime calcula deterministicamente um alojamento para cada grupo.
 
-Os envelopes corporais são calibrados por espécie e postura normal, em vez de reutilizar um bloco genérico. Tamanduás são tratados como quadrúpedes baixos; ursos usam altura quadrúpede; porcos, vombates, aves, pequenos mamíferos, répteis e invertebrados têm dimensões próprias. Grupos grandes que não são compatíveis com a altura útil dos pavimentos são identificados explicitamente como jovens independentes proporcionais.
+Os envelopes corporais são definidos por espécie/tipo de referência, estágio de vida e postura normal, em vez de reutilizar blocos genéricos. Comprimento não é convertido em altura. Grupos grandes que precisam ser representados como jovens independentes por causa da altura dos pavimentos são identificados explicitamente; não existe redução silenciosa de escala.
 
-Vinte volumes foram subdivididos fisicamente para reduzir espaço desperdiçado sem diminuir animais apenas para fazê-los caber. As divisórias, placas, colisões e posições dos blocos usam o mesmo catálogo de bounds e são cobertas por testes geométricos.
+O planejamento diferencia baias grandes, baias de rebanho, baias médias, viveiros, recintos de pequenos mamíferos, gaiolas compactas, terrários, microterrários e insetários. Cada classe possui regras próprias de área, ocupação e formato. O espaço que sobra nos módulos é convertido em zonas de alimento, água, manejo, limpeza, circulação ou ventilação, e a prévia adiciona cochos, poleiros, substratos e áreas úmidas para tornar a função espacial legível.
+
+As cercas antigas exportadas pelo Blender são preservadas apenas na fonte de autoria e ocultadas no runtime. Posições, divisórias, placas e colisões usam o plano calculado e são cobertas por testes de bounds, não sobreposição e capacidade.
 
 Há também dois motores comparáveis no laboratório.
 
@@ -113,7 +115,7 @@ npm run build
 
 ```text
 src/
-  arca/                    # carregamento GLB e prévia runtime da arca
+  arca/                    # arca 3D, escala da fauna e planejador de alojamento
   animals/                 # motor próprio + adaptadores dos animais originais
   humans/                  # motor próprio + adaptador humano original
   dev/                     # editores e painéis de bake
