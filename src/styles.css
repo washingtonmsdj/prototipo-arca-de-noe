@@ -23,6 +23,8 @@ canvas { display: block; }
   background: rgba(18, 25, 18, .88);
   box-shadow: 0 20px 60px rgba(0, 0, 0, .25);
   backdrop-filter: blur(16px);
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
 }
 
 .eyebrow { margin-bottom: 7px; color: #afc797; font-size: 11px; font-weight: 800; letter-spacing: .14em; }
@@ -67,3 +69,33 @@ dd { margin: 3px 0 0; font-size: 12px; }
   .dev-panel { top: 10px; left: 10px; width: calc(100vw - 20px); }
   .status { display: none; }
 }
+
+
+.rig-editor {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(238, 242, 231, .12);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 10px;
+}
+
+.file-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  padding: 10px 12px;
+  border: 1px solid rgba(238, 242, 231, .14);
+  border-radius: 10px;
+  color: #eff3ea;
+  background: #253025;
+  cursor: pointer;
+  text-align: center;
+}
+
+.file-button:hover { background: #394a35; }
+.file-button input { display: none; }
