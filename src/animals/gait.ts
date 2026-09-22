@@ -1,3 +1,4 @@
+import { BASE_PERSON, walkFoot } from "../../vendor/pilgrimage/lib/game/base-person/pose"
 import type { AnimalSpecies, FootSample, GaitDefinition, GaitName, LimbIndex } from "./types"
 
 export const GAITS: Record<GaitName, GaitDefinition> = {
@@ -24,11 +25,11 @@ export const GAITS: Record<GaitName, GaitDefinition> = {
 }
 
 export const wrap01 = (value: number) => ((value % 1) + 1) % 1
-const smooth = (t: number) => t * t * (3 - 2 * t)
 
 export function gaitStride(species: AnimalSpecies, gaitName: GaitName) {
   const gait = GAITS[gaitName]
-  return species.stride * gait.reach * species.scale
+  const reach = species.stride * gait.reach * .5
+  return 2 * reach / gait.stance * species.scale
 }
 
 export function gaitSpeed(species: AnimalSpecies, gaitName: GaitName, speedScale = 1) {
@@ -38,21 +39,25 @@ export function gaitSpeed(species: AnimalSpecies, gaitName: GaitName, speedScale
 
 export function sampleFoot(species: AnimalSpecies, gaitName: GaitName, phase: number, limb: LimbIndex): FootSample {
   const gait = GAITS[gaitName]
-  const p = wrap01(phase - gait.contacts[limb])
   const reach = species.stride * gait.reach * .5
   const lift = species.lift * gait.lift
+  const foot = walkFoot(
+    "left",
+    phase - gait.contacts[limb],
+    {
+      ...BASE_PERSON.body,
+      stride: reach,
+      footLift: lift,
+      legOffset: 0,
+      ankleHeight: 0,
+    },
+    gait.stance,
+  )
 
-  if (p < gait.stance) {
-    const t = p / gait.stance
-    return { z: reach * (1 - 2 * t), y: 0, planted: true }
-  }
-
-  const t = (p - gait.stance) / (1 - gait.stance)
-  const eased = smooth(t)
   return {
-    z: -reach + reach * 2 * eased,
-    y: Math.sin(Math.PI * t) ** 2 * lift,
-    planted: false,
+    z: foot.ankle[2],
+    y: foot.ankle[1],
+    planted: foot.planted,
   }
 }
 
