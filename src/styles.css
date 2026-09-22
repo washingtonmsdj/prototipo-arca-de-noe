@@ -99,3 +99,36 @@ dd { margin: 3px 0 0; font-size: 12px; }
 
 .file-button:hover { background: #394a35; }
 .file-button input { display: none; }
+
+
+.bake-panel > button {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.bake-panel button:disabled {
+  cursor: progress;
+  opacity: .72;
+}
+
+.bake-preview {
+  margin-top: 12px;
+  max-height: 220px;
+  overflow: auto;
+  border: 1px solid rgba(238, 242, 231, .12);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, .18);
+}
+
+.bake-preview img {
+  display: block;
+  max-width: none;
+  image-rendering: pixelated;
+}
+
+.bake-error {
+  margin: 10px 0 0;
+  color: #f0b5aa;
+  font-size: 11px;
+  line-height: 1.4;
+}
