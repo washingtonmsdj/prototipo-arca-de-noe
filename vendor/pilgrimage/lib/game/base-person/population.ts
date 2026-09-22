@@ -1,0 +1,96 @@
+import type { ActionClip } from "./pose"
+import { rollComplexion, type Complexion } from "./complexion"
+import { deriveSeed, makeRng, SEED_STREAM } from "../rng"
+import type { TravelerTypeDef, TravelerTypeId } from "../travelers"
+import { DEFAULT_DESIGN, DESIGN_CONTROLS, PERSON_PRESETS, validatePersonDesign, type DesignKey, type PersonDesign } from "./design"
+
+/** Six authored variations share the editor's skeleton, joints and bounded controls. */
+export const POPULATION_PROFILES = [
+  { id: "male-regular", bodyType: "Male", hair: "Cropped", deltas: { head: -0.05, armSwing: 0.1 } },
+  { id: "male-tall", bodyType: "Male", hair: "Wavy", deltas: { build: -0.1, torsoHeight: 0.15, legs: 0.15, upperArm: 0.1, forearm: 0.05, neckHeight: 0.1 } },
+  { id: "male-broad", bodyType: "Male", hair: "Cropped", deltas: { build: 0.15, torsoHeight: -0.05, legs: -0.05, armSpacing: 0.05, sleeves: 0.15, hands: 0.1, feet: 0.1, elbowBend: 4 } },
+  { id: "female-regular", bodyType: "Female", hair: "Braids", deltas: { hem: 0.1, head: -0.05, armAngle: 2 } },
+  { id: "female-tall", bodyType: "Female", hair: "Ponytail", deltas: { build: -0.05, torsoHeight: 0.15, legs: 0.15, upperArm: 0.1, forearm: 0.1, neckHeight: 0.1, hem: 0.05 } },
+  { id: "female-broad", bodyType: "Female", hair: "Bun", deltas: { build: 0.15, torsoHeight: -0.05, legs: -0.05, sleeves: 0.1, hem: 0.15, feet: 0.05, elbowBend: 4 } },
+] as const
+
+export interface TravelerAppearance { variant: number; scale: number; bodyType: PersonDesign["bodyType"]; complexion: Complexion }
+
+/** Wool and linen outfits for the callings that travel in companies. A person's
+ * seeded profile owns their dye, so companions vary without changing clothes
+ * between walking, leading an animal and riding. Brothers retain earth tones. */
+const CLOTHING_COLORS: Partial<Record<TravelerTypeId, readonly string[]>> = {
+  peasant: ["#9c8b66", "#657b50", "#866044", "#507186", "#8b493c", "#a49476"],
+  pilgrim: ["#8a7f9e", "#657b50", "#866044", "#507186", "#9c8b66", "#8b493c"],
+  merchant: ["#b3762f", "#507186", "#7b4969", "#8b493c", "#657b50", "#866044"],
+  friar: ["#6d5638", "#786c58", "#514638", "#866044", "#958a74", "#65584a"],
+}
+
+/** Independent of crowd order/count and the simulation's random stream. Pairs mix both bodies. */
+export function travelerAppearance(seed: number, id: number): TravelerAppearance {
+  const root = deriveSeed(seed, SEED_STREAM.characterAppearance)
+  const pair = makeRng(deriveSeed(root, Math.floor(id / 2)))()
+  const female = ((id & 1) ^ (pair < 0.5 ? 0 : 1)) === 1
+  const random = makeRng(deriveSeed(root, id + 104729))
+  // The body draw stays first, so colouring joined without reshuffling any seed's cast.
+  return { variant: (female ? 3 : 0) + Math.floor(random() * 3),
+    scale: 1, bodyType: female ? "Female" : "Male", complexion: rollComplexion(random) }
+}
+
+/**
+ * Knights and friars are always male, nuns female; everyone else follows the
+ * seeded body draw. Names, sprites and selection barks all read this, so a
+ * person never sounds like someone other than the body on screen.
+ */
+export function travelerBodyType(seed: number, typeId: TravelerTypeId, id: number): PersonDesign["bodyType"] {
+  return typeId === "knight" || typeId === "friar" ? "Male" : typeId === "nun" ? "Female" : travelerAppearance(seed, id).bodyType
+}
+
+export function populationDesign(type: Pick<TravelerTypeDef, "id" | "color">, variant: number, base: PersonDesign = DEFAULT_DESIGN): PersonDesign {
+  const profile = POPULATION_PROFILES[variant]
+  const minstrel = type.id === "minstrel"
+  const design: PersonDesign = { ...base, footwear: type.id === "peasant" ? "Sandals" as const : "Boots" as const, bodyType: profile.bodyType, tunicColor: CLOTHING_COLORS[type.id]?.[variant] ?? type.color,
+    hat: minstrel ? "Cloth cap" : base.hat !== "None" ? base.hat : variant === 0 || variant === 4 ? "Wool cap" : variant === 3 ? "Coif" : "None",
+    satchel: base.satchel || (!minstrel && variant % 3 !== 1),
+    walkingStick: base.walkingStick || (type.id === "peasant" && profile.bodyType === "Male"),
+    lute: base.lute || minstrel, tunicStyle: base.tunicStyle,
+    hairStyle: profile.hair, beard: profile.bodyType === "Male" && (base.beard || variant === 2) }
+  for (const [key, delta] of Object.entries(profile.deltas) as [DesignKey, number][]) {
+    const range = DESIGN_CONTROLS[key]
+    design[key] = Math.min(range.max, Math.max(range.min, Math.round((base[key] + delta) / range.step) * range.step))
+    design[key] = Number(design[key].toFixed(3))
+  }
+  if (type.id === "beggar") Object.assign(design, {
+    tunicStyle: "Ragged", accentColor: "#a49476", shirtColor: "#958a74", trouserColor: "#635a4b",
+    beltStyle: "Rope", footwear: "Sandals", hat: "None", satchel: false, lute: false,
+  })
+  // Keep all atlas slots compatible with existing seeded appearances. Sisters
+  // use the same female habit and covered hair across the six body variations.
+  if (type.id === "nun") Object.assign(design, {
+    bodyType: "Female", garment: "Robe", tunicLength: 1.4, beltStyle: "Rope",
+    tunicColor: type.color, coveringColor: PERSON_PRESETS.Nun.coveringColor,
+    shirtColor: PERSON_PRESETS.Nun.shirtColor, trouserColor: type.color,
+    hat: "Coif", hairStyle: "Cropped", beard: false, satchel: false,
+    walkingStick: false, lute: false, handTool: "None", tunicStyle: "Plain",
+  })
+  if (minstrel) { design.hem = 1.2; design.tunicLength = 1.15 }
+  return validatePersonDesign(design)
+}
+
+export interface PopulationPack<Calling extends string = TravelerTypeId> {
+  /** Set by bakes whose palette reserves the skin and hair steps for the body,
+   * so a complexion can be recoloured without touching props or cloth. */
+  reservedTones?: boolean
+  walkStrides?: number
+  actionFrames?: Partial<Record<ActionClip, number>>
+  frameCounts?: Partial<Record<import("./pose").BaseClip, number>>
+  templateVersion: number
+  depthEncoding?: string
+  cellSize: number
+  anchor: number[]
+  rows: number
+  callings: Record<Calling, { walk: string; idle: string; designs: PersonDesign[]; actions?: Partial<Record<ActionClip, string>>; depths?: Partial<Record<import("./pose").BaseClip, string>> }>
+  greyCallings?: Partial<PopulationPack<Calling>["callings"]>
+  shadows: { walk: string; idle: string; actions?: Partial<Record<ActionClip, string>> }
+  strideRatios: number[]
+}
