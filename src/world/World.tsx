@@ -1,7 +1,10 @@
 import { useEffect, useMemo } from "react"
 import { Animal } from "../animals/Animal"
+import { UpstreamAnimal } from "../animals/UpstreamAnimal"
 import { SPECIES } from "../animals/species"
 import type { AnimalSpecies, GaitName } from "../animals/types"
+import type { AnimalClip } from "../../vendor/pilgrimage/lib/game/wildlife/rig-edits"
+import type { WildlifeKind } from "../../vendor/pilgrimage/lib/game/wildlife/species"
 import { Human } from "../humans/Human"
 import { UpstreamHuman } from "../humans/UpstreamHuman"
 import { HUMAN_DESIGNS, generatedHuman } from "../humans/designs"
@@ -10,11 +13,15 @@ import { createTerrainGeometry, seeded, terrainHeight, WORLD_SIZE } from "./terr
 
 export type LabSubject = "animal" | "human"
 export type HumanEngine = "arca" | "pilgrimage"
+export type AnimalEngine = "arca" | "pilgrimage"
 
 interface WorldProps {
   labSubject: LabSubject
+  animalEngine: AnimalEngine
   labSpecies: AnimalSpecies
   labGait: GaitName
+  upstreamAnimalKind: WildlifeKind
+  upstreamAnimalClip: AnimalClip
   labHuman: HumanDesign
   humanClip: HumanClip
   humanEngine: HumanEngine
@@ -140,8 +147,11 @@ function AmbientPeople({ paused }: { paused: boolean }) {
 
 export function World({
   labSubject,
+  animalEngine,
   labSpecies,
   labGait,
+  upstreamAnimalKind,
+  upstreamAnimalClip,
   labHuman,
   humanClip,
   humanEngine,
@@ -180,15 +190,25 @@ export function World({
         </mesh>
 
         {labSubject === "animal" ? (
-          <Animal
-            species={labSpecies}
-            gait={labGait}
-            stationary
-            origin={[0, 0]}
-            speedScale={speedScale}
-            paused={paused}
-            showRig={showRig}
-          />
+          animalEngine === "pilgrimage" ? (
+            <UpstreamAnimal
+              kind={upstreamAnimalKind}
+              clip={upstreamAnimalClip}
+              paused={paused}
+              showRig={showRig}
+              origin={[0, 0]}
+            />
+          ) : (
+            <Animal
+              species={labSpecies}
+              gait={labGait}
+              stationary
+              origin={[0, 0]}
+              speedScale={speedScale}
+              paused={paused}
+              showRig={showRig}
+            />
+          )
         ) : humanEngine === "pilgrimage" ? (
           <UpstreamHuman
             preset={upstreamHumanPreset}
