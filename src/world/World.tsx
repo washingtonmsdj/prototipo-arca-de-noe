@@ -4,7 +4,7 @@ import { UpstreamAnimal } from "../animals/UpstreamAnimal"
 import { UpstreamTransportAnimal, type UpstreamTransportClip, type UpstreamTransportKind } from "../animals/UpstreamTransportAnimal"
 import { SPECIES } from "../animals/species"
 import type { AnimalSpecies, GaitName } from "../animals/types"
-import type { AnimalClip } from "../pilgrimage/wildlife/rig-edits"
+import type { AnimalClip, AnimalRigEdits } from "../pilgrimage/wildlife/rig-edits"
 import type { WildlifeKind } from "../pilgrimage/wildlife/species"
 import { Human } from "../humans/Human"
 import { UpstreamHuman } from "../humans/UpstreamHuman"
@@ -24,6 +24,8 @@ interface WorldProps {
   upstreamTransportKind: UpstreamTransportKind
   upstreamTransportClip: UpstreamTransportClip
   upstreamTransportCoat: string
+  animalEdits: AnimalRigEdits
+  animalEditPhase?: number
   labSpecies: AnimalSpecies
   labGait: GaitName
   upstreamAnimalKind: WildlifeKind
@@ -158,6 +160,8 @@ export function World({
   upstreamTransportKind,
   upstreamTransportClip,
   upstreamTransportCoat,
+  animalEdits,
+  animalEditPhase,
   labSpecies,
   labGait,
   upstreamAnimalKind,
@@ -209,6 +213,8 @@ export function World({
                 paused={paused}
                 showRig={showRig}
                 speedScale={speedScale}
+                edits={animalEdits}
+                phaseOverride={animalEditPhase}
                 origin={[0, 0]}
               />
             ) : (
@@ -218,6 +224,8 @@ export function World({
                 paused={paused}
                 showRig={showRig}
                 speedScale={speedScale}
+                edits={animalEdits}
+                phaseOverride={animalEditPhase}
                 origin={[0, 0]}
               />
             )
