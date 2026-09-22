@@ -1,12 +1,11 @@
+import { BASE_PERSON, WALK_STANCE_FRACTION, walkFoot } from "../../vendor/pilgrimage/lib/game/base-person/pose"
 import type { HumanDesign, HumanFootSample } from "./types"
 
-export const HUMAN_STANCE = .62
-
-const wrap01 = (value: number) => ((value % 1) + 1) % 1
-const smooth = (t: number) => t * t * (3 - 2 * t)
+export const HUMAN_STANCE = WALK_STANCE_FRACTION
 
 export function humanStride(design: HumanDesign) {
-  return design.stride * design.height
+  const reach = design.stride * .5
+  return 2 * reach / HUMAN_STANCE * design.height
 }
 
 export function humanSpeed(design: HumanDesign, speedScale = 1) {
@@ -14,18 +13,22 @@ export function humanSpeed(design: HumanDesign, speedScale = 1) {
 }
 
 export function sampleHumanFoot(design: HumanDesign, phase: number, right: boolean): HumanFootSample {
-  const p = wrap01(phase + (right ? .5 : 0))
-  const reach = design.stride * .5
-  if (p < HUMAN_STANCE) {
-    const t = p / HUMAN_STANCE
-    return { z: reach * (1 - 2 * t), y: 0, planted: true }
-  }
-
-  const t = (p - HUMAN_STANCE) / (1 - HUMAN_STANCE)
+  const foot = walkFoot(
+    right ? "right" : "left",
+    phase,
+    {
+      ...BASE_PERSON.body,
+      stride: design.stride * .5,
+      footLift: .15 * design.height,
+      legOffset: design.hipWidth * .55,
+      ankleHeight: 0,
+    },
+    HUMAN_STANCE,
+  )
   return {
-    z: -reach + reach * 2 * smooth(t),
-    y: Math.sin(Math.PI * t) ** 2 * .15 * design.height,
-    planted: false,
+    z: foot.ankle[2],
+    y: foot.ankle[1],
+    planted: foot.planted,
   }
 }
 
