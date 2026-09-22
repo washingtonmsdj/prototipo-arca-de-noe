@@ -7,10 +7,11 @@ import type { AnimalSpecies, GaitName } from "../animals/types"
 import type { AnimalClip, AnimalRigEdits } from "../pilgrimage/wildlife/rig-edits"
 import type { WildlifeKind } from "../pilgrimage/wildlife/species"
 import { Human } from "../humans/Human"
-import { UpstreamHuman } from "../humans/UpstreamHuman"
+import { UpstreamHuman, type UpstreamHumanClip } from "../humans/UpstreamHuman"
 import { HUMAN_DESIGNS, generatedHuman } from "../humans/designs"
 import type { HumanClip, HumanDesign } from "../humans/types"
-import { createTerrainGeometry, seeded, terrainHeight, WORLD_SIZE } from "./terrain"
+import type { PoseEdits } from "../../vendor/pilgrimage/lib/game/base-person/pose-edits"
+import { createTerrainGeometry, terrainHeight } from "./terrain"
 import { GeneratedEnvironment } from "./GeneratedEnvironment"
 
 export type LabSubject = "animal" | "human"
@@ -35,6 +36,9 @@ interface WorldProps {
   humanClip: HumanClip
   humanEngine: HumanEngine
   upstreamHumanPreset: string
+  upstreamHumanClip: UpstreamHumanClip
+  humanEdits: PoseEdits
+  humanEditPhase?: number
   speedScale: number
   paused: boolean
   showRig: boolean
@@ -47,52 +51,6 @@ function Terrain() {
     <mesh geometry={geometry} receiveShadow>
       <meshStandardMaterial vertexColors roughness={1} flatShading />
     </mesh>
-  )
-}
-
-function River() {
-  return (
-    <group>
-      {Array.from({ length: 30 }, (_, i) => {
-        const z = -WORLD_SIZE / 2 + i * 1.5
-        const x = Math.sin(z * .13) * 2.2
-        return (
-          <mesh key={i} position={[x, terrainHeight(x, z) + .035, z]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
-            <planeGeometry args={[2.2, 1.7]} />
-            <meshStandardMaterial color="#517f8c" roughness={.4} metalness={.02} />
-          </mesh>
-        )
-      })}
-    </group>
-  )
-}
-
-function Vegetation() {
-  const items = useMemo(() => {
-    const random = seeded(717)
-    return Array.from({ length: 56 }, (_, id) => {
-      let x = (random() - .5) * (WORLD_SIZE - 5)
-      const z = (random() - .5) * (WORLD_SIZE - 5)
-      if (Math.abs(x - Math.sin(z * .13) * 2.2) < 3) x += x > 0 ? 4 : -4
-      return { id, x, z, scale: .7 + random() * 1.15 }
-    })
-  }, [])
-
-  return (
-    <group>
-      {items.map((tree) => (
-        <group key={tree.id} position={[tree.x, terrainHeight(tree.x, tree.z), tree.z]} scale={tree.scale}>
-          <mesh castShadow position={[0, .55, 0]}>
-            <cylinderGeometry args={[.10, .16, 1.1, 7]} />
-            <meshStandardMaterial color="#5b4631" roughness={1} />
-          </mesh>
-          <mesh castShadow position={[0, 1.35, 0]}>
-            <coneGeometry args={[.62, 1.65, 8]} />
-            <meshStandardMaterial color="#365a3b" roughness={1} />
-          </mesh>
-        </group>
-      ))}
-    </group>
   )
 }
 
@@ -171,6 +129,9 @@ export function World({
   humanClip,
   humanEngine,
   upstreamHumanPreset,
+  upstreamHumanClip,
+  humanEdits,
+  humanEditPhase,
   speedScale,
   paused,
   showRig,
@@ -243,11 +204,14 @@ export function World({
         ) : humanEngine === "pilgrimage" ? (
           <UpstreamHuman
             preset={upstreamHumanPreset}
-            clip={humanClip}
+            clip={upstreamHumanClip}
             paused={paused}
             origin={[0, 0]}
             scale={1.2}
             speedScale={speedScale}
+            edits={humanEdits}
+            phaseOverride={humanEditPhase}
+            showRig={showRig}
           />
         ) : (
           <Human
