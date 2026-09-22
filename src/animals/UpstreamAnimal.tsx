@@ -12,6 +12,13 @@ import {
   type WildlifeKind,
 } from "../pilgrimage/wildlife/species"
 import { terrainHeight, terrainSlope } from "../world/terrain"
+import {
+  advanceDistancePhase,
+  directWildlifeSpeed,
+  directWildlifeStride,
+  isGroundWildlifeClip,
+  wildlifeClipCadence,
+} from "./upstream-motion"
 
 export const UPSTREAM_WILDLIFE_SPECIES = WILDLIFE_SPECIES
 export type UpstreamAnimalClip = AnimalClip
@@ -38,6 +45,9 @@ export interface UpstreamAnimalProps {
   speedScale?: number
   edits?: AnimalRigEdits
   phaseOverride?: number
+  pathRadius?: number
+  pathOffset?: number
+  stationary?: boolean
 }
 
 export function UpstreamAnimal({
@@ -50,11 +60,18 @@ export function UpstreamAnimal({
   speedScale = 1,
   edits,
   phaseOverride,
+  pathRadius = 1.6,
+  pathOffset = 0,
+  stationary = true,
 }: UpstreamAnimalProps) {
   const container = useRef<THREE.Group>(null)
   const markers = useRef<Partial<Record<AnimalJoint, THREE.Mesh | null>>>({})
   const phase = useRef(0)
   const age = useRef(0)
+  const motion = useRef({
+    distance: Math.max(0, pathRadius) * pathOffset,
+    angle: pathOffset,
+  })
 
   const rig = useMemo(() => createWildlifeRig(kind), [kind])
 
@@ -63,15 +80,34 @@ export function UpstreamAnimal({
   useFrame((_, delta) => {
     if (!container.current) return
     const dt = paused ? 0 : Math.min(delta, .05)
-    const profile = WILDLIFE_PROFILES[kind]
     const gait = gaitForClip(kind, clip)
-    const cadenceEdit = edits?.clips[gait]?.cadence ?? 1
-    const cadence = (profile.cyclesPerSecond || 1) * cadenceEdit
-    phase.current = (phase.current + dt * cadence * speedScale) % 1
+    const cadence = wildlifeClipCadence(kind, clip, edits)
+    const poseMoving = isGroundWildlifeClip(clip)
+    const worldMoving = poseMoving
+      && !stationary
+      && phaseOverride === undefined
+      && pathRadius > 0
+
+    if (worldMoving) {
+      const distance = directWildlifeSpeed(
+        kind,
+        gait,
+        scale,
+        speedScale,
+        edits,
+      ) * dt
+      const stride = directWildlifeStride(kind, gait, scale, edits)
+      phase.current = advanceDistancePhase(phase.current, distance, stride)
+      motion.current.distance += distance
+      motion.current.angle += distance / Math.max(.25, pathRadius)
+    } else {
+      phase.current = (phase.current + dt * cadence * speedScale) % 1
+    }
+
     const displayPhase = phaseOverride ?? phase.current
     age.current += dt
 
-    const moving = ["walk", "trot", "canter", "gallop", "hop", "leap"].includes(clip)
+    const moving = poseMoving
     const grazing = clip === "graze" ? 1 : 0
     const flying = clip === "fly" || clip === "glide"
     const lying = clip === "lie" ? 1 : 0
@@ -90,14 +126,16 @@ export function UpstreamAnimal({
       },
     )
 
-    const x = origin[0]
-    const z = origin[1]
-    const y = terrainHeight(x, z)
+    const angle = motion.current.angle
+    const x = worldMoving ? origin[0] + Math.cos(angle) * pathRadius : origin[0]
+    const z = worldMoving ? origin[1] + Math.sin(angle) * pathRadius : origin[1]
+    const y = terrainHeight(x, z) + (flying ? .32 * scale : 0)
     const slope = terrainSlope(x, z)
     container.current.position.set(x, y, z)
     container.current.rotation.order = "YXZ"
-    container.current.rotation.x = -Math.atan(slope.dz * .18)
-    container.current.rotation.z = Math.atan(slope.dx * .18)
+    container.current.rotation.y = worldMoving ? -angle : 0
+    container.current.rotation.x = flying ? 0 : -Math.atan(slope.dz * .18)
+    container.current.rotation.z = flying ? 0 : Math.atan(slope.dx * .18)
 
     const joints = rig.joints()
     for (const name of Object.keys(ANIMAL_JOINT_LABELS) as AnimalJoint[]) {
