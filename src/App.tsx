@@ -507,7 +507,7 @@ export function App() {
                   <button
                     type="button"
                     className={humanMoving ? "active" : ""}
-                    disabled={!canMoveOriginalHuman || humanRigEditing || humanRepresentation === "sprite"}
+                    disabled={!canMoveOriginalHuman || humanRigEditing}
                     onClick={() => setHumanMoving((value) => !value)}
                   >
                     {humanMoving ? "Parar deslocamento" : "Mover no mundo"}
@@ -541,6 +541,7 @@ export function App() {
                   >
                     <option value="rig">Rig 3D</option>
                     <option value="sprite" disabled={!humanBakePreview}>Sprite + depth</option>
+                    <option value="auto" disabled={!humanBakePreview}>Auto por distância</option>
                   </select>
                 </label>
 
@@ -642,7 +643,13 @@ export function App() {
               <div><dt>Rig</dt><dd>original</dd></div>
               <div><dt>Clip</dt><dd>{upstreamHumanClipLabels[upstreamHumanClip]}</dd></div>
               <div><dt>Locomoção</dt><dd>{humanMoving ? "distância + foot lock" : "preview estacionário"}</dd></div>
-              <div><dt>Representação</dt><dd>{humanRepresentation === "sprite" ? "sprite + depth" : "rig 3D"}</dd></div>
+              <div><dt>Representação</dt><dd>{
+                humanRepresentation === "auto"
+                  ? "auto por distância"
+                  : humanRepresentation === "sprite"
+                    ? "sprite + depth"
+                    : "rig 3D"
+              }</dd></div>
             </>
           ) : (
             <>
