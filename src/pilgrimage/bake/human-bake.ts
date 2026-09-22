@@ -18,6 +18,12 @@ import { spriteDepthBaker, SPRITE_DEPTH_ENCODING } from "./depth"
 import { inkPersonFrame } from "./ink"
 import { addSurfaceLighting } from "./lighting"
 import { personCastShadow } from "./shadow"
+import { createHumanAttachment, type HumanAttachmentKind } from "../../humans/attachments"
+
+export interface HumanBakeAttachment {
+  kind: HumanAttachmentKind
+  socket: SocketName
+}
 
 export interface HumanBakeRegistration {
   direction: string
@@ -40,12 +46,13 @@ export interface HumanClipBake {
     depthEncoding: typeof SPRITE_DEPTH_ENCODING
     registrations: HumanBakeRegistration[]
     design: PersonDesign
+    attachment?: HumanBakeAttachment
   }
 }
 
 let sharedRenderer: THREE.WebGLRenderer | undefined
 
-function frameRenderer(design: PersonDesign) {
+function frameRenderer(design: PersonDesign, attachment?: HumanBakeAttachment) {
   const recipe = personRecipe(design)
   const size = recipe.cellSize
   const renderer = sharedRenderer ??= new THREE.WebGLRenderer({
@@ -62,6 +69,8 @@ function frameRenderer(design: PersonDesign) {
 
   const scene = new THREE.Scene()
   const rig = createBasePersonRig(recipe)
+  const attachmentInstance = attachment ? createHumanAttachment(attachment.kind) : null
+  if (attachmentInstance && attachment) rig.sockets[attachment.socket].add(attachmentInstance.group)
   scene.add(rig.root)
   addSurfaceLighting(scene)
 
@@ -102,11 +111,14 @@ function frameRenderer(design: PersonDesign) {
       context.clearRect(0, 0, size, size)
       context.drawImage(renderer.domElement, 0, 0)
 
+      const attachmentVisible = attachmentInstance?.group.visible ?? false
+      if (attachmentInstance) attachmentInstance.group.visible = false
       rig.inkMask(true)
       renderer.render(scene, camera)
       maskContext.clearRect(0, 0, size, size)
       maskContext.drawImage(renderer.domElement, 0, 0)
       rig.inkMask(false)
+      if (attachmentInstance) attachmentInstance.group.visible = attachmentVisible
 
       const colors = context.getImageData(0, 0, size, size)
       const inked = inkPersonFrame(
@@ -155,6 +167,7 @@ function frameRenderer(design: PersonDesign) {
       }
     },
     dispose() {
+      attachmentInstance?.dispose()
       depthBaker.dispose()
       rig.dispose()
       renderer.renderLists.dispose()
@@ -171,8 +184,12 @@ export async function bakeHumanClip(
   design: PersonDesign = DEFAULT_DESIGN,
   edits?: PoseEdits,
   onProgress?: (done: number, total: number) => void,
+  attachment?: HumanBakeAttachment,
 ): Promise<HumanClipBake> {
-  const session = frameRenderer({ ...design, poseEdits: edits ?? design.poseEdits })
+  const session = frameRenderer(
+    { ...design, poseEdits: edits ?? design.poseEdits },
+    attachment,
+  )
   const size = session.recipe.cellSize
   const frames = PERSON_CLIPS[clip].frames
   const rows = session.recipe.directions.length
@@ -232,6 +249,7 @@ export async function bakeHumanClip(
         depthEncoding: SPRITE_DEPTH_ENCODING,
         registrations,
         design: session.recipe.design,
+        attachment,
       },
     }
   } finally {
