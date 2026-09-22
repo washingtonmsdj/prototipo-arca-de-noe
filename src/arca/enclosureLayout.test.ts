@@ -90,6 +90,21 @@ describe("ark animal enclosure layout", () => {
     }
   })
 
+  it("requires an explicit scale audit record for every animal group", () => {
+    for (const animal of dimensions.animals) {
+      expect(animal.reference_form, animal.id).toBeTruthy()
+      expect(animal.life_stage, animal.id).toMatch(/^(adult|juvenile_independent)$/)
+      expect(animal.posture, animal.id).toBeTruthy()
+      expect(animal.dimension_basis, animal.id).toBeTruthy()
+      expect(animal.scale_review, animal.id).toBe("zoological-proportion-v2")
+      expect(animal.scale_confidence, animal.id).toMatch(/^(high|medium)$/)
+      expect(animal.staging_position_m, animal.id).toBeNull()
+      expect("enclosure" in animal, animal.id).toBe(false)
+      expect("housing_status" in animal, animal.id).toBe(false)
+      expect("dimension_status" in animal, animal.id).toBe(false)
+    }
+  })
+
   it("records posture-aware proportions instead of generic animal blocks", () => {
     const byId = new Map(dimensions.animals.map(animal => [animal.id, animal]))
     const anteater = byId.get("tamanduas")!
