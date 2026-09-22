@@ -18,6 +18,10 @@ export function ServiceZones() {
     () => serviceZones.filter(zone => zone.area_m2 >= .75),
     [],
   )
+  const crateZones = useMemo(
+    () => zones.filter(zone => zone.purpose !== "circulacao"),
+    [zones],
+  )
 
   useLayoutEffect(() => {
     const transform = new Object3D()
@@ -40,17 +44,24 @@ export function ServiceZones() {
         padRef.current.setColorAt(index, color)
       }
 
-      if (crateRef.current) {
-        const crateW = Math.min(1.2, Math.max(.35, width * .32))
-        const crateD = Math.min(1.2, Math.max(.35, depth * .32))
-        const crateH = zone.purpose === "circulacao" ? .12 : .65
-        transform.position.set(x, min[1] + crateH / 2 + .05, z)
-        transform.scale.set(crateW, crateH, crateD)
-        transform.updateMatrix()
-        crateRef.current.setMatrixAt(index, transform.matrix)
-        color.setHSL(hue, .28, zone.purpose === "agua" ? .38 : .33)
-        crateRef.current.setColorAt(index, color)
-      }
+    })
+
+    crateZones.forEach((zone, index) => {
+      if (!crateRef.current) return
+      const { min, max } = zone.bounds_m
+      const width = max[0] - min[0]
+      const depth = max[2] - min[2]
+      const x = (min[0] + max[0]) / 2
+      const z = (min[2] + max[2]) / 2
+      const crateW = Math.min(1.2, Math.max(.35, width * .32))
+      const crateD = Math.min(1.2, Math.max(.35, depth * .32))
+      const crateH = .65
+      transform.position.set(x, min[1] + crateH / 2 + .05, z)
+      transform.scale.set(crateW, crateH, crateD)
+      transform.updateMatrix()
+      crateRef.current.setMatrixAt(index, transform.matrix)
+      color.setHSL(PURPOSE_HUE[zone.purpose], .28, zone.purpose === "agua" ? .38 : .33)
+      crateRef.current.setColorAt(index, color)
     })
 
     for (const mesh of [padRef.current, crateRef.current]) {
@@ -60,7 +71,7 @@ export function ServiceZones() {
       mesh.computeBoundingBox()
       mesh.computeBoundingSphere()
     }
-  }, [zones])
+  }, [crateZones, zones])
 
   return (
     <group name="Areas_Servico_Planejadas" userData={{ noCollision: true }}>
@@ -68,7 +79,7 @@ export function ServiceZones() {
         <boxGeometry args={[1, 1, 1]} />
         <meshStandardMaterial roughness={1} vertexColors />
       </instancedMesh>
-      <instancedMesh ref={crateRef} args={[undefined, undefined, zones.length]} castShadow receiveShadow>
+      <instancedMesh ref={crateRef} args={[undefined, undefined, crateZones.length]} castShadow receiveShadow>
         <boxGeometry args={[1, 1, 1]} />
         <meshStandardMaterial roughness={.9} vertexColors />
       </instancedMesh>
