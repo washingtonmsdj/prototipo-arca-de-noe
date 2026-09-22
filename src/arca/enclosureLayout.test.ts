@@ -1,11 +1,16 @@
 import { describe, expect, it } from "vitest"
-import catalog from "../../concepts/arca/catalogo-baias-fisicas-v1.json"
 import dimensions from "../../concepts/arca/dimensoes-animais-jogo-v1.json"
+import { housingClassFor, housingCoverage } from "./animalPlanning"
 import {
   animalPlacements,
   pendingAnimals,
   physicalPens,
 } from "./enclosureLayout"
+import {
+  baseModules,
+  planningSummary,
+  serviceZones,
+} from "./plannedEnclosures"
 
 describe("ark animal enclosure layout", () => {
   it("keeps every catalogued individual inside the ark", () => {
@@ -17,27 +22,61 @@ describe("ark animal enclosure layout", () => {
     expect(dimensions.animals.every(animal => animal.staging_position_m === null)).toBe(true)
   })
 
-  it("has one occupied physical pen for every animal group", () => {
-    expect(catalog.count).toBe(162)
-    expect(catalog.occupied).toBe(162)
-    expect(catalog.available).toBe(0)
+  it("assigns one deterministic planned pen and housing class to every group", () => {
     expect(physicalPens).toHaveLength(162)
-
-    const animalPens = dimensions.animals.map(animal => animal.enclosure)
-    expect(new Set(animalPens).size).toBe(162)
     expect(new Set(physicalPens.map(pen => pen.id)).size).toBe(162)
-    expect(physicalPens.every(pen => pen.status === "ocupada")).toBe(true)
-    expect(physicalPens.every(pen => pen.animal_key && pen.layout)).toBe(true)
+    expect(new Set(physicalPens.map(pen => pen.animal_key)).size).toBe(162)
+    expect(housingCoverage().size).toBe(162)
+
+    for (const animal of dimensions.animals) {
+      expect(() => housingClassFor(animal.id)).not.toThrow()
+      expect(physicalPens.some(pen => pen.animal_key === animal.id)).toBe(true)
+    }
   })
 
-  it("keeps every reference envelope inside its audited pen bounds", () => {
+  it("keeps every planned pen inside its structural Blender module", () => {
+    const modules = new Map(baseModules.map(module => [module.id, module]))
+    for (const pen of physicalPens) {
+      const module = modules.get(pen.module_id)
+      expect(module, pen.module_id).toBeDefined()
+      expect(pen.bounds_m.min[0]).toBeGreaterThanOrEqual(module!.min[0] - 1e-6)
+      expect(pen.bounds_m.min[2]).toBeGreaterThanOrEqual(module!.min[2] - 1e-6)
+      expect(pen.bounds_m.max[0]).toBeLessThanOrEqual(module!.max[0] + 1e-6)
+      expect(pen.bounds_m.max[2]).toBeLessThanOrEqual(module!.max[2] + 1e-6)
+      expect(pen.bounds_m.min[1]).toBeGreaterThanOrEqual(module!.min[1] - 1e-6)
+      expect(pen.bounds_m.max[1]).toBeLessThanOrEqual(module!.max[1] + 1e-6)
+    }
+  })
+
+  it("does not overlap planned pens within the same structural module", () => {
+    const byModule = new Map<string, typeof physicalPens>()
+    for (const pen of physicalPens) {
+      const list = byModule.get(pen.module_id)
+      if (list) list.push(pen)
+      else byModule.set(pen.module_id, [pen])
+    }
+
+    for (const pens of byModule.values()) {
+      for (let i = 0; i < pens.length; i++) {
+        for (let j = i + 1; j < pens.length; j++) {
+          const a = pens[i].bounds_m
+          const b = pens[j].bounds_m
+          const overlapX = Math.min(a.max[0], b.max[0]) - Math.max(a.min[0], b.min[0])
+          const overlapZ = Math.min(a.max[2], b.max[2]) - Math.max(a.min[2], b.min[2])
+          expect(Math.min(overlapX, overlapZ)).toBeLessThanOrEqual(1e-6)
+        }
+      }
+    }
+  })
+
+  it("keeps every reference envelope inside its planned pen", () => {
     const pens = new Map(physicalPens.map(pen => [pen.id, pen]))
 
     for (const block of animalPlacements) {
       const pen = pens.get(block.enclosure)
       expect(pen, block.enclosure).toBeDefined()
       const { min, max } = pen!.bounds_m
-      const rotated = Math.abs(block.rotation) > 0.1
+      const rotated = Math.abs(block.rotation) > .1
       const halfX = (rotated ? block.dimensions[2] : block.dimensions[0]) / 2
       const halfY = block.dimensions[1] / 2
       const halfZ = (rotated ? block.dimensions[0] : block.dimensions[2]) / 2
@@ -64,20 +103,27 @@ describe("ark animal enclosure layout", () => {
     expect(dimensions.animals.every(animal => animal.posture && animal.dimension_basis)).toBe(true)
   })
 
-  it("compacts the pig pen and creates exactly twenty runtime partition modules", () => {
-    const pig = dimensions.animals.find(animal => animal.id === "porcos")!
-    const cassowary = dimensions.animals.find(animal => animal.id === "casuares")!
-    expect(pig.enclosure).toBe("MED-BE-07-A")
-    expect(cassowary.enclosure).toBe("MED-BE-07-B")
+  it("eliminates extreme crowding and reserves explicit service space", () => {
+    expect(Math.max(...physicalPens.map(pen => pen.occupancy_ratio))).toBeLessThan(.66)
+    expect(serviceZones.length).toBeGreaterThan(0)
+    expect(serviceZones.every(zone => zone.area_m2 >= .5)).toBe(true)
 
-    const pigPen = physicalPens.find(pen => pen.id === pig.enclosure)!
-    expect(pigPen.usable_dimensions_m[0]).toBeLessThan(2.4)
+    expect(planningSummary).toHaveLength(3)
+    for (const deck of planningSummary) {
+      expect(deck.animal_area_ratio).toBeGreaterThan(.25)
+      expect(deck.animal_area_ratio).toBeLessThan(.8)
+    }
+  })
 
-    const partitionModules = new Set(
-      physicalPens
-        .filter(pen => "runtime_partition" in pen && pen.runtime_partition)
-        .map(pen => pen.module_id),
-    )
-    expect(partitionModules.size).toBe(20)
+  it("uses compact specialist housing for the smallest animals", () => {
+    expect(housingClassFor("camundongos")).toBe("small_cage")
+    expect(housingClassFor("hamsters")).toBe("small_cage")
+    expect(housingClassFor("pererecas")).toBe("micro_terrarium")
+    expect(housingClassFor("formigas")).toBe("insectarium")
+
+    const mousePen = physicalPens.find(pen => pen.animal_key === "camundongos")!
+    const antPen = physicalPens.find(pen => pen.animal_key === "formigas")!
+    expect(mousePen.floor_area_m2).toBeLessThan(1)
+    expect(antPen.floor_area_m2).toBeLessThan(.7)
   })
 })
