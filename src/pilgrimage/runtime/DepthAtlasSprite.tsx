@@ -12,7 +12,7 @@ interface DepthAtlasSpriteProps {
   color: string
   depth: string
   metadata: DepthSpriteMetadata
-  phase: number
+  phase: number | { current: number }
   heading?: number
   position: readonly [number, number, number]
   scale?: number
@@ -163,7 +163,8 @@ export function DepthAtlasSprite({
     const matrix = camera.matrixWorld.elements
     const cameraYaw = Math.atan2(matrix[8], matrix[10])
     const row = spriteRow(heading, cameraYaw, metadata.directions.length)
-    const frame = Math.floor(((phase % 1 + 1) % 1) * metadata.frames)
+    const currentPhase = typeof phase === "number" ? phase : phase.current
+    const frame = Math.floor(((currentPhase % 1 + 1) % 1) * metadata.frames)
     const cell = atlasCell(
       frame,
       row,
