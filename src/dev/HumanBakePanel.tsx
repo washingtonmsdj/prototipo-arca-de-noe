@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { PERSON_PRESETS } from "../../vendor/pilgrimage/lib/game/base-person/design"
 import type { PoseEdits } from "../../vendor/pilgrimage/lib/game/base-person/pose-edits"
 import type { BaseClip } from "../../vendor/pilgrimage/lib/game/base-person/pose"
@@ -36,9 +36,18 @@ export function HumanBakePanel({ preset, clip, edits }: HumanBakePanelProps) {
   const [progress, setProgress] = useState({ done: 0, total: 0 })
   const [result, setResult] = useState<HumanClipBake | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const generation = useRef(0)
+
+  useEffect(() => {
+    generation.current++
+    setResult(null)
+    setError(null)
+    setProgress({ done: 0, total: 0 })
+  }, [preset, clip, edits])
 
   const bake = async () => {
     if (busy) return
+    const run = ++generation.current
     setBusy(true)
     setError(null)
     setResult(null)
@@ -52,11 +61,13 @@ export function HumanBakePanel({ preset, clip, edits }: HumanBakePanelProps) {
         edits,
         (done, total) => setProgress({ done, total }),
       )
-      setResult(baked)
+      if (run === generation.current) setResult(baked)
     } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "Falha desconhecida ao gerar o atlas.")
+      if (run === generation.current) {
+        setError(cause instanceof Error ? cause.message : "Falha desconhecida ao gerar o atlas.")
+      }
     } finally {
-      setBusy(false)
+      if (run === generation.current) setBusy(false)
     }
   }
 
