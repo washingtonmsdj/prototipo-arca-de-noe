@@ -12,12 +12,14 @@ import {
   type WildlifeKind,
 } from "../pilgrimage/wildlife/species"
 import { terrainHeight, terrainSlope } from "../world/terrain"
+import { plantFoot, type FootPlant } from "../../vendor/pilgrimage/lib/game/base-person/gait"
 import {
   advanceDistancePhase,
   directWildlifeSpeed,
   directWildlifeStride,
   isGroundWildlifeClip,
   wildlifeClipCadence,
+  wildlifeSupportContact,
 } from "./upstream-motion"
 
 export const UPSTREAM_WILDLIFE_SPECIES = WILDLIFE_SPECIES
@@ -68,6 +70,7 @@ export function UpstreamAnimal({
   const markers = useRef<Partial<Record<AnimalJoint, THREE.Mesh | null>>>({})
   const phase = useRef(0)
   const age = useRef(0)
+  const plantedFoot = useRef<FootPlant | null>(null)
   const motion = useRef({
     distance: Math.max(0, pathRadius) * pathOffset,
     angle: pathOffset,
@@ -127,13 +130,47 @@ export function UpstreamAnimal({
     )
 
     const angle = motion.current.angle
-    const x = worldMoving ? origin[0] + Math.cos(angle) * pathRadius : origin[0]
-    const z = worldMoving ? origin[1] + Math.sin(angle) * pathRadius : origin[1]
-    const y = terrainHeight(x, z) + (flying ? .32 * scale : 0)
-    const slope = terrainSlope(x, z)
-    container.current.position.set(x, y, z)
+    const heading = worldMoving ? -angle : 0
+    const desiredX = worldMoving ? origin[0] + Math.cos(angle) * pathRadius : origin[0]
+    const desiredZ = worldMoving ? origin[1] + Math.sin(angle) * pathRadius : origin[1]
+    const desiredY = terrainHeight(desiredX, desiredZ) + (flying ? .32 * scale : 0)
+
+    let rootX = desiredX
+    let rootY = desiredY
+    let rootZ = desiredZ
+
+    if (worldMoving) {
+      const support = wildlifeSupportContact(
+        kind,
+        gait,
+        displayPhase,
+        scale,
+        heading,
+        edits,
+      )
+      if (support) {
+        const planted = plantFoot(
+          plantedFoot.current,
+          support.key,
+          { x: desiredX, y: desiredY, z: desiredZ },
+          support,
+          terrainHeight,
+        )
+        plantedFoot.current = planted.plant
+        rootX += planted.offset.x
+        rootY += planted.offset.y
+        rootZ += planted.offset.z
+      } else {
+        plantedFoot.current = null
+      }
+    } else {
+      plantedFoot.current = null
+    }
+
+    const slope = terrainSlope(rootX, rootZ)
+    container.current.position.set(rootX, rootY, rootZ)
     container.current.rotation.order = "YXZ"
-    container.current.rotation.y = worldMoving ? -angle : 0
+    container.current.rotation.y = heading
     container.current.rotation.x = flying ? 0 : -Math.atan(slope.dz * .18)
     container.current.rotation.z = flying ? 0 : Math.atan(slope.dx * .18)
 
