@@ -58,6 +58,10 @@ Definition
        \-> baked sprite/depth atlas
 ```
 
-## Regra de licenciamento
+## Origem do sistema
 
-Este sistema é uma implementação própria. Não importar código, assets, receitas, geradores ou outputs protegidos por licenças incompatíveis. Conceitos gerais de computação gráfica podem ser reimplementados independentemente.
+O projeto agora combina a implementação local criada inicialmente com módulos autorizados do Pilgrimage.
+
+O snapshot original fica em `vendor/pilgrimage/`. A integração ativa deve ocorrer por adaptadores ou módulos em `src/`, de forma que seja possível comparar o upstream com as melhorias do Arca e atualizar o snapshot sem perder alterações locais.
+
+A licença e a procedência do upstream devem permanecer preservadas.
