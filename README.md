@@ -16,6 +16,8 @@ O mundo ativo usa uma porta isolada dos sistemas de geração do Pilgrimage:
 - elevação procedural;
 - drenagem/hidrologia;
 - superfícies de água por altura drenada;
+- movimento de corrente e quedas orientado pela hidrologia;
+- praias físicas + shoreline diagonal recíproca;
 - slopes e cliff masks;
 - paredes 3D para desníveis de cliff;
 - floresta instanciada;
@@ -36,6 +38,9 @@ Há dois motores comparáveis no laboratório.
 - gaits, IK e ações originais;
 - editor de rig por frame/junta;
 - pelagens dos animais de transporte;
+- cadência e passada por gait original;
+- movimento em mundo sincronizado por distância;
+- uma pata/hoof de suporte estabilizada em curvas;
 - bake modular por clip com 8 direções, color/depth/shadow e metadata de juntas.
 
 **Arca simplificado**:
@@ -53,6 +58,9 @@ Há dois motores comparáveis no laboratório.
 - presets originais;
 - 19 clips originais;
 - editor visual de pose por frame/junta;
+- sockets + attachments compartilhados entre preview e bake;
+- caminhada no mundo por distância + foot lock;
+- blend entre clips incluindo deformação da roupa;
 - bake por clip em 8 direções;
 - saída de color atlas, depth atlas, shadow atlas e metadata com sockets.
 
@@ -119,12 +127,12 @@ Veja `docs/PILGRIMAGE_PORT_STATUS.md` para o inventário exato e `docs/BAKING_PI
 
 ## Próximas evoluções
 
-- shoreline/beach e cliff-corner visual do upstream, sem importar gameplay;
-- visualização animada de fluxo/cachoeiras usando a hidrologia já calculada;
-- sockets/ferramentas no laboratório humano;
-- CLI opcional sobre os bakers browser já ativos;
-- LOD runtime entre 3D completo, rig simplificado e sprite/depth;
-- navegação por rotas quando o gameplay começar.
+- LOD runtime entre rig 3D e sprite/depth sem perder oclusão;
+- biblioteca real de props/equipamentos;
+- CLI de bake apenas se trouxer ganho operacional sobre o browser tool;
+- pontes/fords quando a travessia fizer parte do gameplay;
+- navegação por rotas quando o gameplay começar;
+- profiling de cenas com muitos rigs antes de escalar população.
 
 ## Pilgrimage upstream
 
