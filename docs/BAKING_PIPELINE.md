@@ -33,7 +33,7 @@ Saída:
 - `<stem>-shadow.png`;
 - `<stem>.json`.
 
-O JSON registra clip, frames, direções, cell size, anchor, padding seguro, depth encoding, design, attachment/socket escolhido e sockets por frame/direção. O attachment entra nos atlases de cor, depth e sombra usando o mesmo factory do preview 3D.
+O JSON registra clip, frames, direções, cell size, **view size**, anchor, padding seguro, depth encoding, design, attachment/socket escolhido e sockets por frame/direção. O attachment entra nos atlases de cor, depth e sombra usando o mesmo factory do preview 3D.
 
 A contagem de frames vem diretamente de `PERSON_CLIPS`; não é forçada para 20.
 
@@ -68,3 +68,20 @@ O baker mede padding em todos os pixels sólidos e rejeita um resultado que ultr
 ## Estado atual
 
 O bake é acionado pelo laboratório no browser. O CLI/Playwright original permanece apenas como referência em `vendor/pilgrimage/scripts/` e pode ser reimplementado depois como uma camada fina sobre estes bakers, sem duplicar lógica.
+
+
+## Runtime LOD
+
+O resultado do baker pode ser publicado diretamente no laboratório sem salvar arquivos primeiro. `DepthAtlasSprite` usa:
+
+- atlas de cor;
+- atlas RG16 de depth;
+- `frames`;
+- direções;
+- `cellSize`;
+- `viewSize`;
+- anchor.
+
+`viewSize` é indispensável para converter o offset de profundidade do bake para unidades de mundo na câmera perspectiva.
+
+O preview runtime é invalidado quando preset, clip, pelagem, rig edits ou attachment mudam, evitando usar atlas obsoleto.

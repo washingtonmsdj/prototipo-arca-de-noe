@@ -47,7 +47,9 @@ Há dois motores comparáveis no laboratório.
 - cadência e passada por gait original;
 - movimento em mundo sincronizado por distância;
 - uma pata/hoof de suporte estabilizada em curvas;
-- bake modular por clip com 8 direções, color/depth/shadow e metadata de juntas.
+- bake modular por clip com 8 direções, color/depth/shadow e metadata de juntas;
+- LOD entre rig 3D e sprite/depth com fase/posição compartilhadas;
+- modo automático por distância com histerese.
 
 **Arca simplificado**:
 
@@ -68,7 +70,9 @@ Há dois motores comparáveis no laboratório.
 - caminhada no mundo por distância + foot lock;
 - blend entre clips incluindo deformação da roupa;
 - bake por clip em 8 direções;
-- saída de color atlas, depth atlas, shadow atlas e metadata com sockets.
+- saída de color atlas, depth atlas, shadow atlas e metadata com sockets;
+- LOD entre rig 3D e sprite/depth sem reiniciar caminhada;
+- depth sprite reconstruído corretamente sob câmera perspectiva.
 
 **Arca simplificado**:
 
@@ -134,12 +138,12 @@ Veja `docs/PILGRIMAGE_PORT_STATUS.md` para o inventário exato e `docs/BAKING_PI
 
 ## Próximas evoluções
 
-- LOD runtime entre rig 3D e sprite/depth sem perder oclusão;
+- manifest/cache persistente para os atlases baked;
+- profiling de cenas com muitos atores usando LOD automático;
 - biblioteca real de props/equipamentos;
-- CLI de bake apenas se trouxer ganho operacional sobre o browser tool;
+- CLI de bake quando houver pipeline persistente para alimentar;
 - pontes/fords quando a travessia fizer parte do gameplay;
-- navegação por rotas quando o gameplay começar;
-- profiling de cenas com muitos rigs antes de escalar população.
+- navegação por rotas quando o gameplay começar.
 
 ## Pilgrimage upstream
 

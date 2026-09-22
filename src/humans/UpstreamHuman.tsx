@@ -15,6 +15,7 @@ import {
   type PoseEdits,
 } from "../../vendor/pilgrimage/lib/game/base-person/pose-edits"
 import { terrainHeight, terrainSlope } from "../world/terrain"
+import type { ActorMotionRef } from "../pilgrimage/runtime/actor-motion"
 import { createHumanAttachment, type HumanAttachmentKind } from "./attachments"
 import { plantFoot, type FootPlant } from "../../vendor/pilgrimage/lib/game/base-person/gait"
 import {
@@ -58,6 +59,7 @@ export interface UpstreamHumanProps {
   pathRadius?: number
   pathOffset?: number
   stationary?: boolean
+  motionState?: ActorMotionRef
 }
 
 export function UpstreamHuman({
@@ -75,6 +77,7 @@ export function UpstreamHuman({
   pathRadius = 1.6,
   pathOffset = 0,
   stationary = true,
+  motionState,
 }: UpstreamHumanProps) {
   const container = useRef<THREE.Group>(null)
   const markers = useRef<Partial<Record<EditableJoint, THREE.Mesh | null>>>({})
@@ -135,6 +138,7 @@ export function UpstreamHuman({
     if (!container.current) return
     const dt = paused ? 0 : Math.min(delta, .05)
     const clipChanged = lastClip.current !== clip
+
     if (clipChanged) {
       transition.current = !paused && phaseOverride === undefined
         ? { snapshot: captureHumanPose(setup.rig.root), elapsed: 0 }
@@ -142,81 +146,102 @@ export function UpstreamHuman({
 
       const preserveWalkPhase = isOriginalMovingClip(lastClip.current)
         && isOriginalMovingClip(clip)
-      if (!preserveWalkPhase) phase.current = 0
+      if (!preserveWalkPhase) {
+        if (motionState) motionState.current.phase = 0
+        else phase.current = 0
+      }
 
       lastClip.current = clip
       plantedFoot.current = null
     }
 
-    const moving = !stationary
-      && phaseOverride === undefined
-      && isOriginalMovingClip(clip)
-      && pathRadius > 0
+    let displayPhase: number
+    let rootX: number
+    let rootY: number
+    let rootZ: number
+    let heading: number
+    let slope: { dx: number; dz: number }
 
-    const transitioning = transition.current !== null
-    const previousPhase = phase.current
-    const cadence = 1.1 * speedScale
-    const distance = moving && !transitioning
-      ? originalRigWalkSpeed(setup.recipe.body, scale, cadence) * dt
-      : 0
-
-    if (moving && distance > 0) {
-      motion.current.distance += distance
-      motion.current.angle += distance / Math.max(.25, pathRadius)
-      phase.current = advanceOriginalRigWalk(
-        phase.current,
-        distance,
-        clip,
-        setup.recipe.body,
-        scale,
-      )
-    } else if (!moving) {
-      phase.current = (phase.current + dt * cadence) % 1
-    }
-
-    const displayPhase = phaseOverride ?? phase.current
-    const angle = motion.current.angle
-    const desiredX = moving ? origin[0] + Math.cos(angle) * pathRadius : origin[0]
-    const desiredZ = moving ? origin[1] + Math.sin(angle) * pathRadius : origin[1]
-    const heading = moving ? -angle : 0
-    const desiredGround = terrainHeight(desiredX, desiredZ)
-
-    let rootX = desiredX
-    let rootY = desiredGround
-    let rootZ = desiredZ
-
-    if (moving) {
-      if (crossedOriginalSupport(
-        previousPhase,
-        distance,
-        clip,
-        setup.recipe.body,
-        scale,
-      )) plantedFoot.current = null
-
-      const contact = originalRigWalkContact(
-        displayPhase,
-        clip,
-        setup.recipe.body,
-        scale,
-        heading,
-      )
-      const planted = plantFoot(
-        plantedFoot.current,
-        `${preset}:${contact.side}`,
-        { x: desiredX, y: desiredGround, z: desiredZ },
-        contact,
-        terrainHeight,
-      )
-      plantedFoot.current = planted.plant
-      rootX += planted.offset.x
-      rootY += planted.offset.y
-      rootZ += planted.offset.z
+    if (motionState) {
+      const state = motionState.current
+      displayPhase = phaseOverride ?? state.phase
+      rootX = state.x
+      rootY = state.y
+      rootZ = state.z
+      heading = state.heading
+      slope = { dx: state.slopeX, dz: state.slopeZ }
     } else {
-      plantedFoot.current = null
+      const moving = !stationary
+        && phaseOverride === undefined
+        && isOriginalMovingClip(clip)
+        && pathRadius > 0
+
+      const transitioning = transition.current !== null
+      const previousPhase = phase.current
+      const cadence = 1.1 * speedScale
+      const distance = moving && !transitioning
+        ? originalRigWalkSpeed(setup.recipe.body, scale, cadence) * dt
+        : 0
+
+      if (moving && distance > 0) {
+        motion.current.distance += distance
+        motion.current.angle += distance / Math.max(.25, pathRadius)
+        phase.current = advanceOriginalRigWalk(
+          phase.current,
+          distance,
+          clip,
+          setup.recipe.body,
+          scale,
+        )
+      } else if (!moving) {
+        phase.current = (phase.current + dt * cadence) % 1
+      }
+
+      displayPhase = phaseOverride ?? phase.current
+      const angle = motion.current.angle
+      const desiredX = moving ? origin[0] + Math.cos(angle) * pathRadius : origin[0]
+      const desiredZ = moving ? origin[1] + Math.sin(angle) * pathRadius : origin[1]
+      heading = moving ? -angle : 0
+      const desiredGround = terrainHeight(desiredX, desiredZ)
+
+      rootX = desiredX
+      rootY = desiredGround
+      rootZ = desiredZ
+
+      if (moving) {
+        if (crossedOriginalSupport(
+          previousPhase,
+          distance,
+          clip,
+          setup.recipe.body,
+          scale,
+        )) plantedFoot.current = null
+
+        const contact = originalRigWalkContact(
+          displayPhase,
+          clip,
+          setup.recipe.body,
+          scale,
+          heading,
+        )
+        const planted = plantFoot(
+          plantedFoot.current,
+          `${preset}:${contact.side}`,
+          { x: desiredX, y: desiredGround, z: desiredZ },
+          contact,
+          terrainHeight,
+        )
+        plantedFoot.current = planted.plant
+        rootX += planted.offset.x
+        rootY += planted.offset.y
+        rootZ += planted.offset.z
+      } else {
+        plantedFoot.current = null
+      }
+
+      slope = terrainSlope(rootX, rootZ)
     }
 
-    const slope = terrainSlope(rootX, rootZ)
     container.current.position.set(rootX, rootY, rootZ)
     container.current.rotation.order = "YXZ"
     container.current.rotation.y = heading

@@ -409,7 +409,7 @@ export function App() {
                   <button
                     type="button"
                     className={animalMoving ? "active" : ""}
-                    disabled={!canMoveOriginalAnimal || animalRigEditing || animalRepresentation === "sprite"}
+                    disabled={!canMoveOriginalAnimal || animalRigEditing}
                     onClick={() => setAnimalMoving((value) => !value)}
                   >
                     {animalMoving ? "Parar deslocamento" : "Mover no mundo"}
@@ -443,6 +443,7 @@ export function App() {
                   >
                     <option value="rig">Rig 3D</option>
                     <option value="sprite" disabled={!animalBakePreview}>Sprite + depth</option>
+                    <option value="auto" disabled={!animalBakePreview}>Auto por distância</option>
                   </select>
                 </label>
 
@@ -534,7 +535,7 @@ export function App() {
                   <button
                     type="button"
                     className={humanMoving ? "active" : ""}
-                    disabled={!canMoveOriginalHuman || humanRigEditing || humanRepresentation === "sprite"}
+                    disabled={!canMoveOriginalHuman || humanRigEditing}
                     onClick={() => setHumanMoving((value) => !value)}
                   >
                     {humanMoving ? "Parar deslocamento" : "Mover no mundo"}
@@ -568,6 +569,7 @@ export function App() {
                   >
                     <option value="rig">Rig 3D</option>
                     <option value="sprite" disabled={!humanBakePreview}>Sprite + depth</option>
+                    <option value="auto" disabled={!humanBakePreview}>Auto por distância</option>
                   </select>
                 </label>
 
@@ -642,7 +644,13 @@ export function App() {
                   <div><dt>Rig</dt><dd>wildlife original</dd></div>
                   <div><dt>Ação</dt><dd>{upstreamAnimalClipLabels[upstreamAnimalClip]}</dd></div>
                   <div><dt>Locomoção</dt><dd>{animalMoving ? "fase por distância" : "preview estacionário"}</dd></div>
-                  <div><dt>Representação</dt><dd>{animalRepresentation === "sprite" ? "sprite + depth" : "rig 3D"}</dd></div>
+                  <div><dt>Representação</dt><dd>{
+                    animalRepresentation === "auto"
+                      ? "auto por distância"
+                      : animalRepresentation === "sprite"
+                        ? "sprite + depth"
+                        : "rig 3D"
+                  }</dd></div>
                   <div><dt>Representação</dt><dd>{animalRepresentation === "sprite" ? "sprite + depth" : "rig 3D"}</dd></div>
                 </>
               ) : (
@@ -669,7 +677,13 @@ export function App() {
               <div><dt>Rig</dt><dd>original</dd></div>
               <div><dt>Clip</dt><dd>{upstreamHumanClipLabels[upstreamHumanClip]}</dd></div>
               <div><dt>Locomoção</dt><dd>{humanMoving ? "distância + foot lock" : "preview estacionário"}</dd></div>
-              <div><dt>Representação</dt><dd>{humanRepresentation === "sprite" ? "sprite + depth" : "rig 3D"}</dd></div>
+              <div><dt>Representação</dt><dd>{
+                humanRepresentation === "auto"
+                  ? "auto por distância"
+                  : humanRepresentation === "sprite"
+                    ? "sprite + depth"
+                    : "rig 3D"
+              }</dd></div>
             </>
           ) : (
             <>
