@@ -75,14 +75,16 @@
       "reference_scope": "representative_form",
       "adult_reference": {
         "length_m": [
-          3.8,
-          5
+          3.7,
+          4
         ],
         "height_m": [
           1.5,
           1.8
         ],
-        "measurement": "rinoceronte-branco adulto"
+        "measurement": "rinoceronte-branco; comprimento e altura ao ombro",
+        "source_name": "San Diego Zoo Wildlife Alliance — Rhinoceros",
+        "source_url": "https://animals.sandiegozoo.org/animals/rhinoceros"
       }
     },
     {
@@ -124,7 +126,9 @@
           1.3,
           1.6
         ],
-        "measurement": "hipopótamo-comum adulto"
+        "measurement": "hipopótamo-comum; comprimento e altura ao ombro",
+        "source_name": "San Diego Zoo Wildlife Alliance — Hippo",
+        "source_url": "https://animals.sandiegozoo.org/animals/hippo"
       }
     },
     {
@@ -255,7 +259,9 @@
           1.3,
           1.5
         ],
-        "measurement": "zebra adulta; altura ao ombro"
+        "measurement": "zebra adulta; altura ao ombro",
+        "source_name": "San Diego Zoo Wildlife Alliance — Zebra",
+        "source_url": "https://animals.sandiegozoo.org/animals/zebra"
       }
     },
     {
@@ -297,7 +303,9 @@
           1.6,
           1.8
         ],
-        "measurement": "camelo-bactriano; comprimento e altura ao ombro"
+        "measurement": "camelo-bactriano; comprimento e altura ao ombro",
+        "source_name": "San Diego Zoo Wildlife Alliance — Camel",
+        "source_url": "https://animals.sandiegozoo.org/animals/camel"
       }
     },
     {
@@ -398,10 +406,12 @@
           3.8
         ],
         "height_m": [
-          1.4,
+          1.9,
           1.9
         ],
-        "measurement": "bisão-americano adulto; altura no ombro/corcova conforme sexo"
+        "measurement": "macho adulto; altura máxima aproximada na corcova",
+        "source_name": "Smithsonian's National Zoo — American bison",
+        "source_url": "https://nationalzoo.si.edu/animals/american-bison"
       }
     },
     {
@@ -467,10 +477,12 @@
       "reference_scope": "representative_form",
       "adult_reference": {
         "height_m": [
-          4.5,
+          4.3,
           5.5
         ],
-        "measurement": "girafa adulta; altura total"
+        "measurement": "altura adulta; fêmeas até ~4,3 m, machos até ~5,5 m",
+        "source_name": "San Diego Zoo Wildlife Alliance — Giraffe",
+        "source_url": "https://animals.sandiegozoo.org/animals/giraffe"
       }
     },
     {
@@ -505,14 +517,16 @@
       "reference_scope": "representative_form",
       "adult_reference": {
         "length_m": [
-          2.4,
+          2.7,
           2.8
         ],
         "height_m": [
           1.5,
           2.1
         ],
-        "measurement": "alce adulto; altura ao ombro"
+        "measurement": "adulto; altura ao ombro, comprimento de macho como referência",
+        "source_name": "U.S. National Park Service — Moose",
+        "source_url": "https://www.nps.gov/kefj/learn/nature/moose.htm"
       }
     },
     {
@@ -1105,14 +1119,16 @@
       "reference_scope": "representative_form",
       "adult_reference": {
         "length_m": [
-          1.5,
-          2.1
+          2.1,
+          3
         ],
         "height_m": [
           0.9,
           1.5
         ],
-        "measurement": "comprimento corporal e altura ao ombro em quatro patas"
+        "measurement": "comprimento e altura ao ombro em quatro patas",
+        "source_name": "U.S. National Park Service — Brown Bear FAQ",
+        "source_url": "https://www.nps.gov/katm/learn/photosmultimedia/brown-bear-frequently-asked-questions.htm"
       }
     },
     {
@@ -1148,9 +1164,11 @@
       "adult_reference": {
         "height_m": [
           0.9,
-          0.95
+          0.9
         ],
-        "measurement": "altura aproximada ao ombro em quatro patas"
+        "measurement": "altura aproximada ao ombro em quatro patas",
+        "source_name": "U.S. National Park Service — Black Bears",
+        "source_url": "https://www.nps.gov/subjects/bears/black-bears.htm"
       }
     },
     {
@@ -1309,10 +1327,12 @@
       "reference_scope": "representative_form",
       "adult_reference": {
         "length_m": [
-          0.9,
-          1.8
+          0.5,
+          1.9
         ],
-        "measurement": "porco doméstico adulto; comprimento cabeça-corpo"
+        "measurement": "família Suidae; comprimento cabeça-corpo; envelope do jogo usa porco doméstico representativo",
+        "source_name": "Animal Diversity Web — Suidae",
+        "source_url": "https://animaldiversity.org/accounts/Suidae/"
       }
     },
     {
@@ -1412,11 +1432,9 @@
           0.84,
           1.15
         ],
-        "height_m": [
-          0.35,
-          0.45
-        ],
-        "measurement": "vombate-comum adulto"
+        "measurement": "vombate-comum; comprimento cabeça-corpo",
+        "source_name": "Australian Museum — Bare-nosed Wombat",
+        "source_url": "https://australian.museum/learn/animals/mammals/bare-nosed-wombat/"
       }
     },
     {
@@ -1429,16 +1447,16 @@
       "dimensions_m": {
         "length": 1.2,
         "width": 0.5,
-        "height": 0.6
+        "height": 0.5
       },
       "blender_dimensions_m": [
         1.2,
         0.5,
-        0.6
+        0.5
       ],
       "threejs_box_args_m": [
         1.2,
-        0.6,
+        0.5,
         0.5
       ],
       "staging_position_m": null,
@@ -1448,7 +1466,20 @@
       "life_stage": "adult",
       "scale_review": "zoological-proportion-v2",
       "scale_confidence": "high",
-      "reference_scope": "representative_form"
+      "reference_scope": "representative_form",
+      "adult_reference": {
+        "length_m": [
+          1,
+          1.3
+        ],
+        "height_m": [
+          0.5,
+          0.5
+        ],
+        "measurement": "comprimento e altura ao ombro",
+        "source_name": "San Diego Zoo Wildlife Alliance — Capybara",
+        "source_url": "https://animals.sandiegozoo.org/animals/capybara"
+      }
     },
     {
       "id": "tamanduas",
@@ -1485,11 +1516,9 @@
           1.8,
           2.4
         ],
-        "height_m": [
-          0.6,
-          0.7
-        ],
-        "measurement": "comprimento total incluindo focinho e cauda; altura aproximada ao ombro"
+        "measurement": "comprimento total incluindo focinho e cauda",
+        "source_name": "Smithsonian's National Zoo — Giant anteater",
+        "source_url": "https://nationalzoo.si.edu/animals/giant-anteater"
       }
     },
     {
@@ -1527,7 +1556,9 @@
           1.7,
           2.7
         ],
-        "measurement": "altura total adulta"
+        "measurement": "altura adulta; faixa de fêmeas a machos",
+        "source_name": "San Diego Zoo Wildlife Alliance — Ostrich",
+        "source_url": "https://animals.sandiegozoo.org/animals/ostrich"
       }
     },
     {
@@ -4508,9 +4539,11 @@
       "adult_reference": {
         "height_m": [
           1.5,
-          1.8
+          1.7
         ],
-        "measurement": "altura total adulta aproximada"
+        "measurement": "casuar-do-sul adulto; pode chegar a ~1,7 m",
+        "source_name": "Smithsonian's National Zoo — Southern cassowary",
+        "source_url": "https://nationalzoo.si.edu/animals/southern-cassowary"
       }
     },
     {
@@ -4548,7 +4581,9 @@
           1.27,
           1.52
         ],
-        "measurement": "cisne-mudo adulto; comprimento corporal total"
+        "measurement": "cisne-mudo adulto; comprimento",
+        "source_name": "Cornell Lab of Ornithology — Mute Swan",
+        "source_url": "https://www.allaboutbirds.org/guide/Mute_Swan/id"
       }
     },
     {
@@ -5190,5 +5225,6 @@
   "notes": [],
   "housing_planner": "src/arca/plannedEnclosures.ts",
   "housing_classes": "src/arca/animalPlanning.ts",
-  "structural_modules": "modulos-alojamento-base-v1.json"
+  "structural_modules": "modulos-alojamento-base-v1.json",
+  "scale_sources_policy": "Registros high incluem fonte curada e medida adulta separada. Registros medium são envelopes de modelagem por forma representativa e devem ser promovidos para high somente após fonte zoológica específica."
 }
