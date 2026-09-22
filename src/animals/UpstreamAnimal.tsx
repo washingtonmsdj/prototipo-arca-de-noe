@@ -1,16 +1,16 @@
 import { useEffect, useMemo, useRef } from "react"
 import { useFrame } from "@react-three/fiber"
 import * as THREE from "three"
-import { createWildlifeRig } from "../../vendor/pilgrimage/lib/game/wildlife/rig"
-import { speciesGaits, type WildlifeGait } from "../../vendor/pilgrimage/lib/game/wildlife/gait"
-import { ANIMAL_JOINT_LABELS, type AnimalClip, type AnimalJoint } from "../../vendor/pilgrimage/lib/game/wildlife/rig-edits"
+import { createWildlifeRig } from "../pilgrimage/wildlife/rig"
+import { speciesGaits, type WildlifeGait } from "../pilgrimage/wildlife/gait"
+import { ANIMAL_JOINT_LABELS, type AnimalClip, type AnimalJoint } from "../pilgrimage/wildlife/rig-edits"
 import {
   WILDLIFE_PROFILES,
   WILDLIFE_SPECIES,
   isBird,
   isChicken,
   type WildlifeKind,
-} from "../../vendor/pilgrimage/lib/game/wildlife/species"
+} from "../pilgrimage/wildlife/species"
 import { terrainHeight, terrainSlope } from "../world/terrain"
 
 export const UPSTREAM_WILDLIFE_SPECIES = WILDLIFE_SPECIES
