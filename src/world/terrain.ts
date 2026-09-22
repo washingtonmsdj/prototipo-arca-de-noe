@@ -265,14 +265,111 @@ export function terrainSlope(x: number, z: number) {
   return { dx, dz }
 }
 
-function tileColor(index: number) {
-  const kind = DISPLAY_TILES[index]
+function terrainColor(kind: TerrainId, index: number) {
   const definition = TERRAIN[kind]
   const jitterRng = makeRng(WORLD_SEED ^ Math.imul(index + 1, 0x45d9f3b))
   const jitter = (jitterRng() - .5) * definition.jitter * 2
   const color = new THREE.Color(definition.color)
   color.offsetHSL(0, 0, jitter)
   return color
+}
+
+function tileColor(index: number) {
+  return terrainColor(DISPLAY_TILES[index], index)
+}
+
+const CORNER_X = [0, 1, 0, 1] as const
+const CORNER_Z = [0, 0, 1, 1] as const
+
+function geometricCorner(shoreIndex: number) {
+  const [dx, dz] = SHORE_CORNERS[shoreIndex]
+  return (dx > 0 ? 1 : 0) + (dz > 0 ? 2 : 0)
+}
+
+function latticeDryHeight(vertexX: number, vertexZ: number) {
+  const samples: number[] = []
+
+  for (let dz = -1; dz <= 0; dz++) for (let dx = -1; dx <= 0; dx++) {
+    const x = vertexX + dx
+    const z = vertexZ + dz
+    if (x < 0 || z < 0 || x >= WORLD_TILES || z >= WORLD_TILES) continue
+
+    const index = z * WORLD_TILES + x
+    if (GENERATED_WATER.kind[index]) continue
+
+    const corner = (dx === -1 ? 1 : 0) + (dz === -1 ? 2 : 0)
+    samples.push(GENERATED_ELEVATION.corners[index * 4 + corner])
+  }
+
+  return (samples.length
+    ? samples.reduce((sum, value) => sum + value, 0) / samples.length
+    : 0) * HEIGHT_SCALE
+}
+
+function latticeWaterHeight(vertexX: number, vertexZ: number) {
+  const samples: number[] = []
+
+  for (let dz = -1; dz <= 0; dz++) for (let dx = -1; dx <= 0; dx++) {
+    const x = vertexX + dx
+    const z = vertexZ + dz
+    if (x < 0 || z < 0 || x >= WORLD_TILES || z >= WORLD_TILES) continue
+
+    const index = z * WORLD_TILES + x
+    if (!GENERATED_WATER.kind[index]) continue
+    samples.push(GENERATED_HYDROLOGY.surface[index])
+  }
+
+  return (samples.length
+    ? samples.reduce((sum, value) => sum + value, 0) / samples.length
+    : 0) * HEIGHT_SCALE
+}
+
+function shorelineBankTerrain(x: number, z: number, shoreIndex: number): TerrainId {
+  const [dx] = SHORE_CORNERS[shoreIndex]
+  const donor = z * WORLD_TILES + x + dx
+  const kind = DISPLAY_TILES[donor]
+  return kind === "forest" || kind === "darkwood" || kind === "clearing" ? "grass" : kind
+}
+
+function cornerPosition(
+  tileX: number,
+  tileZ: number,
+  corner: number,
+  height: (vertexX: number, vertexZ: number) => number,
+): [number, number, number] {
+  const vertexX = tileX + CORNER_X[corner]
+  const vertexZ = tileZ + CORNER_Z[corner]
+  return [
+    -HALF_WORLD + vertexX * TILE_SIZE,
+    height(vertexX, vertexZ),
+    -HALF_WORLD + vertexZ * TILE_SIZE,
+  ]
+}
+
+function pushCornerTriangle(
+  vertices: number[],
+  colors: number[],
+  color: THREE.Color,
+  tileX: number,
+  tileZ: number,
+  cornerIds: readonly [number, number, number],
+  height: (vertexX: number, vertexZ: number) => number,
+) {
+  let [aId, bId, cId] = cornerIds
+  const ax = CORNER_X[aId], az = CORNER_Z[aId]
+  const bx = CORNER_X[bId], bz = CORNER_Z[bId]
+  const cx = CORNER_X[cId], cz = CORNER_Z[cId]
+  const area = (bx - ax) * (cz - az) - (bz - az) * (cx - ax)
+  if (area < 0) [bId, cId] = [cId, bId]
+
+  pushTriangle(
+    vertices,
+    colors,
+    color,
+    cornerPosition(tileX, tileZ, aId, height),
+    cornerPosition(tileX, tileZ, bId, height),
+    cornerPosition(tileX, tileZ, cId, height),
+  )
 }
 
 function pushTriangle(
@@ -303,6 +400,20 @@ export function createTerrainGeometry() {
       const y = bedHeight(index)
       pushTriangle(vertices, colors, color, [x0, y, z0], [x1, y, z0], [x0, y, z1])
       pushTriangle(vertices, colors, color, [x1, y, z0], [x1, y, z1], [x0, y, z1])
+
+      const shoreIndex = shorelineCorners(SHORELINE_FIELD, x, z).findIndex(Boolean)
+      if (shoreIndex >= 0) {
+        const corner = geometricCorner(shoreIndex)
+        pushCornerTriangle(
+          vertices,
+          colors,
+          terrainColor(shorelineBankTerrain(x, z, shoreIndex), index),
+          x,
+          z,
+          [corner, corner ^ 1, corner ^ 2],
+          latticeDryHeight,
+        )
+      }
       continue
     }
 
@@ -333,17 +444,47 @@ export function createWaterGeometry() {
 
   for (let z = 0; z < WORLD_TILES; z++) for (let x = 0; x < WORLD_TILES; x++) {
     const index = z * WORLD_TILES + x
-    if (!GENERATED_WATER.kind[index]) continue
+    const flags = shorelineCorners(SHORELINE_FIELD, x, z)
+    const shoreIndex = flags.findIndex(Boolean)
 
-    const x0 = -HALF_WORLD + x * TILE_SIZE
-    const x1 = x0 + TILE_SIZE
-    const z0 = -HALF_WORLD + z * TILE_SIZE
-    const z1 = z0 + TILE_SIZE
-    const y = GENERATED_HYDROLOGY.surface[index] * HEIGHT_SCALE + .012
-    const color = waterColor(GENERATED_WATER.depth[index])
+    if (GENERATED_WATER.kind[index]) {
+      const x0 = -HALF_WORLD + x * TILE_SIZE
+      const x1 = x0 + TILE_SIZE
+      const z0 = -HALF_WORLD + z * TILE_SIZE
+      const z1 = z0 + TILE_SIZE
+      const y = GENERATED_HYDROLOGY.surface[index] * HEIGHT_SCALE + .012
+      const color = waterColor(GENERATED_WATER.depth[index])
 
-    pushTriangle(vertices, colors, color, [x0, y, z0], [x1, y, z0], [x0, y, z1])
-    pushTriangle(vertices, colors, color, [x1, y, z0], [x1, y, z1], [x0, y, z1])
+      if (shoreIndex < 0) {
+        pushTriangle(vertices, colors, color, [x0, y, z0], [x1, y, z0], [x0, y, z1])
+        pushTriangle(vertices, colors, color, [x1, y, z0], [x1, y, z1], [x0, y, z1])
+      } else {
+        const corner = geometricCorner(shoreIndex)
+        pushCornerTriangle(
+          vertices,
+          colors,
+          color,
+          x,
+          z,
+          [corner ^ 3, corner ^ 1, corner ^ 2],
+          () => y,
+        )
+      }
+      continue
+    }
+
+    if (shoreIndex >= 0) {
+      const corner = geometricCorner(shoreIndex)
+      pushCornerTriangle(
+        vertices,
+        colors,
+        waterColor(1),
+        x,
+        z,
+        [corner, corner ^ 1, corner ^ 2],
+        (vertexX, vertexZ) => latticeWaterHeight(vertexX, vertexZ) + .012,
+      )
+    }
   }
 
   const geometry = new THREE.BufferGeometry()
