@@ -45,7 +45,7 @@ for (const [housingClass, ids] of Object.entries(groups) as [HousingClass, reado
 
 export const HOUSING_RULES: Record<HousingClass, HousingRule> = {
   large_mammal: {
-    pairOccupancy: .40, groupOccupancy: .50,
+    pairOccupancy: .40, groupOccupancy: .56,
     minPairArea: 10, minGroupArea: 30, minSide: 1.8,
     maxPairAspect: 3, maxGroupAspect: 4.6,
     wallHeight: 1.75, label: "baia grande",
