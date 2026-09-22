@@ -69,7 +69,7 @@ O layout só é aceito quando os testes comprovam simultaneamente que:
 - existem áreas de serviço remanescentes;
 - toda baia possui acesso direto ao corredor central ou a uma espinha de serviço;
 - as zonas de serviço não ocupam o piso reservado aos animais;
-- o planejamento evita concentrar muitas baias em poucos módulos: no estado atual há no máximo 1 baia por módulo no primeiro pavimento e 2 nos demais.
+- o planejamento evita concentrar muitas baias em poucos módulos: no estado atual há no máximo 1 baia por módulo no primeiro pavimento, 3 no segundo (uma única exceção tripla) e 2 no terceiro; os 128 módulos estruturais permanecem em uso.
 
 As antigas cercas/baias exportadas do Blender são ocultadas no runtime. Elas não controlam mais o posicionamento nem a colisão. O `.blend` continua sendo fonte de autoria da estrutura da arca, enquanto a divisão interna passa a ser recalculável.
 
