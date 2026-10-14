@@ -30,11 +30,15 @@ export const animalPlacements = dimensions.animals.flatMap((animal, group) => {
   const occupiedDepth = rows * sz + (rows - 1) * gap
   const penWidth = max[0] - min[0]
   const penDepth = max[2] - min[2]
+  const raisedBase = pen.housing_class === "insectarium" ? .16
+    : pen.housing_class === "small_cage"
+      || pen.housing_class === "terrarium"
+      || pen.housing_class === "micro_terrarium" ? .1 : 0
 
   if (
     occupiedWidth > penWidth + 1e-6
     || occupiedDepth > penDepth + 1e-6
-    || height + .02 > max[1] - min[1] + 1e-6
+    || height + raisedBase + .02 > max[1] - min[1] + 1e-6
   ) {
     throw new Error(`Animais excedem a baia planejada de ${animal.name}`)
   }
@@ -72,7 +76,7 @@ export const animalPlacements = dimensions.animals.flatMap((animal, group) => {
       dimensions: [length, height, width] as [number, number, number],
       position: [
         startX + index % columns * stepX,
-        min[1] + height / 2 + .02,
+        min[1] + raisedBase + height / 2 + .02,
         startZ + Math.floor(index / columns) * stepZ,
       ] as [number, number, number],
       rotation: rotated ? Math.PI / 2 : 0,

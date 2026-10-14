@@ -40,7 +40,7 @@ export function ServiceZones() {
         transform.scale.set(width, .05, depth)
         transform.updateMatrix()
         padRef.current.setMatrixAt(index, transform.matrix)
-        color.setHSL(hue, .22, .28)
+        color.setHSL(hue, .22, zone.purpose === "circulacao" ? .49 : .32)
         padRef.current.setColorAt(index, color)
       }
 
@@ -77,11 +77,11 @@ export function ServiceZones() {
     <group name="Areas_Servico_Planejadas" userData={{ noCollision: true }}>
       <instancedMesh ref={padRef} args={[undefined, undefined, zones.length]} receiveShadow>
         <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial roughness={1} vertexColors />
+        <meshStandardMaterial roughness={1} />
       </instancedMesh>
       <instancedMesh ref={crateRef} args={[undefined, undefined, crateZones.length]} castShadow receiveShadow>
         <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial roughness={.9} vertexColors />
+        <meshStandardMaterial roughness={.9} />
       </instancedMesh>
     </group>
   )

@@ -188,23 +188,23 @@ export function HousingFixtures() {
     <group name="Equipamentos_Recintos_Planejados" userData={{ noCollision: true }}>
       <instancedMesh ref={troughRef} args={[undefined, undefined, fixtures.troughs.length]} castShadow receiveShadow>
         <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial roughness={.95} vertexColors />
+        <meshStandardMaterial roughness={.95} />
       </instancedMesh>
       <instancedMesh ref={perchRef} args={[undefined, undefined, fixtures.perches.length]} castShadow>
         <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial roughness={.9} vertexColors />
+        <meshStandardMaterial roughness={.9} />
       </instancedMesh>
       <instancedMesh ref={baseRef} args={[undefined, undefined, fixtures.bases.length]} receiveShadow>
         <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial roughness={1} vertexColors />
+        <meshStandardMaterial roughness={1} />
       </instancedMesh>
       <instancedMesh ref={wetRef} args={[undefined, undefined, fixtures.wet.length]} receiveShadow>
         <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial roughness={.65} vertexColors />
+        <meshStandardMaterial roughness={.65} />
       </instancedMesh>
       <instancedMesh ref={restRef} args={[undefined, undefined, fixtures.rest.length]} receiveShadow>
         <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial roughness={1} vertexColors />
+        <meshStandardMaterial roughness={1} />
       </instancedMesh>
     </group>
   )

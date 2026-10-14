@@ -1,6 +1,6 @@
 import dimensionsJson from "../../concepts/arca/dimensoes-animais-jogo-v1.json"
 import modulesJson from "../../concepts/arca/modulos-alojamento-base-v1.json"
-import { housingClassFor, housingRuleFor, type HousingClass } from "./animalPlanning"
+import { housingClassFor, housingRuleFor, SECURE_PREDATORS, type HousingClass } from "./animalPlanning"
 
 type Vec3 = [number, number, number]
 
@@ -46,7 +46,6 @@ interface Candidate {
 
 export type PenAccessEdge = "min_x" | "max_x" | "min_z" | "max_z"
 export type PenAccessKind = "walk_gate" | "service_hatch"
-type BinMode = "frontage" | "service_spine"
 
 interface Placement {
   animal: AnimalRecord
@@ -58,16 +57,11 @@ interface Placement {
   width: number
   depth: number
   penRotated: boolean
-  accessMode: BinMode
   accessEdge: PenAccessEdge
-  accessZoneId: string | null
 }
 
 interface Bin extends BaseModule {
-  mode: BinMode | null
-  corridorWidth: number
   usedWidth: number
-  usedDepth: number
   placed: Placement[]
 }
 
@@ -77,8 +71,6 @@ interface PlacementOption {
   width: number
   depth: number
   penRotated: boolean
-  mode: BinMode
-  corridorWidth: number
 }
 
 export interface PlannedPen {
@@ -218,15 +210,14 @@ function rectangleCandidates(animal: AnimalRecord): Candidate[] {
   return output.slice(0, 120)
 }
 
-const SERVICE_SPINE_WIDTH = .45
+// Dedicated dry, enclosed service cabinets; never interleave insectariums with
+// predator stalls or create a second corridor behind the pens.
+const INSECTARIUM_MODULES = new Set(["MED-BE-09", "MED-BE-13"])
 
-function supportsServiceSpine(module: BaseModule) {
-  return (
-    module.deck === 3
-    && module.width > 2
-    && module.width < 2.6
-    && module.depth > 5
-  )
+function acceptsAnimal(bin: Bin, animal: AnimalRecord) {
+  if (bin.deck !== 2) return true
+  const insect = housingClassFor(animal.id) === "insectarium"
+  return INSECTARIUM_MODULES.has(bin.id) === insect
 }
 
 function fittingOptions(
@@ -235,12 +226,8 @@ function fittingOptions(
 ): PlacementOption[] {
   const options: PlacementOption[] = []
 
-  const add = (
-    mode: BinMode,
-    corridorWidth: number,
-    availableWidth: number,
-    availableDepth: number,
-  ) => {
+  const add = (availableWidth: number) => {
+    const availableDepth = bin.depth
     if (availableWidth <= .05 || availableDepth <= .05) return
 
     for (const candidate of candidates) {
@@ -257,43 +244,13 @@ function fittingOptions(
             width,
             depth,
             penRotated,
-            mode,
-            corridorWidth,
           })
         }
       }
     }
   }
 
-  if (bin.mode === null) {
-    add("frontage", 0, bin.width, bin.depth)
-    if (supportsServiceSpine(bin)) {
-      add(
-        "service_spine",
-        SERVICE_SPINE_WIDTH,
-        bin.width - SERVICE_SPINE_WIDTH,
-        bin.depth,
-      )
-    }
-    return options
-  }
-
-  if (bin.mode === "frontage") {
-    add(
-      "frontage",
-      0,
-      bin.width - bin.usedWidth,
-      bin.depth,
-    )
-    return options
-  }
-
-  add(
-    "service_spine",
-    bin.corridorWidth,
-    bin.width - bin.corridorWidth,
-    bin.depth - bin.usedDepth,
-  )
+  add(bin.width - bin.usedWidth)
   return options
 }
 
@@ -302,10 +259,7 @@ function packDeck(deck: number) {
     .filter(module => module.deck === deck)
     .map(module => ({
       ...module,
-      mode: null,
-      corridorWidth: 0,
       usedWidth: 0,
-      usedDepth: 0,
       placed: [],
     }))
 
@@ -313,13 +267,13 @@ function packDeck(deck: number) {
     .filter(animal => animal.deck === deck)
     .map(animal => {
       const candidates = rectangleCandidates(animal)
-      const initialFits = bins.map(bin => fittingOptions(bin, candidates))
+      const initialFits = bins.map(bin =>
+        acceptsAnimal(bin, animal) ? fittingOptions(bin, candidates) : [],
+      )
       const feasibleModules = initialFits.filter(options => options.length > 0).length
       const minAxisDemand = Math.min(
         ...initialFits.flatMap(options =>
-          options.map(option =>
-            option.mode === "service_spine" ? option.depth : option.width
-          )
+          options.map(option => option.width)
         ),
       )
       return {
@@ -344,25 +298,14 @@ function packDeck(deck: number) {
         }
       | undefined
 
-    for (const option of bins.flatMap(bin =>
+    for (const option of bins.filter(bin => acceptsAnimal(bin, item.animal)).flatMap(bin =>
       fittingOptions(bin, item.candidates)
     )) {
-      const axisCapacity = option.mode === "service_spine"
-        ? option.bin.depth
-        : option.bin.width
-      const axisUsed = option.mode === "service_spine"
-        ? option.bin.usedDepth
-        : option.bin.usedWidth
-      const axisDelta = option.mode === "service_spine"
-        ? option.depth
-        : option.width
-      const remaining = axisCapacity - axisUsed - axisDelta
-      const modeBias = option.mode === "service_spine" ? -3 : 0
+      const remaining = option.bin.width - option.bin.usedWidth - option.width
       const score =
         option.bin.placed.length * 40
         + remaining * 2
         + Math.abs(option.candidate.area - option.candidate.targetArea)
-        + modeBias
 
       if (!best || score < best.score) {
         best = { option, score }
@@ -381,34 +324,13 @@ function packDeck(deck: number) {
       width,
       depth,
       penRotated,
-      mode,
-      corridorWidth,
     } = best.option
-
-    if (bin.mode === null) {
-      bin.mode = mode
-      bin.corridorWidth = corridorWidth
-    }
-
-    let localX: number
-    let localZ: number
-    let accessEdge: PenAccessEdge
-    let accessZoneId: string | null = null
-
-    if (mode === "frontage") {
-      localX = bin.usedWidth
-      localZ = bin.side > 0 ? bin.depth - depth : 0
-      accessEdge = bin.side > 0 ? "max_z" : "min_z"
-      bin.usedWidth += width
-    } else {
-      localX = bin.corridorWidth
-      localZ = bin.side > 0
-        ? bin.depth - bin.usedDepth - depth
-        : bin.usedDepth
-      accessEdge = "min_x"
-      accessZoneId = `SERVICE-SPINE-${bin.id}`
-      bin.usedDepth += depth
-    }
+    const localX = bin.usedWidth
+    // The pen must sit against the outer hull. The open/gate edge is the
+    // inner edge facing the single central aisle.
+    const localZ = bin.side > 0 ? 0 : bin.depth - depth
+    const accessEdge: PenAccessEdge = bin.side > 0 ? "max_z" : "min_z"
+    bin.usedWidth += width
 
     bin.placed.push({
       animal: item.animal,
@@ -420,9 +342,7 @@ function packDeck(deck: number) {
       width,
       depth,
       penRotated,
-      accessMode: mode,
       accessEdge,
-      accessZoneId,
     })
   }
 
@@ -441,7 +361,6 @@ function placementToPen(placement: Placement): PlannedPen {
     penRotated,
     housingClass,
     accessEdge,
-    accessZoneId,
   } = placement
   const min: Vec3 = [
     module.min[0] + placement.localX,
@@ -461,7 +380,10 @@ function placementToPen(placement: Placement): PlannedPen {
   const bodyFootprint =
     animal.dimensions_m.length * animal.dimensions_m.width * animal.quantity
   const rule = housingRuleFor(animal.id)
-  const wallHeight = Math.min(rule.wallHeight, module.height - .08)
+  const wallHeight = Math.min(
+    SECURE_PREDATORS.has(animal.id) ? Math.max(rule.wallHeight, 2.35) : rule.wallHeight,
+    module.height - .08,
+  )
   const accessKind: PenAccessKind = (
     housingClass === "small_cage"
     || housingClass === "terrarium"
@@ -523,7 +445,7 @@ function placementToPen(placement: Placement): PlannedPen {
       kind: accessKind,
       gate_center_m: gateCenter,
       opening_width_m: openingWidth,
-      service_zone_id: accessZoneId,
+      service_zone_id: null,
     },
   }
 }
@@ -532,68 +454,14 @@ export const plannedPens: PlannedPen[] = packedBins
   .flatMap(bin => bin.placed.map(placementToPen))
   .sort((a, b) => a.deck - b.deck || a.bounds_m.min[0] - b.bounds_m.min[0])
 
-const residualPurposes: ServicePurpose[] = [
-  "manejo",
-  "limpeza",
-  "ventilacao",
-]
+const residualPurposes: Record<number, ServicePurpose[]> = {
+  1: ["agua", "alimento", "manejo", "limpeza"],
+  2: ["alimento", "agua", "limpeza", "manejo"],
+  3: ["ventilacao", "alimento", "agua", "limpeza"],
+}
 
 export const serviceZones: ServiceZone[] = packedBins.flatMap((bin, binIndex) => {
   const zones: ServiceZone[] = []
-
-  if (bin.mode === "service_spine") {
-    const spineMin: Vec3 = [
-      bin.min[0],
-      bin.min[1],
-      bin.min[2],
-    ]
-    const spineMax: Vec3 = [
-      bin.min[0] + bin.corridorWidth,
-      bin.max[1],
-      bin.max[2],
-    ]
-    zones.push({
-      id: `SERVICE-SPINE-${bin.id}`,
-      module_id: bin.id,
-      deck: bin.deck,
-      side: bin.side,
-      purpose: "circulacao",
-      bounds_m: { min: spineMin, max: spineMax },
-      area_m2: bin.corridorWidth * bin.depth,
-    })
-
-    const remainingDepth = bin.depth - bin.usedDepth
-    const usableWidth = bin.width - bin.corridorWidth
-    if (remainingDepth * usableWidth >= .5) {
-      const minZ = bin.side > 0
-        ? bin.min[2]
-        : bin.min[2] + bin.usedDepth
-      const maxZ = bin.side > 0
-        ? bin.min[2] + remainingDepth
-        : bin.max[2]
-      const min: Vec3 = [
-        bin.min[0] + bin.corridorWidth,
-        bin.min[1],
-        minZ,
-      ]
-      const max: Vec3 = [
-        bin.max[0],
-        bin.max[1],
-        maxZ,
-      ]
-      zones.push({
-        id: `SERVICE-RESIDUAL-${bin.id}`,
-        module_id: bin.id,
-        deck: bin.deck,
-        side: bin.side,
-        purpose: residualPurposes[binIndex % residualPurposes.length],
-        bounds_m: { min, max },
-        area_m2: remainingDepth * usableWidth,
-      })
-    }
-
-    return zones
-  }
 
   const remainingWidth = bin.width - bin.usedWidth
   if (remainingWidth * bin.depth >= .5) {
@@ -612,7 +480,7 @@ export const serviceZones: ServiceZone[] = packedBins.flatMap((bin, binIndex) =>
       module_id: bin.id,
       deck: bin.deck,
       side: bin.side,
-      purpose: residualPurposes[binIndex % residualPurposes.length],
+      purpose: residualPurposes[bin.deck][binIndex % residualPurposes[bin.deck].length],
       bounds_m: { min, max },
       area_m2: remainingWidth * bin.depth,
     })
@@ -625,9 +493,8 @@ export const moduleAccessSummary = packedBins.map(bin => ({
   id: bin.id,
   deck: bin.deck,
   side: bin.side,
-  mode: bin.mode,
   pens: bin.placed.length,
-  corridor_width_m: bin.corridorWidth,
+  access: "central_aisle" as const,
 }))
 
 export const plannedPenByAnimal = new Map(

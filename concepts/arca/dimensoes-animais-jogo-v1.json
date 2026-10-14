@@ -4664,7 +4664,7 @@
     {
       "id": "formigas",
       "name": "Formigas",
-      "deck": 3,
+      "deck": 2,
       "quantity": 2,
       "males": 1,
       "females": 1,
@@ -4695,7 +4695,7 @@
     {
       "id": "abelhas",
       "name": "Abelhas",
-      "deck": 3,
+      "deck": 2,
       "quantity": 2,
       "males": 1,
       "females": 1,
@@ -4726,7 +4726,7 @@
     {
       "id": "vespas",
       "name": "Vespas",
-      "deck": 3,
+      "deck": 2,
       "quantity": 2,
       "males": 1,
       "females": 1,
@@ -4757,7 +4757,7 @@
     {
       "id": "cupins",
       "name": "Cupins",
-      "deck": 3,
+      "deck": 2,
       "quantity": 2,
       "males": 1,
       "females": 1,
@@ -4788,7 +4788,7 @@
     {
       "id": "besouros",
       "name": "Besouros",
-      "deck": 3,
+      "deck": 2,
       "quantity": 2,
       "males": 1,
       "females": 1,
@@ -4819,7 +4819,7 @@
     {
       "id": "borboletas",
       "name": "Borboletas",
-      "deck": 3,
+      "deck": 2,
       "quantity": 2,
       "males": 1,
       "females": 1,
@@ -4850,7 +4850,7 @@
     {
       "id": "mariposas",
       "name": "Mariposas",
-      "deck": 3,
+      "deck": 2,
       "quantity": 2,
       "males": 1,
       "females": 1,
@@ -4881,7 +4881,7 @@
     {
       "id": "gafanhotos",
       "name": "Gafanhotos",
-      "deck": 3,
+      "deck": 2,
       "quantity": 2,
       "males": 1,
       "females": 1,
@@ -4912,7 +4912,7 @@
     {
       "id": "grilos",
       "name": "Grilos",
-      "deck": 3,
+      "deck": 2,
       "quantity": 2,
       "males": 1,
       "females": 1,
@@ -4943,7 +4943,7 @@
     {
       "id": "louva-a-deus",
       "name": "Louva-a-deus",
-      "deck": 3,
+      "deck": 2,
       "quantity": 2,
       "males": 1,
       "females": 1,
@@ -4974,7 +4974,7 @@
     {
       "id": "bichos-pau",
       "name": "Bichos-pau",
-      "deck": 3,
+      "deck": 2,
       "quantity": 2,
       "males": 1,
       "females": 1,
@@ -5005,7 +5005,7 @@
     {
       "id": "baratas",
       "name": "Baratas",
-      "deck": 3,
+      "deck": 2,
       "quantity": 2,
       "males": 1,
       "females": 1,
@@ -5036,7 +5036,7 @@
     {
       "id": "aranhas",
       "name": "Aranhas",
-      "deck": 3,
+      "deck": 2,
       "quantity": 2,
       "males": 1,
       "females": 1,
@@ -5067,7 +5067,7 @@
     {
       "id": "escorpioes",
       "name": "Escorpiões",
-      "deck": 3,
+      "deck": 2,
       "quantity": 2,
       "males": 1,
       "females": 1,
@@ -5098,7 +5098,7 @@
     {
       "id": "centopeias",
       "name": "Centopeias",
-      "deck": 3,
+      "deck": 2,
       "quantity": 2,
       "males": 1,
       "females": 1,
@@ -5129,7 +5129,7 @@
     {
       "id": "piolhos-de-cobra",
       "name": "Piolhos-de-cobra",
-      "deck": 3,
+      "deck": 2,
       "quantity": 2,
       "males": 1,
       "females": 1,
@@ -5160,7 +5160,7 @@
     {
       "id": "caracois-terrestres",
       "name": "Caracóis terrestres",
-      "deck": 3,
+      "deck": 2,
       "quantity": 2,
       "males": 1,
       "females": 1,
@@ -5191,7 +5191,7 @@
     {
       "id": "lesmas",
       "name": "Lesmas",
-      "deck": 3,
+      "deck": 2,
       "quantity": 2,
       "males": 1,
       "females": 1,
@@ -5222,7 +5222,7 @@
     {
       "id": "minhocas",
       "name": "Minhocas",
-      "deck": 3,
+      "deck": 2,
       "quantity": 2,
       "males": 1,
       "females": 1,

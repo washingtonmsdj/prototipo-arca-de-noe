@@ -93,3 +93,17 @@ export function enclosureWallSegments(
 
   return result
 }
+
+export function enclosureGateSegment(
+  pen: PlannedPen,
+  thickness: number,
+): EnclosureWallSegment | null {
+  if (pen.access.kind !== "walk_gate") return null
+  const alongX = pen.access.edge === "min_z" || pen.access.edge === "max_z"
+  return {
+    position: [...pen.access.gate_center_m],
+    size: alongX
+      ? [pen.access.opening_width_m, pen.wall_height_m, thickness]
+      : [thickness, pen.wall_height_m, pen.access.opening_width_m],
+  }
+}

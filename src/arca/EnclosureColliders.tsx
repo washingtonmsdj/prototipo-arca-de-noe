@@ -1,12 +1,15 @@
 import { useLayoutEffect, useMemo, useRef } from "react"
 import { InstancedMesh, Object3D } from "three"
-import { enclosureWallSegments } from "./enclosureWallSegments"
+import { enclosureGateSegment, enclosureWallSegments } from "./enclosureWallSegments"
 import { physicalPens } from "./enclosureLayout"
 
 export function EnclosureColliders() {
   const mesh = useRef<InstancedMesh>(null)
   const walls = useMemo(
-    () => physicalPens.flatMap(pen => enclosureWallSegments(pen, .08)),
+    () => physicalPens.flatMap(pen => {
+      const gate = enclosureGateSegment(pen, .08)
+      return [...enclosureWallSegments(pen, .08), ...(gate ? [gate] : [])]
+    }),
     [],
   )
 

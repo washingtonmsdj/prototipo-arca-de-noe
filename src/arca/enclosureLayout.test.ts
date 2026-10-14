@@ -70,28 +70,16 @@ describe("ark animal enclosure layout", () => {
     }
   })
 
-  it("gives every pen a usable route to the central aisle or a service spine", () => {
+  it("faces every pen toward the single central aisle", () => {
     const modules = new Map(baseModules.map(module => [module.id, module]))
-    const zones = new Map(serviceZones.map(zone => [zone.id, zone]))
 
     for (const pen of physicalPens) {
       const module = modules.get(pen.module_id)
       expect(module, pen.module_id).toBeDefined()
       expect(pen.access.opening_width_m, pen.id).toBeGreaterThan(.1)
 
-      if (pen.access.service_zone_id) {
-        const zone = zones.get(pen.access.service_zone_id)
-        expect(zone, pen.access.service_zone_id).toBeDefined()
-        expect(zone!.purpose).toBe("circulacao")
-        expect(pen.access.edge).toBe("min_x")
-        expect(pen.access.gate_center_m[0]).toBeCloseTo(zone!.bounds_m.max[0], 6)
-        expect(pen.access.gate_center_m[2]).toBeGreaterThanOrEqual(
-          zone!.bounds_m.min[2] - 1e-6,
-        )
-        expect(pen.access.gate_center_m[2]).toBeLessThanOrEqual(
-          zone!.bounds_m.max[2] + 1e-6,
-        )
-      } else if (pen.side > 0) {
+      expect(pen.access.service_zone_id).toBeNull()
+      if (pen.side > 0) {
         expect(pen.access.edge).toBe("max_z")
         expect(pen.access.gate_center_m[2]).toBeCloseTo(module!.max[2], 6)
       } else {
@@ -101,7 +89,7 @@ describe("ark animal enclosure layout", () => {
     }
   })
 
-  it("does not concentrate many pens in a few modules", () => {
+  it("keeps heavy animals below and groups only compact insectariums", () => {
     const byDeck = new Map<number, typeof moduleAccessSummary>()
     for (const module of moduleAccessSummary) {
       const list = byDeck.get(module.deck)
@@ -110,10 +98,13 @@ describe("ark animal enclosure layout", () => {
     }
 
     expect(Math.max(...byDeck.get(1)!.map(module => module.pens))).toBeLessThanOrEqual(1)
-    expect(Math.max(...byDeck.get(2)!.map(module => module.pens))).toBeLessThanOrEqual(3)
-    expect(byDeck.get(2)!.filter(module => module.pens === 3)).toHaveLength(1)
-    expect(Math.max(...byDeck.get(3)!.map(module => module.pens))).toBeLessThanOrEqual(2)
+    expect(physicalPens.filter(pen => pen.deck === 1).every(pen => pen.housing_class === "large_mammal")).toBe(true)
+    expect(byDeck.get(2)!.filter(module => module.pens > 4).map(module => module.id).sort()).toEqual(["MED-BE-09", "MED-BE-13"])
+    expect(Math.max(...byDeck.get(3)!.map(module => module.pens))).toBe(1)
     expect(moduleAccessSummary.filter(module => module.pens > 0)).toHaveLength(128)
+    expect(physicalPens.filter(pen => pen.deck === 1)).toHaveLength(16)
+    expect(physicalPens.filter(pen => pen.deck === 3)).toHaveLength(80)
+    expect(new Set(physicalPens.filter(pen => pen.housing_class === "insectarium").map(pen => pen.module_id))).toEqual(new Set(["MED-BE-09", "MED-BE-13"]))
   })
 
   it("keeps service zones separate from animal floor space", () => {

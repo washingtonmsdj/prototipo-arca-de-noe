@@ -10,6 +10,10 @@ export type HousingClass =
   | "micro_terrarium"
   | "insectarium"
 
+export const SECURE_PREDATORS = new Set(
+  `leoes tigres leopardos jaguares pumas guepardos ursos_pardos ursos_negros lobos raposas hienas chacais`.split(" "),
+)
+
 export interface HousingRule {
   pairOccupancy: number
   groupOccupancy: number
@@ -102,7 +106,7 @@ export const HOUSING_RULES: Record<HousingClass, HousingRule> = {
     pairOccupancy: 1, groupOccupancy: 1,
     minPairArea: .12, minGroupArea: .42, minSide: .3,
     maxPairAspect: 2.5, maxGroupAspect: 2.5,
-    wallHeight: .7, label: "insetário",
+    wallHeight: .7, label: "recinto de microfauna",
   },
 }
 

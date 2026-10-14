@@ -26,9 +26,15 @@ export class SceneCollision {
         if (owner.name === "PORTA_ARCA_DOBRADICA_ANIMADA") moving = true
       }
       const walk = object.userData.walkable || /Terrain_|Tabua_Rampa_Elevada|Rampa_Animal_4m_Largura|Piso|Pavimento|Patamar|Soleira/i.test(object.name)
-      const mask = (walk ? WALKABLE : /Arvore|Copa|Rocha|Grama/i.test(object.name) ? 0 : SOLID)
+      const naturallyNonSolid = /Arvore|Copa|Rocha|Grama/i.test(object.name)
+      const mask = (walk ? WALKABLE : object.userData.solidCollider || !naturallyNonSolid ? SOLID : 0)
         | (object.userData.colliderOnly ? 0 : CAMERA)
-      if (object instanceof InstancedMesh && (object.userData.individuals || object.userData.colliderBoxes)) {
+      const individualBounds = object.userData.collisionBounds as Box3[] | undefined
+      if (individualBounds?.length) {
+        individualBounds.forEach((bounds, instanceId) => {
+          this.add({ mesh: object, mask, instanceId, bounds: bounds.clone() })
+        })
+      } else if (object instanceof InstancedMesh && (object.userData.individuals || object.userData.colliderBoxes)) {
         // Animal references are boxes: intersect their individual bounds directly.
         object.geometry.computeBoundingBox()
         const matrix = new Matrix4()

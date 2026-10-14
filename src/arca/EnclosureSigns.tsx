@@ -2,7 +2,7 @@ import { useEffect, useMemo } from "react"
 import {
   BufferGeometry,
   CanvasTexture,
-  DoubleSide,
+  FrontSide,
   Float32BufferAttribute,
   SRGBColorSpace,
 } from "three"
@@ -40,6 +40,7 @@ export function EnclosureSigns() {
           min[1] + Math.max(.55, pen.wall_height_m * .72),
         ),
         z,
+        edge,
         alongX,
         width: Math.max(.16, Math.min(2.2, wallSpan - .08)),
       }
@@ -84,18 +85,22 @@ export function EnclosureSigns() {
       const h = .3
       const base = i * 4
       if (label.alongX) {
+        const leftX = label.edge === "min_z" ? label.x + half : label.x - half
+        const rightX = label.edge === "min_z" ? label.x - half : label.x + half
         positions.push(
-          label.x - half, label.y - h, label.z,
-          label.x + half, label.y - h, label.z,
-          label.x + half, label.y + h, label.z,
-          label.x - half, label.y + h, label.z,
+          leftX, label.y - h, label.z,
+          rightX, label.y - h, label.z,
+          rightX, label.y + h, label.z,
+          leftX, label.y + h, label.z,
         )
       } else {
+        const leftZ = label.edge === "max_x" ? label.z + half : label.z - half
+        const rightZ = label.edge === "max_x" ? label.z - half : label.z + half
         positions.push(
-          label.x, label.y - h, label.z - half,
-          label.x, label.y - h, label.z + half,
-          label.x, label.y + h, label.z + half,
-          label.x, label.y + h, label.z - half,
+          label.x, label.y - h, leftZ,
+          label.x, label.y - h, rightZ,
+          label.x, label.y + h, rightZ,
+          label.x, label.y + h, leftZ,
         )
       }
 
@@ -132,7 +137,7 @@ export function EnclosureSigns() {
       geometry={signs.geometry}
       userData={{ noCollision: true }}
     >
-      <meshBasicMaterial map={signs.texture} toneMapped={false} side={DoubleSide} />
+      <meshBasicMaterial map={signs.texture} toneMapped={false} side={FrontSide} />
     </mesh>
   )
 }

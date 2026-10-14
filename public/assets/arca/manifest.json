@@ -1,15 +1,15 @@
 {
-  "version": 2,
+  "version": 3,
   "coordinateSystem": "Y-up",
   "unit": "metre",
   "assets": [
     {
       "id": "arca-exterior-runtime-v1",
       "url": "/assets/arca/arca-exterior-runtime-v1.glb",
-      "source": "concepts/arca/arca-exterior-beta-v9-cobertura.blend",
+      "source": "concepts/arca/arca-exterior-beta-v9-terreno-rochas-v1.blend",
       "role": "completed-visual",
       "nominalHullDimensions": { "length": 135, "width": 22.5, "height": 13.5 },
-      "notes": "Exterior v9 com rampa e dobradiça preservada; materiais PBR básicos. Texturas procedurais Blender ainda precisam de bake."
+      "notes": "O GLB externo em uso preserva as tábuas do casco, as rampas/guarda-corpos e o pivô da porta. A fonte Blender v9 mais recente está em arca-exterior-beta-v9-terreno-rochas-v1.blend; a abertura/fechamento da porta é controlada no runtime R3F."
     },
     {
       "id": "arca-modular-v1",
@@ -20,11 +20,11 @@
       "notes": "Kit legado reservado para construção futura. Escala inconsistente; requer correção antes de uso. Não carregado na página /arca."
     },
     {
-      "id": "terreno-canteiro-v2",
-      "url": "/assets/arca/terreno-canteiro-v2.glb",
-      "source": "concepts/arca/terreno-canteiro-v2.glb",
+      "id": "terreno-canteiro-v3-rochas",
+      "url": "/assets/arca/terreno-canteiro-v3-rochas.glb",
+      "source": "concepts/arca/arca-exterior-beta-v9-terreno-rochas-v1.blend",
       "bounds": { "length": 420, "width": 322.18, "height": 35.65 },
-      "notes": "Canteiro com terreno, água, passarelas, estoque de madeira, oficina e área de montagem."
+      "notes": "Terreno, água, passarelas, oficina e área de montagem. Inclui 44 posições de rocha feitas no Blender; 190 troncos e 190 copas são agrupados em dois lotes BatchedMesh com balanço leve no runtime."
     }
   ],
   "runtime": {
